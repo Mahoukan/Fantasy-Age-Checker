@@ -5,6 +5,7 @@ import {
   type CustomSpeciesDraft,
   type CustomSpeciesErrors,
 } from '../utils/customSpecies'
+import { ThemeOrnament } from './ThemeOrnament'
 
 interface CustomSpeciesDialogProps {
   isOpen: boolean
@@ -73,6 +74,7 @@ export function CustomSpeciesDialog({
       onClose={handleClosed}
     >
       <form onSubmit={handleSubmit} noValidate>
+        <ThemeOrnament location="checker" />
         <p className="eyebrow dark">Temporary registry form</p>
         <h2 id="custom-species-title">Register Temporary Species</h2>
         <p id="custom-species-description" className="dialog-description">

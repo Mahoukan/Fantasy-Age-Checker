@@ -10,6 +10,7 @@ import { ShareControls } from './ShareControls'
 import type { ShareResultModel } from '../utils/share'
 import { applicantDisplayName } from '../utils/applicantName'
 import type { ResultImageThemeId } from '../data/resultImageThemes'
+import { ThemeOrnament } from './ThemeOrnament'
 
 interface ResultShellProps extends ShareResultModel {
   applicants: ApplicantLifecycleFacts[]
@@ -30,6 +31,7 @@ export function ResultShell({ applicants, maturity, experience, longevity, quips
 
   return (
     <section className="ruling-card ruling-card-enter" aria-labelledby="ruling-title" aria-live="polite">
+      <ThemeOrnament location="result" />
       <div className="ruling-header">
         <div>
           <p className="eyebrow dark">Official verdict</p>
@@ -46,6 +48,7 @@ export function ResultShell({ applicants, maturity, experience, longevity, quips
 
       <div className="assessment-grid">
         <article className={`maturity-verdict maturity-${maturity.category.toLowerCase()}`}>
+          <ThemeOrnament location="assessment" />
           <span className="assessment-number">Assessment I</span>
           <h3>Maturity Compatibility</h3>
           <strong className="verdict-label">{maturityVerdict.label}</strong>
@@ -53,6 +56,7 @@ export function ResultShell({ applicants, maturity, experience, longevity, quips
           <blockquote className="verdict-quip">{quips.maturity.text}</blockquote>
         </article>
         <article className={`experience-verdict experience-${experience.category.toLowerCase()}`}>
+          <ThemeOrnament location="assessment" />
           <span className="assessment-number">Assessment II</span>
           <h3>Experience Gap</h3>
           <strong className="verdict-label">{experienceVerdict.label}</strong>
@@ -67,6 +71,7 @@ export function ResultShell({ applicants, maturity, experience, longevity, quips
       </div>
 
       <div className="bureau-calculations">
+        <ThemeOrnament location="calculations" />
         <h3>Bureau Calculations</h3>
         <div className="maturity-math" aria-label="Maturity compatibility calculations">
           <div>

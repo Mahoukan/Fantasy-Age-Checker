@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased / v2.0
+
+### Stage 15 — Theme Overhaul
+
+- Extended the shared website-theme registry with structural presentation metadata for panels, headings, dividers, labels, controls, seals, consultation states, results, density, geometry, and footers.
+- Added one reusable, accessibility-hidden ornament primitive and lightweight CSS-generated departmental framing across the header, hero, checker, applicant records, loading state, rulings, information pages, dialog, and footer.
+- Gave all ten stable theme identities distinct layouts and document treatments beyond palette and typography while keeping a single shared component architecture.
+- Preserved calculations, lifecycle data, IDs, quip and case-number selection, applicant/custom-species state, copied output, permalink format, and independent result-image themes.
+- Added Stage 15 architecture, safe-fallback, decoration-rendering, consultation-stability, custom-data, and sharing-stability coverage.
+
 ## 1.3.0
 
 - Added ten selectable website themes shared with the existing result-card theme identities, with Bureau Classic remaining the default.

@@ -134,11 +134,15 @@ describe('website theme persistence', () => {
     }
     applySiteTheme(theme.id, root)
     expect(root.dataset.theme).toBe(theme.id)
-    expect(properties.size).toBe(24)
+    expect(properties.size).toBe(38)
+    expect(root.dataset.presentation).toBe(theme.site.presentation.strategy)
+    expect(root.dataset.decorativeStyle).toBe(theme.site.decorativeStyle)
     expect(properties.get('--site-bg')).toBe(theme.site.palette.background)
     expect(properties.get('--input-text')).toBe(theme.site.palette.inputText)
     expect(properties.get('--focus')).toBe(theme.site.palette.focus)
     expect(properties.get('--heading-font')).toBe(theme.site.headingFont)
+    expect(properties.get('--panel-radius')).toBe(theme.site.presentation.panelRadius)
+    expect(properties.get('--theme-label-result')).toBe(JSON.stringify(theme.site.presentation.labels.result))
   })
 })
 

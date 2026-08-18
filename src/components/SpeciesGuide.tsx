@@ -1,6 +1,7 @@
 import { formatYears } from '../utils/format'
 import { getBuiltInSpeciesGuideRecords } from '../utils/information'
 import { speciesDisplayGroups } from '../data/speciesGroups'
+import { ThemeOrnament } from './ThemeOrnament'
 
 export function SpeciesGuide() {
   const records = getBuiltInSpeciesGuideRecords()
@@ -8,6 +9,7 @@ export function SpeciesGuide() {
 
   return (
     <section className="information-section" id="species-guide" aria-labelledby="species-guide-title">
+      <ThemeOrnament location="information" />
       <header className="information-header">
         <p className="eyebrow dark">Bureau lifecycle register</p>
         <h2 id="species-guide-title">Species Guide</h2>

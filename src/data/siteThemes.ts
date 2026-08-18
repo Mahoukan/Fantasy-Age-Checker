@@ -41,11 +41,55 @@ export type SiteDecorativeStyle =
   | 'celestial'
   | 'minimal'
 
+export type SitePresentationStyle =
+  | 'document'
+  | 'ceremonial'
+  | 'folio'
+  | 'engineered'
+  | 'filing'
+  | 'system'
+  | 'court'
+  | 'vault'
+  | 'tribunal'
+  | 'editorial'
+
+export interface SiteThemePresentation {
+  strategy: SitePresentationStyle
+  shellStyle: string
+  panelStyle: string
+  headingStyle: string
+  dividerStyle: string
+  labelStyle: string
+  controlStyle: string
+  sealStyle: string
+  consultationStyle: string
+  resultStyle: string
+  footerStyle: string
+  density: 'restrained' | 'standard' | 'decorative'
+  panelRadius: string
+  panelBorderWidth: string
+  panelShadow: string
+  headingLetterSpacing: string
+  labels: {
+    header: string
+    hero: string
+    checker: string
+    applicant: string
+    consultation: string
+    result: string
+    assessment: string
+    calculations: string
+    information: string
+    footer: string
+  }
+}
+
 export interface SiteThemeConfiguration {
   palette: SiteThemePalette
   headingFont: string
   bodyFont: string
   decorativeStyle: SiteDecorativeStyle
+  presentation: SiteThemePresentation
 }
 
 export interface WebsiteTheme extends ResultImageTheme {
@@ -55,6 +99,11 @@ export interface WebsiteTheme extends ResultImageTheme {
 const serif = 'Georgia, "Times New Roman", serif'
 const sans = 'Inter, Arial, Helvetica, sans-serif'
 const terminal = '"Courier New", Consolas, monospace'
+
+const presentation = (
+  strategy: SitePresentationStyle,
+  options: Omit<SiteThemePresentation, 'strategy'>,
+): SiteThemePresentation => ({ strategy, ...options })
 
 const siteConfigurations: Record<ResultImageThemeId, SiteThemeConfiguration> = {
   'bureau-classic': {
@@ -68,6 +117,14 @@ const siteConfigurations: Record<ResultImageThemeId, SiteThemeConfiguration> = {
       buttonText: '#fff8e8', shadow: 'rgba(0, 0, 0, 0.28)',
     },
     headingFont: serif, bodyFont: sans, decorativeStyle: 'bureau',
+    presentation: presentation('document', {
+      shellStyle: 'registered-document', panelStyle: 'ruled-form', headingStyle: 'administrative',
+      dividerStyle: 'document-rule', labelStyle: 'status-label', controlStyle: 'official-form',
+      sealStyle: 'circular-office', consultationStyle: 'seal-review', resultStyle: 'numbered-record',
+      footerStyle: 'filing-line', density: 'standard', panelRadius: '2px', panelBorderWidth: '1px',
+      panelShadow: '0 18px 52px rgba(0, 0, 0, 0.28)', headingLetterSpacing: '0.035em',
+      labels: { header: 'OFFICE OF TEMPORAL FORMS', hero: 'FORM ARB-17', checker: 'CHRONOLOGICAL REVIEW', applicant: 'OFFICE COPY', consultation: 'REVIEW QUEUE', result: 'FILED', assessment: 'NUMBERED ASSESSMENT', calculations: 'CALCULATION LEDGER', information: 'REFERENCE COPY', footer: 'DOCUMENT CONTROL' },
+    }),
   },
   'royal-decree': {
     palette: {
@@ -80,6 +137,10 @@ const siteConfigurations: Record<ResultImageThemeId, SiteThemeConfiguration> = {
       buttonText: '#fff5dc', shadow: 'rgba(18, 7, 22, 0.42)',
     },
     headingFont: serif, bodyFont: sans, decorativeStyle: 'heraldic',
+    presentation: presentation('ceremonial', {
+      shellStyle: 'decree-frame', panelStyle: 'double-rule', headingStyle: 'centered-ceremonial', dividerStyle: 'gold-double-rule', labelStyle: 'ribbon', controlStyle: 'court-petition', sealStyle: 'royal-record', consultationStyle: 'court-clerk', resultStyle: 'decree-ruling', footerStyle: 'court-register', density: 'decorative', panelRadius: '4px', panelBorderWidth: '3px', panelShadow: '0 22px 60px rgba(18, 7, 22, 0.42)', headingLetterSpacing: '0.075em',
+      labels: { header: 'CROWN RECORDS OFFICE', hero: 'ENTERED INTO THE ROYAL RECORD', checker: 'PETITION BEFORE THE CROWN', applicant: 'COURT COPY', consultation: 'CLERK REVIEW', result: 'ROYAL RECORD', assessment: 'CEREMONIAL ASSESSMENT', calculations: 'COURT EVIDENCE', information: 'DECREE REGISTER', footer: 'COURT REGISTRY' },
+    }),
   },
   'elven-archive': {
     palette: {
@@ -92,6 +153,10 @@ const siteConfigurations: Record<ResultImageThemeId, SiteThemeConfiguration> = {
       buttonText: '#f5f3dc', shadow: 'rgba(4, 20, 14, 0.38)',
     },
     headingFont: serif, bodyFont: sans, decorativeStyle: 'archival',
+    presentation: presentation('folio', {
+      shellStyle: 'archive-folio', panelStyle: 'fine-line-entry', headingStyle: 'catalogued', dividerStyle: 'leaf-marker', labelStyle: 'folio-index', controlStyle: 'archive-entry', sealStyle: 'forest-marker', consultationStyle: 'archive-retrieval', resultStyle: 'lifecycle-record', footerStyle: 'folio-reference', density: 'standard', panelRadius: '14px 2px 14px 2px', panelBorderWidth: '1px', panelShadow: '0 20px 56px rgba(4, 20, 14, 0.38)', headingLetterSpacing: '0.045em',
+      labels: { header: 'ANCIENT RECORDS CATALOGUE', hero: 'ARCHIVE FOLIO', checker: 'LIFECYCLE RECORD', applicant: 'ARCHIVE ENTRY', consultation: 'RETRIEVING FOLIO', result: 'REFERENCE COPY', assessment: 'CATALOGUED FINDING', calculations: 'ARCHIVE TABLE', information: 'PERMANENT CATALOGUE', footer: 'FOLIO INDEX' },
+    }),
   },
   'dwarven-registry': {
     palette: {
@@ -104,6 +169,10 @@ const siteConfigurations: Record<ResultImageThemeId, SiteThemeConfiguration> = {
       buttonText: '#f7e4c1', shadow: 'rgba(0, 0, 0, 0.5)',
     },
     headingFont: serif, bodyFont: sans, decorativeStyle: 'angular',
+    presentation: presentation('engineered', {
+      shellStyle: 'registry-block', panelStyle: 'inset-plate', headingStyle: 'plate-heading', dividerStyle: 'structural-bar', labelStyle: 'serial-plate', controlStyle: 'machined-control', sealStyle: 'stamped-metal', consultationStyle: 'registry-stamp', resultStyle: 'verified-block', footerStyle: 'archive-block', density: 'decorative', panelRadius: '0', panelBorderWidth: '3px', panelShadow: 'inset 0 0 0 2px rgba(255,255,255,.08), 0 22px 54px rgba(0,0,0,.5)', headingLetterSpacing: '0.065em',
+      labels: { header: 'CENTRAL ENGINEERING REGISTRY', hero: 'REGISTRY PLATE', checker: 'STAMPED IN TRIPLICATE', applicant: 'SERIAL RECORD', consultation: 'VERIFYING PLATE', result: 'VERIFIED RECORD', assessment: 'INSPECTION BLOCK', calculations: 'MEASUREMENT LEDGER', information: 'ARCHIVE BLOCK', footer: 'PERMANENT REGISTER' },
+    }),
   },
   'goblin-administration': {
     palette: {
@@ -116,6 +185,10 @@ const siteConfigurations: Record<ResultImageThemeId, SiteThemeConfiguration> = {
       buttonText: '#fbf2c9', shadow: 'rgba(12, 15, 6, 0.42)',
     },
     headingFont: serif, bodyFont: sans, decorativeStyle: 'stamped',
+    presentation: presentation('filing', {
+      shellStyle: 'overfiled-folder', panelStyle: 'offset-file', headingStyle: 'clerk-marked', dividerStyle: 'ledger-dash', labelStyle: 'rubber-stamp', controlStyle: 'file-entry', sealStyle: 'checked-again', consultationStyle: 'rechecking-forms', resultStyle: 'refiled-record', footerStyle: 'final-stamp', density: 'decorative', panelRadius: '3px', panelBorderWidth: '2px', panelShadow: '6px 7px 0 rgba(12, 15, 6, .22), 0 18px 45px rgba(12,15,6,.36)', headingLetterSpacing: '0.025em',
+      labels: { header: 'PROVISIONAL ADMINISTRATION', hero: 'FORM 8B MISSING', checker: 'FILED / RE-FILED', applicant: 'CLERK COPY', consultation: 'CHECKED AGAIN', result: 'GOOD ENOUGH', assessment: 'SECONDARY FILING MARK', calculations: 'LEDGER SCRATCHWORK', information: 'MAYBE PERMANENT', footer: 'FINAL STAMP' },
+    }),
   },
   'arcane-terminal': {
     palette: {
@@ -128,6 +201,10 @@ const siteConfigurations: Record<ResultImageThemeId, SiteThemeConfiguration> = {
       buttonText: '#e3fff7', shadow: 'rgba(0, 0, 0, 0.58)',
     },
     headingFont: terminal, bodyFont: terminal, decorativeStyle: 'terminal',
+    presentation: presentation('system', {
+      shellStyle: 'system-shell', panelStyle: 'data-panel', headingStyle: 'command-label', dividerStyle: 'status-bar', labelStyle: 'bracketed', controlStyle: 'query-field', sealStyle: 'status-node', consultationStyle: 'archive-query', resultStyle: 'system-output', footerStyle: 'system-status', density: 'standard', panelRadius: '0', panelBorderWidth: '1px', panelShadow: '0 0 0 1px rgba(80,227,194,.12), 0 20px 58px rgba(0,0,0,.58)', headingLetterSpacing: '0.08em',
+      labels: { header: 'SYSTEM :: ARB_MAINFRAME', hero: '> CHRONOLOGICAL_QUERY', checker: '> APPLICANT_RECORDS', applicant: 'DATA_RECORD', consultation: 'QUERYING_ARCHIVES...', result: 'CASE_STATUS :: REVIEWED', assessment: 'ASSESSMENT_NODE', calculations: 'DATA_READOUT', information: 'REFERENCE_DATABASE', footer: 'SYSTEM_STATUS :: ONLINE' },
+    }),
   },
   'fae-court': {
     palette: {
@@ -140,6 +217,10 @@ const siteConfigurations: Record<ResultImageThemeId, SiteThemeConfiguration> = {
       buttonText: '#fff4fb', shadow: 'rgba(18, 6, 23, 0.4)',
     },
     headingFont: serif, bodyFont: sans, decorativeStyle: 'flourish',
+    presentation: presentation('court', {
+      shellStyle: 'temporal-court', panelStyle: 'asymmetric-petition', headingStyle: 'court-docket', dividerStyle: 'star-flourish', labelStyle: 'side-annotation', controlStyle: 'petition-entry', sealStyle: 'court-marker', consultationStyle: 'docket-processing', resultStyle: 'technical-ruling', footerStyle: 'court-copy', density: 'decorative', panelRadius: '22px 5px 22px 5px', panelBorderWidth: '1px', panelShadow: '0 22px 58px rgba(18,6,23,.4)', headingLetterSpacing: '0.055em',
+      labels: { header: 'COURT OF TEMPORAL MATTERS', hero: 'BOUND BY TECHNICALITY', checker: 'PETITION ENTERED', applicant: 'COURT PETITION', consultation: 'DOCKET IN MOTION', result: 'COURT COPY', assessment: 'FINDING OF THE COURT', calculations: 'DOCKET EVIDENCE', information: 'COURT REGISTER', footer: 'TECHNICALLY VALID' },
+    }),
   },
   'dragon-archive': {
     palette: {
@@ -152,6 +233,10 @@ const siteConfigurations: Record<ResultImageThemeId, SiteThemeConfiguration> = {
       buttonText: '#f9e7c2', shadow: 'rgba(5, 1, 0, 0.52)',
     },
     headingFont: serif, bodyFont: sans, decorativeStyle: 'scaled',
+    presentation: presentation('vault', {
+      shellStyle: 'treasury-vault', panelStyle: 'fortified-record', headingStyle: 'ledger-emblem', dividerStyle: 'scale-band', labelStyle: 'inventory-tag', controlStyle: 'vault-entry', sealStyle: 'archive-medallion', consultationStyle: 'vault-retrieval', resultStyle: 'preserved-holding', footerStyle: 'treasury-ledger', density: 'decorative', panelRadius: '2px', panelBorderWidth: '4px', panelShadow: 'inset 0 0 0 2px rgba(118,45,37,.32), 0 24px 64px rgba(5,1,0,.52)', headingLetterSpacing: '0.06em',
+      labels: { header: 'FORTIFIED TREASURY ARCHIVE', hero: 'VAULT RECORD', checker: 'ARCHIVAL HOLDING', applicant: 'INVENTORY RECORD', consultation: 'VAULT RETRIEVAL', result: 'RECORD PRESERVED', assessment: 'TREASURY FINDING', calculations: 'HOLDINGS LEDGER', information: 'VAULT CATALOGUE', footer: 'TREASURY COPY' },
+    }),
   },
   'celestial-tribunal': {
     palette: {
@@ -164,6 +249,10 @@ const siteConfigurations: Record<ResultImageThemeId, SiteThemeConfiguration> = {
       buttonText: '#f8f6ff', shadow: 'rgba(3, 7, 28, 0.42)',
     },
     headingFont: serif, bodyFont: sans, decorativeStyle: 'celestial',
+    presentation: presentation('tribunal', {
+      shellStyle: 'cosmic-docket', panelStyle: 'balanced-orbit', headingStyle: 'tribunal-heading', dividerStyle: 'star-point', labelStyle: 'coordinate-tag', controlStyle: 'docket-entry', sealStyle: 'orbital-ruling', consultationStyle: 'tribunal-review', resultStyle: 'formal-ruling', footerStyle: 'celestial-record', density: 'standard', panelRadius: '16px', panelBorderWidth: '2px', panelShadow: '0 22px 60px rgba(3,7,28,.42)', headingLetterSpacing: '0.07em',
+      labels: { header: 'CELESTIAL TRIBUNAL', hero: 'CHRONOLOGICAL MATTER', checker: 'TRIBUNAL DOCKET', applicant: 'DOCKET SUBMISSION', consultation: 'TRIBUNAL REVIEW', result: 'RULING ENTERED', assessment: 'BALANCED FINDING', calculations: 'EVIDENCE COORDINATES', information: 'CELESTIAL RECORD', footer: 'DOCKET CLOSED' },
+    }),
   },
   'obsidian-records': {
     palette: {
@@ -176,6 +265,10 @@ const siteConfigurations: Record<ResultImageThemeId, SiteThemeConfiguration> = {
       buttonText: '#fff8ea', shadow: 'rgba(0, 0, 0, 0.68)',
     },
     headingFont: sans, bodyFont: sans, decorativeStyle: 'minimal',
+    presentation: presentation('editorial', {
+      shellStyle: 'indexed-record', panelStyle: 'editorial-surface', headingStyle: 'modern-index', dividerStyle: 'silver-line', labelStyle: 'section-tag', controlStyle: 'precision-field', sealStyle: 'minimal-marker', consultationStyle: 'indexed-progress', resultStyle: 'final-archive', footerStyle: 'document-index', density: 'restrained', panelRadius: '0', panelBorderWidth: '1px', panelShadow: '0 28px 76px rgba(0,0,0,.68)', headingLetterSpacing: '0.11em',
+      labels: { header: 'OBSIDIAN / RECORDS', hero: 'RECORD / 01', checker: 'INDEX / INTAKE', applicant: 'DOSSIER', consultation: 'INDEXING / ACTIVE', result: 'ARCHIVE / FINAL', assessment: 'ASSESSMENT /', calculations: 'RECORD / DATA', information: 'INDEX / REFERENCE', footer: 'END / RECORD' },
+    }),
   },
 }
 
@@ -184,6 +277,6 @@ export const websiteThemes: readonly WebsiteTheme[] = resultImageThemes.map((the
   site: siteConfigurations[theme.id],
 }))
 
-export function getWebsiteTheme(id: ResultImageThemeId): WebsiteTheme {
+export function getWebsiteTheme(id: string): WebsiteTheme {
   return websiteThemes.find((theme) => theme.id === id) ?? websiteThemes[0]
 }

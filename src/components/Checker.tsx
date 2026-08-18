@@ -32,6 +32,7 @@ import { RejectionResult } from './RejectionResult'
 import { ResultShell } from './ResultShell'
 import { TemporarySpeciesManager } from './TemporarySpeciesManager'
 import { DEFAULT_RESULT_IMAGE_THEME_ID, type ResultImageThemeId } from '../data/resultImageThemes'
+import { ThemeOrnament } from './ThemeOrnament'
 
 const initialApplicantA: Applicant = { speciesId: 'elf', age: 300 }
 const initialApplicantB: Applicant = { speciesId: 'human', age: 34 }
@@ -223,6 +224,7 @@ export function Checker({ siteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID }: Checker
 
   return (
     <section className="checker-section" id="checker" aria-labelledby="checker-title">
+      <ThemeOrnament location="checker" />
       <div className="checker-heading">
         <p className="eyebrow dark">Departmental form ARB-01</p>
         <h2 id="checker-title">Fantasy Age Compatibility Assessment</h2>

@@ -10,12 +10,14 @@ import {
   TRADITIONAL_MAXIMUM_OFFSET,
   TRADITIONAL_MINIMUM_OFFSET,
 } from '../utils/maturity'
+import { ThemeOrnament } from './ThemeOrnament'
 
 export function HowItWorks() {
   const example = getWorkedExample()
 
   return (
     <section className="information-section" id="how-it-works" aria-labelledby="how-it-works-title">
+      <ThemeOrnament location="information" />
       <header className="information-header">
         <p className="eyebrow dark">Procedural manual ARB-02</p>
         <h2 id="how-it-works-title">How It Works</h2>

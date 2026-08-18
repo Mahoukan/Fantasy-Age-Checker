@@ -2,7 +2,7 @@
 
 Fantasy Age Checker is a humorous, single-page fantasy utility presented by the fictional **Arcane Relationship Bureau — Department of Inter-Species Affairs**. It compares two adult fictional characters using species-relative maturity and actual adult experience, then issues an unnecessarily official ruling.
 
-Version 1.3.0 is a static React, TypeScript, and Vite application. It has no backend, database, accounts, analytics, runtime secrets, or required environment variables.
+Version 2.0 development is underway from the stable 1.3.0 release; the package remains at 1.3.0 during the staged work. It is a static React, TypeScript, and Vite application with no backend, database, accounts, analytics, runtime secrets, or required environment variables.
 
 ## Screenshot
 
@@ -72,6 +72,12 @@ The **Result Card Style** picker offers Bureau Classic (the default), Royal Decr
 The header **Theme** selector applies the same ten identities to the whole interface: Bureau Classic, Royal Decree, Elven Archive, Dwarven Registry, Goblin Administration, Arcane Terminal, Fae Court, Dragon Archive, Celestial Tribunal, and Obsidian Records. Bureau Classic is the default. The selected website theme is restored before React renders and only its stable ID is saved under `fantasy-age-checker-site-theme`; missing, invalid, or blocked storage falls back safely.
 
 Website and result-card themes are deliberately independent. A newly submitted consultation starts its image card with the website theme active at submission time, after which either theme can be changed without changing the other. Existing results, applicant inputs, calculations, verdicts, quips, Bureau notes, case numbers, and longevity context survive website-theme changes unchanged. Neither theme is included in a permalink.
+
+Stage 15 begins the v2 presentation overhaul. The ten website themes now share a richer registry describing structural presentation: document geometry, panel and divider treatment, heading and label systems, controls, seals, consultation indicators, result framing, density, and footer treatment. A single assistive-technology-hidden ornament component supplies lightweight CSS geometry and decorative departmental microcopy at a small set of shared locations. Themes remain one component architecture rather than ten page implementations.
+
+Each identity now represents a distinct fictional department: Bureau Classic uses registered forms and filing rules; Royal Decree uses ceremonial double frames; Elven Archive uses folio margins and fine archival entries; Dwarven Registry uses angular inset plates; Goblin Administration uses deliberately offset files and layered stamps; Arcane Terminal uses system bars and data panels; Fae Court uses asymmetric petitions; Dragon Archive uses fortified vault framing; Celestial Tribunal uses symmetrical orbital dockets; and Obsidian Records uses spacious editorial indexing. These differences affect presentation only. All factual content, calculations, lifecycle records, applicant data, selected commentary, case numbers, sharing text, and permalink behaviour remain common and unchanged.
+
+The theme layer retains visible focus, hover, disabled, and error states and simplifies dense or offset ornamentation on narrow screens. Theme decoration is CSS-generated, non-interactive, hidden from assistive technology, and motion-free; the existing reduced-motion behaviour remains in place. Website themes and generated-image themes remain independent after a consultation, and Stage 15 deliberately leaves exported image-card layouts visually stable for the Stage 16 result-card-format work.
 
 **Save Image** uses the selected style. **Share Image** also uses it and appears only when the browser reports support for sharing actual files through `navigator.canShare({ files })`; otherwise **Save Image** remains available. Image generation and sharing failures leave the ruling intact and are announced in the result controls.
 

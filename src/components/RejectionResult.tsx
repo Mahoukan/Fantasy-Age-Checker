@@ -1,5 +1,6 @@
 import type { ApplicantLifecycleFacts } from '../types/applicant'
 import { formatYears } from '../utils/format'
+import { ThemeOrnament } from './ThemeOrnament'
 
 interface RejectionResultProps {
   applicants: ApplicantLifecycleFacts[]
@@ -8,6 +9,7 @@ interface RejectionResultProps {
 export function RejectionResult({ applicants }: RejectionResultProps) {
   return (
     <section className="ruling-card rejection-card" aria-labelledby="rejection-title" aria-live="polite">
+      <ThemeOrnament location="result" />
       <div className="ruling-header">
         <div>
           <p className="eyebrow dark">Adulthood safeguard</p>

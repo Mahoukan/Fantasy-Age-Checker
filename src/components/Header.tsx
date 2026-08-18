@@ -5,6 +5,7 @@ import {
   resultImageThemes,
   type ResultImageThemeId,
 } from '../data/resultImageThemes'
+import { ThemeOrnament } from './ThemeOrnament'
 
 interface HeaderProps {
   activeSection: NavigationSection
@@ -22,6 +23,7 @@ export function Header({
   return (
     <header className="site-header">
       <div className="header-inner">
+        <ThemeOrnament location="header" />
         <a
           className="bureau-brand"
           href="#checker"

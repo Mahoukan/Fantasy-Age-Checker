@@ -1,4 +1,5 @@
 import type { Quip } from '../types/quip'
+import { ThemeOrnament } from './ThemeOrnament'
 
 interface ConsultationStatusProps {
   message: Quip
@@ -7,6 +8,7 @@ interface ConsultationStatusProps {
 export function ConsultationStatus({ message }: ConsultationStatusProps) {
   return (
     <section className="consultation-status" role="status" aria-live="polite" aria-atomic="true">
+      <ThemeOrnament location="consultation" />
       <div className="consultation-orbit" aria-hidden="true">
         <span>ARB</span>
       </div>

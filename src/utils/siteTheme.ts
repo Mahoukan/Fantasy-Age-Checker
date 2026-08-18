@@ -71,12 +71,21 @@ const paletteProperties: Record<keyof SiteThemePalette, string> = {
   shadow: '--shadow',
 }
 
-export function applySiteTheme(themeId: ResultImageThemeId, root: ThemeRootLike): void {
+export function applySiteTheme(themeId: string, root: ThemeRootLike): void {
   const theme = getWebsiteTheme(themeId)
   root.dataset.theme = theme.id
+  root.dataset.presentation = theme.site.presentation.strategy
+  root.dataset.decorativeStyle = theme.site.decorativeStyle
   for (const [key, property] of Object.entries(paletteProperties)) {
     root.style.setProperty(property, theme.site.palette[key as keyof SiteThemePalette])
   }
   root.style.setProperty('--heading-font', theme.site.headingFont)
   root.style.setProperty('--body-font', theme.site.bodyFont)
+  root.style.setProperty('--panel-radius', theme.site.presentation.panelRadius)
+  root.style.setProperty('--panel-border-width', theme.site.presentation.panelBorderWidth)
+  root.style.setProperty('--panel-shadow', theme.site.presentation.panelShadow)
+  root.style.setProperty('--heading-letter-spacing', theme.site.presentation.headingLetterSpacing)
+  for (const [location, label] of Object.entries(theme.site.presentation.labels)) {
+    root.style.setProperty(`--theme-label-${location}`, JSON.stringify(label))
+  }
 }

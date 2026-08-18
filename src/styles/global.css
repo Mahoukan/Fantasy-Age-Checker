@@ -22,6 +22,10 @@
   --button-bg: #713b45;
   --button-text: #fff8e8;
   --shadow: rgba(0, 0, 0, 0.28);
+  --panel-radius: 2px;
+  --panel-border-width: 1px;
+  --panel-shadow: 0 18px 52px rgba(0, 0, 0, 0.28);
+  --heading-letter-spacing: 0.035em;
   --heading-font: Georgia, 'Times New Roman', serif;
   --body-font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --page-text: color-mix(in srgb, var(--text-primary) 20%, white);
@@ -434,6 +438,201 @@ html[data-theme='dwarven-registry'] .information-section,
 html[data-theme='dwarven-registry'] .applicant-card { border-width: 3px; }
 html[data-theme='obsidian-records'] .checker-section::before,
 html[data-theme='obsidian-records'] .information-section::before { display: none; }
+
+/* Stage 15: shared structural presentation and decorative framing. */
+.header-inner, .hero, .applicant-card, .consultation-status, .bureau-calculations,
+.assessment-grid article, .site-footer, .custom-species-dialog form { position: relative; }
+.checker-section, .information-section, .ruling-card, .custom-species-dialog {
+  border-width: var(--panel-border-width);
+  border-radius: var(--panel-radius);
+  box-shadow: var(--panel-shadow);
+}
+.checker-heading h2, .information-header h2, .ruling-header h2,
+.assessment-grid h3, .bureau-calculations h3 { letter-spacing: var(--heading-letter-spacing); }
+.applicant-card, .method-card, .species-register-card, .assessment-grid article,
+.consultation-status, .bureau-calculations { border-radius: var(--panel-radius); }
+
+.theme-ornament {
+  --ornament-label: '';
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  max-width: calc(100% - 32px);
+  color: var(--accent-secondary);
+  font-family: var(--body-font);
+  font-size: 0.57rem;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.theme-ornament::before { content: var(--ornament-label); overflow: hidden; text-overflow: ellipsis; }
+.theme-ornament i { width: 16px; height: 1px; flex: 0 0 auto; background: currentColor; }
+.theme-ornament b { width: 5px; height: 5px; flex: 0 0 auto; border: 1px solid currentColor; transform: rotate(45deg); }
+.theme-ornament-header { --ornament-label: var(--theme-label-header, ''); left: 66px; bottom: 6px; color: var(--accent); }
+.theme-ornament-hero { --ornament-label: var(--theme-label-hero, ''); left: 0; bottom: 14px; color: var(--accent); }
+.theme-ornament-checker { --ornament-label: var(--theme-label-checker, ''); top: 16px; right: 24px; }
+.theme-ornament-applicant { --ornament-label: var(--theme-label-applicant, ''); top: 10px; right: 14px; }
+.theme-ornament-consultation { --ornament-label: var(--theme-label-consultation, ''); top: 10px; right: 14px; }
+.theme-ornament-result { --ornament-label: var(--theme-label-result, ''); top: 11px; left: 50%; transform: translateX(-50%); }
+.theme-ornament-assessment { --ornament-label: var(--theme-label-assessment, ''); top: 10px; right: 12px; }
+.theme-ornament-calculations { --ornament-label: var(--theme-label-calculations, ''); top: 11px; right: 14px; }
+.theme-ornament-information { --ornament-label: var(--theme-label-information, ''); top: 16px; right: 24px; }
+.theme-ornament-footer { --ornament-label: var(--theme-label-footer, ''); position: relative; inset: auto; justify-content: center; max-width: 100%; margin: 0 auto 16px; color: var(--accent); }
+
+/* Bureau Classic: registered documents, form rules, and an official circular seal. */
+html[data-theme='bureau-classic'] .checker-section,
+html[data-theme='bureau-classic'] .information-section,
+html[data-theme='bureau-classic'] .ruling-card {
+  background-image: repeating-linear-gradient(0deg, transparent 0 31px, color-mix(in srgb, var(--border) 18%, transparent) 32px);
+}
+html[data-theme='bureau-classic'] .checker-heading,
+html[data-theme='bureau-classic'] .information-header { padding-bottom: 16px; border-bottom: 3px double var(--border-strong); }
+html[data-theme='bureau-classic'] .assessment-grid article::after {
+  content: 'OFFICE COPY'; position: absolute; right: 14px; bottom: 12px; color: var(--border-strong); font-size: .5rem; letter-spacing: .12em;
+}
+
+/* Royal Decree: centred ceremony, double rules, framed petitions, and ribbon labels. */
+html[data-theme='royal-decree'] .site-header { border-bottom: 4px double var(--accent); }
+html[data-theme='royal-decree'] .hero { max-width: 880px; margin-inline: auto; text-align: center; }
+html[data-theme='royal-decree'] .theme-ornament-hero { left: 50%; transform: translateX(-50%); }
+html[data-theme='royal-decree'] .checker-section,
+html[data-theme='royal-decree'] .information-section,
+html[data-theme='royal-decree'] .ruling-card { outline: 1px solid var(--accent); outline-offset: -10px; }
+html[data-theme='royal-decree'] .checker-heading,
+html[data-theme='royal-decree'] .information-header { max-width: none; text-align: center; }
+html[data-theme='royal-decree'] .applicant-card { border: 3px double var(--border-strong); }
+html[data-theme='royal-decree'] .assessment-grid article { border: 3px double var(--border-strong); text-align: center; }
+html[data-theme='royal-decree'] .theme-ornament:not(.theme-ornament-footer)::before { padding: 5px 12px; color: var(--button-text); background: var(--button-bg); clip-path: polygon(7px 0, calc(100% - 7px) 0, 100% 50%, calc(100% - 7px) 100%, 7px 100%, 0 50%); }
+
+/* Elven Archive: fine folio rules, marginal cataloguing, and leaf-like separators. */
+html[data-theme='elven-archive'] .checker-section,
+html[data-theme='elven-archive'] .information-section,
+html[data-theme='elven-archive'] .ruling-card { border-left-width: 5px; border-left-color: var(--accent); }
+html[data-theme='elven-archive'] .checker-heading,
+html[data-theme='elven-archive'] .information-header { padding-left: 24px; border-left: 1px solid var(--accent); }
+html[data-theme='elven-archive'] .applicant-card,
+html[data-theme='elven-archive'] .species-register-card { border-width: 1px 1px 1px 3px; border-left-color: var(--accent); }
+html[data-theme='elven-archive'] .theme-ornament b { width: 9px; height: 5px; border-radius: 100% 0 100% 0; transform: rotate(-20deg); background: color-mix(in srgb, var(--accent) 24%, transparent); }
+html[data-theme='elven-archive'] .record-reference { writing-mode: vertical-rl; position: absolute; right: 7px; top: 18px; }
+html[data-theme='elven-archive'] .species-register-card { position: relative; padding-right: 32px; }
+
+/* Dwarven Registry: inset engineering plates, serial bars, rivets, and angular geometry. */
+html[data-theme='dwarven-registry'] .site-header { border-bottom-width: 5px; }
+html[data-theme='dwarven-registry'] .checker-section,
+html[data-theme='dwarven-registry'] .information-section,
+html[data-theme='dwarven-registry'] .ruling-card { clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px), 0 12px); }
+html[data-theme='dwarven-registry'] .applicant-card,
+html[data-theme='dwarven-registry'] .assessment-grid article,
+html[data-theme='dwarven-registry'] .species-register-card { box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--border) 48%, transparent); border-width: 3px; }
+html[data-theme='dwarven-registry'] .applicant-card::after,
+html[data-theme='dwarven-registry'] .assessment-grid article::after { content: ''; position: absolute; inset: 7px; pointer-events: none; background: radial-gradient(circle, var(--border-strong) 0 2px, transparent 3px) 0 0 / 100% 100%; }
+html[data-theme='dwarven-registry'] .submission-area button { clip-path: polygon(8px 0, calc(100% - 8px) 0, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0 calc(100% - 8px), 0 8px); }
+
+/* Goblin Administration: deliberately offset files, crossed references, and layered stamps. */
+html[data-theme='goblin-administration'] .checker-section { transform: rotate(-.08deg); }
+html[data-theme='goblin-administration'] .applicant-card:first-child { transform: rotate(-.35deg); }
+html[data-theme='goblin-administration'] .applicant-card:last-child { transform: rotate(.3deg); }
+html[data-theme='goblin-administration'] .assessment-grid article:first-child { transform: translateY(3px) rotate(-.22deg); }
+html[data-theme='goblin-administration'] .assessment-grid article:last-child { transform: rotate(.2deg); }
+html[data-theme='goblin-administration'] .theme-ornament { padding: 4px 7px; border: 2px solid currentColor; transform: rotate(-3deg); }
+html[data-theme='goblin-administration'] .theme-ornament-result { transform: translateX(-50%) rotate(2deg); }
+html[data-theme='goblin-administration'] .applicant-reference { text-decoration: line-through; text-decoration-thickness: 2px; }
+html[data-theme='goblin-administration'] .bureau-note { border: 2px dashed var(--accent-secondary); transform: rotate(-.15deg); }
+
+/* Arcane Terminal: system bars, bracketed records, data grids, and query controls. */
+html[data-theme='arcane-terminal'] .site-header { border-bottom: 1px solid var(--accent); box-shadow: 0 1px 0 color-mix(in srgb, var(--accent) 30%, transparent); }
+html[data-theme='arcane-terminal'] .bureau-insignia { border: 1px solid var(--accent); padding: 6px; }
+html[data-theme='arcane-terminal'] .nav-link::before { content: '[ '; color: var(--accent); }
+html[data-theme='arcane-terminal'] .nav-link::after { content: ' ]'; color: var(--accent); }
+html[data-theme='arcane-terminal'] .hero h1::before { content: '> '; color: var(--accent); }
+html[data-theme='arcane-terminal'] .checker-section,
+html[data-theme='arcane-terminal'] .information-section,
+html[data-theme='arcane-terminal'] .ruling-card { background-image: linear-gradient(color-mix(in srgb, var(--accent) 8%, transparent) 1px, transparent 1px); background-size: 100% 28px; }
+html[data-theme='arcane-terminal'] .applicant-card legend::before { content: '> '; }
+html[data-theme='arcane-terminal'] .field-group label::before { content: '[ '; }
+html[data-theme='arcane-terminal'] .field-group label::after { content: ' ]'; }
+html[data-theme='arcane-terminal'] .consultation-status { grid-template-columns: 1fr; border-left: 5px solid var(--accent); }
+html[data-theme='arcane-terminal'] .consultation-orbit { width: 100%; height: 8px; border: 0; border-radius: 0; background: linear-gradient(90deg, var(--accent) 0 42%, var(--border) 42%); animation: none; }
+html[data-theme='arcane-terminal'] .consultation-orbit span,
+html[data-theme='arcane-terminal'] .consultation-orbit::before { display: none; }
+html[data-theme='arcane-terminal'] .verdict-quip::before { content: '>'; top: 11px; font-size: 1rem; }
+
+/* Fae Court: asymmetric petitions, curved boundaries, and restrained star-flower marks. */
+html[data-theme='fae-court'] .checker-section,
+html[data-theme='fae-court'] .information-section { border-radius: 34px 7px 34px 7px; }
+html[data-theme='fae-court'] .applicant-card:first-child { border-radius: 28px 4px 18px 4px; }
+html[data-theme='fae-court'] .applicant-card:last-child { border-radius: 4px 28px 4px 18px; }
+html[data-theme='fae-court'] .assessment-grid article:first-child { border-radius: 24px 5px 5px 5px; }
+html[data-theme='fae-court'] .assessment-grid article:last-child { border-radius: 5px 24px 5px 5px; }
+html[data-theme='fae-court'] .theme-ornament b { width: 9px; height: 9px; border: 0; background: conic-gradient(from 45deg, var(--accent) 0 12.5%, transparent 0 25%, var(--accent) 0 37.5%, transparent 0 50%, var(--accent) 0 62.5%, transparent 0 75%, var(--accent) 0 87.5%, transparent 0); }
+html[data-theme='fae-court'] .bureau-note { margin-left: 5%; border-radius: 18px 3px 18px 3px; }
+
+/* Dragon Archive: fortified vault frames, scale bands, and treasury ledger panels. */
+html[data-theme='dragon-archive'] .site-header { border-bottom: 6px double var(--accent); }
+html[data-theme='dragon-archive'] .checker-section,
+html[data-theme='dragon-archive'] .information-section,
+html[data-theme='dragon-archive'] .ruling-card { outline: 2px solid color-mix(in srgb, var(--accent-secondary) 70%, transparent); outline-offset: -12px; }
+html[data-theme='dragon-archive'] .applicant-card,
+html[data-theme='dragon-archive'] .assessment-grid article,
+html[data-theme='dragon-archive'] .species-register-card { border-width: 4px; box-shadow: inset 0 0 0 1px var(--accent); }
+html[data-theme='dragon-archive'] .theme-ornament i { width: 18px; height: 8px; background: linear-gradient(135deg, transparent 45%, currentColor 46% 54%, transparent 55%), linear-gradient(45deg, transparent 45%, currentColor 46% 54%, transparent 55%); }
+html[data-theme='dragon-archive'] .bureau-seal { border-width: 5px; box-shadow: inset 0 0 0 3px var(--surface-raised); }
+
+/* Celestial Tribunal: bilateral symmetry, orbit lines, docket balance, and star points. */
+html[data-theme='celestial-tribunal'] .hero { max-width: 860px; margin-inline: auto; text-align: center; }
+html[data-theme='celestial-tribunal'] .theme-ornament-hero { left: 50%; transform: translateX(-50%); }
+html[data-theme='celestial-tribunal'] .checker-heading,
+html[data-theme='celestial-tribunal'] .information-header { max-width: none; text-align: center; }
+html[data-theme='celestial-tribunal'] .checker-section::after,
+html[data-theme='celestial-tribunal'] .ruling-card::after { content: ''; position: absolute; inset: 18px; border: 1px solid color-mix(in srgb, var(--accent) 34%, transparent); border-radius: 50%; clip-path: inset(0 38%); pointer-events: none; }
+html[data-theme='celestial-tribunal'] .applicant-card,
+html[data-theme='celestial-tribunal'] .assessment-grid article { border-left-width: 2px; border-right-width: 2px; text-align: center; }
+html[data-theme='celestial-tribunal'] .theme-ornament b { width: 10px; height: 10px; border: 0; background: currentColor; clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%); transform: none; }
+
+/* Obsidian Records: editorial indexing, hard lines, negative space, no flourish. */
+html[data-theme='obsidian-records'] main { width: min(1160px, calc(100% - 56px)); }
+html[data-theme='obsidian-records'] .hero { padding-block: 92px 66px; }
+html[data-theme='obsidian-records'] h1 { max-width: 650px; font-weight: 300; letter-spacing: -.055em; }
+html[data-theme='obsidian-records'] .checker-section,
+html[data-theme='obsidian-records'] .information-section,
+html[data-theme='obsidian-records'] .ruling-card { padding: clamp(32px, 6vw, 68px); border-width: 1px; }
+html[data-theme='obsidian-records'] .checker-heading,
+html[data-theme='obsidian-records'] .information-header { max-width: 680px; margin-bottom: 48px; }
+html[data-theme='obsidian-records'] .applicant-card,
+html[data-theme='obsidian-records'] .assessment-grid article,
+html[data-theme='obsidian-records'] .method-card,
+html[data-theme='obsidian-records'] .species-register-card { border-width: 1px 0 0; padding-inline: 0; background: transparent; }
+html[data-theme='obsidian-records'] .theme-ornament i,
+html[data-theme='obsidian-records'] .theme-ornament b { display: none; }
+html[data-theme='obsidian-records'] .theme-ornament { letter-spacing: .2em; }
+html[data-theme='obsidian-records'] .bureau-seal { width: 72px; height: 72px; border: 1px solid var(--accent); border-radius: 0; transform: none; animation: none; }
+html[data-theme='obsidian-records'] .verdict-quip { padding-left: 18px; border-left-width: 1px; background: transparent; font-size: 1rem; }
+html[data-theme='obsidian-records'] .verdict-quip::before { display: none; }
+
+@media (max-width: 560px) {
+  .theme-ornament-header, .theme-ornament-applicant, .theme-ornament-assessment,
+  .theme-ornament-calculations { display: none; }
+  .theme-ornament-checker, .theme-ornament-information { top: 10px; right: 14px; max-width: calc(100% - 28px); }
+  .theme-ornament-result { position: relative; inset: auto; justify-content: center; max-width: 100%; margin: 0 0 18px; transform: none; }
+  html[data-theme='goblin-administration'] .applicant-card,
+  html[data-theme='goblin-administration'] .assessment-grid article,
+  html[data-theme='goblin-administration'] .checker-section,
+  html[data-theme='goblin-administration'] .bureau-note { transform: none; }
+  html[data-theme='dwarven-registry'] .checker-section,
+  html[data-theme='dwarven-registry'] .information-section,
+  html[data-theme='dwarven-registry'] .ruling-card { clip-path: none; }
+  html[data-theme='obsidian-records'] main { width: min(100% - 28px, 1040px); }
+  html[data-theme='obsidian-records'] .hero { padding-block: 48px 34px; }
+  html[data-theme='obsidian-records'] .checker-section,
+  html[data-theme='obsidian-records'] .information-section,
+  html[data-theme='obsidian-records'] .ruling-card { padding: 26px 18px; }
+}
 
 @media (max-width: 800px) {
   .header-inner { padding: 16px 0; flex-direction: column; align-items: flex-start; gap: 12px; }

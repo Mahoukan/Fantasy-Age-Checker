@@ -1,3 +1,5 @@
+import { ThemeOrnament } from './ThemeOrnament'
+
 export function Hero() {
   return (
     <section className="hero" aria-labelledby="hero-title">
@@ -7,6 +9,7 @@ export function Hero() {
       <p className="hero-support">
         The Fantasy Age Checker compares maturity, lifespan and life experience across the peoples of the realm.
       </p>
+      <ThemeOrnament location="hero" />
     </section>
   )
 }

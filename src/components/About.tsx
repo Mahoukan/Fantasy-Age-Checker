@@ -1,6 +1,9 @@
+import { ThemeOrnament } from './ThemeOrnament'
+
 export function About() {
   return (
     <section className="information-section about-section" id="about" aria-labelledby="about-title">
+      <ThemeOrnament location="information" />
       <header className="information-header">
         <p className="eyebrow dark">Public information notice</p>
         <h2 id="about-title">About</h2>

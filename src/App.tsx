@@ -8,6 +8,7 @@ import { SpeciesGuide } from './components/SpeciesGuide'
 import { DEFAULT_RESULT_IMAGE_THEME_ID, type ResultImageThemeId } from './data/resultImageThemes'
 import { getNavigationSection, type NavigationSection } from './utils/navigation'
 import { applySiteTheme, getBrowserThemeStorage, saveSiteTheme } from './utils/siteTheme'
+import { ThemeOrnament } from './components/ThemeOrnament'
 
 interface AppProps {
   initialSiteThemeId?: ResultImageThemeId
@@ -47,6 +48,7 @@ export function App({ initialSiteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID }: AppP
         <About />
       </main>
       <footer className="site-footer">
+        <ThemeOrnament location="footer" />
         <strong>Fantasy Age Checker · Arcane Relationship Bureau</strong>
         <p>All rulings are legally binding in exactly zero jurisdictions. For fictional entertainment only.</p>
         <p className="footer-links">

@@ -4,6 +4,7 @@ import type { Applicant, ApplicantLabel } from '../types/applicant'
 import { formatYears } from '../utils/format'
 import { findSpeciesById } from '../utils/lifecycle'
 import { APPLICANT_NAME_MAX_LENGTH, limitApplicantName } from '../utils/applicantName'
+import { ThemeOrnament } from './ThemeOrnament'
 
 interface ApplicantCardProps {
   applicant: Applicant
@@ -26,6 +27,7 @@ export function ApplicantCard({ applicant, label, ageError, availableSpecies, di
   return (
     <fieldset className="applicant-card">
       <legend>Applicant {label}</legend>
+      <ThemeOrnament location="applicant" />
       <p className="applicant-reference">Registry entry {label} / Identity declaration</p>
 
       <div className="field-group">
