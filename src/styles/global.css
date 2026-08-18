@@ -1,34 +1,58 @@
 :root {
   color-scheme: dark;
-  --bg: #171a21;
-  --bg-raised: #20242d;
-  --paper: #f2e8d5;
-  --paper-deep: #e5d7be;
-  --ink: #292820;
-  --ink-soft: #5f5a4d;
-  --gold: #b9944a;
-  --gold-light: #d2b770;
-  --burgundy: #713b45;
+  --site-bg: #171a21;
+  --site-bg-alt: #20242d;
+  --header-bg: #171a21;
+  --surface: #f2e8d5;
+  --surface-raised: #fffaf0;
+  --surface-inset: #e5d7be;
+  --text-primary: #292820;
+  --text-secondary: #5f5a4d;
+  --heading-color: #713b45;
+  --accent: #b9944a;
+  --accent-secondary: #713b45;
+  --border: #c6b898;
+  --border-strong: #9f8248;
+  --focus: #d19c35;
   --positive: #52705a;
-  --warning: #b87838;
-  --serif: Georgia, 'Times New Roman', serif;
-  --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-family: var(--sans);
-  color: var(--paper);
-  background: var(--bg);
+  --warning: #9a5e24;
+  --danger: #8b3440;
+  --input-bg: #fffdf8;
+  --input-text: #292820;
+  --button-bg: #713b45;
+  --button-text: #fff8e8;
+  --shadow: rgba(0, 0, 0, 0.28);
+  --heading-font: Georgia, 'Times New Roman', serif;
+  --body-font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --page-text: color-mix(in srgb, var(--text-primary) 20%, white);
+  --page-muted: color-mix(in srgb, var(--text-primary) 38%, white);
+  --bg: var(--site-bg);
+  --bg-raised: var(--site-bg-alt);
+  --paper: var(--surface);
+  --paper-deep: var(--surface-inset);
+  --ink: var(--text-primary);
+  --ink-soft: var(--text-secondary);
+  --gold: var(--accent);
+  --gold-light: var(--accent);
+  --burgundy: var(--heading-color);
+  --serif: var(--heading-font);
+  --sans: var(--body-font);
+  font-family: var(--body-font);
+  color: var(--page-text);
+  background: var(--site-bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
 }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; min-width: 0; min-height: 100vh; overflow-wrap: break-word; background: var(--bg); }
+body { margin: 0; min-width: 0; min-height: 100vh; overflow-wrap: break-word; background: var(--site-bg); transition: color 120ms ease, background-color 120ms ease; }
 button, input, select { min-width: 0; max-width: 100%; font: inherit; }
 a { color: inherit; }
 
 .site-header {
-  border-bottom: 1px solid rgba(185, 148, 74, 0.35);
-  background: rgba(23, 26, 33, 0.97);
+  border-bottom: 1px solid var(--border-strong);
+  background: var(--header-bg);
 }
 
 .header-inner {
@@ -43,20 +67,24 @@ a { color: inherit; }
 
 .bureau-brand { min-width: 0; display: flex; align-items: center; gap: 13px; text-decoration: none; }
 .bureau-brand > span { min-width: 0; }
-.bureau-brand strong { display: block; font-family: var(--serif); color: var(--paper); font-size: 1.04rem; letter-spacing: 0.04em; }
+.bureau-brand strong { display: block; font-family: var(--serif); color: var(--page-text); font-size: 1.04rem; letter-spacing: 0.04em; }
 .bureau-brand small { display: block; margin-top: 4px; color: var(--gold-light); font-size: 0.73rem; letter-spacing: 0.08em; }
 .bureau-insignia { width: 52px; height: 52px; flex: 0 0 auto; color: var(--gold); }
-nav { display: flex; align-items: center; gap: 24px; }
+.header-actions { display: flex; min-width: 0; align-items: center; justify-content: flex-end; gap: 24px; }
+nav { display: flex; align-items: center; gap: 20px; }
 .nav-link { min-height: 44px; display: inline-flex; align-items: center; font-size: 0.82rem; letter-spacing: 0.05em; text-decoration: none; }
 .nav-link.active { color: var(--gold-light); border-bottom: 2px solid var(--gold); font-weight: 800; }
-.nav-link.unavailable { color: #a3a29d; cursor: not-allowed; }
+.nav-link.unavailable { color: var(--page-muted); cursor: not-allowed; }
+.site-theme-control { display: flex; align-items: center; gap: 8px; color: var(--page-text); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.site-theme-control select { min-height: 40px; max-width: 190px; padding: 7px 30px 7px 10px; color: var(--input-text); background: var(--input-bg); border: 1px solid var(--border-strong); border-radius: 2px; cursor: pointer; text-transform: none; }
+.site-theme-control select:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 
 main { width: min(1040px, calc(100% - 40px)); margin: 0 auto; }
 .hero { max-width: 750px; padding: 58px 0 38px; }
 .eyebrow { margin: 0 0 14px; color: var(--gold-light); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; }
 .eyebrow.dark { color: var(--burgundy); }
 h1, h2, h3, p { margin-top: 0; }
-h1 { margin-bottom: 14px; font-family: var(--serif); font-size: clamp(2.3rem, 6vw, 4.35rem); line-height: 1; font-weight: 500; letter-spacing: -0.035em; }
+h1 { margin-bottom: 14px; color: var(--page-text); font-family: var(--serif); font-size: clamp(2.3rem, 6vw, 4.35rem); line-height: 1; font-weight: 500; letter-spacing: -0.035em; }
 .hero-lead { margin-bottom: 12px; color: var(--gold-light); font-family: var(--serif); font-size: clamp(1.1rem, 2.5vw, 1.42rem); font-style: italic; }
 .hero-support { max-width: 650px; margin-bottom: 0; color: #c9c6bc; line-height: 1.7; }
 
@@ -309,8 +337,107 @@ h1 { margin-bottom: 14px; font-family: var(--serif); font-size: clamp(2.3rem, 6v
 .footer-links a { min-height: 44px; display: inline-flex; align-items: center; text-underline-offset: 3px; }
 .footer-links span { display: inline-flex; align-items: center; }
 
+/* Shared semantic website-theme layer. Layout remains common to all ten identities. */
+#root { position: relative; z-index: 1; }
+body::before { content: ''; position: fixed; z-index: 0; inset: 0; pointer-events: none; opacity: 0.12; background-image: var(--site-motif, none); background-size: var(--site-motif-size, auto); }
+html[data-theme='bureau-classic'] { --site-motif: linear-gradient(135deg, transparent 49.7%, var(--accent) 50%, transparent 50.3%); --site-motif-size: 72px 72px; }
+html[data-theme='royal-decree'] { --site-motif: linear-gradient(45deg, transparent 46%, var(--accent) 47%, transparent 48%, transparent 52%, var(--accent) 53%, transparent 54%); --site-motif-size: 110px 110px; }
+html[data-theme='elven-archive'] { --site-motif: radial-gradient(ellipse at 25% 25%, transparent 63%, var(--accent) 64%, transparent 66%); --site-motif-size: 96px 64px; }
+html[data-theme='dwarven-registry'] { --site-motif: linear-gradient(30deg, transparent 43%, var(--accent) 44%, transparent 46%), linear-gradient(-30deg, transparent 43%, var(--accent) 44%, transparent 46%); --site-motif-size: 76px 44px; }
+html[data-theme='goblin-administration'] { --site-motif: repeating-linear-gradient(-7deg, transparent 0 45px, var(--accent) 46px 47px); --site-motif-size: auto; --theme-stamp: 'FILED  ·  CHECKED  ·  RE-FILED'; }
+html[data-theme='arcane-terminal'] { --site-motif: linear-gradient(var(--accent) 1px, transparent 1px), linear-gradient(90deg, var(--accent) 1px, transparent 1px); --site-motif-size: 32px 32px; }
+html[data-theme='fae-court'] { --site-motif: radial-gradient(circle at 20% 20%, var(--accent) 0 1px, transparent 2px), radial-gradient(circle at 80% 70%, var(--accent) 0 1px, transparent 2px); --site-motif-size: 88px 88px; }
+html[data-theme='dragon-archive'] { --site-motif: linear-gradient(45deg, transparent 48%, var(--accent) 49% 51%, transparent 52%), linear-gradient(-45deg, transparent 48%, var(--accent) 49% 51%, transparent 52%); --site-motif-size: 68px 68px; }
+html[data-theme='celestial-tribunal'] { --site-motif: radial-gradient(circle, var(--accent) 0 1px, transparent 2px), radial-gradient(circle, transparent 46%, var(--accent) 47%, transparent 48%); --site-motif-size: 84px 84px, 168px 168px; }
+html[data-theme='obsidian-records'] { --site-motif: linear-gradient(90deg, transparent 49.8%, var(--accent) 50%, transparent 50.2%); --site-motif-size: 180px 180px; }
+
+.checker-section, .information-section, .custom-species-dialog { color: var(--text-primary); background: var(--surface); border-color: var(--border-strong); box-shadow: 0 18px 52px var(--shadow); }
+.ruling-card { color: var(--text-primary); background: var(--surface-raised); border-color: var(--accent-secondary); }
+.applicant-card, .assessment-grid article, .maturity-math > div, .comparison-facts,
+.lifecycle-facts-grid article, .rejection-details article, .share-ruling, .result-theme-option,
+.species-register-card, .method-card, .worked-example-grid > div, .category-list div {
+  color: var(--text-primary); background: var(--surface-raised); border-color: var(--border);
+}
+.temporary-species-manager, .lifecycle-context, .consultation-status, .not-implemented,
+.bureau-calculations, .bureau-note, .share-restore-notice, .information-note, .formula-panel,
+.worked-example, .about-disclaimer, .maturity-constants, .longevity-notice {
+  color: var(--text-primary); background: var(--surface-inset); border-color: var(--border);
+}
+.checker-section::before, .information-section::before { border-color: var(--border); }
+.checker-section::after { content: var(--theme-stamp, ''); position: absolute; top: 18px; right: 24px; color: var(--accent-secondary); font-size: 0.58rem; font-weight: 800; letter-spacing: 0.13em; pointer-events: none; transform: rotate(-2deg); }
+.temporary-species-manager li, .lifecycle-context-status, .longevity-notice dl,
+.species-register-card dl div, .dialog-actions { border-color: var(--border); }
+.temporary-species-action button { color: var(--danger); border-color: var(--danger); }
+.temporary-species-action button:disabled { color: var(--text-secondary); border-color: var(--border); }
+.applicant-separator::before, .applicant-separator::after { background: var(--border); }
+.field-group select, .field-group input, .custom-species-dialog input,
+.input-with-unit span, .site-theme-control select { color: var(--input-text); background: var(--input-bg); border-color: var(--border-strong); }
+.field-group select:hover, .field-group input:hover { border-color: var(--accent-secondary); }
+.field-group select:focus-visible, .field-group input:focus-visible, button:focus-visible,
+a:focus-visible, select:focus-visible, input:focus-visible { outline-color: var(--focus); }
+.field-group input[aria-invalid='true'] { border-color: var(--danger); box-shadow: inset 0 0 0 1px var(--danger); }
+.field-error { color: var(--danger); }
+.maturity-verdict.maturity-incompatible, .rejection-card { border-color: var(--danger) !important; }
+.maturity-borderline .verdict-label, .experience-verdict .verdict-label { color: var(--warning); }
+.maturity-incompatible .verdict-label, .rejection-seal { color: var(--danger); border-color: var(--danger); }
+.experience-formidable, .experience-historical, .experience-civilizations { border-top-color: var(--warning) !important; }
+.secondary-action, .share-actions button, .dialog-actions button { color: var(--accent-secondary); border-color: var(--accent-secondary); }
+.secondary-action:hover, .share-actions button:hover { color: var(--button-text); background: var(--button-bg); }
+.submission-area button, .primary-dialog-action { color: var(--button-text); background: var(--button-bg); border-color: var(--border-strong); box-shadow: 0 5px 0 var(--border-strong); }
+.submission-area button:hover { background: var(--accent-secondary); box-shadow: 0 6px 0 var(--border-strong); }
+.submission-area button:active { box-shadow: 0 2px 0 var(--border-strong); }
+.submission-area button:disabled, .share-actions button:disabled, .secondary-action:disabled { color: var(--text-secondary); background: var(--surface-inset); border-color: var(--border); box-shadow: none; opacity: 0.72; }
+.hero-support, .site-footer { color: var(--page-muted); }
+.site-footer strong { color: var(--page-text); }
+.hero-lead, .eyebrow, .bureau-brand small, .nav-link.active { color: var(--accent); }
+.eyebrow.dark, .checker-heading h2, .applicant-card legend, .temporary-species-manager h3,
+.ruling-header h2, .assessment-grid h3, .bureau-calculations h3, .maturity-math strong,
+.lifecycle-facts-grid h4, .longevity-notice-heading, .rejection-details h3, .bureau-note span,
+.share-ruling-label, .share-ruling h3, .result-theme-picker legend, .species-register-card h4,
+.information-header h2, .species-register-group > h3, .method-card h3, .worked-example h3,
+.worked-example h4, .information-note strong, .about-disclaimer strong {
+  color: var(--heading-color);
+}
+.checker-heading > p:last-child, .species-tools small, .temporary-species-manager li small,
+.applicant-reference, .field-hint, .lifecycle-context dt, .submission-area small,
+.consultation-message, .ruling-case-number, .assessment-grid p, .bureau-calculations p,
+.assessment-facts dt, .maturity-math small, .comparison-facts span, .applicant-species-name,
+.lifecycle-facts-grid dt, .rejection-details dt, .longevity-notice > p, .bureau-note p,
+.ruling-footer, .share-restore-notice, .result-theme-picker > p, .result-theme-option small,
+.share-action-group > span, .share-limitation, .record-description, .species-register-card dt,
+.information-header > p:last-child, .information-note p, .about-disclaimer p, .method-card > p,
+.category-list dd, .worked-example-grid p, .worked-conclusion { color: var(--text-secondary); }
+.verdict-quip { color: var(--text-primary); background: var(--surface-inset); border-color: var(--accent); }
+.longevity-notice > strong, .longevity-notice.longevity-anomalous > strong { color: var(--heading-color); }
+.longevity-notice.longevity-anomalous { color: var(--text-primary); background: var(--surface-inset); border-color: var(--warning); border-left-color: var(--accent-secondary); }
+.rejection-summary { color: var(--text-primary); background: var(--surface-inset); border-color: var(--danger); }
+.assessment-facts, .lifecycle-facts-grid dl div, .rejection-details dl div,
+.ruling-header, .ruling-footer, .rejection-closing { border-color: var(--border); }
+.maturity-math, .comparison-facts, .category-list { border-color: var(--border); background: var(--border); }
+.comparison-facts div { border-color: var(--border); }
+.result-theme-picker, .result-theme-option { border-color: var(--border); }
+.result-theme-option:hover, .result-theme-option.selected { border-color: var(--accent-secondary); background: var(--surface); }
+.result-theme-option input { accent-color: var(--accent-secondary); }
+.result-theme-option input:focus-visible { outline-color: var(--focus); }
+.result-theme-option strong, .ruling-footer strong { color: var(--text-primary); }
+.share-feedback, .selected-theme-status { color: var(--positive); }
+.custom-species-dialog::backdrop { background: color-mix(in srgb, var(--site-bg) 82%, transparent); }
+
+html[data-theme='arcane-terminal'] .checker-section,
+html[data-theme='arcane-terminal'] .information-section,
+html[data-theme='arcane-terminal'] .ruling-card,
+html[data-theme='arcane-terminal'] .applicant-card,
+html[data-theme='arcane-terminal'] .result-theme-option { border-radius: 0; }
+html[data-theme='arcane-terminal'] .eyebrow { letter-spacing: 0.1em; }
+html[data-theme='dwarven-registry'] .checker-section,
+html[data-theme='dwarven-registry'] .information-section,
+html[data-theme='dwarven-registry'] .applicant-card { border-width: 3px; }
+html[data-theme='obsidian-records'] .checker-section::before,
+html[data-theme='obsidian-records'] .information-section::before { display: none; }
+
 @media (max-width: 800px) {
   .header-inner { padding: 16px 0; flex-direction: column; align-items: flex-start; gap: 12px; }
+  .header-actions { width: 100%; justify-content: space-between; }
   nav { width: 100%; gap: 20px; overflow-x: auto; }
   .nav-link { white-space: nowrap; }
   .applicants-layout { grid-template-columns: 1fr; }
@@ -328,6 +455,9 @@ h1 { margin-bottom: 14px; font-family: var(--serif); font-size: clamp(2.3rem, 6v
   .bureau-brand small { font-size: 0.65rem; }
   .bureau-insignia { width: 44px; height: 44px; }
   nav { gap: 16px; }
+  .header-actions { align-items: stretch; flex-direction: column; gap: 10px; }
+  .site-theme-control { width: 100%; justify-content: space-between; }
+  .site-theme-control select { width: min(210px, 72%); max-width: 72%; }
   .nav-link { font-size: 0.75rem; }
   .hero { padding: 40px 0 30px; }
   .checker-section { padding: 25px 20px; }
@@ -371,6 +501,7 @@ h1 { margin-bottom: 14px; font-family: var(--serif); font-size: clamp(2.3rem, 6v
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  body { transition: none; }
   .consultation-orbit, .ruling-card-enter, .bureau-seal { animation: none; }
   .ruling-card-enter { opacity: 1; transform: none; }
 }

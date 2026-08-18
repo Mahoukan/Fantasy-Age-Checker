@@ -24,14 +24,15 @@ import {
 
 interface ShareControlsProps {
   result: ShareResultModel & { caseNumber: string }
+  initialThemeId?: ResultImageThemeId
 }
 
 const FEEDBACK_DURATION_MS = 2600
 
-export function ShareControls({ result }: ShareControlsProps) {
+export function ShareControls({ result, initialThemeId = DEFAULT_RESULT_IMAGE_THEME_ID }: ShareControlsProps) {
   const [feedback, setFeedback] = useState('')
   const [isGeneratingImage, setIsGeneratingImage] = useState(false)
-  const [selectedThemeId, setSelectedThemeId] = useState<ResultImageThemeId>(DEFAULT_RESULT_IMAGE_THEME_ID)
+  const [selectedThemeId, setSelectedThemeId] = useState<ResultImageThemeId>(initialThemeId)
   const [nativeShareAvailable] = useState(() => (
     typeof navigator !== 'undefined' && hasNativeShare(navigator.share?.bind(navigator))
   ))

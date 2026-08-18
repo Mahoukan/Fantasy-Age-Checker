@@ -31,6 +31,7 @@ import { ConsultationStatus } from './ConsultationStatus'
 import { RejectionResult } from './RejectionResult'
 import { ResultShell } from './ResultShell'
 import { TemporarySpeciesManager } from './TemporarySpeciesManager'
+import { DEFAULT_RESULT_IMAGE_THEME_ID, type ResultImageThemeId } from '../data/resultImageThemes'
 
 const initialApplicantA: Applicant = { speciesId: 'elf', age: 300 }
 const initialApplicantB: Applicant = { speciesId: 'human', age: 34 }
@@ -61,7 +62,11 @@ function resolveApplicant(
   }
 }
 
-export function Checker() {
+interface CheckerProps {
+  siteThemeId?: ResultImageThemeId
+}
+
+export function Checker({ siteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID }: CheckerProps) {
   const [sharedRestore] = useState<SharedConsultationParseResult>(() => (
     typeof window === 'undefined'
       ? { status: 'none' }
@@ -289,12 +294,14 @@ export function Checker() {
 
       {result?.status === 'approved' && (
         <ResultShell
+          key={result.caseNumber}
           applicants={result.applicants}
           maturity={result.maturity}
           experience={result.experience}
           longevity={result.longevity}
           quips={result.quips}
           caseNumber={result.caseNumber}
+          initialImageThemeId={siteThemeId}
         />
       )}
       {result?.status === 'rejected' && <RejectionResult applicants={result.applicants} />}

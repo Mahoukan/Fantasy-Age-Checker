@@ -1,12 +1,24 @@
 import { BureauInsignia } from './BureauInsignia'
 import { navigationItems, type NavigationSection } from '../utils/navigation'
+import {
+  DEFAULT_RESULT_IMAGE_THEME_ID,
+  resultImageThemes,
+  type ResultImageThemeId,
+} from '../data/resultImageThemes'
 
 interface HeaderProps {
   activeSection: NavigationSection
+  siteThemeId?: ResultImageThemeId
   onNavigate: (section: NavigationSection) => void
+  onThemeChange?: (themeId: ResultImageThemeId) => void
 }
 
-export function Header({ activeSection, onNavigate }: HeaderProps) {
+export function Header({
+  activeSection,
+  siteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID,
+  onNavigate,
+  onThemeChange = () => undefined,
+}: HeaderProps) {
   return (
     <header className="site-header">
       <div className="header-inner">
@@ -23,19 +35,33 @@ export function Header({ activeSection, onNavigate }: HeaderProps) {
           </span>
         </a>
 
-        <nav aria-label="Main navigation">
-          {navigationItems.map((item) => (
-            <a
-              className={`nav-link${activeSection === item.id ? ' active' : ''}`}
-              href={`#${item.id}`}
-              aria-current={activeSection === item.id ? 'location' : undefined}
-              onClick={() => onNavigate(item.id)}
-              key={item.id}
+        <div className="header-actions">
+          <nav aria-label="Main navigation">
+            {navigationItems.map((item) => (
+              <a
+                className={`nav-link${activeSection === item.id ? ' active' : ''}`}
+                href={`#${item.id}`}
+                aria-current={activeSection === item.id ? 'location' : undefined}
+                onClick={() => onNavigate(item.id)}
+                key={item.id}
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+          <label className="site-theme-control">
+            <span>Theme</span>
+            <select
+              aria-label="Website theme"
+              value={siteThemeId}
+              onChange={(event) => onThemeChange(event.target.value as ResultImageThemeId)}
             >
-              {item.label}
-            </a>
-          ))}
-        </nav>
+              {resultImageThemes.map((theme) => (
+                <option value={theme.id} key={theme.id}>{theme.name}</option>
+              ))}
+            </select>
+          </label>
+        </div>
       </div>
     </header>
   )

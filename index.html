@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="bureau-classic">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -21,6 +21,25 @@
       content="A humorous fantasy age compatibility checker comparing maturity, adult experience and lifespan across fantasy species."
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script>
+      (() => {
+        const key = 'fantasy-age-checker-site-theme';
+        const backgrounds = {
+          'bureau-classic': '#171a21', 'royal-decree': '#28162e',
+          'elven-archive': '#122820', 'dwarven-registry': '#1d1a18',
+          'goblin-administration': '#222518', 'arcane-terminal': '#061218',
+          'fae-court': '#25162d', 'dragon-archive': '#1b1210',
+          'celestial-tribunal': '#10162f', 'obsidian-records': '#050607'
+        };
+        try {
+          const saved = localStorage.getItem(key);
+          if (saved && Object.prototype.hasOwnProperty.call(backgrounds, saved)) {
+            document.documentElement.dataset.theme = saved;
+            document.documentElement.style.backgroundColor = backgrounds[saved];
+          }
+        } catch { /* Bureau Classic remains the safe default. */ }
+      })();
+    </script>
     <title>Fantasy Age Checker | Arcane Relationship Bureau</title>
   </head>
   <body>

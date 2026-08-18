@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.0
+
+- Added ten selectable website themes shared with the existing result-card theme identities, with Bureau Classic remaining the default.
+- Added an accessible header theme selector, safe theme-ID-only local persistence, and pre-render theme restoration to avoid a mismatched first paint.
+- New consultations inherit the current website theme for their image card while existing result-card choices remain independent; neither theme changes calculations, rulings, commentary, case numbers, or permalinks.
+- Audited every theme across responsive layouts, focus and contrast states, dialogs, long content, validation, and reduced-motion presentation.
+
 ## 1.2.0
 
 - Added ten selectable result-card themes and an accessible, session-only theme picker, with Bureau Classic remaining the default.

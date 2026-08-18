@@ -2,7 +2,7 @@
 
 Fantasy Age Checker is a humorous, single-page fantasy utility presented by the fictional **Arcane Relationship Bureau — Department of Inter-Species Affairs**. It compares two adult fictional characters using species-relative maturity and actual adult experience, then issues an unnecessarily official ruling.
 
-Version 1.2.0 is a static React, TypeScript, and Vite application. It has no backend, database, accounts, analytics, runtime secrets, or required environment variables.
+Version 1.3.0 is a static React, TypeScript, and Vite application. It has no backend, database, accounts, analytics, runtime secrets, or required environment variables.
 
 ## Screenshot
 
@@ -18,6 +18,7 @@ _Release screenshot to be added when the public deployment has a final domain._
 - Optional, session-only applicant display names that appear in rulings, copied text, and PNG exports without affecting any calculation.
 - 348 reviewed fantasy-bureaucracy quips with per-slot anti-repetition history, including exact-ID commentary for every expanded-register species.
 - Copyable result summaries, native sharing where supported, stable permalinks for built-in species, and downloadable 1080x1350 PNG ruling cards in ten selectable styles.
+- Ten coordinated website themes with an accessible header selector, safe local preference restoration, and no effect on consultation data or rulings.
 - Same-page Species Guide, calculation explanation, and entertainment disclaimer.
 - Responsive, keyboard-accessible controls and reduced-motion support.
 
@@ -64,7 +65,13 @@ Clipboard and Web Share features degrade to clear, non-fatal messages when the b
 
 Approved rulings can also be saved as self-contained 1080x1350 PNG cards. The browser builds a plain-text SVG from the already-submitted result, rasterises it locally with Canvas, and downloads the PNG; no screenshot library, server renderer, upload, or network request is involved. Every card includes the submitted Maturity Compatibility quip, Experience Gap quip, and administrative Bureau Note. It keeps the displayed case number, includes submitted applicant names when present, uses custom species display names without exposing their internal IDs, and shows longevity context only when an applicant exceeds a typical lifespan.
 
-The **Result Card Style** picker offers Bureau Classic (the default), Royal Decree, Elven Archive, Dwarven Registry, Goblin Administration, Arcane Terminal, Fae Court, Dragon Archive, Celestial Tribunal, and Obsidian Records. A theme changes image presentation only: it never changes applicants, calculations, verdicts, case numbers, longevity, or any of the three submitted commentary lines. Theme choice lives only in component memory for the current page and is not stored or encoded in permalinks.
+The **Result Card Style** picker offers Bureau Classic (the default), Royal Decree, Elven Archive, Dwarven Registry, Goblin Administration, Arcane Terminal, Fae Court, Dragon Archive, Celestial Tribunal, and Obsidian Records. A theme changes image presentation only: it never changes applicants, calculations, verdicts, case numbers, longevity, or any of the three submitted commentary lines. The image theme lives only in component memory and is not stored or encoded in permalinks.
+
+## Website themes
+
+The header **Theme** selector applies the same ten identities to the whole interface: Bureau Classic, Royal Decree, Elven Archive, Dwarven Registry, Goblin Administration, Arcane Terminal, Fae Court, Dragon Archive, Celestial Tribunal, and Obsidian Records. Bureau Classic is the default. The selected website theme is restored before React renders and only its stable ID is saved under `fantasy-age-checker-site-theme`; missing, invalid, or blocked storage falls back safely.
+
+Website and result-card themes are deliberately independent. A newly submitted consultation starts its image card with the website theme active at submission time, after which either theme can be changed without changing the other. Existing results, applicant inputs, calculations, verdicts, quips, Bureau notes, case numbers, and longevity context survive website-theme changes unchanged. Neither theme is included in a permalink.
 
 **Save Image** uses the selected style. **Share Image** also uses it and appears only when the browser reports support for sharing actual files through `navigator.canShare({ files })`; otherwise **Save Image** remains available. Image generation and sharing failures leave the ruling intact and are announced in the result controls.
 
@@ -103,8 +110,8 @@ The deployable static output is written to `dist/`.
 The multi-stage image builds the Vite project with Node and serves only the generated static files from nginx on port `8080`:
 
 ```bash
-docker build -t fantasy-age-checker:1.2.0 .
-docker run --rm -p 8080:8080 fantasy-age-checker:1.2.0
+docker build -t fantasy-age-checker:1.3.0 .
+docker run --rm -p 8080:8080 fantasy-age-checker:1.3.0
 ```
 
 Open `http://localhost:8080/`. The image health check performs `GET /`; a healthy deployment returns HTTP 200. Hashed Vite assets receive long-lived immutable caching, while `index.html` uses revalidation-friendly `no-cache` behaviour.
@@ -122,7 +129,7 @@ Open `http://localhost:8080/`. The image health check performs `GET /`; a health
 
 ## Privacy and security
 
-No consultation data is transmitted by the application. There are no network requests, analytics, backend services, user accounts, or bundled secrets. Result images are constructed and encoded entirely in the browser and are transmitted only if the user explicitly invokes the platform share sheet. Temporary species, applicant names, and image-theme choice remain in memory only. The sole browser persistence is recent quip IDs in `localStorage`, and blocked or malformed storage is ignored safely. Share links contain only built-in species IDs and entered ages; applicant names and image themes are never serialized into them.
+No consultation data is transmitted by the application. There are no network requests, analytics, backend services, user accounts, or bundled secrets. Result images are constructed and encoded entirely in the browser and are transmitted only if the user explicitly invokes the platform share sheet. Temporary species, applicant names, and image-theme choice remain in memory only. Browser persistence is limited to recent quip IDs and the selected website-theme ID in `localStorage`; blocked or malformed storage is ignored safely. Share links contain only built-in species IDs and entered ages; applicant names, website themes, and image themes are never serialized into them.
 
 The nginx configuration adds conservative content-type, referrer, and framing headers without a restrictive untested Content Security Policy.
 

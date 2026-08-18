@@ -9,6 +9,7 @@ import { experienceVerdicts, maturityVerdicts } from '../data/verdicts'
 import { ShareControls } from './ShareControls'
 import type { ShareResultModel } from '../utils/share'
 import { applicantDisplayName } from '../utils/applicantName'
+import type { ResultImageThemeId } from '../data/resultImageThemes'
 
 interface ResultShellProps extends ShareResultModel {
   applicants: ApplicantLifecycleFacts[]
@@ -17,9 +18,10 @@ interface ResultShellProps extends ShareResultModel {
   longevity: ApplicantLongevityResult[]
   quips: ConsultationQuips
   caseNumber: string
+  initialImageThemeId?: ResultImageThemeId
 }
 
-export function ResultShell({ applicants, maturity, experience, longevity, quips, caseNumber }: ResultShellProps) {
+export function ResultShell({ applicants, maturity, experience, longevity, quips, caseNumber, initialImageThemeId }: ResultShellProps) {
   const maturityVerdict = maturityVerdicts[maturity.category]
   const experienceVerdict = experienceVerdicts[experience.category]
   const [applicantA, applicantB] = applicants
@@ -125,7 +127,10 @@ export function ResultShell({ applicants, maturity, experience, longevity, quips
         <p>{quips.administrative.text}</p>
       </aside>
 
-      <ShareControls result={{ applicants, maturity, experience, longevity, quips, caseNumber }} />
+      <ShareControls
+        result={{ applicants, maturity, experience, longevity, quips, caseNumber }}
+        initialThemeId={initialImageThemeId}
+      />
 
       <footer className="ruling-footer">
         <strong>Issued by the Office of Chronological Compatibility</strong>
