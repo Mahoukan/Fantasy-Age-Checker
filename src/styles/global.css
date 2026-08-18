@@ -591,7 +591,7 @@ html[data-theme='obsidian-records'] .information-section::before { display: none
 .theme-ornament::before { content: var(--ornament-label); overflow: hidden; text-overflow: ellipsis; }
 .theme-ornament i { width: 16px; height: 1px; flex: 0 0 auto; background: currentColor; }
 .theme-ornament b { width: 5px; height: 5px; flex: 0 0 auto; border: 1px solid currentColor; transform: rotate(45deg); }
-.theme-ornament-header { --ornament-label: var(--theme-label-header, ''); left: 66px; bottom: 6px; color: var(--accent); }
+.theme-ornament-header { display: none; }
 .theme-ornament-hero { --ornament-label: var(--theme-label-hero, ''); left: 0; bottom: 14px; color: var(--accent); }
 .theme-ornament-checker { --ornament-label: var(--theme-label-checker, ''); top: 16px; right: 24px; }
 .theme-ornament-applicant { --ornament-label: var(--theme-label-applicant, ''); top: 10px; right: 14px; }

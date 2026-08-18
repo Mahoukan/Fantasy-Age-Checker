@@ -1,6 +1,5 @@
 import type { Quip } from '../../types/quip'
 
-/** Stage 11 commentary scoped to the 21 expanded-register species IDs. */
 export const expandedSpeciesQuips = [
   { id: 'expanded-half-elf-maturity-001', text: 'The Half-Elf lifecycle table has been filed between the human and elven volumes without favouring either shelf.', slot: 'MATURITY', species: ['half-elf'] },
   { id: 'expanded-half-elf-experience-001', text: 'The Half-Elf experience record contains both brisk decades and very patient family correspondence.', slot: 'EXPERIENCE', species: ['half-elf'] },

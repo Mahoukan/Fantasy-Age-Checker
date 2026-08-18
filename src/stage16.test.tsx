@@ -77,7 +77,7 @@ describe('Stage 16 card format registry and controls', () => {
 
   it('renders an accessible visible format group with Standard selected', () => {
     const markup = renderToStaticMarkup(<ShareControls result={consultation()} />)
-    expect(markup).toContain('<legend>Card Format</legend>')
+    expect(markup).toContain('<legend>Result Card Format</legend>')
     expect(markup).toContain('Selected format: Standard')
     for (const format of resultCardFormats) {
       expect(markup).toContain(`value="${format.id}"`)

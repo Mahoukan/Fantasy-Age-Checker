@@ -2,7 +2,7 @@
 
 Fantasy Age Checker is a humorous, single-page fantasy utility presented by the fictional **Arcane Relationship Bureau — Department of Inter-Species Affairs**. It compares two adult fictional characters using species-relative maturity and actual adult experience, then issues an unnecessarily official ruling.
 
-Version 2.0 development is underway from the stable 1.3.0 release; the package remains at 1.3.0 during the staged work. It is a static React, TypeScript, and Vite application with no backend, database, accounts, analytics, runtime secrets, or required environment variables.
+Fantasy Age Checker 2.0.0 is the current release. It is a static React, TypeScript, and Vite application with no backend, database, accounts, analytics, runtime secrets, or required environment variables.
 
 ## Screenshot
 
@@ -47,7 +47,7 @@ gap = abs(applicantAAdultExperience - applicantBAdultExperience)
 
 Longevity is separate context based on `age / typicalLifespan`. A typical lifespan is a reference, not a validation limit, so even unusually large finite ages remain valid.
 
-During v2 development, non-normal longevity now receives richer, deterministic Bureau presentation, and mathematically unusual approved consultations may receive up to two Rare Bureau Findings. These additions are selected after the existing consultation has been calculated and remain presentation-only: they never alter compatibility, calculations, verdicts, quips, case numbers, or permalinks.
+In v2.0, non-normal longevity receives richer, deterministic Bureau presentation, and mathematically unusual approved consultations may receive up to two Rare Bureau Findings. These additions are selected after the existing consultation has been calculated and remain presentation-only: they never alter compatibility, calculations, verdicts, quips, case numbers, or permalinks.
 
 ## Reverse Lookup / Chronological Equivalence Office
 
@@ -91,7 +91,7 @@ Clipboard and Web Share features degrade to clear, non-fatal messages when the b
 
 Approved rulings can also be saved as self-contained PNG cards. The browser builds a plain-text SVG from the already-submitted result, rasterises it locally with Canvas, and downloads the PNG; no screenshot library, server renderer, upload, or network request is involved. Every format keeps the submitted case number and factual ruling. Optional applicant names are included when present, custom species use their display names without exposing internal IDs, and existing longevity context is shown where the selected format calls for it.
 
-The session-only **Card Format** control is independent from **Card Theme**:
+The session-only **Result Card Format** control is independent from **Result Card Theme**:
 
 - **Compact** (1080x1080) keeps applicant identity, ages, both verdicts, one already-submitted headline quip, relevant longevity flags, and Bureau status for quick sharing.
 - **Standard** (1080x1350) is the default and preserves the complete familiar ruling with both assessment quips, factual experience values, longevity notices, and Bureau Note.
@@ -99,7 +99,7 @@ The session-only **Card Format** control is independent from **Card Theme**:
 
 Format affects PNG generation only. It is reset to Standard for each newly mounted consultation result, is not stored in `localStorage`, and never enters copied text or permalinks. Card theme and format can be combined independently across all 30 supported combinations.
 
-The **Card Theme** picker offers Bureau Classic (the default), Royal Decree, Elven Archive, Dwarven Registry, Goblin Administration, Arcane Terminal, Fae Court, Dragon Archive, Celestial Tribunal, and Obsidian Records. A theme changes image presentation only: it never changes applicants, calculations, verdicts, case numbers, longevity, or any submitted commentary. The image theme lives only in component memory and is not stored or encoded in permalinks.
+The **Result Card Theme** picker offers Bureau Classic (the default), Royal Decree, Elven Archive, Dwarven Registry, Goblin Administration, Arcane Terminal, Fae Court, Dragon Archive, Celestial Tribunal, and Obsidian Records. A theme changes image presentation only: it never changes applicants, calculations, verdicts, case numbers, longevity, or any submitted commentary. The image theme lives only in component memory and is not stored or encoded in permalinks.
 
 ## Website themes
 
@@ -107,11 +107,11 @@ The header **Theme** selector applies the same ten identities to the whole inter
 
 Website and result-card themes are deliberately independent. A newly submitted consultation starts its image card with the website theme active at submission time, after which either theme can be changed without changing the other. Existing results, applicant inputs, calculations, verdicts, quips, Bureau notes, case numbers, and longevity context survive website-theme changes unchanged. Neither theme is included in a permalink.
 
-Stage 15 begins the v2 presentation overhaul. The ten website themes now share a richer registry describing structural presentation: document geometry, panel and divider treatment, heading and label systems, controls, seals, consultation indicators, result framing, density, and footer treatment. A single assistive-technology-hidden ornament component supplies lightweight CSS geometry and decorative departmental microcopy at a small set of shared locations. Themes remain one component architecture rather than ten page implementations.
+The ten website themes share a registry describing structural presentation: document geometry, panel and divider treatment, heading and label systems, controls, seals, consultation indicators, result framing, density, and footer treatment. A single assistive-technology-hidden ornament component supplies lightweight CSS geometry and decorative departmental microcopy at a small set of shared locations. Themes remain one component architecture rather than ten page implementations.
 
 Each identity now represents a distinct fictional department: Bureau Classic uses registered forms and filing rules; Royal Decree uses ceremonial double frames; Elven Archive uses folio margins and fine archival entries; Dwarven Registry uses angular inset plates; Goblin Administration uses deliberately offset files and layered stamps; Arcane Terminal uses system bars and data panels; Fae Court uses asymmetric petitions; Dragon Archive uses fortified vault framing; Celestial Tribunal uses symmetrical orbital dockets; and Obsidian Records uses spacious editorial indexing. These differences affect presentation only. All factual content, calculations, lifecycle records, applicant data, selected commentary, case numbers, sharing text, and permalink behaviour remain common and unchanged.
 
-The theme layer retains visible focus, hover, disabled, and error states and simplifies dense or offset ornamentation on narrow screens. Theme decoration is CSS-generated, non-interactive, hidden from assistive technology, and motion-free; the existing reduced-motion behaviour remains in place. Website themes and generated-image themes remain independent after a consultation, and Stage 15 deliberately leaves exported image-card layouts visually stable for the Stage 16 result-card-format work.
+The theme layer retains visible focus, hover, disabled, and error states and simplifies dense or offset ornamentation on narrow screens. Theme decoration is CSS-generated, non-interactive, hidden from assistive technology, and motion-free; the existing reduced-motion behaviour remains in place. Website themes and generated-image themes remain independent after a consultation.
 
 **Save Image** uses the selected style. **Share Image** also uses it and appears only when the browser reports support for sharing actual files through `navigator.canShare({ files })`; otherwise **Save Image** remains available. Image generation and sharing failures leave the ruling intact and are announced in the result controls.
 
@@ -150,8 +150,8 @@ The deployable static output is written to `dist/`.
 The multi-stage image builds the Vite project with Node and serves only the generated static files from nginx on port `8080`:
 
 ```bash
-docker build -t fantasy-age-checker:1.3.0 .
-docker run --rm -p 8080:8080 fantasy-age-checker:1.3.0
+docker build -t fantasy-age-checker:2.0.0 .
+docker run --rm -p 8080:8080 fantasy-age-checker:2.0.0
 ```
 
 Open `http://localhost:8080/`. The image health check performs `GET /`; a healthy deployment returns HTTP 200. Hashed Vite assets receive long-lived immutable caching, while `index.html` uses revalidation-friendly `no-cache` behaviour.
@@ -162,10 +162,11 @@ Open `http://localhost:8080/`. The image health check performs `GET /`; a health
 2. Select **Dockerfile** as the build method; the repository-root `Dockerfile` requires no custom path.
 3. Set the internal/exposed container port to `8080`.
 4. Leave environment variables empty; none are required.
-5. Attach the desired domain and enable HTTPS through Coolify's reverse proxy.
-6. Configure the health check path as `/` and expect HTTP 200.
-7. Deploy, then verify the main checker and `/?sa=elf&aa=300&sb=human&ab=34#checker`.
-8. Over HTTPS, verify Copy Result, Copy Link, Save Image, and native text/file sharing on supported browsers. The checker remains usable when optional APIs are unavailable.
+5. Do not provision a database or persistent volume; the application is fully static.
+6. Attach the desired domain and enable HTTPS through Coolify's reverse proxy.
+7. Configure the health check path as `/` and expect HTTP 200.
+8. Deploy, then verify the main checker and `/?sa=elf&aa=300&sb=human&ab=34#checker`.
+9. Over HTTPS, verify Copy Result, Copy Link, Save Image, and native text/file sharing on supported browsers. The checker remains usable when optional APIs are unavailable.
 
 ## Privacy and security
 

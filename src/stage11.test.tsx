@@ -118,7 +118,7 @@ describe('selector and guide integration', () => {
     expect(getBuiltInSpeciesGuideRecords()).toHaveLength(30)
     for (const entry of species) {
       expect(guide).toContain(`data-species-id="${entry.id}"`)
-      expect(guide).toContain(`<h4>${entry.name}</h4>`)
+      expect(guide).toContain(`<strong>${entry.name}</strong>`)
     }
   })
 })

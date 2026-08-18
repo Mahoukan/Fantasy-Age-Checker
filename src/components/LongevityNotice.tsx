@@ -28,7 +28,10 @@ export function LongevityNotice({ applicant, longevity, theatre }: LongevityNoti
       <span className="longevity-notice-heading">{theatre?.proceduralLabel ?? noticeHeading}</span>
       <strong>{theatre?.headline ?? label}</strong>
       {theatre?.stamp && <span className="longevity-stamp" aria-hidden="true">{theatre.stamp}</span>}
-      <p>{theatre?.note ?? `${displayName} has exceeded the typical lifespan recorded for their species.`}</p>
+      <p>
+        {displayName} has exceeded the typical lifespan recorded for their species.
+        {theatre ? ` ${theatre.note}` : ''}
+      </p>
       {theatre && <span className="longevity-factual-label">Bureau classification: {label}</span>}
       <dl>
         <div><dt>Recorded age</dt><dd>{formatYears(applicant.age)} years</dd></div>

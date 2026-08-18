@@ -1,50 +1,27 @@
 # Changelog
 
-## Unreleased / v2.0
+## 2.0.0 - 2026-08-19
 
-### Stage 20 - Reverse Lookup + v2 Polish
+### Added
 
-- Added the same-page Chronological Equivalence Office for one-directional source-to-target lifecycle conversion using shared maturity utilities.
-- Added adult-safe target ranges, restrained below-adulthood context, optional lifecycle reference notes, and support for built-in or temporary custom species.
-- Added an optional action that loads an adult equivalent pair into the existing Checker without names, submission, quips, case numbers, experience analysis, or findings.
-- Added Reverse Lookup navigation and targeted consistency polish for theme labels, result-card controls, Bureau Case hierarchy, Species Register density, and narrow layouts.
-- Kept Reverse Lookup independent and non-persistent; normal consultation calculations, results, sharing, permalinks, and all alternate lifecycle models remain unchanged.
+- Added ten substantially richer website themes built on one shared typed presentation architecture, while keeping website and exported-card themes independent.
+- Added Compact (1080x1080), Standard (1080x1350) and Full Dossier (1080x1920) generated-image formats with accessible, session-only controls.
+- Added the Bureau Cases desk with profile-aware random assignments, three deterministic daily files and a curated ten-file archive that populate the existing Checker without auto-submission.
+- Added a complete Bureau Species Register for all 30 built-in species, with presentation-only classifications, observations, filing issues, archival notes and relevant curated-file links.
+- Added deterministic Longevity Theatre for existing non-normal longevity results and a priority-based set of 20 Rare Bureau Findings, capped at two per approved consultation.
+- Added the one-directional Chronological Equivalence Office, including adult-safe target ranges, custom-species support and an optional action that loads an adult equivalent pair into the Checker without submitting it.
 
-### Stage 19 - Longevity Theatre + Rare Bureau Findings
+### Changed
 
-- Added deterministic, applicant-specific Bureau theatre for the existing non-normal longevity categories, including procedural labels and a secondary dual-longevity banner.
-- Added a pure priority-based engine with 20 unusual consultation findings, explicit suppression groups, and a maximum of two submitted findings.
-- Integrated submitted presentation into approved web rulings and the three existing image formats: Compact stays restrained, Standard shows at most one finding, and Full Dossier supports two.
-- Kept Stage 19 presentation-only and in memory; calculations, thresholds, verdicts, quips, Bureau Notes, case numbers, copied text, permalinks, themes, and persistence remain unchanged.
+- Expanded responsive and theme-aware presentation across the Checker, results, information sections, Bureau Cases, Species Register, Reverse Lookup and image controls.
+- Clarified Website Theme, Result Card Theme and Result Card Format as separate presentation choices.
+- Preserved the existing maturity, adult-experience, longevity, adulthood, quip, case-number and permalink systems as the canonical calculation and sharing paths.
 
-### Stage 18 — Species Register 2.0
+### Fixed
 
-- Expanded the Species Guide into an accessible Bureau Species Register with one complete presentation-only profile for every built-in species.
-- Added concise lifecycle summaries, classifications, Bureau observations, filing issues, chronological peculiarities, and two archival notes per record without duplicating canonical lifecycle values.
-- Added native disclosure records that keep adulthood, typical lifespan, and existing maturity constants easy to scan across desktop and mobile layouts.
-- Connected relevant species profiles to permanent Stage 17 curated files through the existing shared case-loading pathway; custom species remain temporary factual records only.
-
-### Stage 17 — Bureau Cases
-
-- Added profile-aware random Bureau Case assignment with reproducible injected randomness and valid built-in adult applicants.
-- Added three deterministic local-date Bureau files—Routine, Complicated, and Extraordinary—with no backend or persistence.
-- Added a typed ten-file curated archive whose Borderline, experience, and longevity claims are verified through the existing calculation utilities.
-- Added one shared, accessible case-loading path that clears names and stale rulings, preserves temporary custom species and themes, and populates the existing Checker without automatic consultation or permalink changes.
-
-### Stage 16 — Result Card Formats
-
-- Added independent Compact, Standard, and Full Dossier formats for generated ruling images, with Standard remaining the 1080x1350 default.
-- Added a typed format registry and accessible, session-only Card Format controls beside the independent ten-theme Card Theme controls.
-- Added a 1080x1080 Compact layout for essential sharing details and a 1080x1920 Full Dossier with lifecycle records, calculation evidence, factual Bureau Findings, and expanded longevity context.
-- Kept image generation private and client-side; format does not affect the web ruling, consultation, commentary selection, case number, copied result, website theme, storage, or permalink.
-
-### Stage 15 — Theme Overhaul
-
-- Extended the shared website-theme registry with structural presentation metadata for panels, headings, dividers, labels, controls, seals, consultation states, results, density, geometry, and footers.
-- Added one reusable, accessibility-hidden ornament primitive and lightweight CSS-generated departmental framing across the header, hero, checker, applicant records, loading state, rulings, information pages, dialog, and footer.
-- Gave all ten stable theme identities distinct layouts and document treatments beyond palette and typography while keeping a single shared component architecture.
-- Preserved calculations, lifecycle data, IDs, quip and case-number selection, applicant/custom-species state, copied output, permalink format, and independent result-image themes.
-- Added Stage 15 architecture, safe-fallback, decoration-rendering, consultation-stability, custom-data, and sharing-stability coverage.
+- Strengthened narrow-screen stacking and hierarchy for navigation, Reverse Lookup, Bureau Case cards, Species Register disclosures and result-image controls.
+- Ensured generated result formats consume already-submitted longevity and finding presentation rather than selecting new wording during image generation.
+- Corrected the Reverse Lookup adult-range separator so it renders without mojibake.
 
 ## 1.3.0
 
@@ -69,8 +46,7 @@
 
 - Expanded the permanent lifecycle register from 9 to 30 setting-neutral fantasy species, with grouped selectors, matching Species Guide records, and species-aware Bureau commentary.
 - Added locally generated 1080x1350 PNG ruling cards that preserve the submitted case number, verdicts, selected quip, custom display names, and relevant longevity notices.
-- Added **Save Image** for approved results and capability-gated **Share Image** support when the browser explicitly accepts file shares.
-- Added safe XML escaping, measured text wrapping, graceful image-generation failures, and focused coverage for the SVG, PNG, download, and file-sharing pipeline.
+- Added Save Image and capability-gated Share Image support, safe XML escaping, measured text wrapping and nonfatal image-generation failures.
 
 ## 1.0.0
 

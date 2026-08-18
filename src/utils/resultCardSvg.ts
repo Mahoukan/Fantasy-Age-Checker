@@ -477,7 +477,7 @@ function specialFindingStrip(
     ${label('Special Bureau Finding', 115, 1014, theme)}
     ${text(titleText.lines, 115, 1038, { fontSize: titleText.fontSize, lineHeight: titleText.lineHeight, fontFamily: theme.displayFont, fontWeight: 700, fill: theme.palette.ink })}
     ${text(findingText.lines, 115, 1057, { fontSize: findingText.fontSize, lineHeight: findingText.lineHeight, fontFamily: theme.bodyFont, fill: theme.palette.muted })}
-    ${longevity ? text(longevity.lines, 965, 1017, { fontSize: longevity.fontSize, lineHeight: longevity.lineHeight, fontFamily: theme.bodyFont, fontWeight: 700, fill: theme.palette.accent, anchor: 'end' }) : ''}
+    ${longevity ? `<g id="longevity-advisory">${text(longevity.lines, 965, 1017, { fontSize: longevity.fontSize, lineHeight: longevity.lineHeight, fontFamily: theme.bodyFont, fontWeight: 700, fill: theme.palette.accent, anchor: 'end' })}</g>` : ''}
   </g>`
 }
 
