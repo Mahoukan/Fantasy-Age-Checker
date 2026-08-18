@@ -1,0 +1,33 @@
+{
+  "name": "fantasy-age-checker",
+  "private": true,
+  "version": "1.2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "typecheck": "tsc -b",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "preview": "vite preview",
+    "check": "npm run test && npm run lint && npm run typecheck && npm run build"
+  },
+  "dependencies": {
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@eslint/js": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@vitejs/plugin-react": "latest",
+    "eslint": "latest",
+    "eslint-plugin-react-hooks": "latest",
+    "eslint-plugin-react-refresh": "latest",
+    "globals": "latest",
+    "typescript": "latest",
+    "typescript-eslint": "latest",
+    "vite": "latest",
+    "vitest": "latest"
+  }
+}
