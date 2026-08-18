@@ -42,6 +42,25 @@ export function getHumanEquivalentAge(age: number, lifespan: number): number {
   return age * scale
 }
 
+/** Converts a shared human-equivalent maturity back to a species' chronological scale. */
+export function getChronologicalAgeFromHumanEquivalent(
+  humanEquivalentAge: number,
+  lifespan: number,
+): number {
+  if (!Number.isFinite(humanEquivalentAge)) {
+    throw new RangeError('Equivalent maturity must be finite.')
+  }
+  if (!Number.isFinite(lifespan) || lifespan <= 0) {
+    throw new RangeError('Typical lifespan must be a positive finite number.')
+  }
+
+  const scale = lifespan / HUMAN_REFERENCE_LIFESPAN
+  if (Math.abs(humanEquivalentAge) > Number.MAX_VALUE / scale) {
+    return Math.sign(humanEquivalentAge) * Number.MAX_VALUE
+  }
+  return humanEquivalentAge * scale
+}
+
 /** Traditional half-age-plus-seven range on the shared human scale. */
 export function getMaturityRange(humanEquivalentAge: number): MaturityRange {
   const maximum = humanEquivalentAge > Number.MAX_VALUE / 2

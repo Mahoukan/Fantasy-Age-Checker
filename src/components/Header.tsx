@@ -52,7 +52,7 @@ export function Header({
             ))}
           </nav>
           <label className="site-theme-control">
-            <span>Theme</span>
+            <span>Website Theme</span>
             <select
               aria-label="Website theme"
               value={siteThemeId}

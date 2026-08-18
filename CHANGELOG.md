@@ -2,6 +2,14 @@
 
 ## Unreleased / v2.0
 
+### Stage 20 - Reverse Lookup + v2 Polish
+
+- Added the same-page Chronological Equivalence Office for one-directional source-to-target lifecycle conversion using shared maturity utilities.
+- Added adult-safe target ranges, restrained below-adulthood context, optional lifecycle reference notes, and support for built-in or temporary custom species.
+- Added an optional action that loads an adult equivalent pair into the existing Checker without names, submission, quips, case numbers, experience analysis, or findings.
+- Added Reverse Lookup navigation and targeted consistency polish for theme labels, result-card controls, Bureau Case hierarchy, Species Register density, and narrow layouts.
+- Kept Reverse Lookup independent and non-persistent; normal consultation calculations, results, sharing, permalinks, and all alternate lifecycle models remain unchanged.
+
 ### Stage 19 - Longevity Theatre + Rare Bureau Findings
 
 - Added deterministic, applicant-specific Bureau theatre for the existing non-normal longevity categories, including procedural labels and a secondary dual-longevity banner.

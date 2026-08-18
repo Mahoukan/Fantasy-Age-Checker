@@ -289,6 +289,37 @@ h1 { margin-bottom: 14px; color: var(--page-text); font-family: var(--serif); fo
 .information-header h2 { margin-bottom: 10px; color: var(--burgundy); font: 500 clamp(1.7rem, 4vw, 2.35rem)/1.15 var(--serif); }
 .information-header > p:last-child { margin-bottom: 0; color: var(--ink-soft); line-height: 1.65; }
 
+.reverse-lookup-section { overflow: hidden; }
+.reverse-lookup-form { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.reverse-lookup-form fieldset { min-width: 0; margin: 0; padding: 22px; background: var(--surface-raised); border: 1px solid var(--border); }
+.reverse-lookup-form legend { padding: 0 9px; color: var(--heading-color); font: 600 1.05rem var(--heading-font); }
+.reverse-lookup-form-note { margin: 20px 0 0; color: var(--text-secondary); font-size: 0.78rem; line-height: 1.55; }
+.reverse-lookup-submit { grid-column: 1 / -1; display: flex; justify-content: center; padding-top: 4px; }
+.reverse-lookup-submit button { min-height: 52px; padding: 12px 24px; color: var(--button-text); background: var(--button-bg); border: 1px solid var(--border-strong); border-radius: var(--panel-radius); font-family: var(--heading-font); font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; }
+.reverse-lookup-submit button:hover { filter: brightness(1.1); transform: translateY(-1px); }
+.reverse-lookup-result { margin-top: 34px; padding-top: 28px; border-top: 1px solid var(--border); }
+.reverse-lookup-result > header h3 { margin: 6px 0 18px; color: var(--heading-color); font: 600 1.45rem var(--heading-font); }
+.reverse-lookup-result-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.reverse-lookup-result-grid article { min-width: 0; padding: 19px; color: var(--text-primary); background: var(--surface-raised); border: 1px solid var(--border); border-top: 3px solid var(--accent); }
+.reverse-lookup-result-grid h4 { margin: 7px 0 12px; color: var(--heading-color); font: 600 1.05rem var(--heading-font); overflow-wrap: anywhere; }
+.reverse-lookup-result-grid dl { display: grid; gap: 7px; margin: 0; }
+.reverse-lookup-result-grid dl div { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-top: 7px; border-top: 1px dotted var(--border); }
+.reverse-lookup-result-grid dt { color: var(--text-secondary); font-size: 0.69rem; }
+.reverse-lookup-result-grid dd { margin: 0; color: var(--text-primary); font-size: 0.78rem; font-weight: 800; text-align: right; }
+.reverse-lookup-primary-value { display: block; color: var(--heading-color); font: 600 clamp(1.05rem, 2.5vw, 1.3rem)/1.35 var(--heading-font); overflow-wrap: anywhere; }
+.restrained-context { margin: 10px 0 0; color: var(--text-secondary); font-size: 0.76rem; line-height: 1.5; }
+.reverse-lookup-explanation { margin-top: 16px; padding: 18px 20px; background: var(--surface-inset); border-left: 4px solid var(--accent-secondary); }
+.reverse-lookup-explanation h4 { margin: 0 0 9px; color: var(--heading-color); font: 600 1rem var(--heading-font); }
+.reverse-lookup-explanation p { margin: 6px 0 0; color: var(--text-secondary); font-size: 0.82rem; line-height: 1.55; }
+.reverse-lookup-lifecycle-note { margin-top: 14px; padding: 14px 17px; background: var(--surface-inset); border: 1px solid var(--border); }
+.reverse-lookup-lifecycle-note strong { color: var(--heading-color); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.reverse-lookup-lifecycle-note p { margin: 6px 0 0; color: var(--text-secondary); font-size: 0.78rem; }
+.reverse-lookup-unavailable { margin-top: 28px; padding: 18px 20px; background: var(--surface-inset); border: 1px solid var(--border); border-left: 4px solid var(--danger); }
+.reverse-lookup-unavailable h3 { margin: 0 0 7px; color: var(--danger); font: 700 1rem var(--heading-font); letter-spacing: 0.06em; text-transform: uppercase; }
+.reverse-lookup-unavailable p { margin: 0; color: var(--text-secondary); line-height: 1.55; }
+.reverse-lookup-action { display: flex; align-items: center; gap: 14px; margin-top: 18px; }
+.reverse-lookup-action small { color: var(--text-secondary); font-size: 0.74rem; line-height: 1.45; }
+
 .bureau-cases-section { overflow: hidden; }
 .bureau-case-subsection + .bureau-case-subsection { margin-top: 40px; padding-top: 34px; border-top: 1px solid var(--border); }
 .random-case-panel { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 24px; background: var(--surface-inset); border: 1px solid var(--border-strong); border-left: 5px solid var(--accent-secondary); }
@@ -314,6 +345,8 @@ h1 { margin-bottom: 14px; color: var(--page-text); font-family: var(--serif); fo
 .bureau-case-applicants dt { color: var(--text-secondary); font-size: 0.67rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
 .bureau-case-applicants dd { min-width: 0; margin: 0; color: var(--text-primary); font-size: 0.78rem; font-weight: 800; text-align: right; overflow-wrap: anywhere; }
 .bureau-case-action { width: 100%; margin-top: 18px; }
+.daily-case-card { border-top-width: 4px; }
+.curated-case-card { border-top-width: 1px; border-left: 4px solid var(--accent-secondary); box-shadow: none; }
 
 .species-register-groups { display: grid; gap: 30px; }
 .species-register-group > h3 { margin: 0 0 13px; padding-bottom: 9px; color: var(--burgundy); border-bottom: 1px solid #c6b898; font: 600 1.08rem var(--serif); letter-spacing: 0.035em; }
@@ -336,7 +369,7 @@ h1 { margin-bottom: 14px; color: var(--page-text); font-family: var(--serif); fo
 .species-register-section .species-register-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
 .species-register-section .species-register-card { padding: 0; overflow: hidden; }
 .species-register-card[open] { grid-column: 1 / -1; }
-.species-register-card summary { position: relative; min-width: 0; padding: 20px; cursor: pointer; }
+.species-register-card summary { position: relative; min-width: 0; padding: 17px 19px; cursor: pointer; }
 .species-register-card summary::marker { color: var(--accent-secondary); }
 .species-register-card summary:hover { background: color-mix(in srgb, var(--surface-inset) 48%, transparent); }
 .species-register-card summary:focus-visible { outline: 3px solid var(--focus); outline-offset: -5px; }
@@ -724,6 +757,7 @@ html[data-theme='obsidian-records'] .verdict-quip::before { display: none; }
   nav { width: 100%; gap: 20px; overflow-x: auto; }
   .nav-link { white-space: nowrap; }
   .applicants-layout { grid-template-columns: 1fr; }
+  .reverse-lookup-form, .reverse-lookup-result-grid { grid-template-columns: 1fr; }
   .applicant-separator { height: 54px; flex-direction: row; }
   .applicant-separator::before, .applicant-separator::after { width: auto; height: 1px; }
   .applicant-separator span { margin: 0 12px; }
@@ -752,6 +786,9 @@ html[data-theme='obsidian-records'] .verdict-quip::before { display: none; }
   .temporary-species-action { width: 100%; align-items: flex-start; justify-content: space-between; text-align: left; }
   .applicant-card { padding: 22px 17px; }
   .submission-area button { width: 100%; padding-inline: 16px; }
+  .reverse-lookup-form fieldset { padding: 18px 16px; }
+  .reverse-lookup-action { align-items: stretch; flex-direction: column; }
+  .reverse-lookup-action .secondary-action { width: 100%; }
   .consultation-status { grid-template-columns: 1fr; text-align: center; }
   .consultation-orbit { margin-inline: auto; }
   .assessment-grid, .maturity-math, .comparison-facts, .lifecycle-facts-grid { grid-template-columns: 1fr; }

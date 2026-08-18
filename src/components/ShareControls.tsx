@@ -146,7 +146,7 @@ export function ShareControls({ result, initialThemeId = DEFAULT_RESULT_IMAGE_TH
         <h3 id="share-ruling-title">Share This Ruling</h3>
       </div>
       <fieldset className="result-format-picker" disabled={isGeneratingImage} aria-describedby="result-format-help">
-        <legend>Card Format</legend>
+        <legend>Result Card Format</legend>
         <p id="result-format-help">Choose how much detail the saved or shared image includes.</p>
         <div className="result-format-options">
           {resultCardFormats.map((format) => {
@@ -174,7 +174,7 @@ export function ShareControls({ result, initialThemeId = DEFAULT_RESULT_IMAGE_TH
         </p>
       </fieldset>
       <fieldset className="result-theme-picker" disabled={isGeneratingImage} aria-describedby="result-theme-help">
-        <legend>Card Theme</legend>
+        <legend>Result Card Theme</legend>
         <p id="result-theme-help">
           Choose the presentation used when saving or sharing an image. Ruling content stays unchanged.
         </p>

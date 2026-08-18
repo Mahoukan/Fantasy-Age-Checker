@@ -7,6 +7,10 @@ const equivalentYearsFormatter = new Intl.NumberFormat('en', {
   maximumFractionDigits: 1,
 })
 
+const lookupYearsFormatter = new Intl.NumberFormat('en', {
+  maximumFractionDigits: 1,
+})
+
 const percentageFormatter = new Intl.NumberFormat('en', {
   minimumFractionDigits: 1,
   maximumFractionDigits: 1,
@@ -26,6 +30,14 @@ export function formatEquivalentYears(value: number): string {
   }
 
   return equivalentYearsFormatter.format(value)
+}
+
+export function formatLookupYears(value: number): string {
+  if (Math.abs(value) >= 1e12) return value.toExponential(2)
+  const nearestInteger = Math.round(value)
+  return Math.abs(value - nearestInteger) <= 1e-9
+    ? numberFormatter.format(nearestInteger)
+    : lookupYearsFormatter.format(value)
 }
 
 export function formatPercentage(ratio: number): string {

@@ -35,6 +35,7 @@ import { DEFAULT_RESULT_IMAGE_THEME_ID, type ResultImageThemeId } from '../data/
 import { ThemeOrnament } from './ThemeOrnament'
 import type { BureauCaseLoadRequest } from '../data/bureauCases'
 import { createBureauCaseLoadUpdate } from '../utils/bureauCases'
+import { ReverseLookup } from './ReverseLookup'
 
 const initialApplicantA: Applicant = { speciesId: 'elf', age: 300 }
 const initialApplicantB: Applicant = { speciesId: 'human', age: 34 }
@@ -248,8 +249,26 @@ export function Checker({ siteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID, bureauCas
     }
   }
 
+  function handleUseReverseLookupPair(nextApplicantA: Applicant, nextApplicantB: Applicant) {
+    consultationSchedulerRef.current?.cancel()
+    setApplicantA(nextApplicantA)
+    setApplicantB(nextApplicantB)
+    setAgeErrors({})
+    setResult(null)
+    setPendingConsultation(null)
+    setShareRestoreMessage(null)
+    setBureauCaseMessage('Equivalence pair loaded. Review both applicant records before consulting the Oracle.')
+
+    window.location.hash = 'checker'
+    setTimeout(() => {
+      document.getElementById('checker')?.scrollIntoView({ block: 'start' })
+      document.getElementById('applicant-a-species')?.focus({ preventScroll: true })
+    }, 0)
+  }
+
   return (
-    <section className="checker-section" id="checker" aria-labelledby="checker-title">
+    <>
+      <section className="checker-section" id="checker" aria-labelledby="checker-title">
       <ThemeOrnament location="checker" />
       <div className="checker-heading">
         <p className="eyebrow dark">Departmental form ARB-01</p>
@@ -338,12 +357,17 @@ export function Checker({ siteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID, bureauCas
       )}
       {result?.status === 'rejected' && <RejectionResult applicants={result.applicants} />}
 
-      <CustomSpeciesDialog
-        isOpen={isCustomSpeciesDialogOpen}
+        <CustomSpeciesDialog
+          isOpen={isCustomSpeciesDialogOpen}
+          availableSpecies={availableSpecies}
+          onRegister={handleRegisterCustomSpecies}
+          onClose={handleCloseCustomSpeciesDialog}
+        />
+      </section>
+      <ReverseLookup
         availableSpecies={availableSpecies}
-        onRegister={handleRegisterCustomSpecies}
-        onClose={handleCloseCustomSpeciesDialog}
+        onUsePair={handleUseReverseLookupPair}
       />
-    </section>
+    </>
   )
 }

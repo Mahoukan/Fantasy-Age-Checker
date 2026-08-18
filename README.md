@@ -13,6 +13,7 @@ _Release screenshot to be added when the public deployment has a final domain._
 - Thirty generic built-in fantasy species with canonical lifecycle facts and complete presentation-only Bureau Species Profiles, organised into the existing registry groups.
 - A strict adulthood safeguard that stops the normal assessment if either applicant is below their species' recognised adulthood.
 - Independent maturity and adult-experience verdicts; they are never blended into an overall score.
+- A one-directional Chronological Equivalence Office for converting one adult lifecycle position into another species' age scale without creating a consultation.
 - Longevity notices for ages beyond a typical lifespan without treating lifespan as a maximum.
 - Session-only custom species with a name, adulthood age, and typical lifespan.
 - Optional, session-only applicant display names that appear in rulings, copied text, and PNG exports without affecting any calculation.
@@ -47,6 +48,12 @@ gap = abs(applicantAAdultExperience - applicantBAdultExperience)
 Longevity is separate context based on `age / typicalLifespan`. A typical lifespan is a reference, not a validation limit, so even unusually large finite ages remain valid.
 
 During v2 development, non-normal longevity now receives richer, deterministic Bureau presentation, and mathematically unusual approved consultations may receive up to two Rare Bureau Findings. These additions are selected after the existing consultation has been calculated and remain presentation-only: they never alter compatibility, calculations, verdicts, quips, case numbers, or permalinks.
+
+## Reverse Lookup / Chronological Equivalence Office
+
+Reverse Lookup answers a narrower, one-directional question: given one species and age, what chronological age and maturity-compatible adult range occupy the corresponding lifecycle position in another species? It reuses the Checker's existing human-equivalent maturity conversion and range utilities, but it does not compare adult experience or create a relationship consultation. A normal consultation still checks maturity compatibility in both directions.
+
+The source record must have reached its species' recognised adulthood. Target ranges are intersected with the selected target species' adulthood threshold, and below-adulthood mathematical equivalents are labelled as context rather than adult recommendations. Built-in and current-session temporary custom species are supported as both source and target. Reverse Lookup state is independent from the Checker, is not persisted, and is not added to URLs; its optional Checker action only populates two unnamed applicant records for review without submitting them.
 
 ## Temporary custom species
 
