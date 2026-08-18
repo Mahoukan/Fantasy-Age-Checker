@@ -278,6 +278,32 @@ h1 { margin-bottom: 14px; color: var(--page-text); font-family: var(--serif); fo
 .information-header h2 { margin-bottom: 10px; color: var(--burgundy); font: 500 clamp(1.7rem, 4vw, 2.35rem)/1.15 var(--serif); }
 .information-header > p:last-child { margin-bottom: 0; color: var(--ink-soft); line-height: 1.65; }
 
+.bureau-cases-section { overflow: hidden; }
+.bureau-case-subsection + .bureau-case-subsection { margin-top: 40px; padding-top: 34px; border-top: 1px solid var(--border); }
+.random-case-panel { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 24px; background: var(--surface-inset); border: 1px solid var(--border-strong); border-left: 5px solid var(--accent-secondary); }
+.random-case-panel > div { min-width: 0; }
+.random-case-panel h3, .bureau-case-heading-row h3 { margin: 6px 0 8px; color: var(--heading-color); font: 600 1.35rem var(--heading-font); }
+.random-case-panel p:last-child { margin-bottom: 0; color: var(--text-secondary); line-height: 1.55; }
+.bureau-case-primary-action { flex: 0 0 auto; min-height: 54px; padding: 13px 22px; color: var(--button-text); background: var(--button-bg); border: 1px solid var(--accent-secondary); border-radius: var(--panel-radius); font-family: var(--heading-font); font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; }
+.bureau-case-primary-action:hover { filter: brightness(1.1); transform: translateY(-1px); }
+.bureau-case-status { min-height: 1.4em; margin: 12px 0 0; color: var(--positive); font-size: 0.78rem; font-weight: 700; }
+.bureau-case-heading-row { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 18px; }
+.bureau-case-heading-row > p { max-width: 430px; margin-bottom: 4px; color: var(--text-secondary); font-size: 0.82rem; line-height: 1.5; }
+.daily-case-grid, .curated-case-grid { display: grid; gap: 16px; }
+.daily-case-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.curated-case-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.bureau-case-card { min-width: 0; display: flex; flex-direction: column; padding: 21px; background: color-mix(in srgb, var(--surface-raised) 68%, transparent); border: var(--panel-border-width) solid var(--border); border-top: 3px solid var(--accent); border-radius: var(--panel-radius); box-shadow: 0 8px 18px color-mix(in srgb, var(--shadow) 35%, transparent); }
+.bureau-case-card h4 { margin: 7px 0 8px; color: var(--heading-color); font: 600 1.16rem/1.2 var(--heading-font); overflow-wrap: anywhere; }
+.bureau-case-category { margin: 0 0 12px; color: var(--positive); font-size: 0.64rem; font-weight: 800; letter-spacing: 0.1em; line-height: 1.4; text-transform: uppercase; }
+.bureau-case-description, .bureau-case-teaser { color: var(--text-secondary); font-size: 0.8rem; line-height: 1.5; }
+.bureau-case-description { flex: 1 0 auto; }
+.bureau-case-teaser { flex: 1 0 auto; margin: 15px 0; font-family: var(--heading-font); font-style: italic; }
+.bureau-case-applicants { display: grid; gap: 8px; margin: 13px 0 0; }
+.bureau-case-applicants div { display: flex; min-width: 0; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 7px; border-bottom: 1px dotted var(--border); }
+.bureau-case-applicants dt { color: var(--text-secondary); font-size: 0.67rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.bureau-case-applicants dd { min-width: 0; margin: 0; color: var(--text-primary); font-size: 0.78rem; font-weight: 800; text-align: right; overflow-wrap: anywhere; }
+.bureau-case-action { width: 100%; margin-top: 18px; }
+
 .species-register-groups { display: grid; gap: 30px; }
 .species-register-group > h3 { margin: 0 0 13px; padding-bottom: 9px; color: var(--burgundy); border-bottom: 1px solid #c6b898; font: 600 1.08rem var(--serif); letter-spacing: 0.035em; }
 .species-register-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
@@ -660,6 +686,7 @@ html[data-theme='obsidian-records'] .verdict-quip::before { display: none; }
   .applicant-separator::before, .applicant-separator::after { width: auto; height: 1px; }
   .applicant-separator span { margin: 0 12px; }
   .species-register-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .daily-case-grid { grid-template-columns: 1fr; }
   .about-section { grid-template-columns: 1fr; }
   .about-section .information-header { grid-column: auto; }
 }
@@ -697,6 +724,9 @@ html[data-theme='obsidian-records'] .verdict-quip::before { display: none; }
   .dialog-actions { align-items: stretch; flex-direction: column; }
   .dialog-actions button { width: 100%; }
   .species-register-grid, .category-list, .worked-example-grid { grid-template-columns: 1fr; }
+  .curated-case-grid { grid-template-columns: 1fr; }
+  .random-case-panel, .bureau-case-heading-row { align-items: stretch; flex-direction: column; }
+  .bureau-case-primary-action { width: 100%; }
   .record-description { min-height: 0; }
   .share-ruling { grid-template-columns: 1fr; align-items: stretch; }
   .share-action-groups { display: grid; grid-template-columns: 1fr; }

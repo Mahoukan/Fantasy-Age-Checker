@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { About } from './components/About'
+import { BureauCases } from './components/BureauCases'
 import { Checker } from './components/Checker'
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
@@ -9,6 +10,7 @@ import { DEFAULT_RESULT_IMAGE_THEME_ID, type ResultImageThemeId } from './data/r
 import { getNavigationSection, type NavigationSection } from './utils/navigation'
 import { applySiteTheme, getBrowserThemeStorage, saveSiteTheme } from './utils/siteTheme'
 import { ThemeOrnament } from './components/ThemeOrnament'
+import type { BureauCaseInput, BureauCaseLoadRequest } from './data/bureauCases'
 
 interface AppProps {
   initialSiteThemeId?: ResultImageThemeId
@@ -16,6 +18,7 @@ interface AppProps {
 
 export function App({ initialSiteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID }: AppProps) {
   const [siteThemeId, setSiteThemeId] = useState<ResultImageThemeId>(initialSiteThemeId)
+  const [bureauCaseRequest, setBureauCaseRequest] = useState<BureauCaseLoadRequest>()
   const [activeSection, setActiveSection] = useState<NavigationSection>(() => (
     typeof window === 'undefined' ? 'checker' : getNavigationSection(window.location.hash)
   ))
@@ -32,6 +35,10 @@ export function App({ initialSiteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID }: AppP
     saveSiteTheme(themeId, getBrowserThemeStorage())
   }
 
+  function handleLoadBureauCase(caseData: BureauCaseInput, announcement: string) {
+    setBureauCaseRequest((current) => ({ id: (current?.id ?? 0) + 1, caseData, announcement }))
+  }
+
   return (
     <>
       <Header
@@ -42,7 +49,8 @@ export function App({ initialSiteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID }: AppP
       />
       <main>
         <Hero />
-        <Checker siteThemeId={siteThemeId} />
+        <Checker siteThemeId={siteThemeId} bureauCaseRequest={bureauCaseRequest} />
+        <BureauCases onLoadCase={handleLoadBureauCase} />
         <SpeciesGuide />
         <HowItWorks />
         <About />

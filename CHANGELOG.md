@@ -2,6 +2,13 @@
 
 ## Unreleased / v2.0
 
+### Stage 17 — Bureau Cases
+
+- Added profile-aware random Bureau Case assignment with reproducible injected randomness and valid built-in adult applicants.
+- Added three deterministic local-date Bureau files—Routine, Complicated, and Extraordinary—with no backend or persistence.
+- Added a typed ten-file curated archive whose Borderline, experience, and longevity claims are verified through the existing calculation utilities.
+- Added one shared, accessible case-loading path that clears names and stale rulings, preserves temporary custom species and themes, and populates the existing Checker without automatic consultation or permalink changes.
+
 ### Stage 16 — Result Card Formats
 
 - Added independent Compact, Standard, and Full Dossier formats for generated ruling images, with Standard remaining the 1080x1350 default.

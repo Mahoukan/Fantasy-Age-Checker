@@ -19,6 +19,7 @@ _Release screenshot to be added when the public deployment has a final domain._
 - 348 reviewed fantasy-bureaucracy quips with per-slot anti-repetition history, including exact-ID commentary for every expanded-register species.
 - Copyable result summaries, native sharing where supported, stable permalinks for built-in species, and downloadable PNG ruling cards in three formats and ten selectable styles.
 - Ten coordinated website themes with an accessible header selector, safe local preference restoration, and no effect on consultation data or rulings.
+- Built-in Bureau Case discovery with profile-aware random assignments, three deterministic daily files, and a ten-case curated archive.
 - Same-page Species Guide, calculation explanation, and entertainment disclaimer.
 - Responsive, keyboard-accessible controls and reduced-motion support.
 
@@ -48,6 +49,16 @@ Longevity is separate context based on `age / typicalLifespan`. A typical lifesp
 ## Temporary custom species
 
 Custom species are held only in React memory and disappear on refresh. They use the same calculations and safeguards as built-in species but do not enter the permanent Species Guide. Result text can be copied, but permanent links are unavailable because custom records are not persisted or serialised.
+
+## Bureau Cases
+
+The same-page **Bureau Cases** desk provides three ways to explore the Checker without creating a separate calculation path:
+
+- **Assign Me a Case** chooses a profile-aware random adult pairing, ranging from routine and cross-species files to experience-gap, borderline, longevity, and extraordinary cases.
+- **Today's Bureau Files** contains exactly three locally generated Routine, Complicated, and Extraordinary files. A lightweight seeded generator makes the same local calendar date reproduce the same three cases without storage or a server.
+- **Notable Cases from the Archive** contains ten permanent examples, including the Classic Elf Problem, a verified Borderline filing, an ordinary same-species case, and the deliberately excessive Archive Has Questions longevity file.
+
+All Bureau Cases use built-in species only. Opening a file clears applicant names and any stale ruling, then populates the existing Checker without submitting it. Users can inspect or edit the values before pressing **Consult the Oracle**. Existing temporary custom-species definitions remain available for the session. Case classifications and archive IDs are presentation-only: they are not stored, added to copied results, or encoded in permalinks. Random and daily generation happens entirely in the browser; no account, analytics, backend, or network request is involved.
 
 ## Sharing and permalinks
 

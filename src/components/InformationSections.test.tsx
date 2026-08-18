@@ -101,7 +101,7 @@ describe('About and navigation', () => {
     expect(markup).toContain('exactly zero known kingdoms')
   })
 
-  it('exposes all four destinations as keyboard-accessible links', () => {
+  it('exposes every destination as a keyboard-accessible link', () => {
     const markup = renderToStaticMarkup(<Header activeSection="species-guide" onNavigate={() => undefined} />)
     for (const item of navigationItems) {
       expect(markup).toContain(`href="#${item.id}"`)

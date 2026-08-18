@@ -1,5 +1,6 @@
 export const navigationItems = [
   { id: 'checker', label: 'Checker' },
+  { id: 'bureau-cases', label: 'Bureau Cases' },
   { id: 'species-guide', label: 'Species Guide' },
   { id: 'how-it-works', label: 'How It Works' },
   { id: 'about', label: 'About' },

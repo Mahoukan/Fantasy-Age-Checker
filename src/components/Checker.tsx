@@ -33,6 +33,8 @@ import { ResultShell } from './ResultShell'
 import { TemporarySpeciesManager } from './TemporarySpeciesManager'
 import { DEFAULT_RESULT_IMAGE_THEME_ID, type ResultImageThemeId } from '../data/resultImageThemes'
 import { ThemeOrnament } from './ThemeOrnament'
+import type { BureauCaseLoadRequest } from '../data/bureauCases'
+import { createBureauCaseLoadUpdate } from '../utils/bureauCases'
 
 const initialApplicantA: Applicant = { speciesId: 'elf', age: 300 }
 const initialApplicantB: Applicant = { speciesId: 'human', age: 34 }
@@ -65,9 +67,10 @@ function resolveApplicant(
 
 interface CheckerProps {
   siteThemeId?: ResultImageThemeId
+  bureauCaseRequest?: BureauCaseLoadRequest
 }
 
-export function Checker({ siteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID }: CheckerProps) {
+export function Checker({ siteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID, bureauCaseRequest }: CheckerProps) {
   const [sharedRestore] = useState<SharedConsultationParseResult>(() => (
     typeof window === 'undefined'
       ? { status: 'none' }
@@ -82,10 +85,12 @@ export function Checker({ siteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID }: Checker
   const [result, setResult] = useState<ConsultationResult | null>(null)
   const [pendingConsultation, setPendingConsultation] = useState<ApprovedConsultation | null>(null)
   const [shareRestoreMessage, setShareRestoreMessage] = useState<string | null>(null)
+  const [bureauCaseMessage, setBureauCaseMessage] = useState<string | null>(null)
   const [customSpecies, setCustomSpecies] = useState<CustomSpecies[]>([])
   const [isCustomSpeciesDialogOpen, setIsCustomSpeciesDialogOpen] = useState(false)
   const addCustomSpeciesButtonRef = useRef<HTMLButtonElement>(null)
   const hasRestoredSharedConsultationRef = useRef(false)
+  const loadedBureauCaseRequestRef = useRef(0)
   const consultationSchedulerRef = useRef<ConsultationScheduler<ApprovedConsultation> | null>(null)
   if (consultationSchedulerRef.current === null) {
     consultationSchedulerRef.current = createConsultationScheduler<ApprovedConsultation>()
@@ -97,6 +102,26 @@ export function Checker({ siteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID }: Checker
   )
 
   useEffect(() => () => consultationSchedulerRef.current?.cancel(), [])
+
+  useEffect(() => {
+    if (!bureauCaseRequest || bureauCaseRequest.id === loadedBureauCaseRequestRef.current) return
+    loadedBureauCaseRequestRef.current = bureauCaseRequest.id
+    const update = createBureauCaseLoadUpdate(bureauCaseRequest.caseData)
+    consultationSchedulerRef.current?.cancel()
+    setApplicantA(update.applicantA)
+    setApplicantB(update.applicantB)
+    setAgeErrors(update.ageErrors)
+    setResult(update.result)
+    setPendingConsultation(update.pendingConsultation)
+    setShareRestoreMessage(null)
+    setBureauCaseMessage(bureauCaseRequest.announcement)
+
+    window.location.hash = 'checker'
+    setTimeout(() => {
+      document.getElementById('checker')?.scrollIntoView({ block: 'start' })
+      document.getElementById('applicant-a-species')?.focus({ preventScroll: true })
+    }, 0)
+  }, [bureauCaseRequest])
 
   useEffect(() => {
     if (hasRestoredSharedConsultationRef.current) return
@@ -144,6 +169,7 @@ export function Checker({ siteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID }: Checker
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     setShareRestoreMessage(null)
+    setBureauCaseMessage(null)
 
     const applicants = [
       { label: 'A' as const, applicant: applicantA },
@@ -233,6 +259,9 @@ export function Checker({ siteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID }: Checker
 
       {shareRestoreMessage && (
         <p className="share-restore-notice" role="status">{shareRestoreMessage}</p>
+      )}
+      {bureauCaseMessage && (
+        <p className="share-restore-notice">{bureauCaseMessage}</p>
       )}
 
       <div className="species-tools">
