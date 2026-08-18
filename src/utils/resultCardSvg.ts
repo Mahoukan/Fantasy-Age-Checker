@@ -228,7 +228,7 @@ function longevityStrip(
   if (!model.longevity.length) return ''
   const entries = model.longevity.slice(0, 2).map((entry, index) => {
     const x = index === 0 ? 120 : 560
-    const wrapped = fit(`${entry.applicantLabel}: ${entry.label}`, {
+    const wrapped = fit(`${entry.applicantLabel}: ${entry.theatreHeadline ?? entry.label}`, {
       maxWidth: 395, maxLines: 2, fontSizes: [16, 14, 12], fontFamily: theme.bodyFont,
       fontWeight: 700, lineHeightRatio: 1.12, measureText,
     })
@@ -282,11 +282,13 @@ export function createThemedResultCardSvg(
     fontStyle: 'italic', lineHeightRatio: 1.18, measureText,
   })
   const hasLongevity = model.longevity.length > 0
-  const noteY = hasLongevity ? 1068 : 990
-  const noteHeight = hasLongevity ? 110 : 188
+  const hasRareFinding = model.rareFindings.length > 0
+  const hasPresentationStrip = hasLongevity || hasRareFinding
+  const noteY = hasPresentationStrip ? 1076 : 990
+  const noteHeight = hasPresentationStrip ? 102 : 188
   const administrativeNote = fit(model.administrativeNote, {
-    maxWidth: 790, maxLines: hasLongevity ? 3 : 5,
-    fontSizes: hasLongevity ? [15, 13, 11] : [18, 16, 14],
+    maxWidth: 790, maxLines: hasPresentationStrip ? 3 : 5,
+    fontSizes: hasPresentationStrip ? [15, 13, 11] : [18, 16, 14],
     fontFamily: theme.displayFont, fontStyle: 'italic', lineHeightRatio: 1.15, measureText,
   })
   const commentaryLabel = theme.id === 'arcane-terminal' ? 'COMMENTARY >' : theme.annotationLabel
@@ -325,7 +327,7 @@ export function createThemedResultCardSvg(
     ${text(experienceFacts[1].lines, 965, 812, { fontSize: experienceFacts[1].fontSize, lineHeight: experienceFacts[1].lineHeight, fontFamily: theme.bodyFont, fontWeight: 700, fill: palette.ink, anchor: 'end' })}
     ${annotation('experience-quip', experienceQuip, 105, 852, 870, 110, commentaryLabel, theme)}
   </g>
-  ${longevityStrip(model, measureText, theme)}
+  ${hasRareFinding ? specialFindingStrip(model, measureText, theme) : longevityStrip(model, measureText, theme)}
   <g id="bureau-note">
     <rect x="90" y="${noteY}" width="900" height="${noteHeight}" rx="${theme.cornerRadius}" fill="${palette.panelAlt}" stroke="${palette.accentAlt}" stroke-width="2"/>
     ${label('Bureau Note', 115, noteY + 27, theme)}
@@ -377,7 +379,9 @@ export function createCompactResultCardSvg(
     maxWidth: 790, maxLines: 4, fontSizes: [22, 19, 17, 15], fontFamily: theme.displayFont,
     fontStyle: 'italic', lineHeightRatio: 1.17, measureText,
   })
-  const longevity = model.longevity.map((entry) => `${entry.applicantLabel}: ${entry.label}`).join(' • ')
+  const longevity = model.longevity
+    .map((entry) => `${entry.applicantLabel}: ${entry.theatreHeadline ?? entry.label}`)
+    .join(' • ')
   const longevityText = longevity ? fit(longevity, {
     maxWidth: 790, maxLines: 2, fontSizes: [15, 13, 11], fontFamily: theme.bodyFont,
     fontWeight: 700, measureText,
@@ -447,6 +451,36 @@ function dossierApplicantPanel(
   </g>`
 }
 
+function specialFindingStrip(
+  model: ResultImageModel,
+  measureText: TextMeasurer,
+  theme: ResultImageTheme,
+): string {
+  const finding = model.rareFindings[0]
+  if (!finding) return ''
+  const titleText = fit(finding.title, {
+    maxWidth: model.longevity.length ? 560 : 790, maxLines: 1,
+    fontSizes: [16, 14, 12], fontFamily: theme.displayFont, fontWeight: 700, measureText,
+  })
+  const findingText = fit(finding.text, {
+    maxWidth: model.longevity.length ? 560 : 790, maxLines: 2,
+    fontSizes: [12, 11, 10], fontFamily: theme.bodyFont, measureText,
+  })
+  const longevity = model.longevity.length
+    ? fit(model.longevity.map((entry) => entry.theatreHeadline ?? entry.label).join(' • '), {
+      maxWidth: 260, maxLines: 3, fontSizes: [11, 10, 9], fontFamily: theme.bodyFont,
+      fontWeight: 700, measureText,
+    })
+    : undefined
+  return `<g id="special-bureau-finding">
+    <rect x="90" y="990" width="900" height="78" rx="${theme.cornerRadius}" fill="${theme.palette.panelAlt}" stroke="${theme.palette.accentAlt}" stroke-width="2"/>
+    ${label('Special Bureau Finding', 115, 1014, theme)}
+    ${text(titleText.lines, 115, 1038, { fontSize: titleText.fontSize, lineHeight: titleText.lineHeight, fontFamily: theme.displayFont, fontWeight: 700, fill: theme.palette.ink })}
+    ${text(findingText.lines, 115, 1057, { fontSize: findingText.fontSize, lineHeight: findingText.lineHeight, fontFamily: theme.bodyFont, fill: theme.palette.muted })}
+    ${longevity ? text(longevity.lines, 965, 1017, { fontSize: longevity.fontSize, lineHeight: longevity.lineHeight, fontFamily: theme.bodyFont, fontWeight: 700, fill: theme.palette.accent, anchor: 'end' }) : ''}
+  </g>`
+}
+
 export function createFullDossierResultCardSvg(
   model: ResultImageModel,
   options: ThemedResultCardSvgOptions = {},
@@ -461,20 +495,38 @@ export function createFullDossierResultCardSvg(
   const findingText = model.findings.length ? model.findings : ['No additional experience findings recorded.']
   const findings = findingText.map((finding) => fit(`• ${finding}`, { maxWidth: 790, maxLines: 2, fontSizes: [15, 13, 11], fontFamily: theme.bodyFont, measureText }))
   const hasLongevity = model.longevity.length > 0
-  const noteY = hasLongevity ? 1565 : 1380
-  const noteHeight = 205
-  const note = fit(model.administrativeNote, { maxWidth: 790, maxLines: 5, fontSizes: [17, 15, 13], fontFamily: theme.displayFont, fontStyle: 'italic', measureText })
+  const hasRareFindings = model.rareFindings.length > 0
+  const noteY = hasRareFindings ? (hasLongevity ? 1672 : 1545) : (hasLongevity ? 1565 : 1380)
+  const noteHeight = hasRareFindings ? (hasLongevity ? 103 : 130) : 205
+  const note = fit(model.administrativeNote, {
+    maxWidth: 790, maxLines: hasRareFindings ? 2 : 5,
+    fontSizes: hasRareFindings ? [14, 12, 10] : [17, 15, 13],
+    fontFamily: theme.displayFont, fontStyle: 'italic', measureText,
+  })
   const dossierTitle = fit('FULL CASE DOSSIER • LIFECYCLE ANNEX', {
     maxWidth: 520, maxLines: 1, fontSizes: [25, 22, 19, 17], fontFamily: theme.displayFont,
     fontWeight: 700, measureText,
   })
+  const longevityY = hasRareFindings ? 1540 : 1398
+  const longevityHeight = hasRareFindings ? 125 : 145
   const longevityPanels = model.longevity.slice(0, 2).map((entry, index) => {
     const x = index === 0 ? 105 : 545
-    const heading = fit(`${entry.applicantLabel}: ${entry.label}`, {
+    const heading = fit(`${entry.applicantLabel}: ${entry.theatreHeadline ?? entry.label}`, {
       maxWidth: 390, maxLines: 2, fontSizes: [16, 14, 12], fontFamily: theme.displayFont,
       fontWeight: 700, lineHeightRatio: 1.08, measureText,
     })
-    return `<g><rect x="${x}" y="1398" width="430" height="145" rx="${theme.cornerRadius}" fill="${palette.panelAlt}" stroke="${palette.accentAlt}"/>${text(heading.lines, x + 18, 1428, { fontSize: heading.fontSize, lineHeight: heading.lineHeight, fontFamily: theme.displayFont, fontWeight: 700, fill: palette.ink })}${text([`Age ${entry.age} • Typical ${entry.typicalLifespan}`], x + 18, 1478, { fontSize: 13, lineHeight: 16, fontFamily: theme.bodyFont, fontWeight: 700, fill: palette.muted })}${text([`${entry.percentage} of lifespan • ${entry.excessYears} years beyond typical`], x + 18, 1514, { fontSize: 13, lineHeight: 16, fontFamily: theme.bodyFont, fontWeight: 700, fill: palette.ink })}</g>`
+    const procedure = entry.proceduralLabel ? fit(entry.proceduralLabel, {
+      maxWidth: 390, maxLines: 1, fontSizes: [10, 9, 8], fontFamily: theme.bodyFont,
+      fontWeight: 700, measureText,
+    }) : undefined
+    return `<g><rect x="${x}" y="${longevityY}" width="430" height="${longevityHeight}" rx="${theme.cornerRadius}" fill="${palette.panelAlt}" stroke="${palette.accentAlt}"/>${text(heading.lines, x + 18, longevityY + 27, { fontSize: heading.fontSize, lineHeight: heading.lineHeight, fontFamily: theme.displayFont, fontWeight: 700, fill: palette.ink })}${procedure ? text(procedure.lines, x + 18, longevityY + 55, { fontSize: procedure.fontSize, lineHeight: procedure.lineHeight, fontFamily: theme.bodyFont, fontWeight: 700, fill: palette.accent, letterSpacing: .5 }) : ''}${text([`Age ${entry.age} • Typical ${entry.typicalLifespan}`], x + 18, longevityY + 80, { fontSize: 12, lineHeight: 15, fontFamily: theme.bodyFont, fontWeight: 700, fill: palette.muted })}${text([`${entry.percentage} of lifespan • ${entry.excessYears} years beyond typical`], x + 18, longevityY + 107, { fontSize: 12, lineHeight: 15, fontFamily: theme.bodyFont, fontWeight: 700, fill: palette.ink })}</g>`
+  }).join('')
+  const specialFindings = model.rareFindings.slice(0, 2).map((finding, index, selected) => {
+    const x = selected.length === 1 ? 115 : index === 0 ? 115 : 555
+    const maxWidth = selected.length === 1 ? 790 : 390
+    const titleText = fit(finding.title, { maxWidth, maxLines: 2, fontSizes: [16, 14, 12], fontFamily: theme.displayFont, fontWeight: 700, measureText })
+    const bodyText = fit(finding.text, { maxWidth, maxLines: 3, fontSizes: [13, 11, 10], fontFamily: theme.bodyFont, measureText })
+    return `${text(titleText.lines, x, 1438, { fontSize: titleText.fontSize, lineHeight: titleText.lineHeight, fontFamily: theme.displayFont, fontWeight: 700, fill: palette.ink })}${text(bodyText.lines, x, 1477, { fontSize: bodyText.fontSize, lineHeight: bodyText.lineHeight, fontFamily: theme.bodyFont, fill: palette.muted })}`
   }).join('')
 
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -489,9 +541,10 @@ export function createFullDossierResultCardSvg(
   <g id="maturity-analysis"><rect x="90" y="500" width="900" height="310" rx="${theme.cornerRadius}" fill="${palette.panel}" stroke="${palette.accentAlt}" stroke-width="2"/>${label('Maturity Analysis', 115, 528, theme)}${text(maturityLabel.lines, 115, 568, { fontSize: maturityLabel.fontSize, lineHeight: maturityLabel.lineHeight, fontFamily: theme.displayFont, fontWeight: 700, fill: palette.ink })}${text([`Applicant A equivalent: ${model.maturity.applicantAEquivalentAge} years • Accepted range: ${model.maturity.applicantARange}`], 115, 637, { fontSize: 14, lineHeight: 17, fontFamily: theme.bodyFont, fontWeight: 700, fill: palette.muted })}${text([`Applicant B equivalent: ${model.maturity.applicantBEquivalentAge} years • Accepted range: ${model.maturity.applicantBRange}`], 115, 665, { fontSize: 14, lineHeight: 17, fontFamily: theme.bodyFont, fontWeight: 700, fill: palette.muted })}${text([`Relative difference: ${model.maturity.relativeDifference} • Mutual compatibility: ${model.maturity.mutuallyCompatible ? 'Confirmed' : 'Not confirmed'}`], 115, 693, { fontSize: 14, lineHeight: 17, fontFamily: theme.bodyFont, fontWeight: 700, fill: palette.accent })}${annotation('maturity-quip', maturityQuip, 105, 712, 870, 82, theme.annotationLabel, theme)}</g>
   <g id="experience-analysis"><rect x="90" y="830" width="900" height="330" rx="${theme.cornerRadius}" fill="${palette.panel}" stroke="${palette.accentAlt}" stroke-width="2"/>${label('Experience Analysis', 115, 858, theme)}${text(experienceLabel.lines, 115, 899, { fontSize: experienceLabel.fontSize, lineHeight: experienceLabel.lineHeight, fontFamily: theme.displayFont, fontWeight: 700, fill: palette.ink })}${text([`Applicant A adult experience: ${model.applicants[0].adultExperience} years`], 115, 960, { fontSize: 14, lineHeight: 17, fontFamily: theme.bodyFont, fontWeight: 700, fill: palette.muted })}${text([`Applicant B adult experience: ${model.applicants[1].adultExperience} years`], 555, 960, { fontSize: 14, lineHeight: 17, fontFamily: theme.bodyFont, fontWeight: 700, fill: palette.muted })}${text([`Chronological gap: ${model.experience.chronologicalGap} years • Adult experience gap: ${model.experience.gap} years • Ratio: ${model.experience.ratio}`], 115, 993, { fontSize: 14, lineHeight: 17, fontFamily: theme.bodyFont, fontWeight: 700, fill: palette.accent })}${annotation('experience-quip', experienceQuip, 105, 1020, 870, 120, theme.annotationLabel, theme)}</g>
   <g id="bureau-findings"><rect x="90" y="1180" width="900" height="190" rx="${theme.cornerRadius}" fill="${palette.panelAlt}" stroke="${palette.accentAlt}" stroke-width="2"/>${label('Bureau Findings', 115, 1209, theme)}${findings.map((finding, index) => text(finding.lines, 115, 1247 + index * 52, { fontSize: finding.fontSize, lineHeight: finding.lineHeight, fontFamily: theme.bodyFont, fill: palette.ink })).join('')}</g>
-  ${hasLongevity ? `<g id="longevity-analysis">${label('Longevity Analysis', 105, 1390, theme)}${longevityPanels}</g>` : ''}
+  ${hasRareFindings ? `<g id="special-bureau-findings"><rect x="90" y="1380" width="900" height="145" rx="${theme.cornerRadius}" fill="${palette.panelAlt}" stroke="${palette.accentAlt}" stroke-width="2"/>${label(model.rareFindings.length === 1 ? 'Special Bureau Finding' : 'Special Bureau Findings', 115, 1409, theme)}${specialFindings}</g>` : ''}
+  ${hasLongevity ? `<g id="longevity-analysis">${label('Longevity Analysis', 105, longevityY - 8, theme)}${longevityPanels}</g>` : ''}
   <g id="bureau-note"><rect x="90" y="${noteY}" width="900" height="${noteHeight}" rx="${theme.cornerRadius}" fill="${palette.panelAlt}" stroke="${palette.accentAlt}" stroke-width="2"/>${label('Bureau Note', 115, noteY + 29, theme)}${annotation('administrative-note', note, 105, noteY + 42, 870, noteHeight - 58, theme.id === 'arcane-terminal' ? 'BUREAU_NOTE >' : 'ADMINISTRATIVE MEMORANDUM', theme)}</g>
-  ${!hasLongevity ? `<g id="filing-details"><rect x="90" y="1605" width="900" height="165" rx="${theme.cornerRadius}" fill="${palette.panel}" stroke="${palette.accentAlt}" stroke-width="2"/>${label('Filing Details', 115, 1634, theme)}${text([`Record identifier: ${model.caseNumber}`], 115, 1674, { fontSize: 15, lineHeight: 18, fontFamily: theme.bodyFont, fontWeight: 700, fill: palette.ink })}${text(['Annex status: Complete • Applicant records: 2 • Longevity irregularities: None recorded'], 115, 1710, { fontSize: 14, lineHeight: 17, fontFamily: theme.bodyFont, fontWeight: 700, fill: palette.muted })}${text(['Document class: Full Dossier • Image-only presentation record'], 115, 1744, { fontSize: 12, lineHeight: 15, fontFamily: theme.bodyFont, fontWeight: 700, fill: palette.accent, letterSpacing: 1.1 })}</g>` : ''}
+  ${!hasLongevity && !hasRareFindings ? `<g id="filing-details"><rect x="90" y="1605" width="900" height="165" rx="${theme.cornerRadius}" fill="${palette.panel}" stroke="${palette.accentAlt}" stroke-width="2"/>${label('Filing Details', 115, 1634, theme)}${text([`Record identifier: ${model.caseNumber}`], 115, 1674, { fontSize: 15, lineHeight: 18, fontFamily: theme.bodyFont, fontWeight: 700, fill: palette.ink })}${text(['Annex status: Complete • Applicant records: 2 • Longevity irregularities: None recorded'], 115, 1710, { fontSize: 14, lineHeight: 17, fontFamily: theme.bodyFont, fontWeight: 700, fill: palette.muted })}${text(['Document class: Full Dossier • Image-only presentation record'], 115, 1744, { fontSize: 12, lineHeight: 15, fontFamily: theme.bodyFont, fontWeight: 700, fill: palette.accent, letterSpacing: 1.1 })}</g>` : ''}
   <g id="footer"><g transform="translate(92 1795)"><circle cx="34" cy="34" r="31" fill="none" stroke="${palette.accent}" stroke-width="3"/><circle cx="34" cy="34" r="23" fill="none" stroke="${palette.accent}"/></g>${text(['BUREAU REVIEWED • COMPLETE FILE'], 175, 1828, { fontSize: 16, lineHeight: 19, fontFamily: theme.bodyFont, fontWeight: 700, fill: palette.accent, letterSpacing: 1.8 })}${text(['FANTASY AGE CHECKER • DOSSIER FINAL'], 970, 1828, { fontSize: 15, lineHeight: 18, fontFamily: theme.bodyFont, fontWeight: 700, fill: palette.muted, anchor: 'end', letterSpacing: 1.3 })}</g>
 </svg>`
 }

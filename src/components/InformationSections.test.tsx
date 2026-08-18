@@ -13,7 +13,7 @@ describe('Species Guide', () => {
   it('renders all 30 canonical built-in species', () => {
     const markup = renderToStaticMarkup(<SpeciesGuide />)
     expect(getBuiltInSpeciesGuideRecords()).toHaveLength(30)
-    for (const entry of species) expect(markup).toContain(`<h4>${entry.name}</h4>`)
+    for (const entry of species) expect(markup).toContain(`<strong>${entry.name}</strong>`)
   })
 
   it('derives guide lifecycle values directly from the canonical registry', () => {

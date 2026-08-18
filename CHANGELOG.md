@@ -2,6 +2,20 @@
 
 ## Unreleased / v2.0
 
+### Stage 19 - Longevity Theatre + Rare Bureau Findings
+
+- Added deterministic, applicant-specific Bureau theatre for the existing non-normal longevity categories, including procedural labels and a secondary dual-longevity banner.
+- Added a pure priority-based engine with 20 unusual consultation findings, explicit suppression groups, and a maximum of two submitted findings.
+- Integrated submitted presentation into approved web rulings and the three existing image formats: Compact stays restrained, Standard shows at most one finding, and Full Dossier supports two.
+- Kept Stage 19 presentation-only and in memory; calculations, thresholds, verdicts, quips, Bureau Notes, case numbers, copied text, permalinks, themes, and persistence remain unchanged.
+
+### Stage 18 — Species Register 2.0
+
+- Expanded the Species Guide into an accessible Bureau Species Register with one complete presentation-only profile for every built-in species.
+- Added concise lifecycle summaries, classifications, Bureau observations, filing issues, chronological peculiarities, and two archival notes per record without duplicating canonical lifecycle values.
+- Added native disclosure records that keep adulthood, typical lifespan, and existing maturity constants easy to scan across desktop and mobile layouts.
+- Connected relevant species profiles to permanent Stage 17 curated files through the existing shared case-loading pathway; custom species remain temporary factual records only.
+
 ### Stage 17 — Bureau Cases
 
 - Added profile-aware random Bureau Case assignment with reproducible injected randomness and valid built-in adult applicants.

@@ -330,6 +330,7 @@ export function Checker({ siteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID, bureauCas
           maturity={result.maturity}
           experience={result.experience}
           longevity={result.longevity}
+          presentation={result.presentation}
           quips={result.quips}
           caseNumber={result.caseNumber}
           initialImageThemeId={siteThemeId}

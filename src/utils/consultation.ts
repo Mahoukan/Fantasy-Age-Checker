@@ -12,6 +12,7 @@ import {
   selectLoadingQuip,
   type StorageLike,
 } from './quipSelector'
+import { createConsultationPresentation, type ConsultationPresentation } from './resultPresentation'
 
 export const CONSULTATION_DELAY_MS = 900
 
@@ -21,6 +22,7 @@ export interface ApprovedConsultation {
   maturity: MaturityCompatibilityResult
   experience: ExperienceGapResult
   longevity: ApplicantLongevityResult[]
+  presentation: ConsultationPresentation
   quips: ConsultationQuips
   loadingMessage: Quip
   caseNumber: string
@@ -63,6 +65,15 @@ export function createApprovedConsultation(
   const context = createQuipContext(submittedApplicants, maturity, experience, longevity)
   const storage = options.storage ?? getBrowserStorage()
   const selectionOptions = { random: options.random, storage }
+  const quips = selectConsultationQuips(context, selectionOptions)
+  const loadingMessage = selectLoadingQuip(context, selectionOptions)
+  const caseNumber = generateCaseNumber(applicantA.species, applicantB.species, options.caseRandom)
+  const presentation = createConsultationPresentation({
+    applicants: submittedApplicants,
+    maturity,
+    experience,
+    longevity,
+  }, caseNumber)
 
   return {
     status: 'approved',
@@ -70,9 +81,10 @@ export function createApprovedConsultation(
     maturity,
     experience,
     longevity,
-    quips: selectConsultationQuips(context, selectionOptions),
-    loadingMessage: selectLoadingQuip(context, selectionOptions),
-    caseNumber: generateCaseNumber(applicantA.species, applicantB.species, options.caseRandom),
+    presentation,
+    quips,
+    loadingMessage,
+    caseNumber,
   }
 }
 

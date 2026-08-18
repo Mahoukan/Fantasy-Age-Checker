@@ -10,7 +10,7 @@ _Release screenshot to be added when the public deployment has a final domain._
 
 ## Core features
 
-- Thirty generic built-in fantasy species with canonical adulthood and typical-lifespan records, organised into accessible native-select groups.
+- Thirty generic built-in fantasy species with canonical lifecycle facts and complete presentation-only Bureau Species Profiles, organised into the existing registry groups.
 - A strict adulthood safeguard that stops the normal assessment if either applicant is below their species' recognised adulthood.
 - Independent maturity and adult-experience verdicts; they are never blended into an overall score.
 - Longevity notices for ages beyond a typical lifespan without treating lifespan as a maximum.
@@ -46,6 +46,8 @@ gap = abs(applicantAAdultExperience - applicantBAdultExperience)
 
 Longevity is separate context based on `age / typicalLifespan`. A typical lifespan is a reference, not a validation limit, so even unusually large finite ages remain valid.
 
+During v2 development, non-normal longevity now receives richer, deterministic Bureau presentation, and mathematically unusual approved consultations may receive up to two Rare Bureau Findings. These additions are selected after the existing consultation has been calculated and remain presentation-only: they never alter compatibility, calculations, verdicts, quips, case numbers, or permalinks.
+
 ## Temporary custom species
 
 Custom species are held only in React memory and disappear on refresh. They use the same calculations and safeguards as built-in species but do not enter the permanent Species Guide. Result text can be copied, but permanent links are unavailable because custom records are not persisted or serialised.
@@ -59,6 +61,12 @@ The same-page **Bureau Cases** desk provides three ways to explore the Checker w
 - **Notable Cases from the Archive** contains ten permanent examples, including the Classic Elf Problem, a verified Borderline filing, an ordinary same-species case, and the deliberately excessive Archive Has Questions longevity file.
 
 All Bureau Cases use built-in species only. Opening a file clears applicant names and any stale ruling, then populates the existing Checker without submitting it. Users can inspect or edit the values before pressing **Consult the Oracle**. Existing temporary custom-species definitions remain available for the session. Case classifications and archive IDs are presentation-only: they are not stored, added to copied results, or encoded in permalinks. Random and daily generation happens entirely in the browser; no account, analytics, backend, or network request is involved.
+
+## Bureau Species Register
+
+The expanded **Bureau Species Register** provides an accessible native disclosure record for each of the 30 built-in species. Collapsed records retain the useful adulthood and typical-lifespan facts; expanded records add a concise lifecycle summary, Bureau observation, common filing issue, chronological peculiarity, two archival notes, existing lifespan-derived maturity constants, and links to relevant permanent Bureau Cases.
+
+Lifecycle facts remain owned exclusively by the canonical species registry. The separate species-profile registry contains presentation and worldbuilding copy only, so it cannot override adulthood ages, typical lifespans, species IDs, grouping, case codes, or calculations. Typical lifespan remains a reference rather than a maximum age. Custom species stay temporary and factual in the Checker and do not receive generated lore or permanent Register entries.
 
 ## Sharing and permalinks
 

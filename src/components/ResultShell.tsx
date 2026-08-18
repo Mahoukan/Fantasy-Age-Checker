@@ -11,6 +11,10 @@ import type { ShareResultModel } from '../utils/share'
 import { applicantDisplayName } from '../utils/applicantName'
 import type { ResultImageThemeId } from '../data/resultImageThemes'
 import { ThemeOrnament } from './ThemeOrnament'
+import {
+  EMPTY_CONSULTATION_PRESENTATION,
+  type ConsultationPresentation,
+} from '../utils/resultPresentation'
 
 interface ResultShellProps extends ShareResultModel {
   applicants: ApplicantLifecycleFacts[]
@@ -19,10 +23,11 @@ interface ResultShellProps extends ShareResultModel {
   longevity: ApplicantLongevityResult[]
   quips: ConsultationQuips
   caseNumber: string
+  presentation?: ConsultationPresentation
   initialImageThemeId?: ResultImageThemeId
 }
 
-export function ResultShell({ applicants, maturity, experience, longevity, quips, caseNumber, initialImageThemeId }: ResultShellProps) {
+export function ResultShell({ applicants, maturity, experience, longevity, quips, caseNumber, presentation = EMPTY_CONSULTATION_PRESENTATION, initialImageThemeId }: ResultShellProps) {
   const maturityVerdict = maturityVerdicts[maturity.category]
   const experienceVerdict = experienceVerdicts[experience.category]
   const [applicantA, applicantB] = applicants
@@ -94,6 +99,12 @@ export function ResultShell({ applicants, maturity, experience, longevity, quips
           <div><span>Chronological age difference</span><strong>{formatYears(experience.chronologicalAgeGap)} years</strong></div>
           <div><span>Adult experience difference</span><strong>{formatYears(experience.adultExperienceGap)} years</strong></div>
         </div>
+        {presentation.dualLongevityBanner && (
+          <aside className="dual-longevity-banner">
+            <span>Combined longevity review</span>
+            <strong>{presentation.dualLongevityBanner}</strong>
+          </aside>
+        )}
         <div className="lifecycle-facts-grid">
           {applicants.map((applicant) => {
             const applicantLongevity = longevity.find((result) => result.applicant === applicant.label)
@@ -119,7 +130,11 @@ export function ResultShell({ applicants, maturity, experience, longevity, quips
                   <div><dt>Relative lifespan position</dt><dd>{formatPercentage(applicant.relativeAge)}</dd></div>
                 </dl>
                 {applicantLongevity && (
-                  <LongevityNotice applicant={applicant} longevity={applicantLongevity} />
+                  <LongevityNotice
+                    applicant={applicant}
+                    longevity={applicantLongevity}
+                    theatre={presentation.longevityTheatre.find((entry) => entry.applicant === applicant.label)}
+                  />
                 )}
               </article>
             )
@@ -127,13 +142,30 @@ export function ResultShell({ applicants, maturity, experience, longevity, quips
         </div>
       </div>
 
+      {presentation.rareFindings.length > 0 && (
+        <section className="rare-bureau-findings" aria-labelledby="rare-bureau-findings-title">
+          <span className="rare-finding-kicker">Post-calculation archival observation</span>
+          <h3 id="rare-bureau-findings-title">
+            Special Bureau {presentation.rareFindings.length === 1 ? 'Finding' : 'Findings'}
+          </h3>
+          <div>
+            {presentation.rareFindings.map((finding) => (
+              <article key={finding.id} data-finding-id={finding.id}>
+                <h4>{finding.title}</h4>
+                <p>{finding.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
+
       <aside className="bureau-note" aria-label="Bureau administrative note">
         <span>Bureau Note</span>
         <p>{quips.administrative.text}</p>
       </aside>
 
       <ShareControls
-        result={{ applicants, maturity, experience, longevity, quips, caseNumber }}
+        result={{ applicants, maturity, experience, longevity, presentation, quips, caseNumber }}
         initialThemeId={initialImageThemeId}
       />
 

@@ -27,9 +27,10 @@ import {
   type NativeShareFunction,
   type ShareResultModel,
 } from '../utils/share'
+import type { ConsultationPresentation } from '../utils/resultPresentation'
 
 interface ShareControlsProps {
-  result: ShareResultModel & { caseNumber: string }
+  result: ShareResultModel & { caseNumber: string; presentation?: ConsultationPresentation }
   initialThemeId?: ResultImageThemeId
 }
 

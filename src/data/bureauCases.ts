@@ -126,3 +126,5 @@ export const curatedBureauCases = [
     applicantB: { speciesId: 'kobold', age: 24 },
   },
 ] as const satisfies readonly CuratedBureauCase[]
+
+export type CuratedBureauCaseId = (typeof curatedBureauCases)[number]['id']

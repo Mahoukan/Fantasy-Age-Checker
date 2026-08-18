@@ -51,7 +51,7 @@ export function App({ initialSiteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID }: AppP
         <Hero />
         <Checker siteThemeId={siteThemeId} bureauCaseRequest={bureauCaseRequest} />
         <BureauCases onLoadCase={handleLoadBureauCase} />
-        <SpeciesGuide />
+        <SpeciesGuide onLoadCase={handleLoadBureauCase} />
         <HowItWorks />
         <About />
       </main>

@@ -216,9 +216,20 @@ h1 { margin-bottom: 14px; color: var(--page-text); font-family: var(--serif); fo
 .longevity-notice-heading { display: block; margin-bottom: 5px; color: var(--burgundy); font-size: 0.64rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
 .longevity-notice > strong { display: block; color: #6e4c22; font: 600 1rem var(--serif); }
 .longevity-notice > p { margin: 7px 0 10px; color: var(--ink-soft); font-size: 0.76rem; line-height: 1.45; }
+.longevity-stamp { display: inline-block; margin-top: 9px; padding: 4px 7px; color: var(--burgundy); border: 2px solid currentColor; font-size: 0.58rem; font-weight: 900; letter-spacing: 0.13em; text-transform: uppercase; transform: rotate(-1deg); }
+.longevity-factual-label { display: block; margin-bottom: 7px; color: var(--ink-soft); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
 .longevity-notice dl { padding-top: 7px; border-top: 1px dotted #ad9567; }
 .longevity-notice.longevity-anomalous { border-color: #9e7950; border-left-color: var(--burgundy); background: #e7d8c2; }
 .longevity-notice.longevity-anomalous > strong { color: var(--burgundy); }
+.dual-longevity-banner { display: grid; gap: 5px; margin-top: 15px; padding: 13px 15px; border: 1px solid #b99b5c; border-left: 4px solid var(--burgundy); background: #eadfc9; }
+.dual-longevity-banner span, .rare-finding-kicker { color: var(--burgundy); font-size: 0.63rem; font-weight: 800; letter-spacing: 0.11em; text-transform: uppercase; }
+.dual-longevity-banner strong { font: 600 0.92rem/1.4 var(--serif); }
+.rare-bureau-findings { margin-top: 22px; padding: 18px 20px; border: 1px solid #b99b5c; background: #eee1ca; }
+.rare-bureau-findings h3 { margin: 6px 0 14px; color: var(--burgundy); font: 600 1.12rem var(--serif); }
+.rare-bureau-findings > div { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; }
+.rare-bureau-findings article { padding: 14px; border: 1px solid #c6b898; background: rgba(255, 253, 248, 0.6); }
+.rare-bureau-findings h4 { margin: 0 0 7px; color: var(--burgundy); font: 600 0.96rem var(--serif); }
+.rare-bureau-findings p { margin: 0; color: var(--ink-soft); font-size: 0.78rem; line-height: 1.48; }
 .rejection-card { border-color: #783440; }
 .rejection-seal { width: 84px; height: 84px; color: #783440; border-color: #783440; font-size: 0.58rem; }
 .rejection-summary { margin: 24px 0; padding: 15px 17px; border-left: 4px solid #783440; background: #ead9d4; font-weight: 700; line-height: 1.5; }
@@ -319,6 +330,35 @@ h1 { margin-bottom: 14px; color: var(--page-text); font-family: var(--serif); fo
 .maturity-constants span { color: var(--burgundy); font-size: 0.62rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
 .maturity-constants strong { font: 600 1rem var(--serif); }
 .maturity-constants small { color: var(--ink-soft); font-size: 0.68rem; }
+.species-register-notice { display: flex; align-items: baseline; gap: 16px; margin: -8px 0 30px; padding: 15px 18px; color: var(--text-primary); background: var(--surface-inset); border: 1px solid var(--border); border-left: 4px solid var(--accent); }
+.species-register-notice strong { flex: 0 0 auto; color: var(--heading-color); font: 600 0.92rem var(--heading-font); }
+.species-register-notice p { margin: 0; color: var(--text-secondary); font-size: 0.78rem; line-height: 1.5; }
+.species-register-section .species-register-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+.species-register-section .species-register-card { padding: 0; overflow: hidden; }
+.species-register-card[open] { grid-column: 1 / -1; }
+.species-register-card summary { position: relative; min-width: 0; padding: 20px; cursor: pointer; }
+.species-register-card summary::marker { color: var(--accent-secondary); }
+.species-register-card summary:hover { background: color-mix(in srgb, var(--surface-inset) 48%, transparent); }
+.species-register-card summary:focus-visible { outline: 3px solid var(--focus); outline-offset: -5px; }
+.species-record-heading { display: grid; min-width: 0; gap: 5px; }
+.species-record-heading > strong { color: var(--heading-color); font: 600 1.22rem var(--heading-font); overflow-wrap: anywhere; }
+.species-classification { color: var(--positive); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.055em; line-height: 1.4; text-transform: uppercase; overflow-wrap: anywhere; }
+.species-record-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+.species-record-facts > span { display: grid; gap: 3px; min-width: 0; padding: 10px; background: var(--surface-inset); border: 1px solid var(--border); }
+.species-record-facts small { color: var(--text-secondary); font-size: 0.61rem; font-weight: 800; letter-spacing: 0.05em; line-height: 1.35; text-transform: uppercase; }
+.species-record-facts b { color: var(--text-primary); font-size: 0.78rem; overflow-wrap: anywhere; }
+.species-record-body { display: grid; gap: 20px; padding: 22px; border-top: 1px solid var(--border); background: color-mix(in srgb, var(--surface-raised) 66%, transparent); }
+.species-record-body h5 { margin: 0 0 7px; color: var(--heading-color); font: 800 0.68rem var(--body-font); letter-spacing: 0.1em; text-transform: uppercase; }
+.species-record-body p { margin: 0; color: var(--text-secondary); font-size: 0.82rem; line-height: 1.62; }
+.species-record-observations { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.species-record-observations section { min-width: 0; padding: 15px; background: var(--surface-inset); border-left: 3px solid var(--accent-secondary); }
+.species-record-annex { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(200px, .7fr); gap: 14px; align-items: stretch; }
+.species-record-annex > section { padding: 15px 17px; border: 1px solid var(--border); }
+.species-record-annex ul { display: grid; gap: 7px; margin: 0; padding-left: 19px; color: var(--text-secondary); font-size: 0.78rem; line-height: 1.45; }
+.species-record-annex .maturity-constants { margin: 0; justify-content: center; }
+.related-bureau-files { padding-top: 17px; border-top: 1px dotted var(--border); }
+.related-bureau-files > div { display: flex; flex-wrap: wrap; gap: 9px; }
+.related-bureau-files .secondary-action { min-height: 40px; padding: 7px 11px; font-size: 0.72rem; }
 .information-note { margin-top: 22px; padding: 17px 19px; background: #eadfc9; border: 1px solid #c6b898; }
 .information-note strong, .about-disclaimer strong { color: var(--burgundy); font: 600 1rem var(--serif); }
 .information-note p, .about-disclaimer p { margin: 6px 0 0; color: var(--ink-soft); font-size: 0.82rem; line-height: 1.55; }
@@ -394,13 +434,13 @@ html[data-theme='obsidian-records'] { --site-motif: linear-gradient(90deg, trans
 .checker-section, .information-section, .custom-species-dialog { color: var(--text-primary); background: var(--surface); border-color: var(--border-strong); box-shadow: 0 18px 52px var(--shadow); }
 .ruling-card { color: var(--text-primary); background: var(--surface-raised); border-color: var(--accent-secondary); }
 .applicant-card, .assessment-grid article, .maturity-math > div, .comparison-facts,
-.lifecycle-facts-grid article, .rejection-details article, .share-ruling, .result-theme-option,
+.lifecycle-facts-grid article, .rare-bureau-findings article, .rejection-details article, .share-ruling, .result-theme-option,
 .result-format-option,
 .species-register-card, .method-card, .worked-example-grid > div, .category-list div {
   color: var(--text-primary); background: var(--surface-raised); border-color: var(--border);
 }
 .temporary-species-manager, .lifecycle-context, .consultation-status, .not-implemented,
-.bureau-calculations, .bureau-note, .share-restore-notice, .information-note, .formula-panel,
+.bureau-calculations, .bureau-note, .dual-longevity-banner, .rare-bureau-findings, .share-restore-notice, .information-note, .formula-panel,
 .worked-example, .about-disclaimer, .maturity-constants, .longevity-notice {
   color: var(--text-primary); background: var(--surface-inset); border-color: var(--border);
 }
@@ -433,7 +473,8 @@ a:focus-visible, select:focus-visible, input:focus-visible { outline-color: var(
 .hero-lead, .eyebrow, .bureau-brand small, .nav-link.active { color: var(--accent); }
 .eyebrow.dark, .checker-heading h2, .applicant-card legend, .temporary-species-manager h3,
 .ruling-header h2, .assessment-grid h3, .bureau-calculations h3, .maturity-math strong,
-.lifecycle-facts-grid h4, .longevity-notice-heading, .rejection-details h3, .bureau-note span,
+.lifecycle-facts-grid h4, .longevity-notice-heading, .longevity-stamp, .dual-longevity-banner span,
+.rare-finding-kicker, .rare-bureau-findings h3, .rare-bureau-findings h4, .rejection-details h3, .bureau-note span,
 .share-ruling-label, .share-ruling h3, .result-theme-picker legend, .result-format-picker legend, .species-register-card h4,
 .information-header h2, .species-register-group > h3, .method-card h3, .worked-example h3,
 .worked-example h4, .information-note strong, .about-disclaimer strong {
@@ -443,7 +484,8 @@ a:focus-visible, select:focus-visible, input:focus-visible { outline-color: var(
 .applicant-reference, .field-hint, .lifecycle-context dt, .submission-area small,
 .consultation-message, .ruling-case-number, .assessment-grid p, .bureau-calculations p,
 .assessment-facts dt, .maturity-math small, .comparison-facts span, .applicant-species-name,
-.lifecycle-facts-grid dt, .rejection-details dt, .longevity-notice > p, .bureau-note p,
+.lifecycle-facts-grid dt, .rejection-details dt, .longevity-notice > p, .longevity-factual-label,
+.rare-bureau-findings p, .bureau-note p,
 .ruling-footer, .share-restore-notice, .result-theme-picker > p, .result-theme-option small,
 .result-format-picker > p, .result-format-option small, .result-format-option em,
 .share-action-group > span, .share-limitation, .record-description, .species-register-card dt,
@@ -686,6 +728,7 @@ html[data-theme='obsidian-records'] .verdict-quip::before { display: none; }
   .applicant-separator::before, .applicant-separator::after { width: auto; height: 1px; }
   .applicant-separator span { margin: 0 12px; }
   .species-register-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .species-record-observations { grid-template-columns: 1fr; }
   .daily-case-grid { grid-template-columns: 1fr; }
   .about-section { grid-template-columns: 1fr; }
   .about-section .information-header { grid-column: auto; }
@@ -724,6 +767,11 @@ html[data-theme='obsidian-records'] .verdict-quip::before { display: none; }
   .dialog-actions { align-items: stretch; flex-direction: column; }
   .dialog-actions button { width: 100%; }
   .species-register-grid, .category-list, .worked-example-grid { grid-template-columns: 1fr; }
+  .species-register-card[open] { grid-column: auto; }
+  .species-register-notice { align-items: stretch; flex-direction: column; gap: 5px; }
+  .species-record-facts, .species-record-annex { grid-template-columns: 1fr; }
+  .related-bureau-files > div { display: grid; grid-template-columns: 1fr; }
+  .related-bureau-files .secondary-action { width: 100%; }
   .curated-case-grid { grid-template-columns: 1fr; }
   .random-case-panel, .bureau-case-heading-row { align-items: stretch; flex-direction: column; }
   .bureau-case-primary-action { width: 100%; }

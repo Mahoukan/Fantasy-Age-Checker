@@ -16,6 +16,7 @@ import {
   createFullDossierResultCardSvg,
   createThemedResultCardSvg,
 } from './resultCardSvg';
+import type { ConsultationPresentation } from './resultPresentation';
 
 export const RESULT_IMAGE_WIDTH = 1080;
 export const RESULT_IMAGE_HEIGHT = 1350;
@@ -26,6 +27,7 @@ const BODY_FONT = 'Arial, Helvetica, sans-serif';
 
 export interface ResultImageSource extends ShareResultModel {
   caseNumber: string;
+  presentation?: ConsultationPresentation;
 }
 
 export interface ResultImageApplicant {
@@ -49,6 +51,9 @@ export interface ResultImageLongevity {
   typicalLifespan: string;
   percentage: string;
   excessYears: string;
+  theatreHeadline?: string;
+  proceduralLabel?: string;
+  theatreNote?: string;
 }
 
 export interface ResultImageModel {
@@ -77,6 +82,8 @@ export interface ResultImageModel {
   };
   compactQuip: string;
   findings: string[];
+  rareFindings: Array<{ title: string; text: string }>;
+  dualLongevityBanner?: string;
   longevity: ResultImageLongevity[];
   administrativeNote: string;
 }
@@ -250,10 +257,15 @@ export function buildResultImageModel(source: ResultImageSource): ResultImageMod
     },
     compactQuip,
     findings,
+    rareFindings: (source.presentation?.rareFindings ?? []).map(({ title, text }) => ({ title, text })),
+    ...(source.presentation?.dualLongevityBanner
+      ? { dualLongevityBanner: source.presentation.dualLongevityBanner }
+      : {}),
     longevity: source.longevity
       .filter((result) => result.category !== 'NORMAL')
       .map((result) => {
         const applicant = source.applicants.find((candidate) => candidate.label === result.applicant);
+        const theatre = source.presentation?.longevityTheatre.find((entry) => entry.applicant === result.applicant);
         return {
           applicantLabel: applicant ? applicantDisplayName(applicant) : `Applicant ${result.applicant}`,
           speciesName: applicant?.species.name ?? 'Unknown species',
@@ -262,6 +274,11 @@ export function buildResultImageModel(source: ResultImageSource): ResultImageMod
           typicalLifespan: formatYears(applicant?.species.typicalLifespan ?? 0),
           percentage: formatPercentage(result.ratio),
           excessYears: formatYears(result.excessYears),
+          ...(theatre ? {
+            theatreHeadline: theatre.headline,
+            proceduralLabel: theatre.proceduralLabel,
+            theatreNote: theatre.note,
+          } : {}),
         };
       }),
     administrativeNote: source.quips.administrative.text,
