@@ -235,9 +235,19 @@ h1 { margin-bottom: 14px; color: var(--page-text); font-family: var(--serif); fo
 .share-ruling { display: grid; grid-template-columns: minmax(150px, auto) minmax(0, 1fr); align-items: center; gap: 14px 22px; margin-top: 22px; padding: 18px 20px; background: rgba(255, 253, 248, 0.55); border: 1px solid #c6b898; }
 .share-ruling-label { color: var(--burgundy); font-size: 0.64rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
 .share-ruling h3 { margin: 4px 0 0; color: var(--burgundy); font: 600 1rem var(--serif); }
-.result-theme-picker { grid-column: 1 / -1; min-width: 0; margin: 4px 0; padding: 16px; border: 1px solid #c6b898; }
-.result-theme-picker legend { padding: 0 8px; color: var(--burgundy); font-size: 0.66rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
-.result-theme-picker > p { margin: 0 0 12px; color: var(--ink-soft); font-size: 0.72rem; line-height: 1.45; }
+.result-theme-picker, .result-format-picker { grid-column: 1 / -1; min-width: 0; margin: 4px 0; padding: 16px; border: 1px solid #c6b898; }
+.result-theme-picker legend, .result-format-picker legend { padding: 0 8px; color: var(--burgundy); font-size: 0.66rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+.result-theme-picker > p, .result-format-picker > p { margin: 0 0 12px; color: var(--ink-soft); font-size: 0.72rem; line-height: 1.45; }
+.result-format-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.result-format-option { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 9px; min-width: 0; padding: 11px; background: rgba(255, 253, 248, 0.42); border: 1px solid #c6b898; cursor: pointer; }
+.result-format-option:hover, .result-format-option.selected { border-color: var(--burgundy); background: rgba(255, 253, 248, 0.78); }
+.result-format-option input { width: 18px; height: 18px; margin: 0; accent-color: var(--burgundy); }
+.result-format-option input:focus-visible { outline: 3px solid #d19c35; outline-offset: 3px; }
+.result-format-option > span { display: grid; min-width: 0; gap: 2px; }
+.result-format-option strong { color: var(--ink); font-size: 0.76rem; }
+.result-format-option small { color: var(--ink-soft); font-size: 0.65rem; line-height: 1.35; }
+.result-format-option em { grid-column: 2; color: var(--ink-soft); font-size: 0.6rem; font-style: normal; letter-spacing: .04em; }
+.result-format-picker .selected-format-status { min-height: 1em; margin: 10px 0 0; color: var(--positive); font-size: 0.68rem; font-weight: 700; }
 .result-theme-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
 .result-theme-option { position: relative; display: grid; grid-template-columns: auto 42px minmax(0, 1fr); align-items: center; gap: 9px; min-width: 0; padding: 9px; background: rgba(255, 253, 248, 0.42); border: 1px solid #c6b898; cursor: pointer; }
 .result-theme-option:hover, .result-theme-option.selected { border-color: var(--burgundy); background: rgba(255, 253, 248, 0.78); }
@@ -359,6 +369,7 @@ html[data-theme='obsidian-records'] { --site-motif: linear-gradient(90deg, trans
 .ruling-card { color: var(--text-primary); background: var(--surface-raised); border-color: var(--accent-secondary); }
 .applicant-card, .assessment-grid article, .maturity-math > div, .comparison-facts,
 .lifecycle-facts-grid article, .rejection-details article, .share-ruling, .result-theme-option,
+.result-format-option,
 .species-register-card, .method-card, .worked-example-grid > div, .category-list div {
   color: var(--text-primary); background: var(--surface-raised); border-color: var(--border);
 }
@@ -397,7 +408,7 @@ a:focus-visible, select:focus-visible, input:focus-visible { outline-color: var(
 .eyebrow.dark, .checker-heading h2, .applicant-card legend, .temporary-species-manager h3,
 .ruling-header h2, .assessment-grid h3, .bureau-calculations h3, .maturity-math strong,
 .lifecycle-facts-grid h4, .longevity-notice-heading, .rejection-details h3, .bureau-note span,
-.share-ruling-label, .share-ruling h3, .result-theme-picker legend, .species-register-card h4,
+.share-ruling-label, .share-ruling h3, .result-theme-picker legend, .result-format-picker legend, .species-register-card h4,
 .information-header h2, .species-register-group > h3, .method-card h3, .worked-example h3,
 .worked-example h4, .information-note strong, .about-disclaimer strong {
   color: var(--heading-color);
@@ -408,6 +419,7 @@ a:focus-visible, select:focus-visible, input:focus-visible { outline-color: var(
 .assessment-facts dt, .maturity-math small, .comparison-facts span, .applicant-species-name,
 .lifecycle-facts-grid dt, .rejection-details dt, .longevity-notice > p, .bureau-note p,
 .ruling-footer, .share-restore-notice, .result-theme-picker > p, .result-theme-option small,
+.result-format-picker > p, .result-format-option small, .result-format-option em,
 .share-action-group > span, .share-limitation, .record-description, .species-register-card dt,
 .information-header > p:last-child, .information-note p, .about-disclaimer p, .method-card > p,
 .category-list dd, .worked-example-grid p, .worked-conclusion { color: var(--text-secondary); }
@@ -419,12 +431,15 @@ a:focus-visible, select:focus-visible, input:focus-visible { outline-color: var(
 .ruling-header, .ruling-footer, .rejection-closing { border-color: var(--border); }
 .maturity-math, .comparison-facts, .category-list { border-color: var(--border); background: var(--border); }
 .comparison-facts div { border-color: var(--border); }
-.result-theme-picker, .result-theme-option { border-color: var(--border); }
+.result-theme-picker, .result-theme-option, .result-format-picker, .result-format-option { border-color: var(--border); }
 .result-theme-option:hover, .result-theme-option.selected { border-color: var(--accent-secondary); background: var(--surface); }
+.result-format-option:hover, .result-format-option.selected { border-color: var(--accent-secondary); background: var(--surface); }
 .result-theme-option input { accent-color: var(--accent-secondary); }
+.result-format-option input { accent-color: var(--accent-secondary); }
 .result-theme-option input:focus-visible { outline-color: var(--focus); }
-.result-theme-option strong, .ruling-footer strong { color: var(--text-primary); }
-.share-feedback, .selected-theme-status { color: var(--positive); }
+.result-format-option input:focus-visible { outline-color: var(--focus); }
+.result-theme-option strong, .result-format-option strong, .ruling-footer strong { color: var(--text-primary); }
+.share-feedback, .selected-theme-status, .selected-format-status { color: var(--positive); }
 .custom-species-dialog::backdrop { background: color-mix(in srgb, var(--site-bg) 82%, transparent); }
 
 html[data-theme='arcane-terminal'] .checker-section,
@@ -432,6 +447,7 @@ html[data-theme='arcane-terminal'] .information-section,
 html[data-theme='arcane-terminal'] .ruling-card,
 html[data-theme='arcane-terminal'] .applicant-card,
 html[data-theme='arcane-terminal'] .result-theme-option { border-radius: 0; }
+html[data-theme='arcane-terminal'] .result-format-option { border-radius: 0; }
 html[data-theme='arcane-terminal'] .eyebrow { letter-spacing: 0.1em; }
 html[data-theme='dwarven-registry'] .checker-section,
 html[data-theme='dwarven-registry'] .information-section,
@@ -685,6 +701,7 @@ html[data-theme='obsidian-records'] .verdict-quip::before { display: none; }
   .share-ruling { grid-template-columns: 1fr; align-items: stretch; }
   .share-action-groups { display: grid; grid-template-columns: 1fr; }
   .result-theme-options { grid-template-columns: 1fr; }
+  .result-format-options { grid-template-columns: 1fr; }
   .share-actions { display: grid; grid-template-columns: 1fr; }
   .share-actions button { width: 100%; }
   .share-limitation, .share-feedback { grid-column: auto; }

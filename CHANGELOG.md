@@ -2,6 +2,13 @@
 
 ## Unreleased / v2.0
 
+### Stage 16 — Result Card Formats
+
+- Added independent Compact, Standard, and Full Dossier formats for generated ruling images, with Standard remaining the 1080x1350 default.
+- Added a typed format registry and accessible, session-only Card Format controls beside the independent ten-theme Card Theme controls.
+- Added a 1080x1080 Compact layout for essential sharing details and a 1080x1920 Full Dossier with lifecycle records, calculation evidence, factual Bureau Findings, and expanded longevity context.
+- Kept image generation private and client-side; format does not affect the web ruling, consultation, commentary selection, case number, copied result, website theme, storage, or permalink.
+
 ### Stage 15 — Theme Overhaul
 
 - Extended the shared website-theme registry with structural presentation metadata for panels, headings, dividers, labels, controls, seals, consultation states, results, density, geometry, and footers.

@@ -17,7 +17,7 @@ _Release screenshot to be added when the public deployment has a final domain._
 - Session-only custom species with a name, adulthood age, and typical lifespan.
 - Optional, session-only applicant display names that appear in rulings, copied text, and PNG exports without affecting any calculation.
 - 348 reviewed fantasy-bureaucracy quips with per-slot anti-repetition history, including exact-ID commentary for every expanded-register species.
-- Copyable result summaries, native sharing where supported, stable permalinks for built-in species, and downloadable 1080x1350 PNG ruling cards in ten selectable styles.
+- Copyable result summaries, native sharing where supported, stable permalinks for built-in species, and downloadable PNG ruling cards in three formats and ten selectable styles.
 - Ten coordinated website themes with an accessible header selector, safe local preference restoration, and no effect on consultation data or rulings.
 - Same-page Species Guide, calculation explanation, and entertainment disclaimer.
 - Responsive, keyboard-accessible controls and reduced-motion support.
@@ -63,9 +63,17 @@ Applicant names are presentation-only and remain in React memory for the current
 
 Clipboard and Web Share features degrade to clear, non-fatal messages when the browser does not support them or permission is denied. Production should use HTTPS because these APIs depend on browser, platform, and secure-context support.
 
-Approved rulings can also be saved as self-contained 1080x1350 PNG cards. The browser builds a plain-text SVG from the already-submitted result, rasterises it locally with Canvas, and downloads the PNG; no screenshot library, server renderer, upload, or network request is involved. Every card includes the submitted Maturity Compatibility quip, Experience Gap quip, and administrative Bureau Note. It keeps the displayed case number, includes submitted applicant names when present, uses custom species display names without exposing their internal IDs, and shows longevity context only when an applicant exceeds a typical lifespan.
+Approved rulings can also be saved as self-contained PNG cards. The browser builds a plain-text SVG from the already-submitted result, rasterises it locally with Canvas, and downloads the PNG; no screenshot library, server renderer, upload, or network request is involved. Every format keeps the submitted case number and factual ruling. Optional applicant names are included when present, custom species use their display names without exposing internal IDs, and existing longevity context is shown where the selected format calls for it.
 
-The **Result Card Style** picker offers Bureau Classic (the default), Royal Decree, Elven Archive, Dwarven Registry, Goblin Administration, Arcane Terminal, Fae Court, Dragon Archive, Celestial Tribunal, and Obsidian Records. A theme changes image presentation only: it never changes applicants, calculations, verdicts, case numbers, longevity, or any of the three submitted commentary lines. The image theme lives only in component memory and is not stored or encoded in permalinks.
+The session-only **Card Format** control is independent from **Card Theme**:
+
+- **Compact** (1080x1080) keeps applicant identity, ages, both verdicts, one already-submitted headline quip, relevant longevity flags, and Bureau status for quick sharing.
+- **Standard** (1080x1350) is the default and preserves the complete familiar ruling with both assessment quips, factual experience values, longevity notices, and Bureau Note.
+- **Full Dossier** (1080x1920) adds lifecycle records, maturity ranges, experience analysis, factual Bureau Findings, expanded longevity data, and filing details while retaining all three commentary sections.
+
+Format affects PNG generation only. It is reset to Standard for each newly mounted consultation result, is not stored in `localStorage`, and never enters copied text or permalinks. Card theme and format can be combined independently across all 30 supported combinations.
+
+The **Card Theme** picker offers Bureau Classic (the default), Royal Decree, Elven Archive, Dwarven Registry, Goblin Administration, Arcane Terminal, Fae Court, Dragon Archive, Celestial Tribunal, and Obsidian Records. A theme changes image presentation only: it never changes applicants, calculations, verdicts, case numbers, longevity, or any submitted commentary. The image theme lives only in component memory and is not stored or encoded in permalinks.
 
 ## Website themes
 
@@ -135,7 +143,7 @@ Open `http://localhost:8080/`. The image health check performs `GET /`; a health
 
 ## Privacy and security
 
-No consultation data is transmitted by the application. There are no network requests, analytics, backend services, user accounts, or bundled secrets. Result images are constructed and encoded entirely in the browser and are transmitted only if the user explicitly invokes the platform share sheet. Temporary species, applicant names, and image-theme choice remain in memory only. Browser persistence is limited to recent quip IDs and the selected website-theme ID in `localStorage`; blocked or malformed storage is ignored safely. Share links contain only built-in species IDs and entered ages; applicant names, website themes, and image themes are never serialized into them.
+No consultation data is transmitted by the application. There are no network requests, analytics, backend services, user accounts, or bundled secrets. Result images are constructed and encoded entirely in the browser and are transmitted only if the user explicitly invokes the platform share sheet. Temporary species, applicant names, image-theme choice, and card-format choice remain in memory only. Browser persistence is limited to recent quip IDs and the selected website-theme ID in `localStorage`; blocked or malformed storage is ignored safely. Share links contain only built-in species IDs and entered ages; applicant names, website themes, image themes, and card formats are never serialized into them.
 
 The nginx configuration adds conservative content-type, referrer, and framing headers without a restrictive untested Content Security Policy.
 

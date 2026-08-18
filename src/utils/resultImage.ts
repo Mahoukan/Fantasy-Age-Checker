@@ -3,10 +3,19 @@ import {
   DEFAULT_RESULT_IMAGE_THEME_ID,
   type ResultImageThemeId,
 } from '../data/resultImageThemes';
+import {
+  DEFAULT_RESULT_CARD_FORMAT_ID,
+  getResultCardFormat,
+  type ResultCardFormatId,
+} from '../data/resultCardFormats';
 import type { ShareResultModel } from './share';
-import { formatYears } from './format';
+import { formatEquivalentYears, formatPercentage, formatYears } from './format';
 import { applicantDisplayName } from './applicantName';
-import { createThemedResultCardSvg } from './resultCardSvg';
+import {
+  createCompactResultCardSvg,
+  createFullDossierResultCardSvg,
+  createThemedResultCardSvg,
+} from './resultCardSvg';
 
 export const RESULT_IMAGE_WIDTH = 1080;
 export const RESULT_IMAGE_HEIGHT = 1350;
@@ -25,6 +34,10 @@ export interface ResultImageApplicant {
   speciesName: string;
   age: string;
   adultExperience: string;
+  adulthoodAge: string;
+  typicalLifespan: string;
+  relativeLifespan: string;
+  equivalentMaturity: string;
   isTemporary: boolean;
 }
 
@@ -32,22 +45,38 @@ export interface ResultImageLongevity {
   applicantLabel: string;
   speciesName: string;
   label: string;
+  age: string;
+  typicalLifespan: string;
+  percentage: string;
+  excessYears: string;
 }
 
 export interface ResultImageModel {
   caseNumber: string;
   applicants: [ResultImageApplicant, ResultImageApplicant];
   maturity: {
+    category: string;
     label: string;
     description: string;
     quip: string;
+    applicantAEquivalentAge: string;
+    applicantBEquivalentAge: string;
+    applicantARange: string;
+    applicantBRange: string;
+    relativeDifference: string;
+    mutuallyCompatible: boolean;
   };
   experience: {
+    category: string;
     label: string;
     description: string;
     gap: string;
+    chronologicalGap: string;
+    ratio: string;
     quip: string;
   };
+  compactQuip: string;
+  findings: string[];
   longevity: ResultImageLongevity[];
   administrativeNote: string;
 }
@@ -93,6 +122,7 @@ interface SvgTextOptions {
 export interface ResultImageRenderOptions {
   measureText?: TextMeasurer;
   themeId?: ResultImageThemeId;
+  formatId?: ResultCardFormatId;
 }
 
 export interface ResultImageLike {
@@ -159,23 +189,67 @@ export function buildResultImageModel(source: ResultImageSource): ResultImageMod
     speciesName: applicant.species.name,
     age: formatYears(applicant.age),
     adultExperience: formatYears(applicant.adultExperience),
+    adulthoodAge: formatYears(applicant.species.adulthoodAge),
+    typicalLifespan: formatYears(applicant.species.typicalLifespan),
+    relativeLifespan: formatPercentage(applicant.relativeAge),
+    equivalentMaturity: formatEquivalentYears(
+      applicant.label === 'A'
+        ? source.maturity.applicantAEquivalentAge
+        : source.maturity.applicantBEquivalentAge,
+    ),
     isTemporary: applicant.species.source === 'custom',
   })) as [ResultImageApplicant, ResultImageApplicant];
+
+  const displayA = first.name ?? 'Applicant A';
+  const displayB = second.name ?? 'Applicant B';
+  const findings: string[] = [];
+  if (source.experience.applicantAHasBeenAdultLongerThanBHasBeenAlive) {
+    findings.push(`${displayA} has been an adult longer than ${displayB} has been alive.`);
+  }
+  if (source.experience.applicantBHasBeenAdultLongerThanAHasBeenAlive) {
+    findings.push(`${displayB} has been an adult longer than ${displayA} has been alive.`);
+  }
+  if (source.experience.applicantAAdultExperienceExceedsBTypicalLifespan) {
+    findings.push(`${displayA}'s adult experience exceeds the typical ${second.species.name} lifespan.`);
+  }
+  if (source.experience.applicantBAdultExperienceExceedsATypicalLifespan) {
+    findings.push(`${displayB}'s adult experience exceeds the typical ${first.species.name} lifespan.`);
+  }
+
+  const compactQuip = (
+    source.experience.category === 'HISTORICAL' || source.experience.category === 'CIVILIZATIONS'
+      ? source.quips.experience.text
+      : source.quips.maturity.text
+  ) || source.quips.administrative.text;
 
   return {
     caseNumber: source.caseNumber,
     applicants,
     maturity: {
+      category: source.maturity.category,
       label: maturityVerdicts[source.maturity.category].label,
       description: maturityVerdicts[source.maturity.category].description,
       quip: source.quips.maturity.text,
+      applicantAEquivalentAge: formatEquivalentYears(source.maturity.applicantAEquivalentAge),
+      applicantBEquivalentAge: formatEquivalentYears(source.maturity.applicantBEquivalentAge),
+      applicantARange: `${formatEquivalentYears(source.maturity.applicantAMinimumEquivalentAge)}–${formatEquivalentYears(source.maturity.applicantAMaximumEquivalentAge)}`,
+      applicantBRange: `${formatEquivalentYears(source.maturity.applicantBMinimumEquivalentAge)}–${formatEquivalentYears(source.maturity.applicantBMaximumEquivalentAge)}`,
+      relativeDifference: formatPercentage(source.maturity.relativeDifference),
+      mutuallyCompatible: source.maturity.mutuallyCompatible,
     },
     experience: {
+      category: source.experience.category,
       label: experienceVerdicts[source.experience.category].label,
       description: experienceVerdicts[source.experience.category].description,
       gap: formatYears(source.experience.adultExperienceGap),
+      chronologicalGap: formatYears(source.experience.chronologicalAgeGap),
+      ratio: source.experience.experienceRatio === null
+        ? 'Not defined'
+        : `${source.experience.experienceRatio.toLocaleString('en-US', { maximumFractionDigits: 2 })}:1`,
       quip: source.quips.experience.text,
     },
+    compactQuip,
+    findings,
     longevity: source.longevity
       .filter((result) => result.category !== 'NORMAL')
       .map((result) => {
@@ -184,6 +258,10 @@ export function buildResultImageModel(source: ResultImageSource): ResultImageMod
           applicantLabel: applicant ? applicantDisplayName(applicant) : `Applicant ${result.applicant}`,
           speciesName: applicant?.species.name ?? 'Unknown species',
           label: longevityLabels[result.category],
+          age: formatYears(applicant?.age ?? 0),
+          typicalLifespan: formatYears(applicant?.species.typicalLifespan ?? 0),
+          percentage: formatPercentage(result.ratio),
+          excessYears: formatYears(result.excessYears),
         };
       }),
     administrativeNote: source.quips.administrative.text,
@@ -520,6 +598,9 @@ export function createResultCardSvg(
   model: ResultImageModel,
   options: ResultImageRenderOptions = {},
 ): string {
+  const formatId = options.formatId ?? DEFAULT_RESULT_CARD_FORMAT_ID;
+  if (formatId === 'compact') return createCompactResultCardSvg(model, options);
+  if (formatId === 'full-dossier') return createFullDossierResultCardSvg(model, options);
   return createThemedResultCardSvg(model, options);
 }
 
@@ -547,6 +628,7 @@ function browserImageEnvironment(): ResultImageEnvironment {
 export async function renderResultSvgToPng(
   svg: string,
   environment: ResultImageEnvironment = browserImageEnvironment(),
+  dimensions = getResultCardFormat(DEFAULT_RESULT_CARD_FORMAT_ID),
 ): Promise<Blob> {
   const svgBlob = new Blob([svg], { type: 'image/svg+xml;charset=utf-8' });
   const objectUrl = environment.createObjectURL(svgBlob);
@@ -560,11 +642,11 @@ export async function renderResultSvgToPng(
     });
 
     const canvas = environment.createCanvas();
-    canvas.width = RESULT_IMAGE_WIDTH;
-    canvas.height = RESULT_IMAGE_HEIGHT;
+    canvas.width = dimensions.width;
+    canvas.height = dimensions.height;
     const context = canvas.getContext('2d');
     if (!context) throw new Error('A canvas drawing context is unavailable.');
-    context.drawImage(image, 0, 0, RESULT_IMAGE_WIDTH, RESULT_IMAGE_HEIGHT);
+    context.drawImage(image, 0, 0, dimensions.width, dimensions.height);
 
     const png = await new Promise<Blob>((resolve, reject) => {
       canvas.toBlob((blob) => {
@@ -583,10 +665,12 @@ export async function createResultPng(
   environment?: ResultImageEnvironment,
   measureText: TextMeasurer = createCanvasTextMeasurer(),
   themeId: ResultImageThemeId = DEFAULT_RESULT_IMAGE_THEME_ID,
+  formatId: ResultCardFormatId = DEFAULT_RESULT_CARD_FORMAT_ID,
 ): Promise<Blob> {
   const model = buildResultImageModel(source);
-  const svg = createResultCardSvg(model, { measureText, themeId });
-  return renderResultSvgToPng(svg, environment);
+  const format = getResultCardFormat(formatId);
+  const svg = createResultCardSvg(model, { measureText, themeId, formatId });
+  return renderResultSvgToPng(svg, environment, format);
 }
 
 export function resultImageFilename(caseNumber: string): string {

@@ -6,6 +6,12 @@ import {
   type ResultImageThemeId,
 } from '../data/resultImageThemes'
 import {
+  DEFAULT_RESULT_CARD_FORMAT_ID,
+  getResultCardFormat,
+  resultCardFormats,
+  type ResultCardFormatId,
+} from '../data/resultCardFormats'
+import {
   createResultPng,
   downloadResultPng,
   shareResultPng,
@@ -33,6 +39,7 @@ export function ShareControls({ result, initialThemeId = DEFAULT_RESULT_IMAGE_TH
   const [feedback, setFeedback] = useState('')
   const [isGeneratingImage, setIsGeneratingImage] = useState(false)
   const [selectedThemeId, setSelectedThemeId] = useState<ResultImageThemeId>(initialThemeId)
+  const [selectedFormatId, setSelectedFormatId] = useState<ResultCardFormatId>(DEFAULT_RESULT_CARD_FORMAT_ID)
   const [nativeShareAvailable] = useState(() => (
     typeof navigator !== 'undefined' && hasNativeShare(navigator.share?.bind(navigator))
   ))
@@ -103,7 +110,7 @@ export function ShareControls({ result, initialThemeId = DEFAULT_RESULT_IMAGE_TH
     setIsGeneratingImage(true)
     announce('Preparing result image…', false)
     try {
-      const png = await createResultPng(result, undefined, undefined, selectedThemeId)
+      const png = await createResultPng(result, undefined, undefined, selectedThemeId, selectedFormatId)
       downloadResultPng(png, result.caseNumber)
       announce('Result image saved.')
     } catch {
@@ -118,7 +125,7 @@ export function ShareControls({ result, initialThemeId = DEFAULT_RESULT_IMAGE_TH
     setIsGeneratingImage(true)
     announce('Preparing result image…', false)
     try {
-      const png = await createResultPng(result, undefined, undefined, selectedThemeId)
+      const png = await createResultPng(result, undefined, undefined, selectedThemeId, selectedFormatId)
       const outcome = await shareResultPng(png, result.caseNumber, navigator)
       if (outcome === 'shared') announce('Result image shared.')
       if (outcome === 'cancelled') announce('Image sharing cancelled.')
@@ -137,8 +144,36 @@ export function ShareControls({ result, initialThemeId = DEFAULT_RESULT_IMAGE_TH
         <span className="share-ruling-label">Ruling services</span>
         <h3 id="share-ruling-title">Share This Ruling</h3>
       </div>
+      <fieldset className="result-format-picker" disabled={isGeneratingImage} aria-describedby="result-format-help">
+        <legend>Card Format</legend>
+        <p id="result-format-help">Choose how much detail the saved or shared image includes.</p>
+        <div className="result-format-options">
+          {resultCardFormats.map((format) => {
+            const checked = selectedFormatId === format.id
+            return (
+              <label className={`result-format-option${checked ? ' selected' : ''}`} key={format.id}>
+                <input
+                  type="radio"
+                  name={`result-card-format-${result.caseNumber}`}
+                  value={format.id}
+                  checked={checked}
+                  onChange={() => setSelectedFormatId(format.id)}
+                />
+                <span>
+                  <strong>{format.name}</strong>
+                  <small>{format.description}</small>
+                </span>
+                <em aria-hidden="true">{format.width} × {format.height}</em>
+              </label>
+            )
+          })}
+        </div>
+        <p className="selected-format-status" aria-live="polite">
+          Selected format: {getResultCardFormat(selectedFormatId).name}
+        </p>
+      </fieldset>
       <fieldset className="result-theme-picker" disabled={isGeneratingImage} aria-describedby="result-theme-help">
-        <legend>Result Card Style</legend>
+        <legend>Card Theme</legend>
         <p id="result-theme-help">
           Choose the presentation used when saving or sharing an image. Ruling content stays unchanged.
         </p>

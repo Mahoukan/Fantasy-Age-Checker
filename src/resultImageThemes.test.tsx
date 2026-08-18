@@ -131,7 +131,7 @@ describe('result image theme registry', () => {
 
   it('renders all ten text-labelled, CSS-only options with Bureau Classic selected', () => {
     const markup = renderToStaticMarkup(<ShareControls result={consultation()} />)
-    expect((markup.match(/type="radio"/g) ?? [])).toHaveLength(10)
+    expect((markup.match(/type="radio"/g) ?? [])).toHaveLength(13)
     for (const theme of resultImageThemes) {
       expect(markup).toContain(theme.name)
       expect(markup).toContain(theme.description)
