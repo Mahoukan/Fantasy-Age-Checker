@@ -432,6 +432,29 @@ h1 { margin-bottom: 14px; color: var(--page-text); font-family: var(--serif); fo
 .fbi-readiness { margin-top: 24px; padding: 19px 21px; background: var(--surface-inset); border: 1px solid var(--border); }
 .fbi-readiness h2 { margin: 5px 0 14px; color: var(--heading-color); font: 600 1.15rem var(--heading-font); }
 .fbi-readiness > p:last-child { margin: 14px 0 0; color: var(--text-secondary); font-size: 0.8rem; }
+.fbi-review-action { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 18px; }
+.fbi-review-action button { min-height: 50px; padding: 11px 22px; color: var(--button-text); background: var(--button-bg); border: 1px solid var(--border-strong); border-radius: var(--panel-radius); font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; cursor: pointer; }
+.fbi-review-action button:disabled { color: var(--text-secondary); background: var(--surface-inset); border-color: var(--border); cursor: not-allowed; opacity: 0.72; }
+.fbi-review-action small { max-width: 360px; color: var(--text-secondary); font-size: 0.72rem; line-height: 1.45; }
+.fbi-review { margin-top: 26px; padding: clamp(20px, 3vw, 30px); background: var(--surface-raised); border: 1px solid var(--border-strong); border-top: 4px solid var(--accent-secondary); }
+.fbi-review > h2 { margin: 6px 0 20px; color: var(--heading-color); font: 600 1.5rem var(--heading-font); }
+.fbi-review-applicants, .fbi-review-findings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.fbi-review-applicants article, .fbi-review-findings article { min-width: 0; padding: 16px; background: var(--surface); border: 1px solid var(--border); }
+.fbi-review-applicants h3, .fbi-review-findings h3 { margin: 0 0 6px; color: var(--heading-color); font: 600 1.05rem var(--heading-font); }
+.fbi-review-applicants article > p { color: var(--text-secondary); font-size: 0.76rem; }
+.fbi-review-applicants dl, .fbi-review-context { display: grid; gap: 7px; margin: 12px 0 0; }
+.fbi-review-applicants dl div, .fbi-review-context div { display: flex; justify-content: space-between; gap: 12px; padding-top: 7px; border-top: 1px dotted var(--border); }
+.fbi-review-applicants dt, .fbi-review-context dt { color: var(--text-secondary); font-size: 0.7rem; }
+.fbi-review-applicants dd, .fbi-review-context dd { margin: 0; color: var(--text-primary); font-size: 0.76rem; font-weight: 800; text-align: right; }
+.fbi-review-findings { margin-top: 14px; }
+.fbi-review-findings .eyebrow { margin-bottom: 8px; }
+.fbi-review-findings article > p:last-child { margin-bottom: 0; color: var(--text-secondary); font-size: 0.74rem; }
+.fbi-review-context { margin-top: 16px; }
+.fbi-review-disclaimer { margin: 18px 0 0; color: var(--text-secondary); font-size: 0.78rem; font-style: italic; }
+.fbi-review-ineligible { border-top-color: var(--danger); }
+.fbi-review-ineligible > p, .fbi-review-ineligible li { color: var(--text-secondary); font-size: 0.8rem; line-height: 1.55; }
+.fbi-review-ineligible li + li { margin-top: 6px; }
+.fbi-review-ineligible li strong { color: var(--danger); }
 .immortal-preset-catalogue summary { min-height: 44px; padding: 11px 0; color: var(--heading-color); font-weight: 800; cursor: pointer; }
 .immortal-preset-catalogue[open] summary { margin-bottom: 18px; }
 
@@ -813,6 +836,9 @@ html[data-theme='obsidian-records'] .verdict-quip::before { display: none; }
   .immortal-family-grid { grid-template-columns: 1fr; }
   .immortal-preset-grid { grid-template-columns: 1fr; }
   .fbi-intake-layout { grid-template-columns: 1fr; }
+  .fbi-review-applicants, .fbi-review-findings { grid-template-columns: 1fr; }
+  .fbi-review-action { align-items: stretch; flex-direction: column; }
+  .fbi-review-action button { width: 100%; }
   .applicant-separator { height: 54px; flex-direction: row; }
   .applicant-separator::before, .applicant-separator::after { width: auto; height: 1px; }
   .applicant-separator span { margin: 0 12px; }

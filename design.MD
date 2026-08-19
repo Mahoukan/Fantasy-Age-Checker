@@ -1396,6 +1396,22 @@ Each valid draft displays a compact record preview containing classification, ef
 
 Temporary custom species state now lives at the persistent application parent and is passed to both the unchanged Checker workflow and FBI intake. It remains in memory only and continues using the single existing species model and registration interface.
 
+## Stage 25 FBI comparison engine
+
+The pure FBI engine accepts any two validated Stage 24 `FbiApplicantRecord` values. It first normalizes each record into shared factual fields: identity/display context, lifecycle family and classification, effective human-equivalent maturity, actual adult experience, adult-comparison eligibility, meaningful chronological age where available, and finite typical lifespan only for genuinely mortal records. Original records are never mutated.
+
+Adult eligibility is a centralized gate. If either normalized record is ineligible, the result is `INELIGIBLE` with applicant-specific reasons and contains no maturity or experience categories. Mortal underage records, underage transformations, underage natural immortals, and underage transferred current forms therefore cannot be rescued by accumulated experience. Created-mature manifested records remain eligible even at zero adult-experience years.
+
+Eligible effective maturities are passed through the existing normal `getMaturityCompatibility` engine on the shared 84-year human-equivalent scale. This preserves mutual range checking, relative-difference logic, thresholds, and `EXCELLENT`, `GOOD`, `BORDERLINE`, and `INCOMPATIBLE` categories without an FBI-specific formula. Mortal-to-mortal FBI inputs therefore agree with the normal Checker for the same species and ages.
+
+Eligible adult-experience values use the existing `getExperienceCategory` classifier and its unchanged thresholds. The FBI engine derives only lifecycle-neutral factual context: experience gap, more-experienced applicant, safe ratio, whether experience exceeds a meaningful partner chronological age, and extreme disparity. Partner-lifespan flags are nullable and evaluated only when that partner is a mortal record with a finite typical lifespan.
+
+Chronological age is retained for mortal, acquired, natural, and manifested records. Transferred/cyclical records intentionally expose no comparable whole-applicant chronological age, so pair chronology and its absolute gap become `null` when either side lacks one. Chronology is context only and never changes maturity compatibility.
+
+The approved result contains independent maturity, experience, and chronology sections. It has no combined score, overall relationship approval, longevity verdict, random content, case number, quips, or presentation selection. Reincarnating and possessing rules are consumed from their already-built maturity, experience, and eligibility values; the comparison engine never reruns family-specific derivation or immortal maturation.
+
+Immortal Affairs now provides an explicit `Open FBI Review` action. It submits the two current validated records to the pure engine and displays a restrained factual review or an ineligibility explanation. Editing either draft clears the submitted review; hash navigation preserves it because the primary view remains mounted. Review state is never persisted or serialized.
+
 ---
 
 # 38. Final Product Identity
