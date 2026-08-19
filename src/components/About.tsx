@@ -5,6 +5,7 @@ export function About() {
     <section className="information-section about-section" id="about" aria-labelledby="about-title">
       <ThemeOrnament location="information" />
       <header className="information-header">
+        <p className="agency-identity"><strong>FOIA</strong><span>Fantasy Office of Institutional Affairs</span></p>
         <p className="eyebrow dark">Public information notice</p>
         <h1 id="about-title">About</h1>
       </header>
@@ -12,6 +13,11 @@ export function About() {
         <p>
           Fantasy Age Checker is a fictional entertainment project exploring how age comparisons become strange
           when fantasy peoples have radically different lifespans and adulthood conventions.
+        </p>
+        <p>
+          The Arcane Relationship Bureau coordinates maturity verification, chronological intelligence, case
+          exchange, species records, technical guidance, and institutional paperwork through its current offices.
+          A Fantasy Bureau of Immortality remains planned for a future filing cycle.
         </p>
         <p>
           Built-in lifecycle values are generic assumptions created for this tool, not statements about any

@@ -94,6 +94,22 @@ describe('How It Works', () => {
 })
 
 describe('About and navigation', () => {
+  it('presents every descriptive agency identity under the ARB umbrella', () => {
+    const markup = renderToStaticMarkup(<App />)
+    const agencies = [
+      ['DMV', 'Department of Maturity Verification'],
+      ['CIA', 'Chronological Intelligence Agency'],
+      ['CASE', 'Chronological Assessment &amp; Scenario Exchange'],
+      ['IRS', 'Inter-Species Registry Service'],
+      ['MATH', 'Maturity &amp; Age Technical Handbook'],
+      ['FOIA', 'Fantasy Office of Institutional Affairs'],
+    ]
+    for (const [acronym, name] of agencies) {
+      expect(markup).toContain(`<strong>${acronym}</strong><span>${name}</span>`)
+    }
+    expect(markup).not.toContain('href="#fbi"')
+  })
+
   it('clearly states the fictional entertainment purpose and lack of advice', () => {
     const markup = renderToStaticMarkup(<About />)
     expect(markup).toContain('fictional entertainment project')

@@ -217,6 +217,7 @@ export function ReverseLookup({ availableSpecies, onUsePair }: ReverseLookupProp
     <section className="information-section reverse-lookup-section" id="reverse-lookup" aria-labelledby="reverse-lookup-title">
       <ThemeOrnament location="information" />
       <header className="information-header">
+        <p className="agency-identity"><strong>CIA</strong><span>Chronological Intelligence Agency</span></p>
         <p className="eyebrow dark">Specialist lifecycle reference desk</p>
         <h1 id="reverse-lookup-title">Chronological Equivalence Office</h1>
         <p>For applicants who would prefer to receive the numbers before creating additional paperwork.</p>

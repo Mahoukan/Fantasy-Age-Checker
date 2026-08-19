@@ -19,6 +19,7 @@ export function SpeciesGuide({ onLoadCase = () => undefined }: SpeciesGuideProps
     <section className="information-section species-register-section" id="species-guide" aria-labelledby="species-guide-title">
       <ThemeOrnament location="information" />
       <header className="information-header">
+        <p className="agency-identity"><strong>IRS</strong><span>Inter-Species Registry Service</span></p>
         <p className="eyebrow dark">Permanent lifecycle catalogue</p>
         <h1 id="species-guide-title">Bureau Species Register</h1>
         <p>

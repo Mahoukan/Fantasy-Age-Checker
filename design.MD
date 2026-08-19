@@ -135,6 +135,20 @@ The application does not require a client-side router.
 
 Each hash displays one primary section at a time. Primary sections remain mounted but inactive sections are hidden from layout and accessibility APIs, allowing temporary Checker and Reverse Lookup state to survive navigation.
 
+## Fictional agency structure
+
+The **ARB — Arcane Relationship Bureau**, Department of Inter-Species Affairs, is the umbrella organisation. Its presentation-only agencies are:
+
+- **DMV — Department of Maturity Verification:** Checker and normal compatibility assessments.
+- **CIA — Chronological Intelligence Agency:** Reverse Lookup and the Chronological Equivalence Office.
+- **CASE — Chronological Assessment & Scenario Exchange:** random assignments, Daily Bureau Files, and archive cases.
+- **IRS — Inter-Species Registry Service:** Species Guide and Bureau Species Register.
+- **MATH — Maturity & Age Technical Handbook:** How It Works and the Bureau's technical explanations.
+- **FOIA — Fantasy Office of Institutional Affairs:** About and institutional information.
+- **FBI — Fantasy Bureau of Immortality:** planned for v3; it has no current navigation destination, lifecycle model, or calculations.
+
+These names describe the fictional presentation hierarchy only. They do not create separate data, calculation, navigation, persistence, or sharing layers.
+
 ---
 
 # 4. Main Checker

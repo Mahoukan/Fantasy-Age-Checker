@@ -60,6 +60,7 @@ export function BureauCases({ onLoadCase, today = new Date() }: BureauCasesProps
     <section className="information-section bureau-cases-section" id="bureau-cases" aria-labelledby="bureau-cases-title">
       <ThemeOrnament location="information" />
       <header className="information-header">
+        <p className="agency-identity"><strong>CASE</strong><span>Chronological Assessment &amp; Scenario Exchange</span></p>
         <p className="eyebrow dark">Case Assignment and Archive Desk</p>
         <h1 id="bureau-cases-title">Bureau Cases</h1>
         <p>Browse current files or request an assignment. Every selection populates the existing Checker for review and editing before consultation.</p>

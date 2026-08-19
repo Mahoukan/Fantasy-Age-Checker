@@ -19,6 +19,7 @@ export function HowItWorks() {
     <section className="information-section" id="how-it-works" aria-labelledby="how-it-works-title">
       <ThemeOrnament location="information" />
       <header className="information-header">
+        <p className="agency-identity"><strong>MATH</strong><span>Maturity &amp; Age Technical Handbook</span></p>
         <p className="eyebrow dark">Procedural manual ARB-02</p>
         <h1 id="how-it-works-title">How It Works</h1>
         <p>

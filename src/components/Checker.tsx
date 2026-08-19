@@ -278,12 +278,13 @@ export function Checker({
       <div className="primary-view primary-view-checker" data-primary-view="checker" hidden={activeSection !== 'checker'}>
         <Hero />
         <section className="checker-section" id="checker" aria-labelledby="checker-title">
-        <ThemeOrnament location="checker" />
-        <div className="checker-heading">
-        <p className="eyebrow dark">Departmental form ARB-01</p>
-        <h2 id="checker-title">Fantasy Age Compatibility Assessment</h2>
-        <p>Submit two applicants for review by the Office of Chronological Compatibility.</p>
-      </div>
+          <ThemeOrnament location="checker" />
+          <div className="checker-heading">
+            <p className="agency-identity"><strong>DMV</strong><span>Department of Maturity Verification</span></p>
+            <p className="eyebrow dark">Departmental form ARB-01</p>
+            <h2 id="checker-title">Fantasy Age Compatibility Assessment</h2>
+            <p>Submit two applicants for review by the Office of Chronological Compatibility.</p>
+          </div>
 
       {shareRestoreMessage && (
         <p className="share-restore-notice" role="status">{shareRestoreMessage}</p>

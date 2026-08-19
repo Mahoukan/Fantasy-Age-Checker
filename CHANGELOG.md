@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.2 - 2026-08-19
+
+### Changed
+
+- Added descriptive DMV, CIA, CASE, IRS, MATH and FOIA identities beneath the Arcane Relationship Bureau umbrella, with the FBI reserved for a future release.
+
 ## 2.0.1 - 2026-08-19
 
 ### Changed
