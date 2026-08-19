@@ -8,6 +8,7 @@
 - Added the Stage 23 FBI preset registry, family-bound Custom Immortal configuration, validated immortal record builders, and Immortal Affairs classification catalogue.
 - Added the Stage 24 two-applicant FBI intake with Mortal/Immortal modes, family-specific fields, validated factual previews, and shared session custom-species access.
 - Added the Stage 25 pure FBI comparison engine with centralized adulthood gating, shared maturity/experience categories, factual chronology context, and a basic session-only review.
+- Added the Stage 26 FBI dossier presentation with stable FBI case identifiers, lifecycle-specific chronology classes, deterministic filing notes, and at most two prioritized special findings.
 
 ### Changed
 

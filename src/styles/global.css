@@ -455,6 +455,24 @@ h1 { margin-bottom: 14px; color: var(--page-text); font-family: var(--serif); fo
 .fbi-review-ineligible > p, .fbi-review-ineligible li { color: var(--text-secondary); font-size: 0.8rem; line-height: 1.55; }
 .fbi-review-ineligible li + li { margin-top: 6px; }
 .fbi-review-ineligible li strong { color: var(--danger); }
+.fbi-dossier-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 2px solid var(--border-strong); }
+.fbi-dossier-header h2 { margin: 5px 0 0; color: var(--heading-color); font: 600 clamp(1.35rem, 3vw, 1.75rem) var(--heading-font); }
+.fbi-case-number { flex: 0 0 auto; margin: 0; color: var(--heading-color); font-size: 0.82rem; font-weight: 900; letter-spacing: 0.08em; text-align: right; overflow-wrap: anywhere; }
+.fbi-case-number span { display: block; margin-bottom: 5px; color: var(--text-secondary); font-size: 0.59rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.fbi-chronology { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border); }
+.fbi-chronology p { margin: 0 0 7px; color: var(--text-primary); font-size: 0.75rem; line-height: 1.45; }
+.fbi-chronology ul { margin: 0; padding-left: 18px; color: var(--text-secondary); font-size: 0.7rem; line-height: 1.5; }
+.fbi-contradiction-note { margin: 16px 0 0; padding: 12px 14px; color: var(--text-secondary); background: var(--surface-inset); border-left: 3px solid var(--accent-secondary); font-size: 0.76rem; line-height: 1.5; }
+.fbi-contradiction-note strong { color: var(--heading-color); }
+.fbi-special-findings { margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--border); }
+.fbi-special-findings > h3 { margin: 0 0 12px; color: var(--heading-color); font: 600 1.1rem var(--heading-font); }
+.fbi-special-findings > div { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.fbi-special-findings article { padding: 14px; background: var(--surface-inset); border: 1px solid var(--border); }
+.fbi-special-findings h4 { margin: 0 0 6px; color: var(--heading-color); font: 600 0.94rem var(--heading-font); }
+.fbi-special-findings article p { margin: 0; color: var(--text-secondary); font-size: 0.72rem; line-height: 1.5; }
+.fbi-filing-note { margin-top: 18px; padding: 14px 16px; background: color-mix(in srgb, var(--surface-inset) 72%, transparent); border: 1px solid var(--border); }
+.fbi-filing-note strong { color: var(--positive); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.fbi-filing-note p { margin: 6px 0 0; color: var(--text-secondary); font-size: 0.75rem; line-height: 1.5; }
 .immortal-preset-catalogue summary { min-height: 44px; padding: 11px 0; color: var(--heading-color); font-weight: 800; cursor: pointer; }
 .immortal-preset-catalogue[open] summary { margin-bottom: 18px; }
 
@@ -837,6 +855,9 @@ html[data-theme='obsidian-records'] .verdict-quip::before { display: none; }
   .immortal-preset-grid { grid-template-columns: 1fr; }
   .fbi-intake-layout { grid-template-columns: 1fr; }
   .fbi-review-applicants, .fbi-review-findings { grid-template-columns: 1fr; }
+  .fbi-dossier-header { align-items: stretch; flex-direction: column; }
+  .fbi-case-number { text-align: left; }
+  .fbi-special-findings > div { grid-template-columns: 1fr; }
   .fbi-review-action { align-items: stretch; flex-direction: column; }
   .fbi-review-action button { width: 100%; }
   .applicant-separator { height: 54px; flex-direction: row; }

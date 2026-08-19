@@ -5,11 +5,12 @@ import { species as builtInSpecies, type Species } from '../data/species'
 import { speciesDisplayGroups } from '../data/speciesGroups'
 import { experienceVerdicts, maturityVerdicts } from '../data/verdicts'
 import type { DraftNumber, FbiApplicantDraft, FbiApplicantDraftField, FbiApplicantErrors, FbiApplicantRecord } from '../types/fbiApplicant'
-import type { FbiComparisonResult } from '../types/fbiComparison'
+import type { FbiSubmittedReview } from '../types/fbiPresentation'
 import type { ImmortalPreset } from '../types/immortalPresets'
 import { APPLICANT_NAME_MAX_LENGTH, limitApplicantName } from '../utils/applicantName'
 import { createDefaultFbiApplicantDraft, resolveFbiApplicantDraft } from '../utils/fbiApplicant'
 import { compareFbiApplicants } from '../utils/fbiComparison'
+import { createFbiSubmittedReview } from '../utils/fbiPresentation'
 import { formatEquivalentYears, formatYears } from '../utils/format'
 import { ThemeOrnament } from './ThemeOrnament'
 
@@ -119,11 +120,12 @@ function RecordPreview({ label, applicant }: { label: 'A' | 'B'; applicant: FbiA
   </section>
 }
 
-function FbiReview({ result }: { result: FbiComparisonResult }) {
+function FbiReview({ review }: { review: FbiSubmittedReview }) {
+  const { comparison: result, presentation } = review
   if (result.status === 'INELIGIBLE') {
     return <section className="fbi-review fbi-review-ineligible" aria-labelledby="fbi-review-title">
       <p className="record-reference">FBI review unavailable</p>
-      <h2 id="fbi-review-title">Adult Comparison Ineligible</h2>
+      <h2 id="fbi-review-title">FBI Review Unavailable</h2>
       <p>The submitted records remain factual, but the Bureau cannot issue adult maturity or experience categories.</p>
       <ul>{result.reasons.map((entry) => <li key={entry.applicant}>
         <strong>Applicant {entry.applicant}:</strong> {entry.reason}
@@ -131,15 +133,26 @@ function FbiReview({ result }: { result: FbiComparisonResult }) {
     </section>
   }
 
+  if (!presentation) return null
+
   return <section className="fbi-review" aria-labelledby="fbi-review-title">
-    <p className="record-reference">FBI review / factual comparison</p>
-    <h2 id="fbi-review-title">Immortal Affairs Review</h2>
+    <header className="fbi-dossier-header">
+      <div><p className="record-reference">Fantasy Bureau of Immortality / reviewed filing</p>
+        <h2 id="fbi-review-title">Immortal Affairs Case Dossier</h2></div>
+      <p className="fbi-case-number"><span>Case number</span>{presentation.caseNumber}</p>
+    </header>
     <div className="fbi-review-applicants">
-      {result.applicants.map((applicant) => <article key={applicant.label}>
+      {result.applicants.map((applicant, index) => <article key={applicant.label}>
         <h3>{applicant.displayName}</h3><p>{applicant.classification}</p><dl>
+          <div><dt>Lifecycle family</dt><dd>{applicant.lifecycleFamily.replaceAll('_', ' ')}</dd></div>
           <div><dt>Effective maturity</dt><dd>{formatEquivalentYears(applicant.effectiveMaturity)}</dd></div>
           <div><dt>Adult experience</dt><dd>{formatYears(applicant.adultExperience)} years</dd></div>
+          <div><dt>Chronology class</dt><dd>{presentation.chronology[index].categoryLabel}</dd></div>
         </dl>
+        <section className="fbi-chronology" aria-label={`${applicant.displayName} chronology context`}>
+          <p><strong>{presentation.chronology[index].basisLabel}</strong> · {formatYears(presentation.chronology[index].basisYears)} years</p>
+          <ul>{presentation.chronology[index].context.map((line) => <li key={line}>{line}</li>)}</ul>
+        </section>
       </article>)}
     </div>
     <div className="fbi-review-findings">
@@ -158,6 +171,14 @@ function FbiReview({ result }: { result: FbiComparisonResult }) {
         ? 'Equal'
         : `Applicant ${result.experience.moreExperiencedApplicant}`}</dd></div>
     </dl>
+    {presentation.contradictionNote && <p className="fbi-contradiction-note"><strong>Independent finding:</strong> {presentation.contradictionNote}</p>}
+    {presentation.specialFindings.length > 0 && <section className="fbi-special-findings" aria-labelledby="fbi-special-findings-title">
+      <p className="eyebrow dark">Priority review</p><h3 id="fbi-special-findings-title">Special Findings</h3>
+      <div>{presentation.specialFindings.map((finding) => <article key={finding.id}>
+        <h4>{finding.label}</h4><p>{finding.description}</p>
+      </article>)}</div>
+    </section>}
+    <aside className="fbi-filing-note"><strong>Filing note</strong><p>{presentation.filingNote.text}</p></aside>
     <p className="fbi-review-disclaimer">Maturity and experience are independent factual findings. No combined score is issued.</p>
   </section>
 }
@@ -257,13 +278,16 @@ export function FbiApplicantIntakeCard({ label, draft, availableSpecies, onChang
 export function ImmortalAffairs({ availableSpecies = builtInSpecies }: { availableSpecies?: readonly Species[] }) {
   const [applicantA, setApplicantA] = useState(() => createDefaultFbiApplicantDraft('A'))
   const [applicantB, setApplicantB] = useState(() => createDefaultFbiApplicantDraft('B'))
-  const [review, setReview] = useState<FbiComparisonResult | null>(null)
+  const [review, setReview] = useState<FbiSubmittedReview | null>(null)
   const a = resolveFbiApplicantDraft(applicantA, availableSpecies)
   const b = resolveFbiApplicantDraft(applicantB, availableSpecies)
   const updateApplicantA = (draft: FbiApplicantDraft) => { setApplicantA(draft); setReview(null) }
   const updateApplicantB = (draft: FbiApplicantDraft) => { setApplicantB(draft); setReview(null) }
   const openReview = () => {
-    if (a.valid && b.valid) setReview(compareFbiApplicants(a.applicant, b.applicant))
+    if (a.valid && b.valid) {
+      const comparison = compareFbiApplicants(a.applicant, b.applicant)
+      setReview(createFbiSubmittedReview(comparison, [a.applicant, b.applicant]))
+    }
   }
   const status = (resolution: typeof a) => resolution.valid
     ? resolution.applicant.record.adultComparisonEligible ? 'Ready' : 'Recorded · adult comparison ineligible'
@@ -288,7 +312,7 @@ export function ImmortalAffairs({ availableSpecies = builtInSpecies }: { availab
     </section>
     <div className="fbi-review-action"><button type="button" disabled={!a.valid || !b.valid} onClick={openReview}>Open FBI Review</button>
       <small>This review compares factual maturity and adult experience without issuing an overall score.</small></div>
-    {review && <FbiReview result={review} />}
+    {review && <FbiReview review={review} />}
     <details className="immortal-preset-catalogue"><summary>View recognised FBI classification catalogue</summary>
       <header><p className="eyebrow dark">Immortal classification</p><h2>Recognised Filing Presets</h2>
         <p>Lifecycle parameters are Bureau defaults for this tool, not claims about any particular setting.</p></header>

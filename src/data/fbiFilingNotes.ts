@@ -1,0 +1,28 @@
+import type { FbiFilingNote } from '../types/fbiPresentation'
+
+export const fbiFilingNotes = [
+  { id: 'archive-cross-check', text: 'Archive cross-check completed against the submitted lifecycle declarations.' },
+  { id: 'chronology-annex', text: 'Chronology annex retained separately from the maturity assessment.' },
+  { id: 'independent-measures', text: 'Maturity and adult experience remain independent measures throughout this filing.' },
+  { id: 'continuity-reviewed', text: 'Declared continuity of body and consciousness was reviewed under the applicable lifecycle family.' },
+  { id: 'elapsed-years', text: 'Elapsed years are recorded as context and do not alter the issued categories.' },
+  { id: 'record-basis', text: 'Findings are limited to the factual basis supplied in the two validated records.' },
+  { id: 'no-lifespan-assumption', text: 'No finite lifespan was inferred for an immortal classification.' },
+  { id: 'adult-jurisdiction', text: 'Adult-comparison jurisdiction was confirmed before categorical review began.' },
+  { id: 'classification-stable', text: 'Lifecycle classifications were held constant for the duration of this review.' },
+  { id: 'body-consciousness', text: 'Current-body facts and continuing-consciousness history were kept distinct.' },
+  { id: 'shared-scale', text: 'Effective maturity was reviewed on the Bureau shared human-equivalent scale.' },
+  { id: 'actual-experience', text: 'Adult experience reflects declared elapsed experience rather than lifespan normalisation.' },
+  { id: 'order-preserved', text: 'Applicant order is preserved in the case identifier and all attached findings.' },
+  { id: 'no-composite', text: 'No composite score or overall relationship ruling has been entered.' },
+  { id: 'source-records', text: 'The source records remain authoritative where chronology cannot be directly compared.' },
+  { id: 'current-session', text: 'This filing remains an in-session review and has not been entered into a persistent register.' },
+  { id: 'thresholds', text: 'Existing Bureau thresholds were applied without lifecycle-specific adjustment.' },
+  { id: 'transformation', text: 'Transformation dates are treated as lifecycle facts, not replacements for current age.' },
+  { id: 'manifestation', text: 'Manifestation tenure is recorded from the declared point of creation.' },
+  { id: 'memory-evidence', text: 'Remembered experience is included only where the submitted record permits it.' },
+  { id: 'host-boundary', text: 'Host chronology is not added to consciousness experience without an explicit record basis.' },
+  { id: 'precision', text: 'Displayed years are formatted for filing; calculation precision remains unchanged.' },
+  { id: 'scope', text: 'The review is confined to maturity, adult experience, and supporting chronology context.' },
+  { id: 'final-record', text: 'The case record reflects the facts present when the review was opened.' },
+] as const satisfies readonly FbiFilingNote[]

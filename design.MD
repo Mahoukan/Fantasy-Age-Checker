@@ -1412,6 +1412,18 @@ The approved result contains independent maturity, experience, and chronology se
 
 Immortal Affairs now provides an explicit `Open FBI Review` action. It submits the two current validated records to the pure engine and displays a restrained factual review or an ineligibility explanation. Editing either draft clears the submitted review; hash navigation preserves it because the primary view remains mounted. Review state is never persisted or serialized.
 
+## Stage 26 FBI dossier presentation
+
+Stage 26 wraps an approved Stage 25 result in a typed, session-only presentation model. It does not recalculate eligibility, maturity, experience, chronology gaps, or category thresholds. The presentation is created once when `Open FBI Review` succeeds and is stored with the submitted comparison; rerenders, theme changes, and hash navigation therefore cannot replace its case number, filing note, or findings. Editing either intake still clears the whole submitted review.
+
+Approved cases use `FBI-[CLASS A]-[CLASS B]-######`. Built-in mortal records reuse their stable species codes, custom mortal species use `CUS`, and immortal presets use stable classification codes (`VAM`, `LIC`, `AGE`, `ASC`, `ANG`, `DEM`, `GOD`, `PRI`, `MAN`, `REI`, and `POS`); Custom Immortal uses `CUS`. The six-digit serial and filing-note choice are deterministic hashes of the submitted factual records and unchanged Stage 25 result. Names do not drive calculations.
+
+Chronology presentation uses six exact bands: 0–99 recent, 100–499 century-scale, 500–999 deep-century, 1,000–9,999 millennial, 10,000–99,999 deep historical, and 100,000+ primordial. The classified basis is explicit for each family. Mortal and natural records use current age; acquired records show current age plus transformation timing; manifested records use years since manifestation. Reincarnating records show current-form age separately and use remembered adult experience as historical context only when memories are retained. Possessing records keep current-host age separate from remembered consciousness experience. These labels are presentation context and never alter either comparison category.
+
+The filing-note register contains 24 restrained, deterministic administrative notes. A fixed-priority register evaluates ten special findings and emits no more than two. Findings can call out near-asymptotic maturity, civilisation-scale experience gaps, ancient remembered experience in a current body, centuries of frozen maturity, mortal/immortal jurisdiction, dual immortal jurisdiction, identical effective maturity, recent manifestation, continuing ascension, or millennial file scale. A separate contradiction note may state when close maturity alignment coexists with a large experience gap; no combined verdict is inferred.
+
+Ineligible submissions receive only the Stage 25 factual explanation. They receive no FBI case identifier, chronology theatre, filing note, or special findings. Stage 26 adds no card generation, sharing, permalink, persistence, or new theme system.
+
 ---
 
 # 38. Final Product Identity
