@@ -129,6 +129,7 @@ Stable anchors:
 - `#bureau-cases`
 - `#species-guide`
 - `#how-it-works`
+- `#immortal-affairs`
 - `#about`
 
 The application does not require a client-side router.
@@ -137,7 +138,7 @@ Each hash displays one primary section at a time. Primary sections remain mounte
 
 ## Fictional agency structure
 
-The **ARB — Arcane Relationship Bureau**, Department of Inter-Species Affairs, is the umbrella organisation. Its presentation-only agencies are:
+The **ARB — Arcane Relationship Bureau**, Department of Inter-Species Affairs, is the umbrella organisation. Its agencies are:
 
 - **DMV — Department of Maturity Verification:** Checker and normal compatibility assessments.
 - **CIA — Chronological Intelligence Agency:** Reverse Lookup and the Chronological Equivalence Office.
@@ -145,9 +146,9 @@ The **ARB — Arcane Relationship Bureau**, Department of Inter-Species Affairs,
 - **IRS — Inter-Species Registry Service:** Species Guide and Bureau Species Register.
 - **MATH — Maturity & Age Technical Handbook:** How It Works and the Bureau's technical explanations.
 - **FOIA — Fantasy Office of Institutional Affairs:** About and institutional information.
-- **FBI — Fantasy Bureau of Immortality:** planned for v3; it has no current navigation destination, lifecycle model, or calculations.
+- **FBI — Fantasy Bureau of Immortality:** Immortal Affairs and the separate v3 indefinite-lifecycle model.
 
-These names describe the fictional presentation hierarchy only. They do not create separate data, calculation, navigation, persistence, or sharing layers.
+The agency names describe the fictional presentation hierarchy. DMV, CIA, CASE, IRS, MATH, and FOIA retain their existing systems; FBI is deliberately a separate lifecycle-calculation jurisdiction and does not alter the mortal Checker.
 
 ---
 
@@ -1306,23 +1307,47 @@ There is still no overall compatibility score.
 
 ---
 
-# 37. Future Direction
+# 37. Version 3.0 Development — Immortal Affairs
 
-## Version 3.0 — Immortal Affairs
+## Stage 22 FBI foundation
 
-Immortal, ageless, undead and alternate-lifecycle models are deliberately outside the finite-lifespan v2 calculation system.
+The **FBI — Fantasy Bureau of Immortality** handles lifecycles that cannot be represented by the finite-lifespan Checker. Immortal Affairs shares the human-equivalent maturity scale for future comparisons, but owns separate types and calculation utilities. Indefinite beings never receive a fake `typicalLifespan`, and the mortal longevity ratio is not applied to them.
 
-They should be treated as a separate Bureau office with a genuinely different mathematical model rather than forced into the existing finite-lifespan formula.
+The four calculation families are:
 
-Future investigation may include:
+- `ACQUIRED`: a mortal origin species, age at transformation, years since transformation, and `FROZEN` or `CONTINUING` maturation.
+- `NATURALLY_IMMORTAL`: recognised adulthood age, maturation half-life, and current chronological age, with no mortal origin species.
+- `MANIFESTED`: a created being whose fully mature convention begins at human-equivalent maturity 25 and whose experience begins at manifestation.
+- `TRANSFERRED_CYCLICAL`: a continuing consciousness with explicitly separate `CURRENT_BODY_MATURITY` and `CONSCIOUSNESS_EXPERIENCE` sources.
 
-- ageless-after-maturity models
-- continuously maturing immortals
-- created-at-maturity beings
-- undeath at a known chronological age
-- unknown or infinite natural lifespan
+Continuing immortal maturation uses the pure exponential approach:
 
-Other future ideas should be evaluated on whether they reinforce the Bureau identity rather than simply adding more controls.
+`H(t) = C - (C - H0) * (1/2)^(t/T)`
+
+- `C = 100`, the fixed Bureau maturity ceiling.
+- Natural immortals begin at `H0 = 18` upon recognised adulthood.
+- Fully mature manifested beings begin at `H0 = 25` upon manifestation. This is a fictional design convention, not a scientific claim about human development.
+- Continuing acquired immortals begin from their human-equivalent maturity at transformation.
+- Frozen acquired immortals retain their transformation maturity.
+
+For finite elapsed time, continuing maturity approaches but does not reach 100. Inputs must be finite; elapsed time cannot be negative; half-life must be positive; and starting maturity must remain below the ceiling. Values remain unrounded within calculation utilities.
+
+Adulthood eligibility remains a hard boundary:
+
+- A natural immortal below recognised adulthood is not eligible for an adult comparison.
+- An acquired immortal transformed below origin-species adulthood cannot use later immortal years to bypass that state; frozen cases remain below adulthood, and continuing cases still fail the transformation safeguard.
+- A preset explicitly created mature is adult from manifestation at the maturity-25 convention.
+- A transferred or cyclical being's current body must independently satisfy adulthood rules; ancient consciousness experience cannot override an underage form.
+
+Future experience calculations use actual adult time rather than lifespan normalisation:
+
+- Acquired: `(ageAtTransformation - originAdulthoodAge) + yearsSinceTransformation`.
+- Naturally immortal: `currentAge - recognisedAdulthoodAge`.
+- Manifested mature: `yearsSinceManifestation`.
+- Reincarnating: current-life adult experience plus remembered previous adult experience.
+- Possessing or body-hopping: remembered conscious experience, while current-body maturity remains separate.
+
+Stage 22 supplies architecture and an informational primary view only. Preset catalogues, comparison verdicts, chronological theatre, result cards, sharing, and FBI permalinks belong to later stages.
 
 ---
 

@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased — v3 development
+
+### Added
+
+- Added the Stage 22 Fantasy Bureau of Immortality foundation: the `#immortal-affairs` primary view, four typed lifecycle families, stable maturity constants, and validated asymptotic maturation utilities.
+
+### Changed
+
+- Established Immortal Affairs as a separate calculation jurisdiction without changing the released mortal Checker or its finite-lifespan model.
+
 ## 2.0.2 - 2026-08-19
 
 ### Changed

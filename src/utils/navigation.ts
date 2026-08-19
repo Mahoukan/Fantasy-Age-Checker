@@ -4,6 +4,7 @@ export const navigationItems = [
   { id: 'bureau-cases', label: 'Bureau Cases' },
   { id: 'species-guide', label: 'Species Guide' },
   { id: 'how-it-works', label: 'How It Works' },
+  { id: 'immortal-affairs', label: 'Immortal Affairs' },
   { id: 'about', label: 'About' },
 ] as const
 

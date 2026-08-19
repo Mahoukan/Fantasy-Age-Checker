@@ -102,11 +102,13 @@ describe('About and navigation', () => {
       ['CASE', 'Chronological Assessment &amp; Scenario Exchange'],
       ['IRS', 'Inter-Species Registry Service'],
       ['MATH', 'Maturity &amp; Age Technical Handbook'],
+      ['FBI', 'Fantasy Bureau of Immortality'],
       ['FOIA', 'Fantasy Office of Institutional Affairs'],
     ]
     for (const [acronym, name] of agencies) {
       expect(markup).toContain(`<strong>${acronym}</strong><span>${name}</span>`)
     }
+    expect(markup).toContain('href="#immortal-affairs"')
     expect(markup).not.toContain('href="#fbi"')
   })
 
@@ -129,6 +131,7 @@ describe('About and navigation', () => {
 
   it('resolves recognised hashes and safely defaults unknown hashes to Checker', () => {
     expect(getNavigationSection('#how-it-works')).toBe('how-it-works')
+    expect(getNavigationSection('#immortal-affairs')).toBe('immortal-affairs')
     expect(getNavigationSection('#about')).toBe('about')
     expect(getNavigationSection('#unknown')).toBe('checker')
     expect(getNavigationSection('')).toBe('checker')
@@ -146,6 +149,7 @@ describe('About and navigation', () => {
     expect(markup).toContain('id="bureau-cases"')
     expect(markup).toContain('id="species-guide"')
     expect(markup).toContain('id="how-it-works"')
+    expect(markup).toContain('id="immortal-affairs"')
     expect(markup).toContain('id="about"')
   })
 

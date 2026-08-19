@@ -4,6 +4,7 @@ import { BureauCases } from './components/BureauCases'
 import { Checker } from './components/Checker'
 import { Header } from './components/Header'
 import { HowItWorks } from './components/HowItWorks'
+import { ImmortalAffairs } from './components/ImmortalAffairs'
 import { SpeciesGuide } from './components/SpeciesGuide'
 import { DEFAULT_RESULT_IMAGE_THEME_ID, type ResultImageThemeId } from './data/resultImageThemes'
 import { getNavigationSection, type NavigationSection } from './utils/navigation'
@@ -74,6 +75,9 @@ export function App({
         </div>
         <div className="primary-view" data-primary-view="how-it-works" hidden={activeSection !== 'how-it-works'}>
           <HowItWorks />
+        </div>
+        <div className="primary-view" data-primary-view="immortal-affairs" hidden={activeSection !== 'immortal-affairs'}>
+          <ImmortalAffairs />
         </div>
         <div className="primary-view" data-primary-view="about" hidden={activeSection !== 'about'}>
           <About />

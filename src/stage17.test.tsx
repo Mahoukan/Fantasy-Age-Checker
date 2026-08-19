@@ -120,7 +120,7 @@ describe('Stage 17 curated archive and loading', () => {
 
   it('adds Bureau Cases to same-page navigation between Checker and Species Guide', () => {
     expect(navigationItems.map((entry) => entry.id)).toEqual([
-      'checker', 'reverse-lookup', 'bureau-cases', 'species-guide', 'how-it-works', 'about',
+      'checker', 'reverse-lookup', 'bureau-cases', 'species-guide', 'how-it-works', 'immortal-affairs', 'about',
     ])
     const markup = renderToStaticMarkup(<App />)
     expect(markup).toContain('href="#bureau-cases"')

@@ -402,6 +402,15 @@ h1 { margin-bottom: 14px; color: var(--page-text); font-family: var(--serif); fo
 .information-note strong, .about-disclaimer strong { color: var(--burgundy); font: 600 1rem var(--serif); }
 .information-note p, .about-disclaimer p { margin: 6px 0 0; color: var(--ink-soft); font-size: 0.82rem; line-height: 1.55; }
 
+.immortal-affairs-motto { color: var(--heading-color); font-family: var(--heading-font); font-size: 1.05rem; font-style: italic; }
+.immortal-jurisdiction-notice { margin-bottom: 24px; padding: 18px 20px; background: var(--surface-inset); border: 1px solid var(--border); border-left: 4px solid var(--accent-secondary); }
+.immortal-jurisdiction-notice strong { color: var(--heading-color); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.immortal-jurisdiction-notice p { margin: 7px 0 0; color: var(--text-secondary); font-size: 0.84rem; line-height: 1.6; }
+.immortal-family-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.immortal-family-card { min-width: 0; padding: 20px; background: var(--surface-raised); border: 1px solid var(--border); border-top: 3px solid var(--accent); border-radius: var(--panel-radius); }
+.immortal-family-card h2 { margin: 8px 0 10px; color: var(--heading-color); font: 600 1.15rem var(--heading-font); }
+.immortal-family-card > p:last-child { margin-bottom: 0; color: var(--text-secondary); font-size: 0.82rem; line-height: 1.55; }
+
 .method-stack { display: grid; gap: 16px; }
 .method-card { padding: clamp(19px, 3vw, 26px); background: rgba(255, 253, 248, 0.58); border: 1px solid #c6b898; border-left: 4px solid var(--gold); }
 .method-card h3 { margin: 7px 0 10px; color: var(--burgundy); font: 600 1.25rem var(--serif); }
@@ -738,6 +747,13 @@ html[data-theme='obsidian-records'] .bureau-seal { width: 72px; height: 72px; bo
 html[data-theme='obsidian-records'] .verdict-quip { padding-left: 18px; border-left-width: 1px; background: transparent; font-size: 1rem; }
 html[data-theme='obsidian-records'] .verdict-quip::before { display: none; }
 
+@media (max-width: 1100px) {
+  .header-inner { padding: 16px 0; flex-direction: column; align-items: flex-start; gap: 12px; }
+  .header-actions { width: 100%; justify-content: space-between; }
+  nav { width: 100%; gap: 20px; overflow-x: auto; }
+  .nav-link { white-space: nowrap; }
+}
+
 @media (max-width: 560px) {
   .agency-identity { align-items: flex-start; flex-direction: column; gap: 3px; }
   .checker-heading .agency-identity { align-items: center; }
@@ -766,6 +782,7 @@ html[data-theme='obsidian-records'] .verdict-quip::before { display: none; }
   .nav-link { white-space: nowrap; }
   .applicants-layout { grid-template-columns: 1fr; }
   .reverse-lookup-form, .reverse-lookup-result-grid { grid-template-columns: 1fr; }
+  .immortal-family-grid { grid-template-columns: 1fr; }
   .applicant-separator { height: 54px; flex-direction: row; }
   .applicant-separator::before, .applicant-separator::after { width: auto; height: 1px; }
   .applicant-separator span { margin: 0 12px; }
