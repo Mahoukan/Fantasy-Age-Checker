@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { About } from './components/About'
 import { BureauCases } from './components/BureauCases'
 import { Checker } from './components/Checker'
@@ -11,6 +11,7 @@ import { getNavigationSection, type NavigationSection } from './utils/navigation
 import { applySiteTheme, getBrowserThemeStorage, saveSiteTheme } from './utils/siteTheme'
 import { ThemeOrnament } from './components/ThemeOrnament'
 import type { BureauCaseInput, BureauCaseLoadRequest } from './data/bureauCases'
+import { species as builtInSpecies, type CustomSpecies } from './data/species'
 
 interface AppProps {
   initialSiteThemeId?: ResultImageThemeId
@@ -23,6 +24,8 @@ export function App({
 }: AppProps) {
   const [siteThemeId, setSiteThemeId] = useState<ResultImageThemeId>(initialSiteThemeId)
   const [bureauCaseRequest, setBureauCaseRequest] = useState<BureauCaseLoadRequest>()
+  const [customSpecies, setCustomSpecies] = useState<CustomSpecies[]>([])
+  const availableSpecies = useMemo(() => [...builtInSpecies, ...customSpecies], [customSpecies])
   const [activeSection, setActiveSection] = useState<NavigationSection>(() => (
     typeof window === 'undefined' ? initialNavigationSection : getNavigationSection(window.location.hash)
   ))
@@ -66,6 +69,8 @@ export function App({
           activeSection={activeSection}
           siteThemeId={siteThemeId}
           bureauCaseRequest={bureauCaseRequest}
+          customSpecies={customSpecies}
+          onCustomSpeciesChange={setCustomSpecies}
         />
         <div className="primary-view" data-primary-view="bureau-cases" hidden={activeSection !== 'bureau-cases'}>
           <BureauCases onLoadCase={handleLoadBureauCase} />
@@ -77,7 +82,7 @@ export function App({
           <HowItWorks />
         </div>
         <div className="primary-view" data-primary-view="immortal-affairs" hidden={activeSection !== 'immortal-affairs'}>
-          <ImmortalAffairs />
+          <ImmortalAffairs availableSpecies={availableSpecies} />
         </div>
         <div className="primary-view" data-primary-view="about" hidden={activeSection !== 'about'}>
           <About />

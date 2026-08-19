@@ -1373,6 +1373,29 @@ Reincarnating records derive maturity and eligibility from the current form. Exp
 
 The Immortal Affairs UI exposes the registry as an informational classification catalogue. Stage 23 does not add a two-applicant form or any FBI verdict/result system.
 
+## Stage 24 two-applicant FBI intake
+
+Immortal Affairs owns two persistent applicant drafts inside its existing hash view. Each applicant independently selects `MORTAL` or `IMMORTAL`; switching sections hides rather than unmounts the view, so drafts and factual previews survive navigation. FBI drafts remain session-only and are never written to local storage, query strings, or share links.
+
+Mortal mode collects an optional name, existing species, and age. Its adapter reuses the existing species model, adulthood check, adult-experience helper, and human-equivalent maturity conversion. It does not modify or share applicant/result state with the normal Checker.
+
+Immortal mode selects from the Stage 23 registry, then renders only the selected family's fields:
+
+- Acquired: origin species, transformation age, and elapsed transformation years. Built-in continuing presets supply their half-life; Custom Acquired additionally chooses Frozen/Continuing and requests half-life only for Continuing.
+- Naturally immortal: current age. Built-in presets supply adulthood and half-life; Custom Natural requests both values.
+- Manifested: years since manifestation, plus half-life for Custom Manifested. Starting maturity remains fixed at 25.
+- Reincarnating: current-form species and age, memory continuity, and remembered previous adult experience only when memories are retained.
+- Possessing: current-host species and age plus remembered conscious experience; host years before possession are not added.
+- Custom Transferred/Cyclical first chooses Reincarnating or Possessing and then follows that subtype's fields. No custom flow exposes equations or the fixed ceiling.
+
+The intake adapter returns a typed `FbiApplicantRecord`: a mortal record or a named wrapper around one of the five Stage 23 immortal record shapes. Names use the existing trim and 40-Unicode-character rules and remain presentation-only. React gathers draft values; pure adapters and builders perform all validation and derivation.
+
+Blank, non-finite, negative, and invalid family-specific values receive associated field errors. Underage states are factual records rather than malformed inputs: their compact previews explicitly show `Adult FBI comparison: Ineligible`, and experience can never override the relevant origin/current-form adulthood safeguard.
+
+Each valid draft displays a compact record preview containing classification, effective maturity, adult experience, eligibility, and relevant family context. The shared readiness area reports whether both records are configured but deliberately performs no comparison and issues no verdict.
+
+Temporary custom species state now lives at the persistent application parent and is passed to both the unchanged Checker workflow and FBI intake. It remains in memory only and continues using the single existing species model and registration interface.
+
 ---
 
 # 38. Final Product Identity

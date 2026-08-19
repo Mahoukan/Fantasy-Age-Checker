@@ -1,9 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react'
-import {
-  species as builtInSpecies,
-  type CustomSpecies,
-  type Species,
-} from '../data/species'
+import { species as builtInSpecies, type CustomSpecies, type Species } from '../data/species'
 import type { Applicant, ApplicantLabel, ApplicantLifecycleFacts } from '../types/applicant'
 import {
   calculateAdultExperience,
@@ -72,12 +68,16 @@ interface CheckerProps {
   activeSection?: NavigationSection
   siteThemeId?: ResultImageThemeId
   bureauCaseRequest?: BureauCaseLoadRequest
+  customSpecies: CustomSpecies[]
+  onCustomSpeciesChange: (species: CustomSpecies[]) => void
 }
 
 export function Checker({
   activeSection = 'checker',
   siteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID,
   bureauCaseRequest,
+  customSpecies,
+  onCustomSpeciesChange,
 }: CheckerProps) {
   const [sharedRestore] = useState<SharedConsultationParseResult>(() => (
     typeof window === 'undefined'
@@ -94,7 +94,6 @@ export function Checker({
   const [pendingConsultation, setPendingConsultation] = useState<ApprovedConsultation | null>(null)
   const [shareRestoreMessage, setShareRestoreMessage] = useState<string | null>(null)
   const [bureauCaseMessage, setBureauCaseMessage] = useState<string | null>(null)
-  const [customSpecies, setCustomSpecies] = useState<CustomSpecies[]>([])
   const [isCustomSpeciesDialogOpen, setIsCustomSpeciesDialogOpen] = useState(false)
   const addCustomSpeciesButtonRef = useRef<HTMLButtonElement>(null)
   const hasRestoredSharedConsultationRef = useRef(false)
@@ -234,7 +233,7 @@ export function Checker({
 
   function handleRegisterCustomSpecies(speciesEntry: CustomSpecies) {
     if (isConsulting) return
-    setCustomSpecies((current) => [...current, speciesEntry])
+    onCustomSpeciesChange([...customSpecies, speciesEntry])
     setIsCustomSpeciesDialogOpen(false)
   }
 
@@ -251,7 +250,7 @@ export function Checker({
       [applicantA.speciesId, applicantB.speciesId],
     )
     if (removal.removed) {
-      setCustomSpecies(removal.species)
+      onCustomSpeciesChange(removal.species)
       setResult(null)
     }
   }

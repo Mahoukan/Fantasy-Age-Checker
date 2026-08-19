@@ -419,6 +419,21 @@ h1 { margin-bottom: 14px; color: var(--page-text); font-family: var(--serif); fo
 .immortal-preset-grid h3 { margin: 6px 0 8px; color: var(--heading-color); font: 600 1rem var(--heading-font); }
 .immortal-preset-grid article > p:last-child { margin-bottom: 0; color: var(--text-secondary); font-size: 0.75rem; line-height: 1.5; }
 .immortal-preset-grid .custom-immortal-preset { border-style: dashed; border-color: var(--accent-secondary); }
+.fbi-intake-layout { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: start; }
+.fbi-applicant-card { height: auto; }
+.fbi-record-preview { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border); }
+.fbi-record-preview header h3 { margin: 5px 0 14px; color: var(--heading-color); font: 600 1.12rem var(--heading-font); }
+.fbi-record-preview dl, .fbi-readiness dl { display: grid; gap: 7px; margin: 0; }
+.fbi-record-preview dl div, .fbi-readiness dl div { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-top: 7px; border-top: 1px dotted var(--border); }
+.fbi-record-preview dt, .fbi-readiness dt { color: var(--text-secondary); font-size: 0.7rem; }
+.fbi-record-preview dd, .fbi-readiness dd { margin: 0; color: var(--text-primary); font-size: 0.76rem; font-weight: 800; text-align: right; overflow-wrap: anywhere; }
+.fbi-eligibility-notice { margin: 16px 0 0; padding: 13px 15px; color: var(--text-secondary); background: var(--surface-inset); border-left: 4px solid var(--danger); font-size: 0.78rem; line-height: 1.5; }
+.fbi-eligibility-notice strong { color: var(--danger); }
+.fbi-readiness { margin-top: 24px; padding: 19px 21px; background: var(--surface-inset); border: 1px solid var(--border); }
+.fbi-readiness h2 { margin: 5px 0 14px; color: var(--heading-color); font: 600 1.15rem var(--heading-font); }
+.fbi-readiness > p:last-child { margin: 14px 0 0; color: var(--text-secondary); font-size: 0.8rem; }
+.immortal-preset-catalogue summary { min-height: 44px; padding: 11px 0; color: var(--heading-color); font-weight: 800; cursor: pointer; }
+.immortal-preset-catalogue[open] summary { margin-bottom: 18px; }
 
 .method-stack { display: grid; gap: 16px; }
 .method-card { padding: clamp(19px, 3vw, 26px); background: rgba(255, 253, 248, 0.58); border: 1px solid #c6b898; border-left: 4px solid var(--gold); }
@@ -797,6 +812,7 @@ html[data-theme='obsidian-records'] .verdict-quip::before { display: none; }
   .reverse-lookup-form, .reverse-lookup-result-grid { grid-template-columns: 1fr; }
   .immortal-family-grid { grid-template-columns: 1fr; }
   .immortal-preset-grid { grid-template-columns: 1fr; }
+  .fbi-intake-layout { grid-template-columns: 1fr; }
   .applicant-separator { height: 54px; flex-direction: row; }
   .applicant-separator::before, .applicant-separator::after { width: auto; height: 1px; }
   .applicant-separator span { margin: 0 12px; }
