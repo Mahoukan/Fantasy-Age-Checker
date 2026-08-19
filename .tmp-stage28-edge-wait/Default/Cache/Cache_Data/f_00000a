@@ -1,0 +1,724 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/HowItWorks.tsx");const _jsxDEV = __vite__cjsImport7_react_jsxDevRuntime["jsxDEV"];import { experienceVerdicts, maturityVerdicts } from "/src/data/verdicts.ts";
+import { EXPERIENCE_GAP_THRESHOLDS } from "/src/utils/experience.ts";
+import { formatEquivalentYears, formatYears } from "/src/utils/format.ts";
+import { getWorkedExample } from "/src/utils/information.ts";
+import { LONGEVITY_THRESHOLDS } from "/src/utils/longevity.ts";
+import { EXCELLENT_DIFFERENCE_THRESHOLD, GOOD_DIFFERENCE_THRESHOLD, HUMAN_REFERENCE_LIFESPAN, TRADITIONAL_MAXIMUM_OFFSET, TRADITIONAL_MINIMUM_OFFSET } from "/src/utils/maturity.ts";
+import { ThemeOrnament } from "/src/components/ThemeOrnament.tsx";
+var _jsxFileName = "C:/Users/Suriya.Srinivasan/Documents/Fantasy Age Checker/src/components/HowItWorks.tsx";
+import __vite__cjsImport7_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=738eb26b";
+export function HowItWorks() {
+	const example = getWorkedExample();
+	return /* @__PURE__ */ _jsxDEV("section", {
+		className: "information-section",
+		id: "how-it-works",
+		"aria-labelledby": "how-it-works-title",
+		children: [
+			/* @__PURE__ */ _jsxDEV(ThemeOrnament, { location: "information" }, void 0, false, {
+				fileName: _jsxFileName,
+				lineNumber: 20,
+				columnNumber: 7
+			}, this),
+			/* @__PURE__ */ _jsxDEV("header", {
+				className: "information-header",
+				children: [
+					/* @__PURE__ */ _jsxDEV("p", {
+						className: "agency-identity",
+						children: [/* @__PURE__ */ _jsxDEV("strong", { children: "MATH" }, void 0, false, {
+							fileName: _jsxFileName,
+							lineNumber: 22,
+							columnNumber: 40
+						}, this), /* @__PURE__ */ _jsxDEV("span", { children: "Maturity & Age Technical Handbook" }, void 0, false, {
+							fileName: _jsxFileName,
+							lineNumber: 22,
+							columnNumber: 61
+						}, this)]
+					}, void 0, true, {
+						fileName: _jsxFileName,
+						lineNumber: 22,
+						columnNumber: 9
+					}, this),
+					/* @__PURE__ */ _jsxDEV("p", {
+						className: "eyebrow dark",
+						children: "Procedural manual ARB-02"
+					}, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 23,
+						columnNumber: 9
+					}, this),
+					/* @__PURE__ */ _jsxDEV("h1", {
+						id: "how-it-works-title",
+						children: "How It Works"
+					}, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 24,
+						columnNumber: 9
+					}, this),
+					/* @__PURE__ */ _jsxDEV("p", { children: "The Bureau issues two independent assessments and one contextual longevity record. The arithmetic is fictional, but it remains consistent from one filing to the next." }, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 25,
+						columnNumber: 9
+					}, this)
+				]
+			}, void 0, true, {
+				fileName: _jsxFileName,
+				lineNumber: 21,
+				columnNumber: 7
+			}, this),
+			/* @__PURE__ */ _jsxDEV("div", {
+				className: "method-stack",
+				children: [
+					/* @__PURE__ */ _jsxDEV("article", {
+						className: "method-card",
+						id: "adulthood-method",
+						children: [
+							/* @__PURE__ */ _jsxDEV("span", {
+								className: "method-number",
+								children: "Procedure 1"
+							}, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 33,
+								columnNumber: 11
+							}, this),
+							/* @__PURE__ */ _jsxDEV("h3", { children: "Adulthood Safeguard" }, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 34,
+								columnNumber: 11
+							}, this),
+							/* @__PURE__ */ _jsxDEV("p", { children: "Every species has a recognised adulthood age. If either applicant has not reached that threshold, the Bureau refuses to issue a compatibility assessment; maturity and experience assessments do not run." }, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 35,
+								columnNumber: 11
+							}, this)
+						]
+					}, void 0, true, {
+						fileName: _jsxFileName,
+						lineNumber: 32,
+						columnNumber: 9
+					}, this),
+					/* @__PURE__ */ _jsxDEV("article", {
+						className: "method-card",
+						id: "maturity-method",
+						children: [
+							/* @__PURE__ */ _jsxDEV("span", {
+								className: "method-number",
+								children: "Procedure 2"
+							}, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 42,
+								columnNumber: 11
+							}, this),
+							/* @__PURE__ */ _jsxDEV("h3", { children: "Maturity Compatibility" }, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 43,
+								columnNumber: 11
+							}, this),
+							/* @__PURE__ */ _jsxDEV("p", { children: [
+								"The familiar human guideline gives a minimum of ",
+								/* @__PURE__ */ _jsxDEV("code", { children: ["age / 2 + ", TRADITIONAL_MINIMUM_OFFSET] }, void 0, true, {
+									fileName: _jsxFileName,
+									lineNumber: 45,
+									columnNumber: 61
+								}, this),
+								" and a maximum of ",
+								/* @__PURE__ */ _jsxDEV("code", { children: ["age x 2 - ", TRADITIONAL_MAXIMUM_OFFSET] }, void 0, true, {
+									fileName: _jsxFileName,
+									lineNumber: 46,
+									columnNumber: 26
+								}, this),
+								". The constants are fractions of the",
+								` ${HUMAN_REFERENCE_LIFESPAN}`,
+								"-year human reference lifespan: 7 is one twelfth and 14 is one sixth."
+							] }, void 0, true, {
+								fileName: _jsxFileName,
+								lineNumber: 44,
+								columnNumber: 11
+							}, this),
+							/* @__PURE__ */ _jsxDEV("div", {
+								className: "formula-panel",
+								"aria-label": "Species maturity formulas",
+								children: [
+									/* @__PURE__ */ _jsxDEV("code", { children: "speciesSeven = typicalLifespan / 12" }, void 0, false, {
+										fileName: _jsxFileName,
+										lineNumber: 50,
+										columnNumber: 13
+									}, this),
+									/* @__PURE__ */ _jsxDEV("code", { children: "speciesFourteen = typicalLifespan / 6" }, void 0, false, {
+										fileName: _jsxFileName,
+										lineNumber: 51,
+										columnNumber: 13
+									}, this),
+									/* @__PURE__ */ _jsxDEV("code", { children: ["humanEquivalentAge = (age / typicalLifespan) x ", HUMAN_REFERENCE_LIFESPAN] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 52,
+										columnNumber: 13
+									}, this)
+								]
+							}, void 0, true, {
+								fileName: _jsxFileName,
+								lineNumber: 49,
+								columnNumber: 11
+							}, this),
+							/* @__PURE__ */ _jsxDEV("p", { children: "Both ages are converted to that shared scale. Each applicant must fall inside the other's allowed range, so compatibility must work in both directions." }, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 54,
+								columnNumber: 11
+							}, this),
+							/* @__PURE__ */ _jsxDEV("dl", {
+								className: "category-list",
+								children: [
+									/* @__PURE__ */ _jsxDEV("div", { children: [/* @__PURE__ */ _jsxDEV("dt", { children: maturityVerdicts.EXCELLENT.label }, void 0, false, {
+										fileName: _jsxFileName,
+										lineNumber: 59,
+										columnNumber: 18
+									}, this), /* @__PURE__ */ _jsxDEV("dd", { children: [
+										"Equivalent ages differ by no more than ",
+										EXCELLENT_DIFFERENCE_THRESHOLD * 100,
+										"% of the older age."
+									] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 59,
+										columnNumber: 61
+									}, this)] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 59,
+										columnNumber: 13
+									}, this),
+									/* @__PURE__ */ _jsxDEV("div", { children: [/* @__PURE__ */ _jsxDEV("dt", { children: maturityVerdicts.GOOD.label }, void 0, false, {
+										fileName: _jsxFileName,
+										lineNumber: 60,
+										columnNumber: 18
+									}, this), /* @__PURE__ */ _jsxDEV("dd", { children: [
+										"The difference is above 10% but no more than ",
+										GOOD_DIFFERENCE_THRESHOLD * 100,
+										"%."
+									] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 60,
+										columnNumber: 56
+									}, this)] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 60,
+										columnNumber: 13
+									}, this),
+									/* @__PURE__ */ _jsxDEV("div", { children: [/* @__PURE__ */ _jsxDEV("dt", { children: maturityVerdicts.BORDERLINE.label }, void 0, false, {
+										fileName: _jsxFileName,
+										lineNumber: 61,
+										columnNumber: 18
+									}, this), /* @__PURE__ */ _jsxDEV("dd", { children: "The pair remains mutually compatible, with a difference above 25%." }, void 0, false, {
+										fileName: _jsxFileName,
+										lineNumber: 61,
+										columnNumber: 62
+									}, this)] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 61,
+										columnNumber: 13
+									}, this),
+									/* @__PURE__ */ _jsxDEV("div", { children: [/* @__PURE__ */ _jsxDEV("dt", { children: maturityVerdicts.INCOMPATIBLE.label }, void 0, false, {
+										fileName: _jsxFileName,
+										lineNumber: 62,
+										columnNumber: 18
+									}, this), /* @__PURE__ */ _jsxDEV("dd", { children: "At least one applicant falls outside the other's allowed range." }, void 0, false, {
+										fileName: _jsxFileName,
+										lineNumber: 62,
+										columnNumber: 64
+									}, this)] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 62,
+										columnNumber: 13
+									}, this)
+								]
+							}, void 0, true, {
+								fileName: _jsxFileName,
+								lineNumber: 58,
+								columnNumber: 11
+							}, this)
+						]
+					}, void 0, true, {
+						fileName: _jsxFileName,
+						lineNumber: 41,
+						columnNumber: 9
+					}, this),
+					/* @__PURE__ */ _jsxDEV("article", {
+						className: "method-card",
+						id: "experience-method",
+						children: [
+							/* @__PURE__ */ _jsxDEV("span", {
+								className: "method-number",
+								children: "Procedure 3"
+							}, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 67,
+								columnNumber: 11
+							}, this),
+							/* @__PURE__ */ _jsxDEV("h3", { children: "Experience Gap" }, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 68,
+								columnNumber: 11
+							}, this),
+							/* @__PURE__ */ _jsxDEV("div", {
+								className: "formula-panel",
+								children: /* @__PURE__ */ _jsxDEV("code", { children: "adultExperience = age - recognisedAdulthoodAge" }, void 0, false, {
+									fileName: _jsxFileName,
+									lineNumber: 69,
+									columnNumber: 42
+								}, this)
+							}, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 69,
+								columnNumber: 11
+							}, this),
+							/* @__PURE__ */ _jsxDEV("p", { children: "Experience uses actual adult years and is deliberately not normalised by lifespan. This is why two applicants can be maturity peers while having lived through very different amounts of history." }, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 70,
+								columnNumber: 11
+							}, this),
+							/* @__PURE__ */ _jsxDEV("dl", {
+								className: "category-list compact-ranges",
+								children: [
+									/* @__PURE__ */ _jsxDEV("div", { children: [/* @__PURE__ */ _jsxDEV("dt", { children: [
+										"0-",
+										EXPERIENCE_GAP_THRESHOLDS.basicallyPeersMaximum,
+										" years"
+									] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 75,
+										columnNumber: 18
+									}, this), /* @__PURE__ */ _jsxDEV("dd", { children: experienceVerdicts.BASICALLY_PEERS.label }, void 0, false, {
+										fileName: _jsxFileName,
+										lineNumber: 75,
+										columnNumber: 84
+									}, this)] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 75,
+										columnNumber: 13
+									}, this),
+									/* @__PURE__ */ _jsxDEV("div", { children: [/* @__PURE__ */ _jsxDEV("dt", { children: [
+										">",
+										EXPERIENCE_GAP_THRESHOLDS.basicallyPeersMaximum,
+										"-",
+										EXPERIENCE_GAP_THRESHOLDS.noticeableMaximum,
+										" years"
+									] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 76,
+										columnNumber: 18
+									}, this), /* @__PURE__ */ _jsxDEV("dd", { children: experienceVerdicts.NOTICEABLE.label }, void 0, false, {
+										fileName: _jsxFileName,
+										lineNumber: 76,
+										columnNumber: 132
+									}, this)] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 76,
+										columnNumber: 13
+									}, this),
+									/* @__PURE__ */ _jsxDEV("div", { children: [/* @__PURE__ */ _jsxDEV("dt", { children: [
+										">",
+										EXPERIENCE_GAP_THRESHOLDS.noticeableMaximum,
+										"-",
+										EXPERIENCE_GAP_THRESHOLDS.considerableMaximum,
+										" years"
+									] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 77,
+										columnNumber: 18
+									}, this), /* @__PURE__ */ _jsxDEV("dd", { children: experienceVerdicts.CONSIDERABLE.label }, void 0, false, {
+										fileName: _jsxFileName,
+										lineNumber: 77,
+										columnNumber: 130
+									}, this)] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 77,
+										columnNumber: 13
+									}, this),
+									/* @__PURE__ */ _jsxDEV("div", { children: [/* @__PURE__ */ _jsxDEV("dt", { children: [
+										">",
+										EXPERIENCE_GAP_THRESHOLDS.considerableMaximum,
+										"-",
+										EXPERIENCE_GAP_THRESHOLDS.formidableMaximum,
+										" years"
+									] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 78,
+										columnNumber: 18
+									}, this), /* @__PURE__ */ _jsxDEV("dd", { children: experienceVerdicts.FORMIDABLE.label }, void 0, false, {
+										fileName: _jsxFileName,
+										lineNumber: 78,
+										columnNumber: 130
+									}, this)] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 78,
+										columnNumber: 13
+									}, this),
+									/* @__PURE__ */ _jsxDEV("div", { children: [/* @__PURE__ */ _jsxDEV("dt", { children: [
+										">",
+										EXPERIENCE_GAP_THRESHOLDS.formidableMaximum,
+										"-",
+										EXPERIENCE_GAP_THRESHOLDS.historicalMaximum,
+										" years"
+									] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 79,
+										columnNumber: 18
+									}, this), /* @__PURE__ */ _jsxDEV("dd", { children: experienceVerdicts.HISTORICAL.label }, void 0, false, {
+										fileName: _jsxFileName,
+										lineNumber: 79,
+										columnNumber: 128
+									}, this)] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 79,
+										columnNumber: 13
+									}, this),
+									/* @__PURE__ */ _jsxDEV("div", { children: [/* @__PURE__ */ _jsxDEV("dt", { children: [
+										">",
+										EXPERIENCE_GAP_THRESHOLDS.historicalMaximum,
+										" years"
+									] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 80,
+										columnNumber: 18
+									}, this), /* @__PURE__ */ _jsxDEV("dd", { children: experienceVerdicts.CIVILIZATIONS.label }, void 0, false, {
+										fileName: _jsxFileName,
+										lineNumber: 80,
+										columnNumber: 82
+									}, this)] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 80,
+										columnNumber: 13
+									}, this)
+								]
+							}, void 0, true, {
+								fileName: _jsxFileName,
+								lineNumber: 74,
+								columnNumber: 11
+							}, this)
+						]
+					}, void 0, true, {
+						fileName: _jsxFileName,
+						lineNumber: 66,
+						columnNumber: 9
+					}, this),
+					/* @__PURE__ */ _jsxDEV("article", {
+						className: "method-card",
+						id: "longevity-method",
+						children: [
+							/* @__PURE__ */ _jsxDEV("span", {
+								className: "method-number",
+								children: "Context record"
+							}, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 85,
+								columnNumber: 11
+							}, this),
+							/* @__PURE__ */ _jsxDEV("h3", { children: "Longevity Context" }, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 86,
+								columnNumber: 11
+							}, this),
+							/* @__PURE__ */ _jsxDEV("div", {
+								className: "formula-panel",
+								children: /* @__PURE__ */ _jsxDEV("code", { children: "longevityRatio = age / typicalLifespan" }, void 0, false, {
+									fileName: _jsxFileName,
+									lineNumber: 87,
+									columnNumber: 42
+								}, this)
+							}, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 87,
+								columnNumber: 11
+							}, this),
+							/* @__PURE__ */ _jsxDEV("p", { children: "Typical lifespan is not a maximum. Ages above it remain valid, and longevity neither rejects an applicant nor changes maturity or experience. It supplies factual context and eligible Bureau humour." }, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 88,
+								columnNumber: 11
+							}, this),
+							/* @__PURE__ */ _jsxDEV("dl", {
+								className: "category-list compact-ranges",
+								children: [
+									/* @__PURE__ */ _jsxDEV("div", { children: [/* @__PURE__ */ _jsxDEV("dt", { children: [
+										"<=",
+										LONGEVITY_THRESHOLDS.normalMaximum * 100,
+										"%"
+									] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 93,
+										columnNumber: 18
+									}, this), /* @__PURE__ */ _jsxDEV("dd", { children: "Within Typical Lifespan" }, void 0, false, {
+										fileName: _jsxFileName,
+										lineNumber: 93,
+										columnNumber: 75
+									}, this)] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 93,
+										columnNumber: 13
+									}, this),
+									/* @__PURE__ */ _jsxDEV("div", { children: [/* @__PURE__ */ _jsxDEV("dt", { children: [
+										">100%-",
+										LONGEVITY_THRESHOLDS.exceptionalMaximum * 100,
+										"%"
+									] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 94,
+										columnNumber: 18
+									}, this), /* @__PURE__ */ _jsxDEV("dd", { children: "Exceptionally Old" }, void 0, false, {
+										fileName: _jsxFileName,
+										lineNumber: 94,
+										columnNumber: 84
+									}, this)] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 94,
+										columnNumber: 13
+									}, this),
+									/* @__PURE__ */ _jsxDEV("div", { children: [/* @__PURE__ */ _jsxDEV("dt", { children: [
+										">125%-",
+										LONGEVITY_THRESHOLDS.ancientMaximum * 100,
+										"%"
+									] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 95,
+										columnNumber: 18
+									}, this), /* @__PURE__ */ _jsxDEV("dd", { children: "Ancient" }, void 0, false, {
+										fileName: _jsxFileName,
+										lineNumber: 95,
+										columnNumber: 80
+									}, this)] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 95,
+										columnNumber: 13
+									}, this),
+									/* @__PURE__ */ _jsxDEV("div", { children: [/* @__PURE__ */ _jsxDEV("dt", { children: [
+										">200%-",
+										LONGEVITY_THRESHOLDS.legendaryMaximum * 100,
+										"%"
+									] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 96,
+										columnNumber: 18
+									}, this), /* @__PURE__ */ _jsxDEV("dd", { children: "Legendary Longevity" }, void 0, false, {
+										fileName: _jsxFileName,
+										lineNumber: 96,
+										columnNumber: 82
+									}, this)] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 96,
+										columnNumber: 13
+									}, this),
+									/* @__PURE__ */ _jsxDEV("div", { children: [/* @__PURE__ */ _jsxDEV("dt", { children: ">500%" }, void 0, false, {
+										fileName: _jsxFileName,
+										lineNumber: 97,
+										columnNumber: 18
+									}, this), /* @__PURE__ */ _jsxDEV("dd", { children: "Chronological Anomaly" }, void 0, false, {
+										fileName: _jsxFileName,
+										lineNumber: 97,
+										columnNumber: 35
+									}, this)] }, void 0, true, {
+										fileName: _jsxFileName,
+										lineNumber: 97,
+										columnNumber: 13
+									}, this)
+								]
+							}, void 0, true, {
+								fileName: _jsxFileName,
+								lineNumber: 92,
+								columnNumber: 11
+							}, this)
+						]
+					}, void 0, true, {
+						fileName: _jsxFileName,
+						lineNumber: 84,
+						columnNumber: 9
+					}, this)
+				]
+			}, void 0, true, {
+				fileName: _jsxFileName,
+				lineNumber: 31,
+				columnNumber: 7
+			}, this),
+			/* @__PURE__ */ _jsxDEV("article", {
+				className: "worked-example",
+				"aria-labelledby": "worked-example-title",
+				children: [
+					/* @__PURE__ */ _jsxDEV("p", {
+						className: "eyebrow dark",
+						children: "Worked filing"
+					}, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 103,
+						columnNumber: 9
+					}, this),
+					/* @__PURE__ */ _jsxDEV("h3", {
+						id: "worked-example-title",
+						children: "Elf 300 + Human 34"
+					}, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 104,
+						columnNumber: 9
+					}, this),
+					/* @__PURE__ */ _jsxDEV("div", {
+						className: "worked-example-grid",
+						children: [/* @__PURE__ */ _jsxDEV("div", { children: [
+							/* @__PURE__ */ _jsxDEV("h4", { children: "Maturity" }, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 107,
+								columnNumber: 13
+							}, this),
+							/* @__PURE__ */ _jsxDEV("p", { children: [
+								/* @__PURE__ */ _jsxDEV("strong", { children: "Elf:" }, void 0, false, {
+									fileName: _jsxFileName,
+									lineNumber: 108,
+									columnNumber: 16
+								}, this),
+								" 300 / ",
+								example.elf.typicalLifespan,
+								" x 84 = ",
+								formatEquivalentYears(example.maturity.applicantAEquivalentAge)
+							] }, void 0, true, {
+								fileName: _jsxFileName,
+								lineNumber: 108,
+								columnNumber: 13
+							}, this),
+							/* @__PURE__ */ _jsxDEV("p", { children: [
+								/* @__PURE__ */ _jsxDEV("strong", { children: "Human:" }, void 0, false, {
+									fileName: _jsxFileName,
+									lineNumber: 109,
+									columnNumber: 16
+								}, this),
+								" 34 / ",
+								example.human.typicalLifespan,
+								" x 84 = ",
+								formatEquivalentYears(example.maturity.applicantBEquivalentAge)
+							] }, void 0, true, {
+								fileName: _jsxFileName,
+								lineNumber: 109,
+								columnNumber: 13
+							}, this),
+							/* @__PURE__ */ _jsxDEV("strong", {
+								className: "worked-result",
+								children: example.maturityLabel
+							}, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 110,
+								columnNumber: 13
+							}, this)
+						] }, void 0, true, {
+							fileName: _jsxFileName,
+							lineNumber: 106,
+							columnNumber: 11
+						}, this), /* @__PURE__ */ _jsxDEV("div", { children: [
+							/* @__PURE__ */ _jsxDEV("h4", { children: "Adult experience" }, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 113,
+								columnNumber: 13
+							}, this),
+							/* @__PURE__ */ _jsxDEV("p", { children: [
+								/* @__PURE__ */ _jsxDEV("strong", { children: "Elf:" }, void 0, false, {
+									fileName: _jsxFileName,
+									lineNumber: 114,
+									columnNumber: 16
+								}, this),
+								" 300 - ",
+								example.elf.adulthoodAge,
+								" = ",
+								formatYears(example.experience.applicantAAdultExperience),
+								" years"
+							] }, void 0, true, {
+								fileName: _jsxFileName,
+								lineNumber: 114,
+								columnNumber: 13
+							}, this),
+							/* @__PURE__ */ _jsxDEV("p", { children: [
+								/* @__PURE__ */ _jsxDEV("strong", { children: "Human:" }, void 0, false, {
+									fileName: _jsxFileName,
+									lineNumber: 115,
+									columnNumber: 16
+								}, this),
+								" 34 - ",
+								example.human.adulthoodAge,
+								" = ",
+								formatYears(example.experience.applicantBAdultExperience),
+								" years"
+							] }, void 0, true, {
+								fileName: _jsxFileName,
+								lineNumber: 115,
+								columnNumber: 13
+							}, this),
+							/* @__PURE__ */ _jsxDEV("p", { children: [
+								/* @__PURE__ */ _jsxDEV("strong", { children: "Gap:" }, void 0, false, {
+									fileName: _jsxFileName,
+									lineNumber: 116,
+									columnNumber: 16
+								}, this),
+								" ",
+								formatYears(example.experience.adultExperienceGap),
+								" years"
+							] }, void 0, true, {
+								fileName: _jsxFileName,
+								lineNumber: 116,
+								columnNumber: 13
+							}, this),
+							/* @__PURE__ */ _jsxDEV("strong", {
+								className: "worked-result",
+								children: example.experienceLabel
+							}, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 117,
+								columnNumber: 13
+							}, this)
+						] }, void 0, true, {
+							fileName: _jsxFileName,
+							lineNumber: 112,
+							columnNumber: 11
+						}, this)]
+					}, void 0, true, {
+						fileName: _jsxFileName,
+						lineNumber: 105,
+						columnNumber: 9
+					}, this),
+					/* @__PURE__ */ _jsxDEV("p", {
+						className: "worked-conclusion",
+						children: "Similar lifecycle position, very different adult history: disagreement between the verdicts is an intended feature."
+					}, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 120,
+						columnNumber: 9
+					}, this)
+				]
+			}, void 0, true, {
+				fileName: _jsxFileName,
+				lineNumber: 102,
+				columnNumber: 7
+			}, this)
+		]
+	}, void 0, true, {
+		fileName: _jsxFileName,
+		lineNumber: 19,
+		columnNumber: 5
+	}, this);
+}
+_c = HowItWorks;
+var _c;
+$RefreshReg$(_c, "HowItWorks");
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
+import * as __vite_react_currentExports from "/src/components/HowItWorks.tsx";
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+
+  const currentExports = __vite_react_currentExports;
+  queueMicrotask(() => {
+    RefreshRuntime.registerExportsForReactRefresh("C:/Users/Suriya.Srinivasan/Documents/Fantasy Age Checker/src/components/HowItWorks.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("C:/Users/Suriya.Srinivasan/Documents/Fantasy Age Checker/src/components/HowItWorks.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+function $RefreshReg$(type, id) { return RefreshRuntime.register(type, "C:/Users/Suriya.Srinivasan/Documents/Fantasy Age Checker/src/components/HowItWorks.tsx" + ' ' + id); }
+function $RefreshSig$() { return RefreshRuntime.createSignatureFunctionForTransform(); }
+
+//# sourceMappingURL=data:application/json;base64,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LEtBQUQ7TUFBRyxXQUFVO2dCQUFvQjtLQUU5Qjs7Ozs7SUFDSTs7Ozs7O0VBQ0Y7Ozs7OztBQUViIiwibmFtZXMiOltdLCJzb3VyY2VzIjpbIkhvd0l0V29ya3MudHN4Il0sInZlcnNpb24iOjMsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGV4cGVyaWVuY2VWZXJkaWN0cywgbWF0dXJpdHlWZXJkaWN0cyB9IGZyb20gJy4uL2RhdGEvdmVyZGljdHMnXHJcbmltcG9ydCB7IEVYUEVSSUVOQ0VfR0FQX1RIUkVTSE9MRFMgfSBmcm9tICcuLi91dGlscy9leHBlcmllbmNlJ1xyXG5pbXBvcnQgeyBmb3JtYXRFcXVpdmFsZW50WWVhcnMsIGZvcm1hdFllYXJzIH0gZnJvbSAnLi4vdXRpbHMvZm9ybWF0J1xyXG5pbXBvcnQgeyBnZXRXb3JrZWRFeGFtcGxlIH0gZnJvbSAnLi4vdXRpbHMvaW5mb3JtYXRpb24nXHJcbmltcG9ydCB7IExPTkdFVklUWV9USFJFU0hPTERTIH0gZnJvbSAnLi4vdXRpbHMvbG9uZ2V2aXR5J1xyXG5pbXBvcnQge1xyXG4gIEVYQ0VMTEVOVF9ESUZGRVJFTkNFX1RIUkVTSE9MRCxcclxuICBHT09EX0RJRkZFUkVOQ0VfVEhSRVNIT0xELFxyXG4gIEhVTUFOX1JFRkVSRU5DRV9MSUZFU1BBTixcclxuICBUUkFESVRJT05BTF9NQVhJTVVNX09GRlNFVCxcclxuICBUUkFESVRJT05BTF9NSU5JTVVNX09GRlNFVCxcclxufSBmcm9tICcuLi91dGlscy9tYXR1cml0eSdcbmltcG9ydCB7IFRoZW1lT3JuYW1lbnQgfSBmcm9tICcuL1RoZW1lT3JuYW1lbnQnXG5cclxuZXhwb3J0IGZ1bmN0aW9uIEhvd0l0V29ya3MoKSB7XHJcbiAgY29uc3QgZXhhbXBsZSA9IGdldFdvcmtlZEV4YW1wbGUoKVxyXG5cclxuICByZXR1cm4gKFxuICAgIDxzZWN0aW9uIGNsYXNzTmFtZT1cImluZm9ybWF0aW9uLXNlY3Rpb25cIiBpZD1cImhvdy1pdC13b3Jrc1wiIGFyaWEtbGFiZWxsZWRieT1cImhvdy1pdC13b3Jrcy10aXRsZVwiPlxuICAgICAgPFRoZW1lT3JuYW1lbnQgbG9jYXRpb249XCJpbmZvcm1hdGlvblwiIC8+XG4gICAgICA8aGVhZGVyIGNsYXNzTmFtZT1cImluZm9ybWF0aW9uLWhlYWRlclwiPlxuICAgICAgICA8cCBjbGFzc05hbWU9XCJhZ2VuY3ktaWRlbnRpdHlcIj48c3Ryb25nPk1BVEg8L3N0cm9uZz48c3Bhbj5NYXR1cml0eSAmYW1wOyBBZ2UgVGVjaG5pY2FsIEhhbmRib29rPC9zcGFuPjwvcD5cbiAgICAgICAgPHAgY2xhc3NOYW1lPVwiZXllYnJvdyBkYXJrXCI+UHJvY2VkdXJhbCBtYW51YWwgQVJCLTAyPC9wPlxuICAgICAgICA8aDEgaWQ9XCJob3ctaXQtd29ya3MtdGl0bGVcIj5Ib3cgSXQgV29ya3M8L2gxPlxuICAgICAgICA8cD5cclxuICAgICAgICAgIFRoZSBCdXJlYXUgaXNzdWVzIHR3byBpbmRlcGVuZGVudCBhc3Nlc3NtZW50cyBhbmQgb25lIGNvbnRleHR1YWwgbG9uZ2V2aXR5IHJlY29yZC4gVGhlIGFyaXRobWV0aWMgaXNcclxuICAgICAgICAgIGZpY3Rpb25hbCwgYnV0IGl0IHJlbWFpbnMgY29uc2lzdGVudCBmcm9tIG9uZSBmaWxpbmcgdG8gdGhlIG5leHQuXHJcbiAgICAgICAgPC9wPlxyXG4gICAgICA8L2hlYWRlcj5cclxuXHJcbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwibWV0aG9kLXN0YWNrXCI+XHJcbiAgICAgICAgPGFydGljbGUgY2xhc3NOYW1lPVwibWV0aG9kLWNhcmRcIiBpZD1cImFkdWx0aG9vZC1tZXRob2RcIj5cclxuICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cIm1ldGhvZC1udW1iZXJcIj5Qcm9jZWR1cmUgMTwvc3Bhbj5cclxuICAgICAgICAgIDxoMz5BZHVsdGhvb2QgU2FmZWd1YXJkPC9oMz5cclxuICAgICAgICAgIDxwPlxyXG4gICAgICAgICAgICBFdmVyeSBzcGVjaWVzIGhhcyBhIHJlY29nbmlzZWQgYWR1bHRob29kIGFnZS4gSWYgZWl0aGVyIGFwcGxpY2FudCBoYXMgbm90IHJlYWNoZWQgdGhhdCB0aHJlc2hvbGQsXHJcbiAgICAgICAgICAgIHRoZSBCdXJlYXUgcmVmdXNlcyB0byBpc3N1ZSBhIGNvbXBhdGliaWxpdHkgYXNzZXNzbWVudDsgbWF0dXJpdHkgYW5kIGV4cGVyaWVuY2UgYXNzZXNzbWVudHMgZG8gbm90IHJ1bi5cclxuICAgICAgICAgIDwvcD5cclxuICAgICAgICA8L2FydGljbGU+XHJcblxyXG4gICAgICAgIDxhcnRpY2xlIGNsYXNzTmFtZT1cIm1ldGhvZC1jYXJkXCIgaWQ9XCJtYXR1cml0eS1tZXRob2RcIj5cclxuICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cIm1ldGhvZC1udW1iZXJcIj5Qcm9jZWR1cmUgMjwvc3Bhbj5cclxuICAgICAgICAgIDxoMz5NYXR1cml0eSBDb21wYXRpYmlsaXR5PC9oMz5cclxuICAgICAgICAgIDxwPlxyXG4gICAgICAgICAgICBUaGUgZmFtaWxpYXIgaHVtYW4gZ3VpZGVsaW5lIGdpdmVzIGEgbWluaW11bSBvZiA8Y29kZT5hZ2UgLyAyICsge1RSQURJVElPTkFMX01JTklNVU1fT0ZGU0VUfTwvY29kZT4gYW5kXHJcbiAgICAgICAgICAgIGEgbWF4aW11bSBvZiA8Y29kZT5hZ2UgeCAyIC0ge1RSQURJVElPTkFMX01BWElNVU1fT0ZGU0VUfTwvY29kZT4uIFRoZSBjb25zdGFudHMgYXJlIGZyYWN0aW9ucyBvZiB0aGVcclxuICAgICAgICAgICAge2AgJHtIVU1BTl9SRUZFUkVOQ0VfTElGRVNQQU59YH0teWVhciBodW1hbiByZWZlcmVuY2UgbGlmZXNwYW46IDcgaXMgb25lIHR3ZWxmdGggYW5kIDE0IGlzIG9uZSBzaXh0aC5cclxuICAgICAgICAgIDwvcD5cclxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZm9ybXVsYS1wYW5lbFwiIGFyaWEtbGFiZWw9XCJTcGVjaWVzIG1hdHVyaXR5IGZvcm11bGFzXCI+XHJcbiAgICAgICAgICAgIDxjb2RlPnNwZWNpZXNTZXZlbiA9IHR5cGljYWxMaWZlc3BhbiAvIDEyPC9jb2RlPlxyXG4gICAgICAgICAgICA8Y29kZT5zcGVjaWVzRm91cnRlZW4gPSB0eXBpY2FsTGlmZXNwYW4gLyA2PC9jb2RlPlxyXG4gICAgICAgICAgICA8Y29kZT5odW1hbkVxdWl2YWxlbnRBZ2UgPSAoYWdlIC8gdHlwaWNhbExpZmVzcGFuKSB4IHtIVU1BTl9SRUZFUkVOQ0VfTElGRVNQQU59PC9jb2RlPlxyXG4gICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICA8cD5cclxuICAgICAgICAgICAgQm90aCBhZ2VzIGFyZSBjb252ZXJ0ZWQgdG8gdGhhdCBzaGFyZWQgc2NhbGUuIEVhY2ggYXBwbGljYW50IG11c3QgZmFsbCBpbnNpZGUgdGhlIG90aGVyJ3MgYWxsb3dlZFxyXG4gICAgICAgICAgICByYW5nZSwgc28gY29tcGF0aWJpbGl0eSBtdXN0IHdvcmsgaW4gYm90aCBkaXJlY3Rpb25zLlxyXG4gICAgICAgICAgPC9wPlxyXG4gICAgICAgICAgPGRsIGNsYXNzTmFtZT1cImNhdGVnb3J5LWxpc3RcIj5cclxuICAgICAgICAgICAgPGRpdj48ZHQ+e21hdHVyaXR5VmVyZGljdHMuRVhDRUxMRU5ULmxhYmVsfTwvZHQ+PGRkPkVxdWl2YWxlbnQgYWdlcyBkaWZmZXIgYnkgbm8gbW9yZSB0aGFuIHtFWENFTExFTlRfRElGRkVSRU5DRV9USFJFU0hPTEQgKiAxMDB9JSBvZiB0aGUgb2xkZXIgYWdlLjwvZGQ+PC9kaXY+XHJcbiAgICAgICAgICAgIDxkaXY+PGR0PnttYXR1cml0eVZlcmRpY3RzLkdPT0QubGFiZWx9PC9kdD48ZGQ+VGhlIGRpZmZlcmVuY2UgaXMgYWJvdmUgMTAlIGJ1dCBubyBtb3JlIHRoYW4ge0dPT0RfRElGRkVSRU5DRV9USFJFU0hPTEQgKiAxMDB9JS48L2RkPjwvZGl2PlxyXG4gICAgICAgICAgICA8ZGl2PjxkdD57bWF0dXJpdHlWZXJkaWN0cy5CT1JERVJMSU5FLmxhYmVsfTwvZHQ+PGRkPlRoZSBwYWlyIHJlbWFpbnMgbXV0dWFsbHkgY29tcGF0aWJsZSwgd2l0aCBhIGRpZmZlcmVuY2UgYWJvdmUgMjUlLjwvZGQ+PC9kaXY+XHJcbiAgICAgICAgICAgIDxkaXY+PGR0PnttYXR1cml0eVZlcmRpY3RzLklOQ09NUEFUSUJMRS5sYWJlbH08L2R0PjxkZD5BdCBsZWFzdCBvbmUgYXBwbGljYW50IGZhbGxzIG91dHNpZGUgdGhlIG90aGVyJ3MgYWxsb3dlZCByYW5nZS48L2RkPjwvZGl2PlxyXG4gICAgICAgICAgPC9kbD5cclxuICAgICAgICA8L2FydGljbGU+XHJcblxyXG4gICAgICAgIDxhcnRpY2xlIGNsYXNzTmFtZT1cIm1ldGhvZC1jYXJkXCIgaWQ9XCJleHBlcmllbmNlLW1ldGhvZFwiPlxyXG4gICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwibWV0aG9kLW51bWJlclwiPlByb2NlZHVyZSAzPC9zcGFuPlxyXG4gICAgICAgICAgPGgzPkV4cGVyaWVuY2UgR2FwPC9oMz5cclxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZm9ybXVsYS1wYW5lbFwiPjxjb2RlPmFkdWx0RXhwZXJpZW5jZSA9IGFnZSAtIHJlY29nbmlzZWRBZHVsdGhvb2RBZ2U8L2NvZGU+PC9kaXY+XHJcbiAgICAgICAgICA8cD5cclxuICAgICAgICAgICAgRXhwZXJpZW5jZSB1c2VzIGFjdHVhbCBhZHVsdCB5ZWFycyBhbmQgaXMgZGVsaWJlcmF0ZWx5IG5vdCBub3JtYWxpc2VkIGJ5IGxpZmVzcGFuLiBUaGlzIGlzIHdoeSB0d29cclxuICAgICAgICAgICAgYXBwbGljYW50cyBjYW4gYmUgbWF0dXJpdHkgcGVlcnMgd2hpbGUgaGF2aW5nIGxpdmVkIHRocm91Z2ggdmVyeSBkaWZmZXJlbnQgYW1vdW50cyBvZiBoaXN0b3J5LlxyXG4gICAgICAgICAgPC9wPlxyXG4gICAgICAgICAgPGRsIGNsYXNzTmFtZT1cImNhdGVnb3J5LWxpc3QgY29tcGFjdC1yYW5nZXNcIj5cclxuICAgICAgICAgICAgPGRpdj48ZHQ+MC17RVhQRVJJRU5DRV9HQVBfVEhSRVNIT0xEUy5iYXNpY2FsbHlQZWVyc01heGltdW19IHllYXJzPC9kdD48ZGQ+e2V4cGVyaWVuY2VWZXJkaWN0cy5CQVNJQ0FMTFlfUEVFUlMubGFiZWx9PC9kZD48L2Rpdj5cclxuICAgICAgICAgICAgPGRpdj48ZHQ+Jmd0O3tFWFBFUklFTkNFX0dBUF9USFJFU0hPTERTLmJhc2ljYWxseVBlZXJzTWF4aW11bX0te0VYUEVSSUVOQ0VfR0FQX1RIUkVTSE9MRFMubm90aWNlYWJsZU1heGltdW19IHllYXJzPC9kdD48ZGQ+e2V4cGVyaWVuY2VWZXJkaWN0cy5OT1RJQ0VBQkxFLmxhYmVsfTwvZGQ+PC9kaXY+XHJcbiAgICAgICAgICAgIDxkaXY+PGR0PiZndDt7RVhQRVJJRU5DRV9HQVBfVEhSRVNIT0xEUy5ub3RpY2VhYmxlTWF4aW11bX0te0VYUEVSSUVOQ0VfR0FQX1RIUkVTSE9MRFMuY29uc2lkZXJhYmxlTWF4aW11bX0geWVhcnM8L2R0PjxkZD57ZXhwZXJpZW5jZVZlcmRpY3RzLkNPTlNJREVSQUJMRS5sYWJlbH08L2RkPjwvZGl2PlxyXG4gICAgICAgICAgICA8ZGl2PjxkdD4mZ3Q7e0VYUEVSSUVOQ0VfR0FQX1RIUkVTSE9MRFMuY29uc2lkZXJhYmxlTWF4aW11bX0te0VYUEVSSUVOQ0VfR0FQX1RIUkVTSE9MRFMuZm9ybWlkYWJsZU1heGltdW19IHllYXJzPC9kdD48ZGQ+e2V4cGVyaWVuY2VWZXJkaWN0cy5GT1JNSURBQkxFLmxhYmVsfTwvZGQ+PC9kaXY+XHJcbiAgICAgICAgICAgIDxkaXY+PGR0PiZndDt7RVhQRVJJRU5DRV9HQVBfVEhSRVNIT0xEUy5mb3JtaWRhYmxlTWF4aW11bX0te0VYUEVSSUVOQ0VfR0FQX1RIUkVTSE9MRFMuaGlzdG9yaWNhbE1heGltdW19IHllYXJzPC9kdD48ZGQ+e2V4cGVyaWVuY2VWZXJkaWN0cy5ISVNUT1JJQ0FMLmxhYmVsfTwvZGQ+PC9kaXY+XHJcbiAgICAgICAgICAgIDxkaXY+PGR0PiZndDt7RVhQRVJJRU5DRV9HQVBfVEhSRVNIT0xEUy5oaXN0b3JpY2FsTWF4aW11bX0geWVhcnM8L2R0PjxkZD57ZXhwZXJpZW5jZVZlcmRpY3RzLkNJVklMSVpBVElPTlMubGFiZWx9PC9kZD48L2Rpdj5cclxuICAgICAgICAgIDwvZGw+XHJcbiAgICAgICAgPC9hcnRpY2xlPlxyXG5cclxuICAgICAgICA8YXJ0aWNsZSBjbGFzc05hbWU9XCJtZXRob2QtY2FyZFwiIGlkPVwibG9uZ2V2aXR5LW1ldGhvZFwiPlxyXG4gICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwibWV0aG9kLW51bWJlclwiPkNvbnRleHQgcmVjb3JkPC9zcGFuPlxyXG4gICAgICAgICAgPGgzPkxvbmdldml0eSBDb250ZXh0PC9oMz5cclxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZm9ybXVsYS1wYW5lbFwiPjxjb2RlPmxvbmdldml0eVJhdGlvID0gYWdlIC8gdHlwaWNhbExpZmVzcGFuPC9jb2RlPjwvZGl2PlxyXG4gICAgICAgICAgPHA+XHJcbiAgICAgICAgICAgIFR5cGljYWwgbGlmZXNwYW4gaXMgbm90IGEgbWF4aW11bS4gQWdlcyBhYm92ZSBpdCByZW1haW4gdmFsaWQsIGFuZCBsb25nZXZpdHkgbmVpdGhlciByZWplY3RzIGFuXHJcbiAgICAgICAgICAgIGFwcGxpY2FudCBub3IgY2hhbmdlcyBtYXR1cml0eSBvciBleHBlcmllbmNlLiBJdCBzdXBwbGllcyBmYWN0dWFsIGNvbnRleHQgYW5kIGVsaWdpYmxlIEJ1cmVhdSBodW1vdXIuXHJcbiAgICAgICAgICA8L3A+XHJcbiAgICAgICAgICA8ZGwgY2xhc3NOYW1lPVwiY2F0ZWdvcnktbGlzdCBjb21wYWN0LXJhbmdlc1wiPlxyXG4gICAgICAgICAgICA8ZGl2PjxkdD4mbHQ7PXtMT05HRVZJVFlfVEhSRVNIT0xEUy5ub3JtYWxNYXhpbXVtICogMTAwfSU8L2R0PjxkZD5XaXRoaW4gVHlwaWNhbCBMaWZlc3BhbjwvZGQ+PC9kaXY+XHJcbiAgICAgICAgICAgIDxkaXY+PGR0PiZndDsxMDAlLXtMT05HRVZJVFlfVEhSRVNIT0xEUy5leGNlcHRpb25hbE1heGltdW0gKiAxMDB9JTwvZHQ+PGRkPkV4Y2VwdGlvbmFsbHkgT2xkPC9kZD48L2Rpdj5cclxuICAgICAgICAgICAgPGRpdj48ZHQ+Jmd0OzEyNSUte0xPTkdFVklUWV9USFJFU0hPTERTLmFuY2llbnRNYXhpbXVtICogMTAwfSU8L2R0PjxkZD5BbmNpZW50PC9kZD48L2Rpdj5cclxuICAgICAgICAgICAgPGRpdj48ZHQ+Jmd0OzIwMCUte0xPTkdFVklUWV9USFJFU0hPTERTLmxlZ2VuZGFyeU1heGltdW0gKiAxMDB9JTwvZHQ+PGRkPkxlZ2VuZGFyeSBMb25nZXZpdHk8L2RkPjwvZGl2PlxyXG4gICAgICAgICAgICA8ZGl2PjxkdD4mZ3Q7NTAwJTwvZHQ+PGRkPkNocm9ub2xvZ2ljYWwgQW5vbWFseTwvZGQ+PC9kaXY+XHJcbiAgICAgICAgICA8L2RsPlxyXG4gICAgICAgIDwvYXJ0aWNsZT5cclxuICAgICAgPC9kaXY+XHJcblxyXG4gICAgICA8YXJ0aWNsZSBjbGFzc05hbWU9XCJ3b3JrZWQtZXhhbXBsZVwiIGFyaWEtbGFiZWxsZWRieT1cIndvcmtlZC1leGFtcGxlLXRpdGxlXCI+XHJcbiAgICAgICAgPHAgY2xhc3NOYW1lPVwiZXllYnJvdyBkYXJrXCI+V29ya2VkIGZpbGluZzwvcD5cclxuICAgICAgICA8aDMgaWQ9XCJ3b3JrZWQtZXhhbXBsZS10aXRsZVwiPkVsZiAzMDAgKyBIdW1hbiAzNDwvaDM+XHJcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ3b3JrZWQtZXhhbXBsZS1ncmlkXCI+XHJcbiAgICAgICAgICA8ZGl2PlxyXG4gICAgICAgICAgICA8aDQ+TWF0dXJpdHk8L2g0PlxyXG4gICAgICAgICAgICA8cD48c3Ryb25nPkVsZjo8L3N0cm9uZz4gMzAwIC8ge2V4YW1wbGUuZWxmLnR5cGljYWxMaWZlc3Bhbn0geCA4NCA9IHtmb3JtYXRFcXVpdmFsZW50WWVhcnMoZXhhbXBsZS5tYXR1cml0eS5hcHBsaWNhbnRBRXF1aXZhbGVudEFnZSl9PC9wPlxyXG4gICAgICAgICAgICA8cD48c3Ryb25nPkh1bWFuOjwvc3Ryb25nPiAzNCAvIHtleGFtcGxlLmh1bWFuLnR5cGljYWxMaWZlc3Bhbn0geCA4NCA9IHtmb3JtYXRFcXVpdmFsZW50WWVhcnMoZXhhbXBsZS5tYXR1cml0eS5hcHBsaWNhbnRCRXF1aXZhbGVudEFnZSl9PC9wPlxyXG4gICAgICAgICAgICA8c3Ryb25nIGNsYXNzTmFtZT1cIndvcmtlZC1yZXN1bHRcIj57ZXhhbXBsZS5tYXR1cml0eUxhYmVsfTwvc3Ryb25nPlxyXG4gICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICA8ZGl2PlxyXG4gICAgICAgICAgICA8aDQ+QWR1bHQgZXhwZXJpZW5jZTwvaDQ+XHJcbiAgICAgICAgICAgIDxwPjxzdHJvbmc+RWxmOjwvc3Ryb25nPiAzMDAgLSB7ZXhhbXBsZS5lbGYuYWR1bHRob29kQWdlfSA9IHtmb3JtYXRZZWFycyhleGFtcGxlLmV4cGVyaWVuY2UuYXBwbGljYW50QUFkdWx0RXhwZXJpZW5jZSl9IHllYXJzPC9wPlxyXG4gICAgICAgICAgICA8cD48c3Ryb25nPkh1bWFuOjwvc3Ryb25nPiAzNCAtIHtleGFtcGxlLmh1bWFuLmFkdWx0aG9vZEFnZX0gPSB7Zm9ybWF0WWVhcnMoZXhhbXBsZS5leHBlcmllbmNlLmFwcGxpY2FudEJBZHVsdEV4cGVyaWVuY2UpfSB5ZWFyczwvcD5cclxuICAgICAgICAgICAgPHA+PHN0cm9uZz5HYXA6PC9zdHJvbmc+IHtmb3JtYXRZZWFycyhleGFtcGxlLmV4cGVyaWVuY2UuYWR1bHRFeHBlcmllbmNlR2FwKX0geWVhcnM8L3A+XHJcbiAgICAgICAgICAgIDxzdHJvbmcgY2xhc3NOYW1lPVwid29ya2VkLXJlc3VsdFwiPntleGFtcGxlLmV4cGVyaWVuY2VMYWJlbH08L3N0cm9uZz5cclxuICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgIDwvZGl2PlxyXG4gICAgICAgIDxwIGNsYXNzTmFtZT1cIndvcmtlZC1jb25jbHVzaW9uXCI+XHJcbiAgICAgICAgICBTaW1pbGFyIGxpZmVjeWNsZSBwb3NpdGlvbiwgdmVyeSBkaWZmZXJlbnQgYWR1bHQgaGlzdG9yeTogZGlzYWdyZWVtZW50IGJldHdlZW4gdGhlIHZlcmRpY3RzIGlzIGFuIGludGVuZGVkIGZlYXR1cmUuXHJcbiAgICAgICAgPC9wPlxyXG4gICAgICA8L2FydGljbGU+XHJcbiAgICA8L3NlY3Rpb24+XHJcbiAgKVxyXG59XHJcbiJdfQ==

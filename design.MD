@@ -1,6 +1,6 @@
 # Fantasy Age Checker
 
-## Design & Architecture Document — Version 2.0
+## Design & Architecture Document — Version 3.0
 
 > **Core identity:** A completely unnecessary government service that fantasy civilisation has somehow decided is essential.
 
@@ -1247,7 +1247,7 @@ Full regression testing is appropriate for:
 - major integration milestones
 - release candidates
 
-Version 2.0 release verification included the complete automated regression suite alongside lint, TypeScript, production build, responsive review and accessibility review.
+Version 3.0 release verification includes the complete automated regression suite alongside lint, TypeScript, production build, responsive browser review, accessibility review, and static deployment inspection.
 
 ---
 
@@ -1307,11 +1307,11 @@ There is still no overall compatibility score.
 
 ---
 
-# 37. Version 3.0 Development — Immortal Affairs
+# 37. Version 3.0 Feature Set — Immortal Affairs
 
-## Stage 22 FBI foundation
+## FBI lifecycle architecture
 
-The **FBI — Fantasy Bureau of Immortality** handles lifecycles that cannot be represented by the finite-lifespan Checker. Immortal Affairs shares the human-equivalent maturity scale for future comparisons, but owns separate types and calculation utilities. Indefinite beings never receive a fake `typicalLifespan`, and the mortal longevity ratio is not applied to them.
+The **FBI — Fantasy Bureau of Immortality** handles lifecycles that cannot be represented by the finite-lifespan Checker. Immortal Affairs shares the human-equivalent maturity scale for comparisons, but owns separate types and calculation utilities. Indefinite beings never receive a fake `typicalLifespan`, and the mortal longevity ratio is not applied to them.
 
 The four calculation families are:
 
@@ -1339,7 +1339,7 @@ Adulthood eligibility remains a hard boundary:
 - A preset explicitly created mature is adult from manifestation at the maturity-25 convention.
 - A transferred or cyclical being's current body must independently satisfy adulthood rules; ancient consciousness experience cannot override an underage form.
 
-Future experience calculations use actual adult time rather than lifespan normalisation:
+FBI experience calculations use actual adult time rather than lifespan normalisation:
 
 - Acquired: `(ageAtTransformation - originAdulthoodAge) + yearsSinceTransformation`.
 - Naturally immortal: `currentAge - recognisedAdulthoodAge`.
@@ -1347,11 +1347,11 @@ Future experience calculations use actual adult time rather than lifespan normal
 - Reincarnating: current-life adult experience plus remembered previous adult experience.
 - Possessing or body-hopping: remembered conscious experience, while current-body maturity remains separate.
 
-Stage 22 supplies the mathematical and type foundation. Comparison verdicts, chronological theatre, result cards, sharing, and FBI permalinks belong to later stages.
+These mathematical utilities feed validated records and the pure comparison engine; they do not select presentation, sharing, or result-card content.
 
-## Stage 23 presets and immortal record builders
+## Presets and immortal record builders
 
-The typed preset registry is a configuration layer over the four lifecycle families. Presets contain stable IDs and only their calculation-relevant defaults; they call the shared Stage 22 maturity utilities rather than reproducing the exponential formula. Naturally immortal ages are Bureau defaults for this tool, not setting canon.
+The typed preset registry is a configuration layer over the four lifecycle families. Presets contain stable IDs and only their calculation-relevant defaults; they call the shared immortal-maturity utilities rather than reproducing the exponential formula. Naturally immortal ages are Bureau defaults for this tool, not setting canon.
 
 Initial presets:
 
@@ -1371,15 +1371,15 @@ Manifested records are adult from creation, begin at maturity 25, mature through
 
 Reincarnating records derive maturity and eligibility from the current form. Experience is current-life adult experience plus remembered previous adult experience only when memories are retained. Possessing records derive maturity and eligibility from the current host, but experience is remembered conscious experience alone; the host's pre-possession adult years are never added automatically. In both cases an underage current form remains ineligible regardless of accumulated consciousness experience.
 
-The Immortal Affairs UI exposes the registry as an informational classification catalogue. Stage 23 does not add a two-applicant form or any FBI verdict/result system.
+The Immortal Affairs UI exposes the registry as an informational classification catalogue and uses the same entries to drive family-specific intake fields.
 
-## Stage 24 two-applicant FBI intake
+## Two-applicant FBI intake
 
-Immortal Affairs owns two persistent applicant drafts inside its existing hash view. Each applicant independently selects `MORTAL` or `IMMORTAL`; switching sections hides rather than unmounts the view, so drafts and factual previews survive navigation. FBI drafts remain session-only and are never written to local storage, query strings, or share links.
+Immortal Affairs owns two persistent applicant drafts inside its existing hash view. Each applicant independently selects `MORTAL` or `IMMORTAL`; switching sections hides rather than unmounts the view, so drafts and factual previews survive navigation. FBI drafts are never written to local storage. Supported built-in draft inputs enter a query string only when the user explicitly copies a permanent FBI link; applicant names are always excluded.
 
 Mortal mode collects an optional name, existing species, and age. Its adapter reuses the existing species model, adulthood check, adult-experience helper, and human-equivalent maturity conversion. It does not modify or share applicant/result state with the normal Checker.
 
-Immortal mode selects from the Stage 23 registry, then renders only the selected family's fields:
+Immortal mode selects from the typed preset registry, then renders only the selected family's fields:
 
 - Acquired: origin species, transformation age, and elapsed transformation years. Built-in continuing presets supply their half-life; Custom Acquired additionally chooses Frozen/Continuing and requests half-life only for Continuing.
 - Naturally immortal: current age. Built-in presets supply adulthood and half-life; Custom Natural requests both values.
@@ -1388,7 +1388,7 @@ Immortal mode selects from the Stage 23 registry, then renders only the selected
 - Possessing: current-host species and age plus remembered conscious experience; host years before possession are not added.
 - Custom Transferred/Cyclical first chooses Reincarnating or Possessing and then follows that subtype's fields. No custom flow exposes equations or the fixed ceiling.
 
-The intake adapter returns a typed `FbiApplicantRecord`: a mortal record or a named wrapper around one of the five Stage 23 immortal record shapes. Names use the existing trim and 40-Unicode-character rules and remain presentation-only. React gathers draft values; pure adapters and builders perform all validation and derivation.
+The intake adapter returns a typed `FbiApplicantRecord`: a mortal record or a named wrapper around one of the five immortal record shapes. Names use the existing trim and 40-Unicode-character rules and remain presentation-only. React gathers draft values; pure adapters and builders perform all validation and derivation.
 
 Blank, non-finite, negative, and invalid family-specific values receive associated field errors. Underage states are factual records rather than malformed inputs: their compact previews explicitly show `Adult FBI comparison: Ineligible`, and experience can never override the relevant origin/current-form adulthood safeguard.
 
@@ -1396,9 +1396,9 @@ Each valid draft displays a compact record preview containing classification, ef
 
 Temporary custom species state now lives at the persistent application parent and is passed to both the unchanged Checker workflow and FBI intake. It remains in memory only and continues using the single existing species model and registration interface.
 
-## Stage 25 FBI comparison engine
+## FBI comparison engine
 
-The pure FBI engine accepts any two validated Stage 24 `FbiApplicantRecord` values. It first normalizes each record into shared factual fields: identity/display context, lifecycle family and classification, effective human-equivalent maturity, actual adult experience, adult-comparison eligibility, meaningful chronological age where available, and finite typical lifespan only for genuinely mortal records. Original records are never mutated.
+The pure FBI engine accepts any two validated `FbiApplicantRecord` values. It first normalizes each record into shared factual fields: identity/display context, lifecycle family and classification, effective human-equivalent maturity, actual adult experience, adult-comparison eligibility, meaningful chronological age where available, and finite typical lifespan only for genuinely mortal records. Original records are never mutated.
 
 Adult eligibility is a centralized gate. If either normalized record is ineligible, the result is `INELIGIBLE` with applicant-specific reasons and contains no maturity or experience categories. Mortal underage records, underage transformations, underage natural immortals, and underage transferred current forms therefore cannot be rescued by accumulated experience. Created-mature manifested records remain eligible even at zero adult-experience years.
 
@@ -1412,21 +1412,21 @@ The approved result contains independent maturity, experience, and chronology se
 
 Immortal Affairs now provides an explicit `Open FBI Review` action. It submits the two current validated records to the pure engine and displays a restrained factual review or an ineligibility explanation. Editing either draft clears the submitted review; hash navigation preserves it because the primary view remains mounted. Review state is never persisted or serialized.
 
-## Stage 26 FBI dossier presentation
+## FBI dossier presentation
 
-Stage 26 wraps an approved Stage 25 result in a typed, session-only presentation model. It does not recalculate eligibility, maturity, experience, chronology gaps, or category thresholds. The presentation is created once when `Open FBI Review` succeeds and is stored with the submitted comparison; rerenders, theme changes, and hash navigation therefore cannot replace its case number, filing note, or findings. Editing either intake still clears the whole submitted review.
+The dossier layer wraps an approved FBI comparison in a typed, session-only presentation model. It does not recalculate eligibility, maturity, experience, chronology gaps, or category thresholds. The presentation is created once when `Open FBI Review` succeeds and is stored with the submitted comparison; rerenders, theme changes, and hash navigation therefore cannot replace its case number, filing note, or findings. Editing either intake clears the whole submitted review.
 
-Approved cases use `FBI-[CLASS A]-[CLASS B]-######`. Built-in mortal records reuse their stable species codes, custom mortal species use `CUS`, and immortal presets use stable classification codes (`VAM`, `LIC`, `AGE`, `ASC`, `ANG`, `DEM`, `GOD`, `PRI`, `MAN`, `REI`, and `POS`); Custom Immortal uses `CUS`. The six-digit serial and filing-note choice are deterministic hashes of the submitted factual records and unchanged Stage 25 result. Names do not drive calculations.
+Approved cases use `FBI-[CLASS A]-[CLASS B]-######`. Built-in mortal records reuse their stable species codes, custom mortal species use `CUS`, and immortal presets use stable classification codes (`VAM`, `LIC`, `AGE`, `ASC`, `ANG`, `DEM`, `GOD`, `PRI`, `MAN`, `REI`, and `POS`); Custom Immortal uses `CUS`. The six-digit serial and filing-note choice are deterministic hashes of the submitted factual records and stored comparison result. Names do not drive calculations.
 
 Chronology presentation uses six exact bands: 0–99 recent, 100–499 century-scale, 500–999 deep-century, 1,000–9,999 millennial, 10,000–99,999 deep historical, and 100,000+ primordial. The classified basis is explicit for each family. Mortal and natural records use current age; acquired records show current age plus transformation timing; manifested records use years since manifestation. Reincarnating records show current-form age separately and use remembered adult experience as historical context only when memories are retained. Possessing records keep current-host age separate from remembered consciousness experience. These labels are presentation context and never alter either comparison category.
 
 The filing-note register contains 24 restrained, deterministic administrative notes. A fixed-priority register evaluates ten special findings and emits no more than two. Findings can call out near-asymptotic maturity, civilisation-scale experience gaps, ancient remembered experience in a current body, centuries of frozen maturity, mortal/immortal jurisdiction, dual immortal jurisdiction, identical effective maturity, recent manifestation, continuing ascension, or millennial file scale. A separate contradiction note may state when close maturity alignment coexists with a large experience gap; no combined verdict is inferred.
 
-Ineligible submissions receive only the Stage 25 factual explanation. They receive no FBI case identifier, chronology theatre, filing note, or special findings. Stage 26 adds no card generation, sharing, permalink, persistence, or new theme system.
+Ineligible submissions receive only the comparison engine's factual explanation. They receive no FBI case identifier, chronology theatre, filing note, special findings, sharing controls, or result cards.
 
-## Stage 27 FBI sharing, permalinks, and result cards
+## FBI sharing, permalinks, and result cards
 
-FBI export services consume the stored Stage 26 submitted dossier. Copy text, native sharing, and the FBI image model use its existing comparison, case number, chronology records, filing note, and special findings; changing image theme or format cannot regenerate any of them. Each newly submitted or restored review creates a new control instance initialized to Standard format and the current website theme. Subsequent website-theme changes do not overwrite that selection.
+FBI export services consume the stored submitted dossier. Copy text, native sharing, and the FBI image model use its existing comparison, case number, chronology records, filing note, and special findings; changing image theme or format cannot regenerate any of them. Each newly submitted or restored review creates a new control instance initialized to Standard format and the current website theme. Subsequent website-theme changes do not overwrite that selection.
 
 FBI permanent links use a distinct `fbi=1` namespace and applicant-prefixed readable parameters (`fa…` and `fb…`). They serialize canonical draft inputs only: mortal species/age or the built-in immortal preset plus that family's required species, ages, elapsed years, memory flag, and remembered experience. Names, calculated values, verdicts, case numbers, presentation selections, website/card themes, and formats are excluded. Parsing is defensive; a malformed FBI payload is discarded with a restrained notice while the normal intake remains usable. Valid links restore both drafts, navigate to `#immortal-affairs`, rebuild records through the current builders, rerun the Stage 25 comparison pathway, and create a submitted dossier.
 
@@ -1438,7 +1438,7 @@ The FBI image pipeline is `stored submitted dossier → typed FBI image model �
 - Standard (`1080 × 1350`) adds subject maturity/experience/chronology labels, the filing note, and at most one special finding.
 - Full Dossier (`1080 × 1920`) adds family-specific applicable fields, maturity values/ranges, experience gap/ratio, chronology gap/context, up to two stored findings, and the filing note without exposing internal IDs.
 
-Ineligible reviews retain their restrained Stage 26 display and receive no export controls or result cards. FBI controls are separately owned from normal Checker sharing state, remain session-only, use labelled selectors and text buttons, provide live copy/generation feedback, stack at the existing mobile breakpoint, and omit Share Image when file sharing is unavailable.
+Ineligible reviews retain their restrained factual display and receive no export controls or result cards. FBI controls are separately owned from normal Checker sharing state, remain session-only, use labelled selectors and text buttons, provide live copy/generation feedback, stack at the existing mobile breakpoint, and omit Share Image when file sharing is unavailable.
 
 ---
 

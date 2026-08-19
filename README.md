@@ -2,7 +2,7 @@
 
 Fantasy Age Checker is a humorous, single-page fantasy utility presented by the fictional **Arcane Relationship Bureau — Department of Inter-Species Affairs**. It compares two adult fictional characters using species-relative maturity and actual adult experience, then issues an unnecessarily official ruling.
 
-Fantasy Age Checker 2.0.2 is the current release. Version 3 development now includes a separate Immortal Affairs intake and basic factual FBI comparison review; final FBI presentation and sharing remain deferred. The app is static React, TypeScript, and Vite with no backend, database, accounts, analytics, runtime secrets, or required environment variables.
+Fantasy Age Checker 3.0.0 is the current release. It includes the normal finite-lifespan Checker and the separate **FBI — Fantasy Bureau of Immortality** workflow for mortal and immortal lifecycle records. The app is static React, TypeScript, and Vite with no backend, database, accounts, analytics, runtime secrets, or required environment variables.
 
 ## Screenshot
 
@@ -23,6 +23,7 @@ _Release screenshot to be added when the public deployment has a final domain._
 - Built-in Bureau Case discovery with profile-aware random assignments, three deterministic daily files, and a ten-case curated archive.
 - Same-page Species Guide, calculation explanation, and entertainment disclaimer.
 - Responsive, keyboard-accessible controls and reduced-motion support.
+- A complete Immortal Affairs workflow with four lifecycle families, built-in and custom immortal records, factual FBI dossiers, permanent links for supported records, and themed PNG exports.
 
 ## How the ruling works
 
@@ -48,6 +49,14 @@ gap = abs(applicantAAdultExperience - applicantBAdultExperience)
 Longevity is separate context based on `age / typicalLifespan`. A typical lifespan is a reference, not a validation limit, so even unusually large finite ages remain valid.
 
 In v2.0, non-normal longevity receives richer, deterministic Bureau presentation, and mathematically unusual approved consultations may receive up to two Rare Bureau Findings. These additions are selected after the existing consultation has been calculated and remain presentation-only: they never alter compatibility, calculations, verdicts, quips, case numbers, or permalinks.
+
+## Immortal Affairs / Fantasy Bureau of Immortality
+
+Immortal Affairs handles records that cannot be represented by a finite typical lifespan. Each subject may be Mortal or Immortal, and immortal records use one of four calculation families: Acquired, Naturally Immortal, Created/Manifested, or Transferred/Cyclical. Built-in presets include vampires, liches, ascended immortals, angels, demons, divine beings, primordials, manifested beings, reincarnating beings, and possessing spirits. Custom Immortal exposes only the parameters supported by its selected family; the fixed maturity ceiling and formulas are never user-editable.
+
+FBI reviews keep effective human-equivalent maturity and actual adult experience independent. Current bodies/forms control maturity and adulthood for reincarnating and possessing records, while remembered experience remains separate. Underage mortal, transformation, natural-immortal, and current-form records receive a factual ineligibility explanation with no verdict, case theatre, filing humour, findings, or exports. Created-mature manifested records use a fictional Bureau convention of equivalent maturity 25 from manifestation.
+
+Approved reviews produce a stable session dossier with an FBI case number, lifecycle-specific chronology, up to two deterministic special findings, and a filing note. Copy Result, native sharing, and three PNG formats use that stored dossier. Permanent FBI links support built-in presets and built-in species, encode input facts only, omit names and all generated results, and restore through the current canonical builders at `#immortal-affairs`. Custom Immortal and temporary species remain exportable as text and images but do not receive permanent links.
 
 ## Reverse Lookup / Chronological Equivalence Office
 
@@ -86,6 +95,8 @@ Built-in consultations use four query parameters and the existing Checker anchor
 Only built-in species IDs and ages are included. The hash stays in the browser; the web server receives the path and query string, serves the static page, and React restores the ruling client-side. Case numbers, quips, derived results, and custom species IDs are never included.
 
 Applicant names are presentation-only and remain in React memory for the current page session. They are trimmed when submitted, limited to 40 characters, and deliberately excluded from URLs, browser storage, calculations, quip selection, and case numbers. Opening or refreshing a permalink restores its species and ages with both name fields blank.
+
+FBI links use their own `fbi=1` query namespace and `#immortal-affairs` anchor. They do not alter or share parameters with the normal `sa/aa/sb/ab#checker` format.
 
 Clipboard and Web Share features degrade to clear, non-fatal messages when the browser does not support them or permission is denied. Production should use HTTPS because these APIs depend on browser, platform, and secure-context support.
 
@@ -150,8 +161,8 @@ The deployable static output is written to `dist/`.
 The multi-stage image builds the Vite project with Node and serves only the generated static files from nginx on port `8080`:
 
 ```bash
-docker build -t fantasy-age-checker:2.0.0 .
-docker run --rm -p 8080:8080 fantasy-age-checker:2.0.0
+docker build -t fantasy-age-checker:3.0.0 .
+docker run --rm -p 8080:8080 fantasy-age-checker:3.0.0
 ```
 
 Open `http://localhost:8080/`. The image health check performs `GET /`; a healthy deployment returns HTTP 200. Hashed Vite assets receive long-lived immutable caching, while `index.html` uses revalidation-friendly `no-cache` behaviour.
@@ -165,19 +176,19 @@ Open `http://localhost:8080/`. The image health check performs `GET /`; a health
 5. Do not provision a database or persistent volume; the application is fully static.
 6. Attach the desired domain and enable HTTPS through Coolify's reverse proxy.
 7. Configure the health check path as `/` and expect HTTP 200.
-8. Deploy, then verify the main checker and `/?sa=elf&aa=300&sb=human&ab=34#checker`.
+8. Deploy, then verify the main checker, `/?sa=elf&aa=300&sb=human&ab=34#checker`, and a supported `?fbi=1&...#immortal-affairs` link.
 9. Over HTTPS, verify Copy Result, Copy Link, Save Image, and native text/file sharing on supported browsers. The checker remains usable when optional APIs are unavailable.
 
 ## Privacy and security
 
-No consultation data is transmitted by the application. There are no network requests, analytics, backend services, user accounts, or bundled secrets. Result images are constructed and encoded entirely in the browser and are transmitted only if the user explicitly invokes the platform share sheet. Temporary species, applicant names, image-theme choice, and card-format choice remain in memory only. Browser persistence is limited to recent quip IDs and the selected website-theme ID in `localStorage`; blocked or malformed storage is ignored safely. Share links contain only built-in species IDs and entered ages; applicant names, website themes, image themes, and card formats are never serialized into them.
+No consultation data is transmitted by the application. There are no network requests, analytics, backend services, user accounts, or bundled secrets. Result images are constructed and encoded entirely in the browser and are transmitted only if the user explicitly invokes the platform share sheet. Temporary species, applicant names, image-theme choice, and card-format choice remain in memory only. Browser persistence is limited to recent quip IDs and the selected website-theme ID in `localStorage`; blocked or malformed storage is ignored safely. Normal links contain only built-in species IDs and ages; FBI links contain only supported built-in draft inputs. Names, generated results, case numbers, notes, findings, and theme/format choices are never serialized.
 
 The nginx configuration adds conservative content-type, referrer, and framing headers without a restrictive untested Content Security Policy.
 
-## Current limitations and post-v1 ideas
+## Known limitations
 
 - Lifecycle figures are generic fictional assumptions, not canon for any setting.
-- Full immortal comparisons are not yet available; the v3 Immortal Affairs foundation intentionally remains separate from the released finite-lifespan Checker.
+- Custom Immortal configurations and records using temporary custom species cannot be represented by permanent FBI links; copied text and PNG export remain available.
 - Results are entertainment, not relationship, legal, or personal advice.
 - Native text sharing and native image-file sharing vary by browser, platform, secure-context status, and installed share targets; PNG download remains the fallback.
 - Dynamic server-generated social preview images are not included in this static release.

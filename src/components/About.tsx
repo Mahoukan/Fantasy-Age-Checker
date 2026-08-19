@@ -17,8 +17,8 @@ export function About() {
         <p>
           The Arcane Relationship Bureau coordinates maturity verification, chronological intelligence, case
           exchange, species records, technical guidance, and institutional paperwork through its current offices.
-          The Fantasy Bureau of Immortality now maintains a separate jurisdiction for indefinite lifecycles while
-          its filing services open in stages.
+          The Fantasy Bureau of Immortality maintains a separate, fully operational jurisdiction for indefinite
+          lifecycles, factual comparison dossiers, and supported filing exports.
         </p>
         <p>
           Built-in lifecycle values are generic assumptions created for this tool, not statements about any

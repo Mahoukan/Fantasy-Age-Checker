@@ -1,0 +1,492 @@
+export const experienceQuips = [
+	{
+		id: "experience-general-001",
+		text: "The Bureau has counted the adult years without adjusting them for dramatic effect.",
+		slot: "EXPERIENCE"
+	},
+	{
+		id: "experience-general-002",
+		text: "Actual lived years have been entered separately from lifecycle position, as regulations require.",
+		slot: "EXPERIENCE"
+	},
+	{
+		id: "experience-general-003",
+		text: "The experience ledger has been balanced to the nearest defensible year.",
+		slot: "EXPERIENCE"
+	},
+	{
+		id: "experience-general-004",
+		text: "No lifespan normalisation was permitted near this portion of the form.",
+		slot: "EXPERIENCE"
+	},
+	{
+		id: "experience-peers-001",
+		text: "The applicants have spent a comparable number of years navigating adult paperwork.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["BASICALLY_PEERS"]
+	},
+	{
+		id: "experience-peers-002",
+		text: "Their autobiographies would require roughly similar shelf space.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["BASICALLY_PEERS"]
+	},
+	{
+		id: "experience-peers-003",
+		text: "Neither applicant possesses a meaningful head start in accumulated adulthood.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["BASICALLY_PEERS"]
+	},
+	{
+		id: "experience-peers-004",
+		text: "The experience ledger shows little worth convening a historian over.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["BASICALLY_PEERS"]
+	},
+	{
+		id: "experience-peers-005",
+		text: "Both applicants are likely to use a similar definition of ages ago.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["BASICALLY_PEERS"]
+	},
+	{
+		id: "experience-peers-006",
+		text: "The Bureau expects only minor disputes over who has seen more of the world.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["BASICALLY_PEERS"]
+	},
+	{
+		id: "experience-peers-007",
+		text: "Their adult timelines could share a chart without inconveniencing the scale.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["BASICALLY_PEERS"]
+	},
+	{
+		id: "experience-peers-008",
+		text: "The archive has classified this difference as barely worth another drawer.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["BASICALLY_PEERS"]
+	},
+	{
+		id: "experience-noticeable-001",
+		text: "One autobiography contains a few additional chapters, but not another volume.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["NOTICEABLE"]
+	},
+	{
+		id: "experience-noticeable-002",
+		text: "The difference can be noticed without hiring a professional archivist.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["NOTICEABLE"]
+	},
+	{
+		id: "experience-noticeable-003",
+		text: "One applicant has a modest lead in forms completed and winters discussed.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["NOTICEABLE"]
+	},
+	{
+		id: "experience-noticeable-004",
+		text: "The gap is visible in the ledger but does not require a fold-out timeline.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["NOTICEABLE"]
+	},
+	{
+		id: "experience-noticeable-005",
+		text: "A difference exists, though it remains within ordinary conversational management.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["NOTICEABLE"]
+	},
+	{
+		id: "experience-noticeable-006",
+		text: "The seniority distinction is present and has been filed without ceremony.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["NOTICEABLE"]
+	},
+	{
+		id: "experience-noticeable-007",
+		text: "One applicant reached several milestones while the other was still approaching them.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["NOTICEABLE"]
+	},
+	{
+		id: "experience-noticeable-008",
+		text: "The extra experience fits comfortably in the standard margin notes.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["NOTICEABLE"]
+	},
+	{
+		id: "experience-considerable-001",
+		text: "One applicant has accumulated enough additional stories to require patient listeners.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["CONSIDERABLE"]
+	},
+	{
+		id: "experience-considerable-002",
+		text: "The phrase in my experience now carries noticeably unequal administrative weight.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["CONSIDERABLE"]
+	},
+	{
+		id: "experience-considerable-003",
+		text: "One adult timeline extends well beyond the other without yet entering archival territory.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["CONSIDERABLE"]
+	},
+	{
+		id: "experience-considerable-004",
+		text: "The experience difference required a second ruler but not a second parchment.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["CONSIDERABLE"]
+	},
+	{
+		id: "experience-considerable-005",
+		text: "One applicant has weathered substantially more annual reports than the other.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["CONSIDERABLE"]
+	},
+	{
+		id: "experience-considerable-006",
+		text: "The Bureau advises careful use of the phrase when I was your age.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["CONSIDERABLE"]
+	},
+	{
+		id: "experience-considerable-007",
+		text: "There is enough seniority here to be obvious, though not yet historical.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["CONSIDERABLE"]
+	},
+	{
+		id: "experience-considerable-008",
+		text: "The adult-year columns differ by more than routine clerical rounding can conceal.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["CONSIDERABLE"]
+	},
+	{
+		id: "experience-formidable-001",
+		text: "The experience portion of this application required an additional sheet.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["FORMIDABLE"]
+	},
+	{
+		id: "experience-formidable-002",
+		text: "One applicant had decades of adult obligations before the timelines drew close.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["FORMIDABLE"]
+	},
+	{
+		id: "experience-formidable-003",
+		text: "The difference is measured more naturally in eras of fashion than in birthdays.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["FORMIDABLE"]
+	},
+	{
+		id: "experience-formidable-004",
+		text: "One applicant brings a substantial archive of decisions, consequences, and receipts.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["FORMIDABLE"]
+	},
+	{
+		id: "experience-formidable-005",
+		text: "The Bureau has attached a heavy-duty clip to the longer adult timeline.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["FORMIDABLE"]
+	},
+	{
+		id: "experience-formidable-006",
+		text: "These applicants have witnessed notably different quantities of lived history.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["FORMIDABLE"]
+	},
+	{
+		id: "experience-formidable-007",
+		text: "The senior applicant has accumulated enough hindsight to fill a departmental seminar.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["FORMIDABLE"]
+	},
+	{
+		id: "experience-formidable-008",
+		text: "This gap is substantial even before anyone begins recounting personal anecdotes.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["FORMIDABLE"]
+	},
+	{
+		id: "experience-historical-001",
+		text: "One applicant remembers events the other first encountered in an annotated volume.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["HISTORICAL"]
+	},
+	{
+		id: "experience-historical-002",
+		text: "Several personal anecdotes in this file could be cited as primary sources.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["HISTORICAL"]
+	},
+	{
+		id: "experience-historical-003",
+		text: "The archivists have asked one applicant to stop correcting the catalogue dates.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["HISTORICAL"]
+	},
+	{
+		id: "experience-historical-004",
+		text: "One adult timeline includes periods the other applicant reasonably calls history.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["HISTORICAL"]
+	},
+	{
+		id: "experience-historical-005",
+		text: "The experience gap is best reviewed with both a calendar and a bibliography.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["HISTORICAL"]
+	},
+	{
+		id: "experience-historical-006",
+		text: "One applicant has firsthand opinions about matters now taught by specialists.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["HISTORICAL"]
+	},
+	{
+		id: "experience-historical-007",
+		text: "The longer autobiography has been transferred to the historical collections wing.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["HISTORICAL"]
+	},
+	{
+		id: "experience-historical-008",
+		text: "The Bureau recommends footnotes whenever the senior applicant says recently.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["HISTORICAL"]
+	},
+	{
+		id: "experience-civilizations-001",
+		text: "Entire systems of government fit comfortably inside this experience gap.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["CIVILIZATIONS"]
+	},
+	{
+		id: "experience-civilizations-002",
+		text: "The longer adult timeline required the Bureau to unroll the map of former kingdoms.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["CIVILIZATIONS"]
+	},
+	{
+		id: "experience-civilizations-003",
+		text: "Several eras have arrived, acquired paperwork, and vanished during this difference.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["CIVILIZATIONS"]
+	},
+	{
+		id: "experience-civilizations-004",
+		text: "One applicant regards entire dynasties as brief administrative experiments.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["CIVILIZATIONS"]
+	},
+	{
+		id: "experience-civilizations-005",
+		text: "The archive uses geological shelving for gaps of this scale.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["CIVILIZATIONS"]
+	},
+	{
+		id: "experience-civilizations-006",
+		text: "One adult career spans enough history to make calendars feel temporary.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["CIVILIZATIONS"]
+	},
+	{
+		id: "experience-civilizations-007",
+		text: "The Bureau had to consult records from nations no longer available for comment.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["CIVILIZATIONS"]
+	},
+	{
+		id: "experience-civilizations-008",
+		text: "This difference is measured in the rise and orderly dissolution of institutions.",
+		slot: "EXPERIENCE",
+		experienceCategories: ["CIVILIZATIONS"]
+	},
+	{
+		id: "experience-flag-adult-before-life-001",
+		text: "One applicant's adult career predates the other's entire existence.",
+		slot: "EXPERIENCE",
+		flags: ["ADULT_LONGER_THAN_PARTNER_ALIVE"]
+	},
+	{
+		id: "experience-flag-adult-before-life-002",
+		text: "One applicant had already entered adult records before the other entered the timeline.",
+		slot: "EXPERIENCE",
+		flags: ["ADULT_LONGER_THAN_PARTNER_ALIVE"]
+	},
+	{
+		id: "experience-flag-adult-before-life-003",
+		text: "The Bureau notes that one complete lifetime begins inside the other adult career.",
+		slot: "EXPERIENCE",
+		flags: ["ADULT_LONGER_THAN_PARTNER_ALIVE"]
+	},
+	{
+		id: "experience-flag-adult-before-life-004",
+		text: "One applicant was handling adult responsibilities before the other had a birth record.",
+		slot: "EXPERIENCE",
+		flags: ["ADULT_LONGER_THAN_PARTNER_ALIVE"]
+	},
+	{
+		id: "experience-flag-exceeds-lifespan-001",
+		text: "One applicant has been an adult longer than the other's people typically remain alive.",
+		slot: "EXPERIENCE",
+		flags: ["ADULT_EXPERIENCE_EXCEEDS_PARTNER_LIFESPAN"]
+	},
+	{
+		id: "experience-flag-exceeds-lifespan-002",
+		text: "A full typical lifespan fits inside one applicant’s accumulated adulthood.",
+		slot: "EXPERIENCE",
+		flags: ["ADULT_EXPERIENCE_EXCEEDS_PARTNER_LIFESPAN"]
+	},
+	{
+		id: "experience-flag-exceeds-lifespan-003",
+		text: "The partner species lifecycle chart ends before one adult-experience line does.",
+		slot: "EXPERIENCE",
+		flags: ["ADULT_EXPERIENCE_EXCEEDS_PARTNER_LIFESPAN"]
+	},
+	{
+		id: "experience-flag-exceeds-lifespan-004",
+		text: "One applicant’s adult years exceed an entire expected lifetime on the opposite form.",
+		slot: "EXPERIENCE",
+		flags: ["ADULT_EXPERIENCE_EXCEEDS_PARTNER_LIFESPAN"]
+	},
+	{
+		id: "experience-species-human-001",
+		text: "Human years continue to arrive at a pace the records office considers inconsiderate.",
+		slot: "EXPERIENCE",
+		species: ["human"]
+	},
+	{
+		id: "experience-species-human-002",
+		text: "The human timeline was filed quickly before another birthday complicated it.",
+		slot: "EXPERIENCE",
+		species: ["human"]
+	},
+	{
+		id: "experience-species-elf-001",
+		text: "The elven witness described several decades as a transitional period.",
+		slot: "EXPERIENCE",
+		species: ["elf"]
+	},
+	{
+		id: "experience-species-elf-002",
+		text: "The elf has requested that all references to ancient be used with greater precision.",
+		slot: "EXPERIENCE",
+		species: ["elf"]
+	},
+	{
+		id: "experience-species-dwarf-001",
+		text: "The dwarven experience ledger includes workmanship guarantees longer than some careers.",
+		slot: "EXPERIENCE",
+		species: ["dwarf"]
+	},
+	{
+		id: "experience-species-dwarf-002",
+		text: "Dwarven records distinguish carefully between old, established, and properly seasoned.",
+		slot: "EXPERIENCE",
+		species: ["dwarf"]
+	},
+	{
+		id: "experience-species-halfling-001",
+		text: "The halfling chronology includes a separate index for memorable meals.",
+		slot: "EXPERIENCE",
+		species: ["halfling"]
+	},
+	{
+		id: "experience-species-halfling-002",
+		text: "The halfling clerk recommends discussing long timelines after refreshments.",
+		slot: "EXPERIENCE",
+		species: ["halfling"]
+	},
+	{
+		id: "experience-species-orc-001",
+		text: "The orcish delegation has confirmed the years and requested the short version.",
+		slot: "EXPERIENCE",
+		species: ["orc"]
+	},
+	{
+		id: "experience-species-orc-002",
+		text: "Orcish records favour decisive dates and very little decorative annotation.",
+		slot: "EXPERIENCE",
+		species: ["orc"]
+	},
+	{
+		id: "experience-species-gnome-001",
+		text: "The gnomish clerk calculated the gap three additional ways for personal satisfaction.",
+		slot: "EXPERIENCE",
+		species: ["gnome"]
+	},
+	{
+		id: "experience-species-gnome-002",
+		text: "A gnome has supplied a pocket mechanism that counts years nobody asked it to count.",
+		slot: "EXPERIENCE",
+		species: ["gnome"]
+	},
+	{
+		id: "experience-species-dragonborn-001",
+		text: "The dragonborn record pairs every date with a ceremonial notation of impeccable formality.",
+		slot: "EXPERIENCE",
+		species: ["dragonborn"]
+	},
+	{
+		id: "experience-species-dragonborn-002",
+		text: "The dragonborn timeline has passed both arithmetic and ceremonial inspection.",
+		slot: "EXPERIENCE",
+		species: ["dragonborn"]
+	},
+	{
+		id: "experience-species-goblin-001",
+		text: "The goblin records office confirmed the total using a method it declined to explain.",
+		slot: "EXPERIENCE",
+		species: ["goblin"]
+	},
+	{
+		id: "experience-species-goblin-002",
+		text: "A goblin clerk found the missing years in a drawer labelled miscellaneous certainty.",
+		slot: "EXPERIENCE",
+		species: ["goblin"]
+	},
+	{
+		id: "experience-species-dragon-001",
+		text: "The dragon has been reminded that approximately nine centuries is not a filing date.",
+		slot: "EXPERIENCE",
+		species: ["dragon"]
+	},
+	{
+		id: "experience-species-dragon-002",
+		text: "Draconic memory has again exceeded the maximum capacity of the standard form.",
+		slot: "EXPERIENCE",
+		species: ["dragon"]
+	},
+	{
+		id: "experience-cross-001",
+		text: "This is why the Bureau separates species lifecycle from years actually lived.",
+		slot: "EXPERIENCE",
+		relationship: "cross-species"
+	},
+	{
+		id: "experience-cross-002",
+		text: "Cross-species arithmetic has once again justified the department’s entire budget.",
+		slot: "EXPERIENCE",
+		relationship: "cross-species"
+	},
+	{
+		id: "experience-same-001",
+		text: "A shared species has simplified the forms, though not necessarily the difference.",
+		slot: "EXPERIENCE",
+		relationship: "same-species"
+	},
+	{
+		id: "experience-same-002",
+		text: "No conversion table was needed, leaving the clerks briefly uncertain what to do.",
+		slot: "EXPERIENCE",
+		relationship: "same-species"
+	}
+];
+
+//# sourceMappingURL=data:application/json;base64,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QUFFLElBQUk7RUFBZ0MsTUFBTTtFQUF5RixNQUFNO0VBQWMsU0FBUyxDQUFDLE9BQU87Q0FBRTtDQUM1SztFQUFFLElBQUk7RUFBZ0MsTUFBTTtFQUF1RixNQUFNO0VBQWMsU0FBUyxDQUFDLE9BQU87Q0FBRTtDQUMxSztFQUFFLElBQUk7RUFBcUMsTUFBTTtFQUE4RixNQUFNO0VBQWMsU0FBUyxDQUFDLFlBQVk7Q0FBRTtDQUMzTDtFQUFFLElBQUk7RUFBcUMsTUFBTTtFQUFpRixNQUFNO0VBQWMsU0FBUyxDQUFDLFlBQVk7Q0FBRTtDQUM5SztFQUFFLElBQUk7RUFBaUMsTUFBTTtFQUF3RixNQUFNO0VBQWMsU0FBUyxDQUFDLFFBQVE7Q0FBRTtDQUM3SztFQUFFLElBQUk7RUFBaUMsTUFBTTtFQUF3RixNQUFNO0VBQWMsU0FBUyxDQUFDLFFBQVE7Q0FBRTtDQUM3SztFQUFFLElBQUk7RUFBaUMsTUFBTTtFQUF3RixNQUFNO0VBQWMsU0FBUyxDQUFDLFFBQVE7Q0FBRTtDQUM3SztFQUFFLElBQUk7RUFBaUMsTUFBTTtFQUFpRixNQUFNO0VBQWMsU0FBUyxDQUFDLFFBQVE7Q0FBRTtDQUV0SztFQUFFLElBQUk7RUFBd0IsTUFBTTtFQUFpRixNQUFNO0VBQWMsY0FBYztDQUFnQjtDQUN2SztFQUFFLElBQUk7RUFBd0IsTUFBTTtFQUFxRixNQUFNO0VBQWMsY0FBYztDQUFnQjtDQUMzSztFQUFFLElBQUk7RUFBdUIsTUFBTTtFQUFxRixNQUFNO0VBQWMsY0FBYztDQUFlO0NBQ3pLO0VBQUUsSUFBSTtFQUF1QixNQUFNO0VBQW9GLE1BQU07RUFBYyxjQUFjO0NBQWU7QUFDMUsiLCJuYW1lcyI6W10sInNvdXJjZXMiOlsiZXhwZXJpZW5jZVF1aXBzLnRzIl0sInZlcnNpb24iOjMsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB0eXBlIHsgUXVpcCB9IGZyb20gJy4uLy4uL3R5cGVzL3F1aXAnXHJcblxyXG5leHBvcnQgY29uc3QgZXhwZXJpZW5jZVF1aXBzID0gW1xyXG4gIHsgaWQ6ICdleHBlcmllbmNlLWdlbmVyYWwtMDAxJywgdGV4dDogJ1RoZSBCdXJlYXUgaGFzIGNvdW50ZWQgdGhlIGFkdWx0IHllYXJzIHdpdGhvdXQgYWRqdXN0aW5nIHRoZW0gZm9yIGRyYW1hdGljIGVmZmVjdC4nLCBzbG90OiAnRVhQRVJJRU5DRScgfSxcclxuICB7IGlkOiAnZXhwZXJpZW5jZS1nZW5lcmFsLTAwMicsIHRleHQ6ICdBY3R1YWwgbGl2ZWQgeWVhcnMgaGF2ZSBiZWVuIGVudGVyZWQgc2VwYXJhdGVseSBmcm9tIGxpZmVjeWNsZSBwb3NpdGlvbiwgYXMgcmVndWxhdGlvbnMgcmVxdWlyZS4nLCBzbG90OiAnRVhQRVJJRU5DRScgfSxcclxuICB7IGlkOiAnZXhwZXJpZW5jZS1nZW5lcmFsLTAwMycsIHRleHQ6ICdUaGUgZXhwZXJpZW5jZSBsZWRnZXIgaGFzIGJlZW4gYmFsYW5jZWQgdG8gdGhlIG5lYXJlc3QgZGVmZW5zaWJsZSB5ZWFyLicsIHNsb3Q6ICdFWFBFUklFTkNFJyB9LFxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLWdlbmVyYWwtMDA0JywgdGV4dDogJ05vIGxpZmVzcGFuIG5vcm1hbGlzYXRpb24gd2FzIHBlcm1pdHRlZCBuZWFyIHRoaXMgcG9ydGlvbiBvZiB0aGUgZm9ybS4nLCBzbG90OiAnRVhQRVJJRU5DRScgfSxcclxuXHJcbiAgeyBpZDogJ2V4cGVyaWVuY2UtcGVlcnMtMDAxJywgdGV4dDogJ1RoZSBhcHBsaWNhbnRzIGhhdmUgc3BlbnQgYSBjb21wYXJhYmxlIG51bWJlciBvZiB5ZWFycyBuYXZpZ2F0aW5nIGFkdWx0IHBhcGVyd29yay4nLCBzbG90OiAnRVhQRVJJRU5DRScsIGV4cGVyaWVuY2VDYXRlZ29yaWVzOiBbJ0JBU0lDQUxMWV9QRUVSUyddIH0sXHJcbiAgeyBpZDogJ2V4cGVyaWVuY2UtcGVlcnMtMDAyJywgdGV4dDogJ1RoZWlyIGF1dG9iaW9ncmFwaGllcyB3b3VsZCByZXF1aXJlIHJvdWdobHkgc2ltaWxhciBzaGVsZiBzcGFjZS4nLCBzbG90OiAnRVhQRVJJRU5DRScsIGV4cGVyaWVuY2VDYXRlZ29yaWVzOiBbJ0JBU0lDQUxMWV9QRUVSUyddIH0sXHJcbiAgeyBpZDogJ2V4cGVyaWVuY2UtcGVlcnMtMDAzJywgdGV4dDogJ05laXRoZXIgYXBwbGljYW50IHBvc3Nlc3NlcyBhIG1lYW5pbmdmdWwgaGVhZCBzdGFydCBpbiBhY2N1bXVsYXRlZCBhZHVsdGhvb2QuJywgc2xvdDogJ0VYUEVSSUVOQ0UnLCBleHBlcmllbmNlQ2F0ZWdvcmllczogWydCQVNJQ0FMTFlfUEVFUlMnXSB9LFxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLXBlZXJzLTAwNCcsIHRleHQ6ICdUaGUgZXhwZXJpZW5jZSBsZWRnZXIgc2hvd3MgbGl0dGxlIHdvcnRoIGNvbnZlbmluZyBhIGhpc3RvcmlhbiBvdmVyLicsIHNsb3Q6ICdFWFBFUklFTkNFJywgZXhwZXJpZW5jZUNhdGVnb3JpZXM6IFsnQkFTSUNBTExZX1BFRVJTJ10gfSxcclxuICB7IGlkOiAnZXhwZXJpZW5jZS1wZWVycy0wMDUnLCB0ZXh0OiAnQm90aCBhcHBsaWNhbnRzIGFyZSBsaWtlbHkgdG8gdXNlIGEgc2ltaWxhciBkZWZpbml0aW9uIG9mIGFnZXMgYWdvLicsIHNsb3Q6ICdFWFBFUklFTkNFJywgZXhwZXJpZW5jZUNhdGVnb3JpZXM6IFsnQkFTSUNBTExZX1BFRVJTJ10gfSxcclxuICB7IGlkOiAnZXhwZXJpZW5jZS1wZWVycy0wMDYnLCB0ZXh0OiAnVGhlIEJ1cmVhdSBleHBlY3RzIG9ubHkgbWlub3IgZGlzcHV0ZXMgb3ZlciB3aG8gaGFzIHNlZW4gbW9yZSBvZiB0aGUgd29ybGQuJywgc2xvdDogJ0VYUEVSSUVOQ0UnLCBleHBlcmllbmNlQ2F0ZWdvcmllczogWydCQVNJQ0FMTFlfUEVFUlMnXSB9LFxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLXBlZXJzLTAwNycsIHRleHQ6ICdUaGVpciBhZHVsdCB0aW1lbGluZXMgY291bGQgc2hhcmUgYSBjaGFydCB3aXRob3V0IGluY29udmVuaWVuY2luZyB0aGUgc2NhbGUuJywgc2xvdDogJ0VYUEVSSUVOQ0UnLCBleHBlcmllbmNlQ2F0ZWdvcmllczogWydCQVNJQ0FMTFlfUEVFUlMnXSB9LFxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLXBlZXJzLTAwOCcsIHRleHQ6ICdUaGUgYXJjaGl2ZSBoYXMgY2xhc3NpZmllZCB0aGlzIGRpZmZlcmVuY2UgYXMgYmFyZWx5IHdvcnRoIGFub3RoZXIgZHJhd2VyLicsIHNsb3Q6ICdFWFBFUklFTkNFJywgZXhwZXJpZW5jZUNhdGVnb3JpZXM6IFsnQkFTSUNBTExZX1BFRVJTJ10gfSxcclxuXHJcbiAgeyBpZDogJ2V4cGVyaWVuY2Utbm90aWNlYWJsZS0wMDEnLCB0ZXh0OiAnT25lIGF1dG9iaW9ncmFwaHkgY29udGFpbnMgYSBmZXcgYWRkaXRpb25hbCBjaGFwdGVycywgYnV0IG5vdCBhbm90aGVyIHZvbHVtZS4nLCBzbG90OiAnRVhQRVJJRU5DRScsIGV4cGVyaWVuY2VDYXRlZ29yaWVzOiBbJ05PVElDRUFCTEUnXSB9LFxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLW5vdGljZWFibGUtMDAyJywgdGV4dDogJ1RoZSBkaWZmZXJlbmNlIGNhbiBiZSBub3RpY2VkIHdpdGhvdXQgaGlyaW5nIGEgcHJvZmVzc2lvbmFsIGFyY2hpdmlzdC4nLCBzbG90OiAnRVhQRVJJRU5DRScsIGV4cGVyaWVuY2VDYXRlZ29yaWVzOiBbJ05PVElDRUFCTEUnXSB9LFxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLW5vdGljZWFibGUtMDAzJywgdGV4dDogJ09uZSBhcHBsaWNhbnQgaGFzIGEgbW9kZXN0IGxlYWQgaW4gZm9ybXMgY29tcGxldGVkIGFuZCB3aW50ZXJzIGRpc2N1c3NlZC4nLCBzbG90OiAnRVhQRVJJRU5DRScsIGV4cGVyaWVuY2VDYXRlZ29yaWVzOiBbJ05PVElDRUFCTEUnXSB9LFxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLW5vdGljZWFibGUtMDA0JywgdGV4dDogJ1RoZSBnYXAgaXMgdmlzaWJsZSBpbiB0aGUgbGVkZ2VyIGJ1dCBkb2VzIG5vdCByZXF1aXJlIGEgZm9sZC1vdXQgdGltZWxpbmUuJywgc2xvdDogJ0VYUEVSSUVOQ0UnLCBleHBlcmllbmNlQ2F0ZWdvcmllczogWydOT1RJQ0VBQkxFJ10gfSxcclxuICB7IGlkOiAnZXhwZXJpZW5jZS1ub3RpY2VhYmxlLTAwNScsIHRleHQ6ICdBIGRpZmZlcmVuY2UgZXhpc3RzLCB0aG91Z2ggaXQgcmVtYWlucyB3aXRoaW4gb3JkaW5hcnkgY29udmVyc2F0aW9uYWwgbWFuYWdlbWVudC4nLCBzbG90OiAnRVhQRVJJRU5DRScsIGV4cGVyaWVuY2VDYXRlZ29yaWVzOiBbJ05PVElDRUFCTEUnXSB9LFxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLW5vdGljZWFibGUtMDA2JywgdGV4dDogJ1RoZSBzZW5pb3JpdHkgZGlzdGluY3Rpb24gaXMgcHJlc2VudCBhbmQgaGFzIGJlZW4gZmlsZWQgd2l0aG91dCBjZXJlbW9ueS4nLCBzbG90OiAnRVhQRVJJRU5DRScsIGV4cGVyaWVuY2VDYXRlZ29yaWVzOiBbJ05PVElDRUFCTEUnXSB9LFxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLW5vdGljZWFibGUtMDA3JywgdGV4dDogJ09uZSBhcHBsaWNhbnQgcmVhY2hlZCBzZXZlcmFsIG1pbGVzdG9uZXMgd2hpbGUgdGhlIG90aGVyIHdhcyBzdGlsbCBhcHByb2FjaGluZyB0aGVtLicsIHNsb3Q6ICdFWFBFUklFTkNFJywgZXhwZXJpZW5jZUNhdGVnb3JpZXM6IFsnTk9USUNFQUJMRSddIH0sXHJcbiAgeyBpZDogJ2V4cGVyaWVuY2Utbm90aWNlYWJsZS0wMDgnLCB0ZXh0OiAnVGhlIGV4dHJhIGV4cGVyaWVuY2UgZml0cyBjb21mb3J0YWJseSBpbiB0aGUgc3RhbmRhcmQgbWFyZ2luIG5vdGVzLicsIHNsb3Q6ICdFWFBFUklFTkNFJywgZXhwZXJpZW5jZUNhdGVnb3JpZXM6IFsnTk9USUNFQUJMRSddIH0sXHJcblxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLWNvbnNpZGVyYWJsZS0wMDEnLCB0ZXh0OiAnT25lIGFwcGxpY2FudCBoYXMgYWNjdW11bGF0ZWQgZW5vdWdoIGFkZGl0aW9uYWwgc3RvcmllcyB0byByZXF1aXJlIHBhdGllbnQgbGlzdGVuZXJzLicsIHNsb3Q6ICdFWFBFUklFTkNFJywgZXhwZXJpZW5jZUNhdGVnb3JpZXM6IFsnQ09OU0lERVJBQkxFJ10gfSxcclxuICB7IGlkOiAnZXhwZXJpZW5jZS1jb25zaWRlcmFibGUtMDAyJywgdGV4dDogJ1RoZSBwaHJhc2UgaW4gbXkgZXhwZXJpZW5jZSBub3cgY2FycmllcyBub3RpY2VhYmx5IHVuZXF1YWwgYWRtaW5pc3RyYXRpdmUgd2VpZ2h0LicsIHNsb3Q6ICdFWFBFUklFTkNFJywgZXhwZXJpZW5jZUNhdGVnb3JpZXM6IFsnQ09OU0lERVJBQkxFJ10gfSxcclxuICB7IGlkOiAnZXhwZXJpZW5jZS1jb25zaWRlcmFibGUtMDAzJywgdGV4dDogJ09uZSBhZHVsdCB0aW1lbGluZSBleHRlbmRzIHdlbGwgYmV5b25kIHRoZSBvdGhlciB3aXRob3V0IHlldCBlbnRlcmluZyBhcmNoaXZhbCB0ZXJyaXRvcnkuJywgc2xvdDogJ0VYUEVSSUVOQ0UnLCBleHBlcmllbmNlQ2F0ZWdvcmllczogWydDT05TSURFUkFCTEUnXSB9LFxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLWNvbnNpZGVyYWJsZS0wMDQnLCB0ZXh0OiAnVGhlIGV4cGVyaWVuY2UgZGlmZmVyZW5jZSByZXF1aXJlZCBhIHNlY29uZCBydWxlciBidXQgbm90IGEgc2Vjb25kIHBhcmNobWVudC4nLCBzbG90OiAnRVhQRVJJRU5DRScsIGV4cGVyaWVuY2VDYXRlZ29yaWVzOiBbJ0NPTlNJREVSQUJMRSddIH0sXHJcbiAgeyBpZDogJ2V4cGVyaWVuY2UtY29uc2lkZXJhYmxlLTAwNScsIHRleHQ6ICdPbmUgYXBwbGljYW50IGhhcyB3ZWF0aGVyZWQgc3Vic3RhbnRpYWxseSBtb3JlIGFubnVhbCByZXBvcnRzIHRoYW4gdGhlIG90aGVyLicsIHNsb3Q6ICdFWFBFUklFTkNFJywgZXhwZXJpZW5jZUNhdGVnb3JpZXM6IFsnQ09OU0lERVJBQkxFJ10gfSxcclxuICB7IGlkOiAnZXhwZXJpZW5jZS1jb25zaWRlcmFibGUtMDA2JywgdGV4dDogJ1RoZSBCdXJlYXUgYWR2aXNlcyBjYXJlZnVsIHVzZSBvZiB0aGUgcGhyYXNlIHdoZW4gSSB3YXMgeW91ciBhZ2UuJywgc2xvdDogJ0VYUEVSSUVOQ0UnLCBleHBlcmllbmNlQ2F0ZWdvcmllczogWydDT05TSURFUkFCTEUnXSB9LFxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLWNvbnNpZGVyYWJsZS0wMDcnLCB0ZXh0OiAnVGhlcmUgaXMgZW5vdWdoIHNlbmlvcml0eSBoZXJlIHRvIGJlIG9idmlvdXMsIHRob3VnaCBub3QgeWV0IGhpc3RvcmljYWwuJywgc2xvdDogJ0VYUEVSSUVOQ0UnLCBleHBlcmllbmNlQ2F0ZWdvcmllczogWydDT05TSURFUkFCTEUnXSB9LFxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLWNvbnNpZGVyYWJsZS0wMDgnLCB0ZXh0OiAnVGhlIGFkdWx0LXllYXIgY29sdW1ucyBkaWZmZXIgYnkgbW9yZSB0aGFuIHJvdXRpbmUgY2xlcmljYWwgcm91bmRpbmcgY2FuIGNvbmNlYWwuJywgc2xvdDogJ0VYUEVSSUVOQ0UnLCBleHBlcmllbmNlQ2F0ZWdvcmllczogWydDT05TSURFUkFCTEUnXSB9LFxyXG5cclxuICB7IGlkOiAnZXhwZXJpZW5jZS1mb3JtaWRhYmxlLTAwMScsIHRleHQ6ICdUaGUgZXhwZXJpZW5jZSBwb3J0aW9uIG9mIHRoaXMgYXBwbGljYXRpb24gcmVxdWlyZWQgYW4gYWRkaXRpb25hbCBzaGVldC4nLCBzbG90OiAnRVhQRVJJRU5DRScsIGV4cGVyaWVuY2VDYXRlZ29yaWVzOiBbJ0ZPUk1JREFCTEUnXSB9LFxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLWZvcm1pZGFibGUtMDAyJywgdGV4dDogJ09uZSBhcHBsaWNhbnQgaGFkIGRlY2FkZXMgb2YgYWR1bHQgb2JsaWdhdGlvbnMgYmVmb3JlIHRoZSB0aW1lbGluZXMgZHJldyBjbG9zZS4nLCBzbG90OiAnRVhQRVJJRU5DRScsIGV4cGVyaWVuY2VDYXRlZ29yaWVzOiBbJ0ZPUk1JREFCTEUnXSB9LFxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLWZvcm1pZGFibGUtMDAzJywgdGV4dDogJ1RoZSBkaWZmZXJlbmNlIGlzIG1lYXN1cmVkIG1vcmUgbmF0dXJhbGx5IGluIGVyYXMgb2YgZmFzaGlvbiB0aGFuIGluIGJpcnRoZGF5cy4nLCBzbG90OiAnRVhQRVJJRU5DRScsIGV4cGVyaWVuY2VDYXRlZ29yaWVzOiBbJ0ZPUk1JREFCTEUnXSB9LFxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLWZvcm1pZGFibGUtMDA0JywgdGV4dDogJ09uZSBhcHBsaWNhbnQgYnJpbmdzIGEgc3Vic3RhbnRpYWwgYXJjaGl2ZSBvZiBkZWNpc2lvbnMsIGNvbnNlcXVlbmNlcywgYW5kIHJlY2VpcHRzLicsIHNsb3Q6ICdFWFBFUklFTkNFJywgZXhwZXJpZW5jZUNhdGVnb3JpZXM6IFsnRk9STUlEQUJMRSddIH0sXHJcbiAgeyBpZDogJ2V4cGVyaWVuY2UtZm9ybWlkYWJsZS0wMDUnLCB0ZXh0OiAnVGhlIEJ1cmVhdSBoYXMgYXR0YWNoZWQgYSBoZWF2eS1kdXR5IGNsaXAgdG8gdGhlIGxvbmdlciBhZHVsdCB0aW1lbGluZS4nLCBzbG90OiAnRVhQRVJJRU5DRScsIGV4cGVyaWVuY2VDYXRlZ29yaWVzOiBbJ0ZPUk1JREFCTEUnXSB9LFxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLWZvcm1pZGFibGUtMDA2JywgdGV4dDogJ1RoZXNlIGFwcGxpY2FudHMgaGF2ZSB3aXRuZXNzZWQgbm90YWJseSBkaWZmZXJlbnQgcXVhbnRpdGllcyBvZiBsaXZlZCBoaXN0b3J5LicsIHNsb3Q6ICdFWFBFUklFTkNFJywgZXhwZXJpZW5jZUNhdGVnb3JpZXM6IFsnRk9STUlEQUJMRSddIH0sXHJcbiAgeyBpZDogJ2V4cGVyaWVuY2UtZm9ybWlkYWJsZS0wMDcnLCB0ZXh0OiAnVGhlIHNlbmlvciBhcHBsaWNhbnQgaGFzIGFjY3VtdWxhdGVkIGVub3VnaCBoaW5kc2lnaHQgdG8gZmlsbCBhIGRlcGFydG1lbnRhbCBzZW1pbmFyLicsIHNsb3Q6ICdFWFBFUklFTkNFJywgZXhwZXJpZW5jZUNhdGVnb3JpZXM6IFsnRk9STUlEQUJMRSddIH0sXHJcbiAgeyBpZDogJ2V4cGVyaWVuY2UtZm9ybWlkYWJsZS0wMDgnLCB0ZXh0OiAnVGhpcyBnYXAgaXMgc3Vic3RhbnRpYWwgZXZlbiBiZWZvcmUgYW55b25lIGJlZ2lucyByZWNvdW50aW5nIHBlcnNvbmFsIGFuZWNkb3Rlcy4nLCBzbG90OiAnRVhQRVJJRU5DRScsIGV4cGVyaWVuY2VDYXRlZ29yaWVzOiBbJ0ZPUk1JREFCTEUnXSB9LFxyXG5cclxuICB7IGlkOiAnZXhwZXJpZW5jZS1oaXN0b3JpY2FsLTAwMScsIHRleHQ6ICdPbmUgYXBwbGljYW50IHJlbWVtYmVycyBldmVudHMgdGhlIG90aGVyIGZpcnN0IGVuY291bnRlcmVkIGluIGFuIGFubm90YXRlZCB2b2x1bWUuJywgc2xvdDogJ0VYUEVSSUVOQ0UnLCBleHBlcmllbmNlQ2F0ZWdvcmllczogWydISVNUT1JJQ0FMJ10gfSxcclxuICB7IGlkOiAnZXhwZXJpZW5jZS1oaXN0b3JpY2FsLTAwMicsIHRleHQ6ICdTZXZlcmFsIHBlcnNvbmFsIGFuZWNkb3RlcyBpbiB0aGlzIGZpbGUgY291bGQgYmUgY2l0ZWQgYXMgcHJpbWFyeSBzb3VyY2VzLicsIHNsb3Q6ICdFWFBFUklFTkNFJywgZXhwZXJpZW5jZUNhdGVnb3JpZXM6IFsnSElTVE9SSUNBTCddIH0sXHJcbiAgeyBpZDogJ2V4cGVyaWVuY2UtaGlzdG9yaWNhbC0wMDMnLCB0ZXh0OiAnVGhlIGFyY2hpdmlzdHMgaGF2ZSBhc2tlZCBvbmUgYXBwbGljYW50IHRvIHN0b3AgY29ycmVjdGluZyB0aGUgY2F0YWxvZ3VlIGRhdGVzLicsIHNsb3Q6ICdFWFBFUklFTkNFJywgZXhwZXJpZW5jZUNhdGVnb3JpZXM6IFsnSElTVE9SSUNBTCddIH0sXHJcbiAgeyBpZDogJ2V4cGVyaWVuY2UtaGlzdG9yaWNhbC0wMDQnLCB0ZXh0OiAnT25lIGFkdWx0IHRpbWVsaW5lIGluY2x1ZGVzIHBlcmlvZHMgdGhlIG90aGVyIGFwcGxpY2FudCByZWFzb25hYmx5IGNhbGxzIGhpc3RvcnkuJywgc2xvdDogJ0VYUEVSSUVOQ0UnLCBleHBlcmllbmNlQ2F0ZWdvcmllczogWydISVNUT1JJQ0FMJ10gfSxcclxuICB7IGlkOiAnZXhwZXJpZW5jZS1oaXN0b3JpY2FsLTAwNScsIHRleHQ6ICdUaGUgZXhwZXJpZW5jZSBnYXAgaXMgYmVzdCByZXZpZXdlZCB3aXRoIGJvdGggYSBjYWxlbmRhciBhbmQgYSBiaWJsaW9ncmFwaHkuJywgc2xvdDogJ0VYUEVSSUVOQ0UnLCBleHBlcmllbmNlQ2F0ZWdvcmllczogWydISVNUT1JJQ0FMJ10gfSxcclxuICB7IGlkOiAnZXhwZXJpZW5jZS1oaXN0b3JpY2FsLTAwNicsIHRleHQ6ICdPbmUgYXBwbGljYW50IGhhcyBmaXJzdGhhbmQgb3BpbmlvbnMgYWJvdXQgbWF0dGVycyBub3cgdGF1Z2h0IGJ5IHNwZWNpYWxpc3RzLicsIHNsb3Q6ICdFWFBFUklFTkNFJywgZXhwZXJpZW5jZUNhdGVnb3JpZXM6IFsnSElTVE9SSUNBTCddIH0sXHJcbiAgeyBpZDogJ2V4cGVyaWVuY2UtaGlzdG9yaWNhbC0wMDcnLCB0ZXh0OiAnVGhlIGxvbmdlciBhdXRvYmlvZ3JhcGh5IGhhcyBiZWVuIHRyYW5zZmVycmVkIHRvIHRoZSBoaXN0b3JpY2FsIGNvbGxlY3Rpb25zIHdpbmcuJywgc2xvdDogJ0VYUEVSSUVOQ0UnLCBleHBlcmllbmNlQ2F0ZWdvcmllczogWydISVNUT1JJQ0FMJ10gfSxcclxuICB7IGlkOiAnZXhwZXJpZW5jZS1oaXN0b3JpY2FsLTAwOCcsIHRleHQ6ICdUaGUgQnVyZWF1IHJlY29tbWVuZHMgZm9vdG5vdGVzIHdoZW5ldmVyIHRoZSBzZW5pb3IgYXBwbGljYW50IHNheXMgcmVjZW50bHkuJywgc2xvdDogJ0VYUEVSSUVOQ0UnLCBleHBlcmllbmNlQ2F0ZWdvcmllczogWydISVNUT1JJQ0FMJ10gfSxcclxuXHJcbiAgeyBpZDogJ2V4cGVyaWVuY2UtY2l2aWxpemF0aW9ucy0wMDEnLCB0ZXh0OiAnRW50aXJlIHN5c3RlbXMgb2YgZ292ZXJubWVudCBmaXQgY29tZm9ydGFibHkgaW5zaWRlIHRoaXMgZXhwZXJpZW5jZSBnYXAuJywgc2xvdDogJ0VYUEVSSUVOQ0UnLCBleHBlcmllbmNlQ2F0ZWdvcmllczogWydDSVZJTElaQVRJT05TJ10gfSxcclxuICB7IGlkOiAnZXhwZXJpZW5jZS1jaXZpbGl6YXRpb25zLTAwMicsIHRleHQ6ICdUaGUgbG9uZ2VyIGFkdWx0IHRpbWVsaW5lIHJlcXVpcmVkIHRoZSBCdXJlYXUgdG8gdW5yb2xsIHRoZSBtYXAgb2YgZm9ybWVyIGtpbmdkb21zLicsIHNsb3Q6ICdFWFBFUklFTkNFJywgZXhwZXJpZW5jZUNhdGVnb3JpZXM6IFsnQ0lWSUxJWkFUSU9OUyddIH0sXHJcbiAgeyBpZDogJ2V4cGVyaWVuY2UtY2l2aWxpemF0aW9ucy0wMDMnLCB0ZXh0OiAnU2V2ZXJhbCBlcmFzIGhhdmUgYXJyaXZlZCwgYWNxdWlyZWQgcGFwZXJ3b3JrLCBhbmQgdmFuaXNoZWQgZHVyaW5nIHRoaXMgZGlmZmVyZW5jZS4nLCBzbG90OiAnRVhQRVJJRU5DRScsIGV4cGVyaWVuY2VDYXRlZ29yaWVzOiBbJ0NJVklMSVpBVElPTlMnXSB9LFxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLWNpdmlsaXphdGlvbnMtMDA0JywgdGV4dDogJ09uZSBhcHBsaWNhbnQgcmVnYXJkcyBlbnRpcmUgZHluYXN0aWVzIGFzIGJyaWVmIGFkbWluaXN0cmF0aXZlIGV4cGVyaW1lbnRzLicsIHNsb3Q6ICdFWFBFUklFTkNFJywgZXhwZXJpZW5jZUNhdGVnb3JpZXM6IFsnQ0lWSUxJWkFUSU9OUyddIH0sXHJcbiAgeyBpZDogJ2V4cGVyaWVuY2UtY2l2aWxpemF0aW9ucy0wMDUnLCB0ZXh0OiAnVGhlIGFyY2hpdmUgdXNlcyBnZW9sb2dpY2FsIHNoZWx2aW5nIGZvciBnYXBzIG9mIHRoaXMgc2NhbGUuJywgc2xvdDogJ0VYUEVSSUVOQ0UnLCBleHBlcmllbmNlQ2F0ZWdvcmllczogWydDSVZJTElaQVRJT05TJ10gfSxcclxuICB7IGlkOiAnZXhwZXJpZW5jZS1jaXZpbGl6YXRpb25zLTAwNicsIHRleHQ6ICdPbmUgYWR1bHQgY2FyZWVyIHNwYW5zIGVub3VnaCBoaXN0b3J5IHRvIG1ha2UgY2FsZW5kYXJzIGZlZWwgdGVtcG9yYXJ5LicsIHNsb3Q6ICdFWFBFUklFTkNFJywgZXhwZXJpZW5jZUNhdGVnb3JpZXM6IFsnQ0lWSUxJWkFUSU9OUyddIH0sXHJcbiAgeyBpZDogJ2V4cGVyaWVuY2UtY2l2aWxpemF0aW9ucy0wMDcnLCB0ZXh0OiAnVGhlIEJ1cmVhdSBoYWQgdG8gY29uc3VsdCByZWNvcmRzIGZyb20gbmF0aW9ucyBubyBsb25nZXIgYXZhaWxhYmxlIGZvciBjb21tZW50LicsIHNsb3Q6ICdFWFBFUklFTkNFJywgZXhwZXJpZW5jZUNhdGVnb3JpZXM6IFsnQ0lWSUxJWkFUSU9OUyddIH0sXHJcbiAgeyBpZDogJ2V4cGVyaWVuY2UtY2l2aWxpemF0aW9ucy0wMDgnLCB0ZXh0OiAnVGhpcyBkaWZmZXJlbmNlIGlzIG1lYXN1cmVkIGluIHRoZSByaXNlIGFuZCBvcmRlcmx5IGRpc3NvbHV0aW9uIG9mIGluc3RpdHV0aW9ucy4nLCBzbG90OiAnRVhQRVJJRU5DRScsIGV4cGVyaWVuY2VDYXRlZ29yaWVzOiBbJ0NJVklMSVpBVElPTlMnXSB9LFxyXG5cclxuICB7IGlkOiAnZXhwZXJpZW5jZS1mbGFnLWFkdWx0LWJlZm9yZS1saWZlLTAwMScsIHRleHQ6IFwiT25lIGFwcGxpY2FudCdzIGFkdWx0IGNhcmVlciBwcmVkYXRlcyB0aGUgb3RoZXIncyBlbnRpcmUgZXhpc3RlbmNlLlwiLCBzbG90OiAnRVhQRVJJRU5DRScsIGZsYWdzOiBbJ0FEVUxUX0xPTkdFUl9USEFOX1BBUlRORVJfQUxJVkUnXSB9LFxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLWZsYWctYWR1bHQtYmVmb3JlLWxpZmUtMDAyJywgdGV4dDogJ09uZSBhcHBsaWNhbnQgaGFkIGFscmVhZHkgZW50ZXJlZCBhZHVsdCByZWNvcmRzIGJlZm9yZSB0aGUgb3RoZXIgZW50ZXJlZCB0aGUgdGltZWxpbmUuJywgc2xvdDogJ0VYUEVSSUVOQ0UnLCBmbGFnczogWydBRFVMVF9MT05HRVJfVEhBTl9QQVJUTkVSX0FMSVZFJ10gfSxcclxuICB7IGlkOiAnZXhwZXJpZW5jZS1mbGFnLWFkdWx0LWJlZm9yZS1saWZlLTAwMycsIHRleHQ6ICdUaGUgQnVyZWF1IG5vdGVzIHRoYXQgb25lIGNvbXBsZXRlIGxpZmV0aW1lIGJlZ2lucyBpbnNpZGUgdGhlIG90aGVyIGFkdWx0IGNhcmVlci4nLCBzbG90OiAnRVhQRVJJRU5DRScsIGZsYWdzOiBbJ0FEVUxUX0xPTkdFUl9USEFOX1BBUlRORVJfQUxJVkUnXSB9LFxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLWZsYWctYWR1bHQtYmVmb3JlLWxpZmUtMDA0JywgdGV4dDogJ09uZSBhcHBsaWNhbnQgd2FzIGhhbmRsaW5nIGFkdWx0IHJlc3BvbnNpYmlsaXRpZXMgYmVmb3JlIHRoZSBvdGhlciBoYWQgYSBiaXJ0aCByZWNvcmQuJywgc2xvdDogJ0VYUEVSSUVOQ0UnLCBmbGFnczogWydBRFVMVF9MT05HRVJfVEhBTl9QQVJUTkVSX0FMSVZFJ10gfSxcclxuICB7IGlkOiAnZXhwZXJpZW5jZS1mbGFnLWV4Y2VlZHMtbGlmZXNwYW4tMDAxJywgdGV4dDogXCJPbmUgYXBwbGljYW50IGhhcyBiZWVuIGFuIGFkdWx0IGxvbmdlciB0aGFuIHRoZSBvdGhlcidzIHBlb3BsZSB0eXBpY2FsbHkgcmVtYWluIGFsaXZlLlwiLCBzbG90OiAnRVhQRVJJRU5DRScsIGZsYWdzOiBbJ0FEVUxUX0VYUEVSSUVOQ0VfRVhDRUVEU19QQVJUTkVSX0xJRkVTUEFOJ10gfSxcclxuICB7IGlkOiAnZXhwZXJpZW5jZS1mbGFnLWV4Y2VlZHMtbGlmZXNwYW4tMDAyJywgdGV4dDogJ0EgZnVsbCB0eXBpY2FsIGxpZmVzcGFuIGZpdHMgaW5zaWRlIG9uZSBhcHBsaWNhbnTigJlzIGFjY3VtdWxhdGVkIGFkdWx0aG9vZC4nLCBzbG90OiAnRVhQRVJJRU5DRScsIGZsYWdzOiBbJ0FEVUxUX0VYUEVSSUVOQ0VfRVhDRUVEU19QQVJUTkVSX0xJRkVTUEFOJ10gfSxcclxuICB7IGlkOiAnZXhwZXJpZW5jZS1mbGFnLWV4Y2VlZHMtbGlmZXNwYW4tMDAzJywgdGV4dDogJ1RoZSBwYXJ0bmVyIHNwZWNpZXMgbGlmZWN5Y2xlIGNoYXJ0IGVuZHMgYmVmb3JlIG9uZSBhZHVsdC1leHBlcmllbmNlIGxpbmUgZG9lcy4nLCBzbG90OiAnRVhQRVJJRU5DRScsIGZsYWdzOiBbJ0FEVUxUX0VYUEVSSUVOQ0VfRVhDRUVEU19QQVJUTkVSX0xJRkVTUEFOJ10gfSxcclxuICB7IGlkOiAnZXhwZXJpZW5jZS1mbGFnLWV4Y2VlZHMtbGlmZXNwYW4tMDA0JywgdGV4dDogJ09uZSBhcHBsaWNhbnTigJlzIGFkdWx0IHllYXJzIGV4Y2VlZCBhbiBlbnRpcmUgZXhwZWN0ZWQgbGlmZXRpbWUgb24gdGhlIG9wcG9zaXRlIGZvcm0uJywgc2xvdDogJ0VYUEVSSUVOQ0UnLCBmbGFnczogWydBRFVMVF9FWFBFUklFTkNFX0VYQ0VFRFNfUEFSVE5FUl9MSUZFU1BBTiddIH0sXHJcblxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLXNwZWNpZXMtaHVtYW4tMDAxJywgdGV4dDogJ0h1bWFuIHllYXJzIGNvbnRpbnVlIHRvIGFycml2ZSBhdCBhIHBhY2UgdGhlIHJlY29yZHMgb2ZmaWNlIGNvbnNpZGVycyBpbmNvbnNpZGVyYXRlLicsIHNsb3Q6ICdFWFBFUklFTkNFJywgc3BlY2llczogWydodW1hbiddIH0sXHJcbiAgeyBpZDogJ2V4cGVyaWVuY2Utc3BlY2llcy1odW1hbi0wMDInLCB0ZXh0OiAnVGhlIGh1bWFuIHRpbWVsaW5lIHdhcyBmaWxlZCBxdWlja2x5IGJlZm9yZSBhbm90aGVyIGJpcnRoZGF5IGNvbXBsaWNhdGVkIGl0LicsIHNsb3Q6ICdFWFBFUklFTkNFJywgc3BlY2llczogWydodW1hbiddIH0sXHJcbiAgeyBpZDogJ2V4cGVyaWVuY2Utc3BlY2llcy1lbGYtMDAxJywgdGV4dDogJ1RoZSBlbHZlbiB3aXRuZXNzIGRlc2NyaWJlZCBzZXZlcmFsIGRlY2FkZXMgYXMgYSB0cmFuc2l0aW9uYWwgcGVyaW9kLicsIHNsb3Q6ICdFWFBFUklFTkNFJywgc3BlY2llczogWydlbGYnXSB9LFxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLXNwZWNpZXMtZWxmLTAwMicsIHRleHQ6ICdUaGUgZWxmIGhhcyByZXF1ZXN0ZWQgdGhhdCBhbGwgcmVmZXJlbmNlcyB0byBhbmNpZW50IGJlIHVzZWQgd2l0aCBncmVhdGVyIHByZWNpc2lvbi4nLCBzbG90OiAnRVhQRVJJRU5DRScsIHNwZWNpZXM6IFsnZWxmJ10gfSxcclxuICB7IGlkOiAnZXhwZXJpZW5jZS1zcGVjaWVzLWR3YXJmLTAwMScsIHRleHQ6ICdUaGUgZHdhcnZlbiBleHBlcmllbmNlIGxlZGdlciBpbmNsdWRlcyB3b3JrbWFuc2hpcCBndWFyYW50ZWVzIGxvbmdlciB0aGFuIHNvbWUgY2FyZWVycy4nLCBzbG90OiAnRVhQRVJJRU5DRScsIHNwZWNpZXM6IFsnZHdhcmYnXSB9LFxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLXNwZWNpZXMtZHdhcmYtMDAyJywgdGV4dDogJ0R3YXJ2ZW4gcmVjb3JkcyBkaXN0aW5ndWlzaCBjYXJlZnVsbHkgYmV0d2VlbiBvbGQsIGVzdGFibGlzaGVkLCBhbmQgcHJvcGVybHkgc2Vhc29uZWQuJywgc2xvdDogJ0VYUEVSSUVOQ0UnLCBzcGVjaWVzOiBbJ2R3YXJmJ10gfSxcclxuICB7IGlkOiAnZXhwZXJpZW5jZS1zcGVjaWVzLWhhbGZsaW5nLTAwMScsIHRleHQ6ICdUaGUgaGFsZmxpbmcgY2hyb25vbG9neSBpbmNsdWRlcyBhIHNlcGFyYXRlIGluZGV4IGZvciBtZW1vcmFibGUgbWVhbHMuJywgc2xvdDogJ0VYUEVSSUVOQ0UnLCBzcGVjaWVzOiBbJ2hhbGZsaW5nJ10gfSxcclxuICB7IGlkOiAnZXhwZXJpZW5jZS1zcGVjaWVzLWhhbGZsaW5nLTAwMicsIHRleHQ6ICdUaGUgaGFsZmxpbmcgY2xlcmsgcmVjb21tZW5kcyBkaXNjdXNzaW5nIGxvbmcgdGltZWxpbmVzIGFmdGVyIHJlZnJlc2htZW50cy4nLCBzbG90OiAnRVhQRVJJRU5DRScsIHNwZWNpZXM6IFsnaGFsZmxpbmcnXSB9LFxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLXNwZWNpZXMtb3JjLTAwMScsIHRleHQ6ICdUaGUgb3JjaXNoIGRlbGVnYXRpb24gaGFzIGNvbmZpcm1lZCB0aGUgeWVhcnMgYW5kIHJlcXVlc3RlZCB0aGUgc2hvcnQgdmVyc2lvbi4nLCBzbG90OiAnRVhQRVJJRU5DRScsIHNwZWNpZXM6IFsnb3JjJ10gfSxcclxuICB7IGlkOiAnZXhwZXJpZW5jZS1zcGVjaWVzLW9yYy0wMDInLCB0ZXh0OiAnT3JjaXNoIHJlY29yZHMgZmF2b3VyIGRlY2lzaXZlIGRhdGVzIGFuZCB2ZXJ5IGxpdHRsZSBkZWNvcmF0aXZlIGFubm90YXRpb24uJywgc2xvdDogJ0VYUEVSSUVOQ0UnLCBzcGVjaWVzOiBbJ29yYyddIH0sXHJcbiAgeyBpZDogJ2V4cGVyaWVuY2Utc3BlY2llcy1nbm9tZS0wMDEnLCB0ZXh0OiAnVGhlIGdub21pc2ggY2xlcmsgY2FsY3VsYXRlZCB0aGUgZ2FwIHRocmVlIGFkZGl0aW9uYWwgd2F5cyBmb3IgcGVyc29uYWwgc2F0aXNmYWN0aW9uLicsIHNsb3Q6ICdFWFBFUklFTkNFJywgc3BlY2llczogWydnbm9tZSddIH0sXHJcbiAgeyBpZDogJ2V4cGVyaWVuY2Utc3BlY2llcy1nbm9tZS0wMDInLCB0ZXh0OiAnQSBnbm9tZSBoYXMgc3VwcGxpZWQgYSBwb2NrZXQgbWVjaGFuaXNtIHRoYXQgY291bnRzIHllYXJzIG5vYm9keSBhc2tlZCBpdCB0byBjb3VudC4nLCBzbG90OiAnRVhQRVJJRU5DRScsIHNwZWNpZXM6IFsnZ25vbWUnXSB9LFxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLXNwZWNpZXMtZHJhZ29uYm9ybi0wMDEnLCB0ZXh0OiAnVGhlIGRyYWdvbmJvcm4gcmVjb3JkIHBhaXJzIGV2ZXJ5IGRhdGUgd2l0aCBhIGNlcmVtb25pYWwgbm90YXRpb24gb2YgaW1wZWNjYWJsZSBmb3JtYWxpdHkuJywgc2xvdDogJ0VYUEVSSUVOQ0UnLCBzcGVjaWVzOiBbJ2RyYWdvbmJvcm4nXSB9LFxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLXNwZWNpZXMtZHJhZ29uYm9ybi0wMDInLCB0ZXh0OiAnVGhlIGRyYWdvbmJvcm4gdGltZWxpbmUgaGFzIHBhc3NlZCBib3RoIGFyaXRobWV0aWMgYW5kIGNlcmVtb25pYWwgaW5zcGVjdGlvbi4nLCBzbG90OiAnRVhQRVJJRU5DRScsIHNwZWNpZXM6IFsnZHJhZ29uYm9ybiddIH0sXHJcbiAgeyBpZDogJ2V4cGVyaWVuY2Utc3BlY2llcy1nb2JsaW4tMDAxJywgdGV4dDogJ1RoZSBnb2JsaW4gcmVjb3JkcyBvZmZpY2UgY29uZmlybWVkIHRoZSB0b3RhbCB1c2luZyBhIG1ldGhvZCBpdCBkZWNsaW5lZCB0byBleHBsYWluLicsIHNsb3Q6ICdFWFBFUklFTkNFJywgc3BlY2llczogWydnb2JsaW4nXSB9LFxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLXNwZWNpZXMtZ29ibGluLTAwMicsIHRleHQ6ICdBIGdvYmxpbiBjbGVyayBmb3VuZCB0aGUgbWlzc2luZyB5ZWFycyBpbiBhIGRyYXdlciBsYWJlbGxlZCBtaXNjZWxsYW5lb3VzIGNlcnRhaW50eS4nLCBzbG90OiAnRVhQRVJJRU5DRScsIHNwZWNpZXM6IFsnZ29ibGluJ10gfSxcclxuICB7IGlkOiAnZXhwZXJpZW5jZS1zcGVjaWVzLWRyYWdvbi0wMDEnLCB0ZXh0OiAnVGhlIGRyYWdvbiBoYXMgYmVlbiByZW1pbmRlZCB0aGF0IGFwcHJveGltYXRlbHkgbmluZSBjZW50dXJpZXMgaXMgbm90IGEgZmlsaW5nIGRhdGUuJywgc2xvdDogJ0VYUEVSSUVOQ0UnLCBzcGVjaWVzOiBbJ2RyYWdvbiddIH0sXHJcbiAgeyBpZDogJ2V4cGVyaWVuY2Utc3BlY2llcy1kcmFnb24tMDAyJywgdGV4dDogJ0RyYWNvbmljIG1lbW9yeSBoYXMgYWdhaW4gZXhjZWVkZWQgdGhlIG1heGltdW0gY2FwYWNpdHkgb2YgdGhlIHN0YW5kYXJkIGZvcm0uJywgc2xvdDogJ0VYUEVSSUVOQ0UnLCBzcGVjaWVzOiBbJ2RyYWdvbiddIH0sXHJcblxyXG4gIHsgaWQ6ICdleHBlcmllbmNlLWNyb3NzLTAwMScsIHRleHQ6ICdUaGlzIGlzIHdoeSB0aGUgQnVyZWF1IHNlcGFyYXRlcyBzcGVjaWVzIGxpZmVjeWNsZSBmcm9tIHllYXJzIGFjdHVhbGx5IGxpdmVkLicsIHNsb3Q6ICdFWFBFUklFTkNFJywgcmVsYXRpb25zaGlwOiAnY3Jvc3Mtc3BlY2llcycgfSxcclxuICB7IGlkOiAnZXhwZXJpZW5jZS1jcm9zcy0wMDInLCB0ZXh0OiAnQ3Jvc3Mtc3BlY2llcyBhcml0aG1ldGljIGhhcyBvbmNlIGFnYWluIGp1c3RpZmllZCB0aGUgZGVwYXJ0bWVudOKAmXMgZW50aXJlIGJ1ZGdldC4nLCBzbG90OiAnRVhQRVJJRU5DRScsIHJlbGF0aW9uc2hpcDogJ2Nyb3NzLXNwZWNpZXMnIH0sXHJcbiAgeyBpZDogJ2V4cGVyaWVuY2Utc2FtZS0wMDEnLCB0ZXh0OiAnQSBzaGFyZWQgc3BlY2llcyBoYXMgc2ltcGxpZmllZCB0aGUgZm9ybXMsIHRob3VnaCBub3QgbmVjZXNzYXJpbHkgdGhlIGRpZmZlcmVuY2UuJywgc2xvdDogJ0VYUEVSSUVOQ0UnLCByZWxhdGlvbnNoaXA6ICdzYW1lLXNwZWNpZXMnIH0sXHJcbiAgeyBpZDogJ2V4cGVyaWVuY2Utc2FtZS0wMDInLCB0ZXh0OiAnTm8gY29udmVyc2lvbiB0YWJsZSB3YXMgbmVlZGVkLCBsZWF2aW5nIHRoZSBjbGVya3MgYnJpZWZseSB1bmNlcnRhaW4gd2hhdCB0byBkby4nLCBzbG90OiAnRVhQRVJJRU5DRScsIHJlbGF0aW9uc2hpcDogJ3NhbWUtc3BlY2llcycgfSxcclxuXSBhcyBjb25zdCBzYXRpc2ZpZXMgcmVhZG9ubHkgUXVpcFtdXHJcbiJdfQ==

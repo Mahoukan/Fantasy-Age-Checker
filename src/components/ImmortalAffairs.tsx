@@ -339,7 +339,7 @@ export function ImmortalAffairs({ availableSpecies = builtInSpecies, siteThemeId
       <p className="eyebrow dark">Immortal lifecycle jurisdiction</p><h1 id="immortal-affairs-title">Immortal Affairs</h1>
       <p className="immortal-affairs-motto">When mortality stops applying, jurisdiction begins.</p></header>
     <aside className="immortal-jurisdiction-notice"><strong>FBI jurisdiction</strong><p>
-      Configure two mortal or immortal records for adult-lifecycle review. This intake establishes facts and eligibility only; no compatibility ruling is issued at this desk.
+      Configure two mortal or immortal records for adult-lifecycle review. Adult safeguards are checked first; eligible submissions receive separate maturity and experience findings without an overall score.
     </p></aside>
     {restoreMessage && <p className="share-restore-notice" role="status">{restoreMessage}</p>}
     <div className="fbi-intake-layout">

@@ -1,0 +1,294 @@
+export const maturityQuips = [
+	{
+		id: "maturity-general-001",
+		text: "The lifecycle tables have been consulted and returned in mostly legible condition.",
+		slot: "MATURITY"
+	},
+	{
+		id: "maturity-general-002",
+		text: "The Bureau has compared the relevant stages of life with appropriate solemnity.",
+		slot: "MATURITY"
+	},
+	{
+		id: "maturity-general-003",
+		text: "Chronological appearances have been set aside in favour of properly filed arithmetic.",
+		slot: "MATURITY"
+	},
+	{
+		id: "maturity-general-004",
+		text: "The Council reminds all parties that raw ages are not an approved substitute for context.",
+		slot: "MATURITY"
+	},
+	{
+		id: "maturity-excellent-001",
+		text: "The review committee found so little to dispute that it adjourned before lunch.",
+		slot: "MATURITY",
+		maturityCategories: ["EXCELLENT"]
+	},
+	{
+		id: "maturity-excellent-002",
+		text: "What appeared chronologically dramatic has proved mathematically routine.",
+		slot: "MATURITY",
+		maturityCategories: ["EXCELLENT"]
+	},
+	{
+		id: "maturity-excellent-003",
+		text: "The applicants have submitted an unusually tidy maturity profile.",
+		slot: "MATURITY",
+		maturityCategories: ["EXCELLENT"]
+	},
+	{
+		id: "maturity-excellent-004",
+		text: "No special exemption, emergency hearing, or enchanted abacus was required.",
+		slot: "MATURITY",
+		maturityCategories: ["EXCELLENT"]
+	},
+	{
+		id: "maturity-excellent-005",
+		text: "The figures align with an efficiency rarely encountered in public administration.",
+		slot: "MATURITY",
+		maturityCategories: ["EXCELLENT"]
+	},
+	{
+		id: "maturity-excellent-006",
+		text: "The Council attempted to locate a complication and has reluctantly given up.",
+		slot: "MATURITY",
+		maturityCategories: ["EXCELLENT"]
+	},
+	{
+		id: "maturity-excellent-007",
+		text: "Both lifecycle positions fit neatly within the approved margins.",
+		slot: "MATURITY",
+		maturityCategories: ["EXCELLENT"]
+	},
+	{
+		id: "maturity-excellent-008",
+		text: "The Bureau records an almost suspicious degree of chronological good sense.",
+		slot: "MATURITY",
+		maturityCategories: ["EXCELLENT"]
+	},
+	{
+		id: "maturity-good-001",
+		text: "The paperwork cleared review without summoning a special committee.",
+		slot: "MATURITY",
+		maturityCategories: ["GOOD"]
+	},
+	{
+		id: "maturity-good-002",
+		text: "A difference is present, but it remains comfortably inside the ruled margins.",
+		slot: "MATURITY",
+		maturityCategories: ["GOOD"]
+	},
+	{
+		id: "maturity-good-003",
+		text: "The Bureau finds the maturity spacing orderly enough for ordinary filing.",
+		slot: "MATURITY",
+		maturityCategories: ["GOOD"]
+	},
+	{
+		id: "maturity-good-004",
+		text: "No councillor requested a second abacus, which is generally encouraging.",
+		slot: "MATURITY",
+		maturityCategories: ["GOOD"]
+	},
+	{
+		id: "maturity-good-005",
+		text: "The lifecycle discrepancy has been noted and deemed administratively unremarkable.",
+		slot: "MATURITY",
+		maturityCategories: ["GOOD"]
+	},
+	{
+		id: "maturity-good-006",
+		text: "The figures sit well within precedent, including the precedents anyone can still read.",
+		slot: "MATURITY",
+		maturityCategories: ["GOOD"]
+	},
+	{
+		id: "maturity-good-007",
+		text: "The application passes maturity review with only routine margin annotations.",
+		slot: "MATURITY",
+		maturityCategories: ["GOOD"]
+	},
+	{
+		id: "maturity-good-008",
+		text: "The Council sees no need to involve the Office of Unusual Lifecycles.",
+		slot: "MATURITY",
+		maturityCategories: ["GOOD"]
+	},
+	{
+		id: "maturity-borderline-001",
+		text: "Permitted, though the reviewing clerks exchanged several meaningful glances.",
+		slot: "MATURITY",
+		maturityCategories: ["BORDERLINE"]
+	},
+	{
+		id: "maturity-borderline-002",
+		text: "The application fits within the rules, if one stands directly on the edge of them.",
+		slot: "MATURITY",
+		maturityCategories: ["BORDERLINE"]
+	},
+	{
+		id: "maturity-borderline-003",
+		text: "Approval has been granted without the expense of celebratory stationery.",
+		slot: "MATURITY",
+		maturityCategories: ["BORDERLINE"]
+	},
+	{
+		id: "maturity-borderline-004",
+		text: "The Council accepts the figures and has underlined the word accepts.",
+		slot: "MATURITY",
+		maturityCategories: ["BORDERLINE"]
+	},
+	{
+		id: "maturity-borderline-005",
+		text: "The maturity range holds, although not with room for additional luggage.",
+		slot: "MATURITY",
+		maturityCategories: ["BORDERLINE"]
+	},
+	{
+		id: "maturity-borderline-006",
+		text: "This ruling occupies the narrow shelf between straightforward and complicated.",
+		slot: "MATURITY",
+		maturityCategories: ["BORDERLINE"]
+	},
+	{
+		id: "maturity-borderline-007",
+		text: "The Bureau has approved the application while keeping the measuring tape nearby.",
+		slot: "MATURITY",
+		maturityCategories: ["BORDERLINE"]
+	},
+	{
+		id: "maturity-borderline-008",
+		text: "Recognised precedent applies, though it applies with visible effort.",
+		slot: "MATURITY",
+		maturityCategories: ["BORDERLINE"]
+	},
+	{
+		id: "maturity-incompatible-001",
+		text: "The maturity figures returned from review with extensive red annotations.",
+		slot: "MATURITY",
+		maturityCategories: ["INCOMPATIBLE"]
+	},
+	{
+		id: "maturity-incompatible-002",
+		text: "The Bureau cannot overlook a discrepancy of this administrative magnitude.",
+		slot: "MATURITY",
+		maturityCategories: ["INCOMPATIBLE"]
+	},
+	{
+		id: "maturity-incompatible-003",
+		text: "Both directional checks failed to satisfy the relevant lifecycle ordinance.",
+		slot: "MATURITY",
+		maturityCategories: ["INCOMPATIBLE"]
+	},
+	{
+		id: "maturity-incompatible-004",
+		text: "The figures have been referred to the Cabinet of Chronological Difficulties.",
+		slot: "MATURITY",
+		maturityCategories: ["INCOMPATIBLE"]
+	},
+	{
+		id: "maturity-incompatible-005",
+		text: "No amount of decorative sealing wax could bring these maturity ranges together.",
+		slot: "MATURITY",
+		maturityCategories: ["INCOMPATIBLE"]
+	},
+	{
+		id: "maturity-incompatible-006",
+		text: "The applicants occupy lifecycle positions too distant for ordinary approval.",
+		slot: "MATURITY",
+		maturityCategories: ["INCOMPATIBLE"]
+	},
+	{
+		id: "maturity-incompatible-007",
+		text: "The Council has checked the arithmetic and regrets that it remains arithmetic.",
+		slot: "MATURITY",
+		maturityCategories: ["INCOMPATIBLE"]
+	},
+	{
+		id: "maturity-incompatible-008",
+		text: "This maturity gap exceeds the tolerance of both policy and the filing cabinet.",
+		slot: "MATURITY",
+		maturityCategories: ["INCOMPATIBLE"]
+	},
+	{
+		id: "maturity-species-human-001",
+		text: "The human records arrived promptly, largely because the dates fit on one page.",
+		slot: "MATURITY",
+		species: ["human"]
+	},
+	{
+		id: "maturity-species-elf-001",
+		text: "The elven delegate has requested that the Bureau define the word recent.",
+		slot: "MATURITY",
+		species: ["elf"]
+	},
+	{
+		id: "maturity-species-dwarf-001",
+		text: "The dwarven lifecycle ledger was submitted on stone and required a reinforced desk.",
+		slot: "MATURITY",
+		species: ["dwarf"]
+	},
+	{
+		id: "maturity-species-halfling-001",
+		text: "The halfling records were complete, neatly folded, and accompanied by provisions.",
+		slot: "MATURITY",
+		species: ["halfling"]
+	},
+	{
+		id: "maturity-species-orc-001",
+		text: "The orcish representative has asked for the ruling without further ceremonial preamble.",
+		slot: "MATURITY",
+		species: ["orc"]
+	},
+	{
+		id: "maturity-species-gnome-001",
+		text: "The gnomish submission included a supplementary chart with seventeen unnecessary axes.",
+		slot: "MATURITY",
+		species: ["gnome"]
+	},
+	{
+		id: "maturity-species-dragonborn-001",
+		text: "The dragonborn registry has certified the lifecycle figures under ceremonial seal.",
+		slot: "MATURITY",
+		species: ["dragonborn"]
+	},
+	{
+		id: "maturity-species-goblin-001",
+		text: "The goblin office located the correct maturity form on its second attempt.",
+		slot: "MATURITY",
+		species: ["goblin"]
+	},
+	{
+		id: "maturity-species-dragon-001",
+		text: "The draconic age declaration required an extra digit column and a fireproof folder.",
+		slot: "MATURITY",
+		species: ["dragon"]
+	},
+	{
+		id: "maturity-cross-001",
+		text: "The apparent discrepancy became less dramatic once both species columns were read.",
+		slot: "MATURITY",
+		relationship: "cross-species"
+	},
+	{
+		id: "maturity-cross-002",
+		text: "This file demonstrates why tavern arithmetic is not recognised by the Bureau.",
+		slot: "MATURITY",
+		relationship: "cross-species"
+	},
+	{
+		id: "maturity-same-001",
+		text: "A shared lifecycle table has spared the department several conversion forms.",
+		slot: "MATURITY",
+		relationship: "same-species"
+	},
+	{
+		id: "maturity-same-002",
+		text: "Same-species paperwork remains a rare and welcome act of administrative mercy.",
+		slot: "MATURITY",
+		relationship: "same-species"
+	}
+];
+
+//# sourceMappingURL=data:application/json;base64,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QU07RUFBWSxTQUFTLENBQUMsWUFBWTtDQUFFO0NBQy9LO0VBQUUsSUFBSTtFQUErQixNQUFNO0VBQThFLE1BQU07RUFBWSxTQUFTLENBQUMsUUFBUTtDQUFFO0NBQy9KO0VBQUUsSUFBSTtFQUErQixNQUFNO0VBQXVGLE1BQU07RUFBWSxTQUFTLENBQUMsUUFBUTtDQUFFO0NBRXhLO0VBQUUsSUFBSTtFQUFzQixNQUFNO0VBQXNGLE1BQU07RUFBWSxjQUFjO0NBQWdCO0NBQ3hLO0VBQUUsSUFBSTtFQUFzQixNQUFNO0VBQWlGLE1BQU07RUFBWSxjQUFjO0NBQWdCO0NBQ25LO0VBQUUsSUFBSTtFQUFxQixNQUFNO0VBQWdGLE1BQU07RUFBWSxjQUFjO0NBQWU7Q0FDaEs7RUFBRSxJQUFJO0VBQXFCLE1BQU07RUFBa0YsTUFBTTtFQUFZLGNBQWM7Q0FBZTtBQUNwSyIsIm5hbWVzIjpbXSwic291cmNlcyI6WyJtYXR1cml0eVF1aXBzLnRzIl0sInZlcnNpb24iOjMsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB0eXBlIHsgUXVpcCB9IGZyb20gJy4uLy4uL3R5cGVzL3F1aXAnXHJcblxyXG5leHBvcnQgY29uc3QgbWF0dXJpdHlRdWlwcyA9IFtcclxuICB7IGlkOiAnbWF0dXJpdHktZ2VuZXJhbC0wMDEnLCB0ZXh0OiAnVGhlIGxpZmVjeWNsZSB0YWJsZXMgaGF2ZSBiZWVuIGNvbnN1bHRlZCBhbmQgcmV0dXJuZWQgaW4gbW9zdGx5IGxlZ2libGUgY29uZGl0aW9uLicsIHNsb3Q6ICdNQVRVUklUWScgfSxcclxuICB7IGlkOiAnbWF0dXJpdHktZ2VuZXJhbC0wMDInLCB0ZXh0OiAnVGhlIEJ1cmVhdSBoYXMgY29tcGFyZWQgdGhlIHJlbGV2YW50IHN0YWdlcyBvZiBsaWZlIHdpdGggYXBwcm9wcmlhdGUgc29sZW1uaXR5LicsIHNsb3Q6ICdNQVRVUklUWScgfSxcclxuICB7IGlkOiAnbWF0dXJpdHktZ2VuZXJhbC0wMDMnLCB0ZXh0OiAnQ2hyb25vbG9naWNhbCBhcHBlYXJhbmNlcyBoYXZlIGJlZW4gc2V0IGFzaWRlIGluIGZhdm91ciBvZiBwcm9wZXJseSBmaWxlZCBhcml0aG1ldGljLicsIHNsb3Q6ICdNQVRVUklUWScgfSxcclxuICB7IGlkOiAnbWF0dXJpdHktZ2VuZXJhbC0wMDQnLCB0ZXh0OiAnVGhlIENvdW5jaWwgcmVtaW5kcyBhbGwgcGFydGllcyB0aGF0IHJhdyBhZ2VzIGFyZSBub3QgYW4gYXBwcm92ZWQgc3Vic3RpdHV0ZSBmb3IgY29udGV4dC4nLCBzbG90OiAnTUFUVVJJVFknIH0sXHJcblxyXG4gIHsgaWQ6ICdtYXR1cml0eS1leGNlbGxlbnQtMDAxJywgdGV4dDogJ1RoZSByZXZpZXcgY29tbWl0dGVlIGZvdW5kIHNvIGxpdHRsZSB0byBkaXNwdXRlIHRoYXQgaXQgYWRqb3VybmVkIGJlZm9yZSBsdW5jaC4nLCBzbG90OiAnTUFUVVJJVFknLCBtYXR1cml0eUNhdGVnb3JpZXM6IFsnRVhDRUxMRU5UJ10gfSxcclxuICB7IGlkOiAnbWF0dXJpdHktZXhjZWxsZW50LTAwMicsIHRleHQ6ICdXaGF0IGFwcGVhcmVkIGNocm9ub2xvZ2ljYWxseSBkcmFtYXRpYyBoYXMgcHJvdmVkIG1hdGhlbWF0aWNhbGx5IHJvdXRpbmUuJywgc2xvdDogJ01BVFVSSVRZJywgbWF0dXJpdHlDYXRlZ29yaWVzOiBbJ0VYQ0VMTEVOVCddIH0sXHJcbiAgeyBpZDogJ21hdHVyaXR5LWV4Y2VsbGVudC0wMDMnLCB0ZXh0OiAnVGhlIGFwcGxpY2FudHMgaGF2ZSBzdWJtaXR0ZWQgYW4gdW51c3VhbGx5IHRpZHkgbWF0dXJpdHkgcHJvZmlsZS4nLCBzbG90OiAnTUFUVVJJVFknLCBtYXR1cml0eUNhdGVnb3JpZXM6IFsnRVhDRUxMRU5UJ10gfSxcclxuICB7IGlkOiAnbWF0dXJpdHktZXhjZWxsZW50LTAwNCcsIHRleHQ6ICdObyBzcGVjaWFsIGV4ZW1wdGlvbiwgZW1lcmdlbmN5IGhlYXJpbmcsIG9yIGVuY2hhbnRlZCBhYmFjdXMgd2FzIHJlcXVpcmVkLicsIHNsb3Q6ICdNQVRVUklUWScsIG1hdHVyaXR5Q2F0ZWdvcmllczogWydFWENFTExFTlQnXSB9LFxyXG4gIHsgaWQ6ICdtYXR1cml0eS1leGNlbGxlbnQtMDA1JywgdGV4dDogJ1RoZSBmaWd1cmVzIGFsaWduIHdpdGggYW4gZWZmaWNpZW5jeSByYXJlbHkgZW5jb3VudGVyZWQgaW4gcHVibGljIGFkbWluaXN0cmF0aW9uLicsIHNsb3Q6ICdNQVRVUklUWScsIG1hdHVyaXR5Q2F0ZWdvcmllczogWydFWENFTExFTlQnXSB9LFxyXG4gIHsgaWQ6ICdtYXR1cml0eS1leGNlbGxlbnQtMDA2JywgdGV4dDogJ1RoZSBDb3VuY2lsIGF0dGVtcHRlZCB0byBsb2NhdGUgYSBjb21wbGljYXRpb24gYW5kIGhhcyByZWx1Y3RhbnRseSBnaXZlbiB1cC4nLCBzbG90OiAnTUFUVVJJVFknLCBtYXR1cml0eUNhdGVnb3JpZXM6IFsnRVhDRUxMRU5UJ10gfSxcclxuICB7IGlkOiAnbWF0dXJpdHktZXhjZWxsZW50LTAwNycsIHRleHQ6ICdCb3RoIGxpZmVjeWNsZSBwb3NpdGlvbnMgZml0IG5lYXRseSB3aXRoaW4gdGhlIGFwcHJvdmVkIG1hcmdpbnMuJywgc2xvdDogJ01BVFVSSVRZJywgbWF0dXJpdHlDYXRlZ29yaWVzOiBbJ0VYQ0VMTEVOVCddIH0sXHJcbiAgeyBpZDogJ21hdHVyaXR5LWV4Y2VsbGVudC0wMDgnLCB0ZXh0OiAnVGhlIEJ1cmVhdSByZWNvcmRzIGFuIGFsbW9zdCBzdXNwaWNpb3VzIGRlZ3JlZSBvZiBjaHJvbm9sb2dpY2FsIGdvb2Qgc2Vuc2UuJywgc2xvdDogJ01BVFVSSVRZJywgbWF0dXJpdHlDYXRlZ29yaWVzOiBbJ0VYQ0VMTEVOVCddIH0sXHJcblxyXG4gIHsgaWQ6ICdtYXR1cml0eS1nb29kLTAwMScsIHRleHQ6ICdUaGUgcGFwZXJ3b3JrIGNsZWFyZWQgcmV2aWV3IHdpdGhvdXQgc3VtbW9uaW5nIGEgc3BlY2lhbCBjb21taXR0ZWUuJywgc2xvdDogJ01BVFVSSVRZJywgbWF0dXJpdHlDYXRlZ29yaWVzOiBbJ0dPT0QnXSB9LFxyXG4gIHsgaWQ6ICdtYXR1cml0eS1nb29kLTAwMicsIHRleHQ6ICdBIGRpZmZlcmVuY2UgaXMgcHJlc2VudCwgYnV0IGl0IHJlbWFpbnMgY29tZm9ydGFibHkgaW5zaWRlIHRoZSBydWxlZCBtYXJnaW5zLicsIHNsb3Q6ICdNQVRVUklUWScsIG1hdHVyaXR5Q2F0ZWdvcmllczogWydHT09EJ10gfSxcclxuICB7IGlkOiAnbWF0dXJpdHktZ29vZC0wMDMnLCB0ZXh0OiAnVGhlIEJ1cmVhdSBmaW5kcyB0aGUgbWF0dXJpdHkgc3BhY2luZyBvcmRlcmx5IGVub3VnaCBmb3Igb3JkaW5hcnkgZmlsaW5nLicsIHNsb3Q6ICdNQVRVUklUWScsIG1hdHVyaXR5Q2F0ZWdvcmllczogWydHT09EJ10gfSxcclxuICB7IGlkOiAnbWF0dXJpdHktZ29vZC0wMDQnLCB0ZXh0OiAnTm8gY291bmNpbGxvciByZXF1ZXN0ZWQgYSBzZWNvbmQgYWJhY3VzLCB3aGljaCBpcyBnZW5lcmFsbHkgZW5jb3VyYWdpbmcuJywgc2xvdDogJ01BVFVSSVRZJywgbWF0dXJpdHlDYXRlZ29yaWVzOiBbJ0dPT0QnXSB9LFxyXG4gIHsgaWQ6ICdtYXR1cml0eS1nb29kLTAwNScsIHRleHQ6ICdUaGUgbGlmZWN5Y2xlIGRpc2NyZXBhbmN5IGhhcyBiZWVuIG5vdGVkIGFuZCBkZWVtZWQgYWRtaW5pc3RyYXRpdmVseSB1bnJlbWFya2FibGUuJywgc2xvdDogJ01BVFVSSVRZJywgbWF0dXJpdHlDYXRlZ29yaWVzOiBbJ0dPT0QnXSB9LFxyXG4gIHsgaWQ6ICdtYXR1cml0eS1nb29kLTAwNicsIHRleHQ6ICdUaGUgZmlndXJlcyBzaXQgd2VsbCB3aXRoaW4gcHJlY2VkZW50LCBpbmNsdWRpbmcgdGhlIHByZWNlZGVudHMgYW55b25lIGNhbiBzdGlsbCByZWFkLicsIHNsb3Q6ICdNQVRVUklUWScsIG1hdHVyaXR5Q2F0ZWdvcmllczogWydHT09EJ10gfSxcclxuICB7IGlkOiAnbWF0dXJpdHktZ29vZC0wMDcnLCB0ZXh0OiAnVGhlIGFwcGxpY2F0aW9uIHBhc3NlcyBtYXR1cml0eSByZXZpZXcgd2l0aCBvbmx5IHJvdXRpbmUgbWFyZ2luIGFubm90YXRpb25zLicsIHNsb3Q6ICdNQVRVUklUWScsIG1hdHVyaXR5Q2F0ZWdvcmllczogWydHT09EJ10gfSxcclxuICB7IGlkOiAnbWF0dXJpdHktZ29vZC0wMDgnLCB0ZXh0OiAnVGhlIENvdW5jaWwgc2VlcyBubyBuZWVkIHRvIGludm9sdmUgdGhlIE9mZmljZSBvZiBVbnVzdWFsIExpZmVjeWNsZXMuJywgc2xvdDogJ01BVFVSSVRZJywgbWF0dXJpdHlDYXRlZ29yaWVzOiBbJ0dPT0QnXSB9LFxyXG5cclxuICB7IGlkOiAnbWF0dXJpdHktYm9yZGVybGluZS0wMDEnLCB0ZXh0OiAnUGVybWl0dGVkLCB0aG91Z2ggdGhlIHJldmlld2luZyBjbGVya3MgZXhjaGFuZ2VkIHNldmVyYWwgbWVhbmluZ2Z1bCBnbGFuY2VzLicsIHNsb3Q6ICdNQVRVUklUWScsIG1hdHVyaXR5Q2F0ZWdvcmllczogWydCT1JERVJMSU5FJ10gfSxcclxuICB7IGlkOiAnbWF0dXJpdHktYm9yZGVybGluZS0wMDInLCB0ZXh0OiAnVGhlIGFwcGxpY2F0aW9uIGZpdHMgd2l0aGluIHRoZSBydWxlcywgaWYgb25lIHN0YW5kcyBkaXJlY3RseSBvbiB0aGUgZWRnZSBvZiB0aGVtLicsIHNsb3Q6ICdNQVRVUklUWScsIG1hdHVyaXR5Q2F0ZWdvcmllczogWydCT1JERVJMSU5FJ10gfSxcclxuICB7IGlkOiAnbWF0dXJpdHktYm9yZGVybGluZS0wMDMnLCB0ZXh0OiAnQXBwcm92YWwgaGFzIGJlZW4gZ3JhbnRlZCB3aXRob3V0IHRoZSBleHBlbnNlIG9mIGNlbGVicmF0b3J5IHN0YXRpb25lcnkuJywgc2xvdDogJ01BVFVSSVRZJywgbWF0dXJpdHlDYXRlZ29yaWVzOiBbJ0JPUkRFUkxJTkUnXSB9LFxyXG4gIHsgaWQ6ICdtYXR1cml0eS1ib3JkZXJsaW5lLTAwNCcsIHRleHQ6ICdUaGUgQ291bmNpbCBhY2NlcHRzIHRoZSBmaWd1cmVzIGFuZCBoYXMgdW5kZXJsaW5lZCB0aGUgd29yZCBhY2NlcHRzLicsIHNsb3Q6ICdNQVRVUklUWScsIG1hdHVyaXR5Q2F0ZWdvcmllczogWydCT1JERVJMSU5FJ10gfSxcclxuICB7IGlkOiAnbWF0dXJpdHktYm9yZGVybGluZS0wMDUnLCB0ZXh0OiAnVGhlIG1hdHVyaXR5IHJhbmdlIGhvbGRzLCBhbHRob3VnaCBub3Qgd2l0aCByb29tIGZvciBhZGRpdGlvbmFsIGx1Z2dhZ2UuJywgc2xvdDogJ01BVFVSSVRZJywgbWF0dXJpdHlDYXRlZ29yaWVzOiBbJ0JPUkRFUkxJTkUnXSB9LFxyXG4gIHsgaWQ6ICdtYXR1cml0eS1ib3JkZXJsaW5lLTAwNicsIHRleHQ6ICdUaGlzIHJ1bGluZyBvY2N1cGllcyB0aGUgbmFycm93IHNoZWxmIGJldHdlZW4gc3RyYWlnaHRmb3J3YXJkIGFuZCBjb21wbGljYXRlZC4nLCBzbG90OiAnTUFUVVJJVFknLCBtYXR1cml0eUNhdGVnb3JpZXM6IFsnQk9SREVSTElORSddIH0sXHJcbiAgeyBpZDogJ21hdHVyaXR5LWJvcmRlcmxpbmUtMDA3JywgdGV4dDogJ1RoZSBCdXJlYXUgaGFzIGFwcHJvdmVkIHRoZSBhcHBsaWNhdGlvbiB3aGlsZSBrZWVwaW5nIHRoZSBtZWFzdXJpbmcgdGFwZSBuZWFyYnkuJywgc2xvdDogJ01BVFVSSVRZJywgbWF0dXJpdHlDYXRlZ29yaWVzOiBbJ0JPUkRFUkxJTkUnXSB9LFxyXG4gIHsgaWQ6ICdtYXR1cml0eS1ib3JkZXJsaW5lLTAwOCcsIHRleHQ6ICdSZWNvZ25pc2VkIHByZWNlZGVudCBhcHBsaWVzLCB0aG91Z2ggaXQgYXBwbGllcyB3aXRoIHZpc2libGUgZWZmb3J0LicsIHNsb3Q6ICdNQVRVUklUWScsIG1hdHVyaXR5Q2F0ZWdvcmllczogWydCT1JERVJMSU5FJ10gfSxcclxuXHJcbiAgeyBpZDogJ21hdHVyaXR5LWluY29tcGF0aWJsZS0wMDEnLCB0ZXh0OiAnVGhlIG1hdHVyaXR5IGZpZ3VyZXMgcmV0dXJuZWQgZnJvbSByZXZpZXcgd2l0aCBleHRlbnNpdmUgcmVkIGFubm90YXRpb25zLicsIHNsb3Q6ICdNQVRVUklUWScsIG1hdHVyaXR5Q2F0ZWdvcmllczogWydJTkNPTVBBVElCTEUnXSB9LFxyXG4gIHsgaWQ6ICdtYXR1cml0eS1pbmNvbXBhdGlibGUtMDAyJywgdGV4dDogJ1RoZSBCdXJlYXUgY2Fubm90IG92ZXJsb29rIGEgZGlzY3JlcGFuY3kgb2YgdGhpcyBhZG1pbmlzdHJhdGl2ZSBtYWduaXR1ZGUuJywgc2xvdDogJ01BVFVSSVRZJywgbWF0dXJpdHlDYXRlZ29yaWVzOiBbJ0lOQ09NUEFUSUJMRSddIH0sXHJcbiAgeyBpZDogJ21hdHVyaXR5LWluY29tcGF0aWJsZS0wMDMnLCB0ZXh0OiAnQm90aCBkaXJlY3Rpb25hbCBjaGVja3MgZmFpbGVkIHRvIHNhdGlzZnkgdGhlIHJlbGV2YW50IGxpZmVjeWNsZSBvcmRpbmFuY2UuJywgc2xvdDogJ01BVFVSSVRZJywgbWF0dXJpdHlDYXRlZ29yaWVzOiBbJ0lOQ09NUEFUSUJMRSddIH0sXHJcbiAgeyBpZDogJ21hdHVyaXR5LWluY29tcGF0aWJsZS0wMDQnLCB0ZXh0OiAnVGhlIGZpZ3VyZXMgaGF2ZSBiZWVuIHJlZmVycmVkIHRvIHRoZSBDYWJpbmV0IG9mIENocm9ub2xvZ2ljYWwgRGlmZmljdWx0aWVzLicsIHNsb3Q6ICdNQVRVUklUWScsIG1hdHVyaXR5Q2F0ZWdvcmllczogWydJTkNPTVBBVElCTEUnXSB9LFxyXG4gIHsgaWQ6ICdtYXR1cml0eS1pbmNvbXBhdGlibGUtMDA1JywgdGV4dDogJ05vIGFtb3VudCBvZiBkZWNvcmF0aXZlIHNlYWxpbmcgd2F4IGNvdWxkIGJyaW5nIHRoZXNlIG1hdHVyaXR5IHJhbmdlcyB0b2dldGhlci4nLCBzbG90OiAnTUFUVVJJVFknLCBtYXR1cml0eUNhdGVnb3JpZXM6IFsnSU5DT01QQVRJQkxFJ10gfSxcclxuICB7IGlkOiAnbWF0dXJpdHktaW5jb21wYXRpYmxlLTAwNicsIHRleHQ6ICdUaGUgYXBwbGljYW50cyBvY2N1cHkgbGlmZWN5Y2xlIHBvc2l0aW9ucyB0b28gZGlzdGFudCBmb3Igb3JkaW5hcnkgYXBwcm92YWwuJywgc2xvdDogJ01BVFVSSVRZJywgbWF0dXJpdHlDYXRlZ29yaWVzOiBbJ0lOQ09NUEFUSUJMRSddIH0sXHJcbiAgeyBpZDogJ21hdHVyaXR5LWluY29tcGF0aWJsZS0wMDcnLCB0ZXh0OiAnVGhlIENvdW5jaWwgaGFzIGNoZWNrZWQgdGhlIGFyaXRobWV0aWMgYW5kIHJlZ3JldHMgdGhhdCBpdCByZW1haW5zIGFyaXRobWV0aWMuJywgc2xvdDogJ01BVFVSSVRZJywgbWF0dXJpdHlDYXRlZ29yaWVzOiBbJ0lOQ09NUEFUSUJMRSddIH0sXHJcbiAgeyBpZDogJ21hdHVyaXR5LWluY29tcGF0aWJsZS0wMDgnLCB0ZXh0OiAnVGhpcyBtYXR1cml0eSBnYXAgZXhjZWVkcyB0aGUgdG9sZXJhbmNlIG9mIGJvdGggcG9saWN5IGFuZCB0aGUgZmlsaW5nIGNhYmluZXQuJywgc2xvdDogJ01BVFVSSVRZJywgbWF0dXJpdHlDYXRlZ29yaWVzOiBbJ0lOQ09NUEFUSUJMRSddIH0sXHJcblxyXG4gIHsgaWQ6ICdtYXR1cml0eS1zcGVjaWVzLWh1bWFuLTAwMScsIHRleHQ6ICdUaGUgaHVtYW4gcmVjb3JkcyBhcnJpdmVkIHByb21wdGx5LCBsYXJnZWx5IGJlY2F1c2UgdGhlIGRhdGVzIGZpdCBvbiBvbmUgcGFnZS4nLCBzbG90OiAnTUFUVVJJVFknLCBzcGVjaWVzOiBbJ2h1bWFuJ10gfSxcclxuICB7IGlkOiAnbWF0dXJpdHktc3BlY2llcy1lbGYtMDAxJywgdGV4dDogJ1RoZSBlbHZlbiBkZWxlZ2F0ZSBoYXMgcmVxdWVzdGVkIHRoYXQgdGhlIEJ1cmVhdSBkZWZpbmUgdGhlIHdvcmQgcmVjZW50LicsIHNsb3Q6ICdNQVRVUklUWScsIHNwZWNpZXM6IFsnZWxmJ10gfSxcclxuICB7IGlkOiAnbWF0dXJpdHktc3BlY2llcy1kd2FyZi0wMDEnLCB0ZXh0OiAnVGhlIGR3YXJ2ZW4gbGlmZWN5Y2xlIGxlZGdlciB3YXMgc3VibWl0dGVkIG9uIHN0b25lIGFuZCByZXF1aXJlZCBhIHJlaW5mb3JjZWQgZGVzay4nLCBzbG90OiAnTUFUVVJJVFknLCBzcGVjaWVzOiBbJ2R3YXJmJ10gfSxcclxuICB7IGlkOiAnbWF0dXJpdHktc3BlY2llcy1oYWxmbGluZy0wMDEnLCB0ZXh0OiAnVGhlIGhhbGZsaW5nIHJlY29yZHMgd2VyZSBjb21wbGV0ZSwgbmVhdGx5IGZvbGRlZCwgYW5kIGFjY29tcGFuaWVkIGJ5IHByb3Zpc2lvbnMuJywgc2xvdDogJ01BVFVSSVRZJywgc3BlY2llczogWydoYWxmbGluZyddIH0sXHJcbiAgeyBpZDogJ21hdHVyaXR5LXNwZWNpZXMtb3JjLTAwMScsIHRleHQ6ICdUaGUgb3JjaXNoIHJlcHJlc2VudGF0aXZlIGhhcyBhc2tlZCBmb3IgdGhlIHJ1bGluZyB3aXRob3V0IGZ1cnRoZXIgY2VyZW1vbmlhbCBwcmVhbWJsZS4nLCBzbG90OiAnTUFUVVJJVFknLCBzcGVjaWVzOiBbJ29yYyddIH0sXHJcbiAgeyBpZDogJ21hdHVyaXR5LXNwZWNpZXMtZ25vbWUtMDAxJywgdGV4dDogJ1RoZSBnbm9taXNoIHN1Ym1pc3Npb24gaW5jbHVkZWQgYSBzdXBwbGVtZW50YXJ5IGNoYXJ0IHdpdGggc2V2ZW50ZWVuIHVubmVjZXNzYXJ5IGF4ZXMuJywgc2xvdDogJ01BVFVSSVRZJywgc3BlY2llczogWydnbm9tZSddIH0sXHJcbiAgeyBpZDogJ21hdHVyaXR5LXNwZWNpZXMtZHJhZ29uYm9ybi0wMDEnLCB0ZXh0OiAnVGhlIGRyYWdvbmJvcm4gcmVnaXN0cnkgaGFzIGNlcnRpZmllZCB0aGUgbGlmZWN5Y2xlIGZpZ3VyZXMgdW5kZXIgY2VyZW1vbmlhbCBzZWFsLicsIHNsb3Q6ICdNQVRVUklUWScsIHNwZWNpZXM6IFsnZHJhZ29uYm9ybiddIH0sXHJcbiAgeyBpZDogJ21hdHVyaXR5LXNwZWNpZXMtZ29ibGluLTAwMScsIHRleHQ6ICdUaGUgZ29ibGluIG9mZmljZSBsb2NhdGVkIHRoZSBjb3JyZWN0IG1hdHVyaXR5IGZvcm0gb24gaXRzIHNlY29uZCBhdHRlbXB0LicsIHNsb3Q6ICdNQVRVUklUWScsIHNwZWNpZXM6IFsnZ29ibGluJ10gfSxcclxuICB7IGlkOiAnbWF0dXJpdHktc3BlY2llcy1kcmFnb24tMDAxJywgdGV4dDogJ1RoZSBkcmFjb25pYyBhZ2UgZGVjbGFyYXRpb24gcmVxdWlyZWQgYW4gZXh0cmEgZGlnaXQgY29sdW1uIGFuZCBhIGZpcmVwcm9vZiBmb2xkZXIuJywgc2xvdDogJ01BVFVSSVRZJywgc3BlY2llczogWydkcmFnb24nXSB9LFxyXG5cclxuICB7IGlkOiAnbWF0dXJpdHktY3Jvc3MtMDAxJywgdGV4dDogJ1RoZSBhcHBhcmVudCBkaXNjcmVwYW5jeSBiZWNhbWUgbGVzcyBkcmFtYXRpYyBvbmNlIGJvdGggc3BlY2llcyBjb2x1bW5zIHdlcmUgcmVhZC4nLCBzbG90OiAnTUFUVVJJVFknLCByZWxhdGlvbnNoaXA6ICdjcm9zcy1zcGVjaWVzJyB9LFxyXG4gIHsgaWQ6ICdtYXR1cml0eS1jcm9zcy0wMDInLCB0ZXh0OiAnVGhpcyBmaWxlIGRlbW9uc3RyYXRlcyB3aHkgdGF2ZXJuIGFyaXRobWV0aWMgaXMgbm90IHJlY29nbmlzZWQgYnkgdGhlIEJ1cmVhdS4nLCBzbG90OiAnTUFUVVJJVFknLCByZWxhdGlvbnNoaXA6ICdjcm9zcy1zcGVjaWVzJyB9LFxyXG4gIHsgaWQ6ICdtYXR1cml0eS1zYW1lLTAwMScsIHRleHQ6ICdBIHNoYXJlZCBsaWZlY3ljbGUgdGFibGUgaGFzIHNwYXJlZCB0aGUgZGVwYXJ0bWVudCBzZXZlcmFsIGNvbnZlcnNpb24gZm9ybXMuJywgc2xvdDogJ01BVFVSSVRZJywgcmVsYXRpb25zaGlwOiAnc2FtZS1zcGVjaWVzJyB9LFxyXG4gIHsgaWQ6ICdtYXR1cml0eS1zYW1lLTAwMicsIHRleHQ6ICdTYW1lLXNwZWNpZXMgcGFwZXJ3b3JrIHJlbWFpbnMgYSByYXJlIGFuZCB3ZWxjb21lIGFjdCBvZiBhZG1pbmlzdHJhdGl2ZSBtZXJjeS4nLCBzbG90OiAnTUFUVVJJVFknLCByZWxhdGlvbnNoaXA6ICdzYW1lLXNwZWNpZXMnIH0sXHJcbl0gYXMgY29uc3Qgc2F0aXNmaWVzIHJlYWRvbmx5IFF1aXBbXVxyXG4iXX0=

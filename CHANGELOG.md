@@ -1,19 +1,17 @@
 # Changelog
 
-## Unreleased — v3 development
+## 3.0.0 - 2026-08-19
 
 ### Added
 
-- Added the Stage 22 Fantasy Bureau of Immortality foundation: the `#immortal-affairs` primary view, four typed lifecycle families, stable maturity constants, and validated asymptotic maturation utilities.
-- Added the Stage 23 FBI preset registry, family-bound Custom Immortal configuration, validated immortal record builders, and Immortal Affairs classification catalogue.
-- Added the Stage 24 two-applicant FBI intake with Mortal/Immortal modes, family-specific fields, validated factual previews, and shared session custom-species access.
-- Added the Stage 25 pure FBI comparison engine with centralized adulthood gating, shared maturity/experience categories, factual chronology context, and a basic session-only review.
-- Added the Stage 26 FBI dossier presentation with stable FBI case identifiers, lifecycle-specific chronology classes, deterministic filing notes, and at most two prioritized special findings.
-- Added Stage 27 FBI text/link sharing, defensive built-in-record permalinks, native sharing, and themed Compact, Standard, and Full Dossier PNG exports sourced from the stored dossier.
+- Added the Fantasy Bureau of Immortality and its dedicated `#immortal-affairs` workflow for Mortal–Immortal and Immortal–Immortal reviews.
+- Added four validated immortal lifecycle families, eleven built-in presets, family-bound Custom Immortal records, asymptotic maturation, and shared temporary-species access.
+- Added independent FBI maturity and adult-experience comparisons with centralized adulthood safeguards, lifecycle-specific chronology, stable case dossiers, filing notes, and prioritized special findings.
+- Added FBI result copying, native sharing, defensive built-in-record permalinks, and Compact, Standard, and Full Dossier PNG cards across all ten existing themes.
 
 ### Changed
 
-- Established Immortal Affairs as a separate calculation jurisdiction without changing the released mortal Checker or its finite-lifespan model.
+- Integrated Immortal Affairs as a separate calculation and presentation jurisdiction while preserving the normal finite-lifespan Checker and its established sharing formats.
 
 ## 2.0.2 - 2026-08-19
 
