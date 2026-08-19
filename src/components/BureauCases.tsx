@@ -61,7 +61,7 @@ export function BureauCases({ onLoadCase, today = new Date() }: BureauCasesProps
       <ThemeOrnament location="information" />
       <header className="information-header">
         <p className="eyebrow dark">Case Assignment and Archive Desk</p>
-        <h2 id="bureau-cases-title">Bureau Cases</h2>
+        <h1 id="bureau-cases-title">Bureau Cases</h1>
         <p>Browse current files or request an assignment. Every selection populates the existing Checker for review and editing before consultation.</p>
       </header>
 

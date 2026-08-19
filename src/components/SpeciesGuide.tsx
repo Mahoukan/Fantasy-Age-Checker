@@ -20,7 +20,7 @@ export function SpeciesGuide({ onLoadCase = () => undefined }: SpeciesGuideProps
       <ThemeOrnament location="information" />
       <header className="information-header">
         <p className="eyebrow dark">Permanent lifecycle catalogue</p>
-        <h2 id="species-guide-title">Bureau Species Register</h2>
+        <h1 id="species-guide-title">Bureau Species Register</h1>
         <p>
           Official lifecycle references used by the Arcane Relationship Bureau when processing inter-species
           chronological matters. The records are generic fictional assumptions, not claims about any setting.

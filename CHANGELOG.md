@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.1 - 2026-08-19
+
+### Changed
+
+- Changed the existing hash navigation to display one primary section at a time while preserving in-session Checker and Reverse Lookup state.
+
 ## 2.0.0 - 2026-08-19
 
 ### Added

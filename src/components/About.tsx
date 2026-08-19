@@ -6,7 +6,7 @@ export function About() {
       <ThemeOrnament location="information" />
       <header className="information-header">
         <p className="eyebrow dark">Public information notice</p>
-        <h2 id="about-title">About</h2>
+        <h1 id="about-title">About</h1>
       </header>
       <div className="about-copy">
         <p>

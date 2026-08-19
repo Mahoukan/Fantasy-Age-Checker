@@ -118,14 +118,19 @@ describe('About and navigation', () => {
     expect(getNavigationSection('')).toBe('checker')
   })
 
-  it('keeps Checker and all information destinations mounted together', () => {
-    const markup = renderToStaticMarkup(<App />)
+  it.each(navigationItems)('displays only the $label primary view while preserving mounted state', ({ id }) => {
+    const markup = renderToStaticMarkup(<App initialNavigationSection={id} />)
+    const viewTags = markup.match(/<div class="primary-view[^"]*" data-primary-view="[^"]+"(?: hidden="")?>/g) ?? []
+    expect(viewTags).toHaveLength(navigationItems.length)
+    expect(viewTags.filter((tag) => !tag.includes(' hidden=""'))).toEqual([
+      expect.stringContaining(`data-primary-view="${id}"`),
+    ])
     expect(markup).toContain('id="checker"')
+    expect(markup).toContain('id="reverse-lookup"')
+    expect(markup).toContain('id="bureau-cases"')
     expect(markup).toContain('id="species-guide"')
     expect(markup).toContain('id="how-it-works"')
     expect(markup).toContain('id="about"')
-    expect(markup).toContain('+ Add Custom Species')
-    expect(markup.indexOf('id="checker"')).toBeLessThan(markup.indexOf('id="species-guide"'))
   })
 
   it('renders the restrained entertainment footer with useful section links', () => {

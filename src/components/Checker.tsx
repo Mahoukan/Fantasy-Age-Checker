@@ -36,6 +36,8 @@ import { ThemeOrnament } from './ThemeOrnament'
 import type { BureauCaseLoadRequest } from '../data/bureauCases'
 import { createBureauCaseLoadUpdate } from '../utils/bureauCases'
 import { ReverseLookup } from './ReverseLookup'
+import { Hero } from './Hero'
+import type { NavigationSection } from '../utils/navigation'
 
 const initialApplicantA: Applicant = { speciesId: 'elf', age: 300 }
 const initialApplicantB: Applicant = { speciesId: 'human', age: 34 }
@@ -67,11 +69,16 @@ function resolveApplicant(
 }
 
 interface CheckerProps {
+  activeSection?: NavigationSection
   siteThemeId?: ResultImageThemeId
   bureauCaseRequest?: BureauCaseLoadRequest
 }
 
-export function Checker({ siteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID, bureauCaseRequest }: CheckerProps) {
+export function Checker({
+  activeSection = 'checker',
+  siteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID,
+  bureauCaseRequest,
+}: CheckerProps) {
   const [sharedRestore] = useState<SharedConsultationParseResult>(() => (
     typeof window === 'undefined'
       ? { status: 'none' }
@@ -268,9 +275,11 @@ export function Checker({ siteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID, bureauCas
 
   return (
     <>
-      <section className="checker-section" id="checker" aria-labelledby="checker-title">
-      <ThemeOrnament location="checker" />
-      <div className="checker-heading">
+      <div className="primary-view primary-view-checker" data-primary-view="checker" hidden={activeSection !== 'checker'}>
+        <Hero />
+        <section className="checker-section" id="checker" aria-labelledby="checker-title">
+        <ThemeOrnament location="checker" />
+        <div className="checker-heading">
         <p className="eyebrow dark">Departmental form ARB-01</p>
         <h2 id="checker-title">Fantasy Age Compatibility Assessment</h2>
         <p>Submit two applicants for review by the Office of Chronological Compatibility.</p>
@@ -363,11 +372,14 @@ export function Checker({ siteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID, bureauCas
           onRegister={handleRegisterCustomSpecies}
           onClose={handleCloseCustomSpeciesDialog}
         />
-      </section>
-      <ReverseLookup
-        availableSpecies={availableSpecies}
-        onUsePair={handleUseReverseLookupPair}
-      />
+        </section>
+      </div>
+      <div className="primary-view" data-primary-view="reverse-lookup" hidden={activeSection !== 'reverse-lookup'}>
+        <ReverseLookup
+          availableSpecies={availableSpecies}
+          onUsePair={handleUseReverseLookupPair}
+        />
+      </div>
     </>
   )
 }

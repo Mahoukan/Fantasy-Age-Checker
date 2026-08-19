@@ -218,7 +218,7 @@ export function ReverseLookup({ availableSpecies, onUsePair }: ReverseLookupProp
       <ThemeOrnament location="information" />
       <header className="information-header">
         <p className="eyebrow dark">Specialist lifecycle reference desk</p>
-        <h2 id="reverse-lookup-title">Chronological Equivalence Office</h2>
+        <h1 id="reverse-lookup-title">Chronological Equivalence Office</h1>
         <p>For applicants who would prefer to receive the numbers before creating additional paperwork.</p>
       </header>
 

@@ -20,7 +20,7 @@ export function HowItWorks() {
       <ThemeOrnament location="information" />
       <header className="information-header">
         <p className="eyebrow dark">Procedural manual ARB-02</p>
-        <h2 id="how-it-works-title">How It Works</h2>
+        <h1 id="how-it-works-title">How It Works</h1>
         <p>
           The Bureau issues two independent assessments and one contextual longevity record. The arithmetic is
           fictional, but it remains consistent from one filing to the next.

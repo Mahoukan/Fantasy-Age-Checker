@@ -3,7 +3,6 @@ import { About } from './components/About'
 import { BureauCases } from './components/BureauCases'
 import { Checker } from './components/Checker'
 import { Header } from './components/Header'
-import { Hero } from './components/Hero'
 import { HowItWorks } from './components/HowItWorks'
 import { SpeciesGuide } from './components/SpeciesGuide'
 import { DEFAULT_RESULT_IMAGE_THEME_ID, type ResultImageThemeId } from './data/resultImageThemes'
@@ -14,17 +13,30 @@ import type { BureauCaseInput, BureauCaseLoadRequest } from './data/bureauCases'
 
 interface AppProps {
   initialSiteThemeId?: ResultImageThemeId
+  initialNavigationSection?: NavigationSection
 }
 
-export function App({ initialSiteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID }: AppProps) {
+export function App({
+  initialSiteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID,
+  initialNavigationSection = 'checker',
+}: AppProps) {
   const [siteThemeId, setSiteThemeId] = useState<ResultImageThemeId>(initialSiteThemeId)
   const [bureauCaseRequest, setBureauCaseRequest] = useState<BureauCaseLoadRequest>()
   const [activeSection, setActiveSection] = useState<NavigationSection>(() => (
-    typeof window === 'undefined' ? 'checker' : getNavigationSection(window.location.hash)
+    typeof window === 'undefined' ? initialNavigationSection : getNavigationSection(window.location.hash)
   ))
 
   useEffect(() => {
-    const syncHash = () => setActiveSection(getNavigationSection(window.location.hash))
+    const syncHash = () => {
+      const section = getNavigationSection(window.location.hash)
+      const canonicalHash = `#${section}`
+      if (window.location.hash !== canonicalHash) {
+        window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}${canonicalHash}`)
+      }
+      setActiveSection(section)
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+    }
+    syncHash()
     window.addEventListener('hashchange', syncHash)
     return () => window.removeEventListener('hashchange', syncHash)
   }, [])
@@ -37,6 +49,7 @@ export function App({ initialSiteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID }: AppP
 
   function handleLoadBureauCase(caseData: BureauCaseInput, announcement: string) {
     setBureauCaseRequest((current) => ({ id: (current?.id ?? 0) + 1, caseData, announcement }))
+    window.location.hash = 'checker'
   }
 
   return (
@@ -48,12 +61,23 @@ export function App({ initialSiteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID }: AppP
         onThemeChange={handleSiteThemeChange}
       />
       <main>
-        <Hero />
-        <Checker siteThemeId={siteThemeId} bureauCaseRequest={bureauCaseRequest} />
-        <BureauCases onLoadCase={handleLoadBureauCase} />
-        <SpeciesGuide onLoadCase={handleLoadBureauCase} />
-        <HowItWorks />
-        <About />
+        <Checker
+          activeSection={activeSection}
+          siteThemeId={siteThemeId}
+          bureauCaseRequest={bureauCaseRequest}
+        />
+        <div className="primary-view" data-primary-view="bureau-cases" hidden={activeSection !== 'bureau-cases'}>
+          <BureauCases onLoadCase={handleLoadBureauCase} />
+        </div>
+        <div className="primary-view" data-primary-view="species-guide" hidden={activeSection !== 'species-guide'}>
+          <SpeciesGuide onLoadCase={handleLoadBureauCase} />
+        </div>
+        <div className="primary-view" data-primary-view="how-it-works" hidden={activeSection !== 'how-it-works'}>
+          <HowItWorks />
+        </div>
+        <div className="primary-view" data-primary-view="about" hidden={activeSection !== 'about'}>
+          <About />
+        </div>
       </main>
       <footer className="site-footer">
         <ThemeOrnament location="footer" />

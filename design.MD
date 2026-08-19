@@ -113,7 +113,7 @@ It issues fictional chronological and lifecycle assessments.
 
 # 3. Main Information Architecture
 
-The primary same-page navigation is:
+The primary hash navigation is:
 
 1. **Checker**
 2. **Reverse Lookup**
@@ -133,7 +133,7 @@ Stable anchors:
 
 The application does not require a client-side router.
 
-The Checker remains mounted across same-page navigation so temporary state can survive ordinary navigation between sections.
+Each hash displays one primary section at a time. Primary sections remain mounted but inactive sections are hidden from layout and accessibility APIs, allowing temporary Checker and Reverse Lookup state to survive navigation.
 
 ---
 
