@@ -2,7 +2,7 @@
 
 Fantasy Age Checker is a humorous, single-page fantasy utility presented by the fictional **Arcane Relationship Bureau — Department of Inter-Species Affairs**. It compares two adult fictional characters using species-relative maturity and actual adult experience, then issues an unnecessarily official ruling.
 
-Fantasy Age Checker 2.0.2 is the current release. Version 3 development has begun with a separate, non-interactive Immortal Affairs foundation. The app is static React, TypeScript, and Vite with no backend, database, accounts, analytics, runtime secrets, or required environment variables.
+Fantasy Age Checker 2.0.2 is the current release. Version 3 development now includes a separate Immortal Affairs classification catalogue and record-building foundation, without FBI comparisons yet. The app is static React, TypeScript, and Vite with no backend, database, accounts, analytics, runtime secrets, or required environment variables.
 
 ## Screenshot
 

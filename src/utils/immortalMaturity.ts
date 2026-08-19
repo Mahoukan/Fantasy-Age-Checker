@@ -64,7 +64,7 @@ export function calculateAcquiredCurrentAge(ageAtTransformation: number, yearsSi
 }
 
 export function calculateAcquiredImmortalMaturity(input: AcquiredImmortalMaturityInput): number {
-  validateStartingMaturity(input.maturityAtTransformation)
+  requireNonNegative('Maturity at transformation', input.maturityAtTransformation)
   requireNonNegative('Years since transformation', input.yearsSinceTransformation)
   if (input.maturationMode === 'FROZEN') return input.maturityAtTransformation
 

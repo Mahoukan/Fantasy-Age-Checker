@@ -1347,7 +1347,31 @@ Future experience calculations use actual adult time rather than lifespan normal
 - Reincarnating: current-life adult experience plus remembered previous adult experience.
 - Possessing or body-hopping: remembered conscious experience, while current-body maturity remains separate.
 
-Stage 22 supplies architecture and an informational primary view only. Preset catalogues, comparison verdicts, chronological theatre, result cards, sharing, and FBI permalinks belong to later stages.
+Stage 22 supplies the mathematical and type foundation. Comparison verdicts, chronological theatre, result cards, sharing, and FBI permalinks belong to later stages.
+
+## Stage 23 presets and immortal record builders
+
+The typed preset registry is a configuration layer over the four lifecycle families. Presets contain stable IDs and only their calculation-relevant defaults; they call the shared Stage 22 maturity utilities rather than reproducing the exponential formula. Naturally immortal ages are Bureau defaults for this tool, not setting canon.
+
+Initial presets:
+
+- Acquired: Vampire (`FROZEN`), Lich (`FROZEN`), Ageless / Cursed Immortal (`FROZEN`), and Ascended Immortal (`CONTINUING`, 1,000-year default half-life).
+- Naturally immortal: Angel (adulthood 100, half-life 500), Demon (100, 750), God / Divine Being (250, 2,000), and Primordial (1,000, 10,000).
+- Manifested: Manifested Being, created mature at 25 with a 1,000-year half-life.
+- Transferred / cyclical: Reincarnating Being and Possessing Spirit.
+- Custom Immortal: one selected existing family with only that family's supported parameters; the ceiling remains fixed at 100 and arbitrary equations are not accepted.
+
+Record builders validate finite non-negative ages and experience, positive half-lives, required species, preset-family/subtype agreement, and numeric overflow. They accept the existing `Species` interface, so both built-in and current-session custom species can serve as mortal origins or current forms without a second registry or new persistence.
+
+Acquired records derive current age, origin adulthood and lifespan, human-equivalent maturity at transformation using the existing mortal conversion utility, effective maturity, experience, eligibility, and maturation mode. Frozen records retain transformation maturity. Continuing records pass that maturity and elapsed transformation years to the shared immortal curve. Adult experience is `(ageAtTransformation - originAdulthoodAge) + yearsSinceTransformation`; transformations below origin adulthood return explicit ineligibility with no adult maturity or experience result.
+
+Natural records use preset adulthood and half-life. Eligible records begin at maturity 18 at adulthood, then use elapsed adult years in the shared curve; adult experience is the same elapsed interval. Underage records are explicitly ineligible and do not receive adult-result fields.
+
+Manifested records are adult from creation, begin at maturity 25, mature through the shared curve, and use years since manifestation as adult experience. Zero elapsed years validly produces maturity 25 and experience 0.
+
+Reincarnating records derive maturity and eligibility from the current form. Experience is current-life adult experience plus remembered previous adult experience only when memories are retained. Possessing records derive maturity and eligibility from the current host, but experience is remembered conscious experience alone; the host's pre-possession adult years are never added automatically. In both cases an underage current form remains ineligible regardless of accumulated consciousness experience.
+
+The Immortal Affairs UI exposes the registry as an informational classification catalogue. Stage 23 does not add a two-applicant form or any FBI verdict/result system.
 
 ---
 

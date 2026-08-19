@@ -5,6 +5,7 @@
 ### Added
 
 - Added the Stage 22 Fantasy Bureau of Immortality foundation: the `#immortal-affairs` primary view, four typed lifecycle families, stable maturity constants, and validated asymptotic maturation utilities.
+- Added the Stage 23 FBI preset registry, family-bound Custom Immortal configuration, validated immortal record builders, and Immortal Affairs classification catalogue.
 
 ### Changed
 

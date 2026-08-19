@@ -410,6 +410,15 @@ h1 { margin-bottom: 14px; color: var(--page-text); font-family: var(--serif); fo
 .immortal-family-card { min-width: 0; padding: 20px; background: var(--surface-raised); border: 1px solid var(--border); border-top: 3px solid var(--accent); border-radius: var(--panel-radius); }
 .immortal-family-card h2 { margin: 8px 0 10px; color: var(--heading-color); font: 600 1.15rem var(--heading-font); }
 .immortal-family-card > p:last-child { margin-bottom: 0; color: var(--text-secondary); font-size: 0.82rem; line-height: 1.55; }
+.immortal-preset-catalogue { margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--border); }
+.immortal-preset-catalogue > header { max-width: 720px; margin-bottom: 18px; }
+.immortal-preset-catalogue > header h2 { margin-bottom: 8px; color: var(--heading-color); font: 600 1.4rem var(--heading-font); }
+.immortal-preset-catalogue > header > p:last-child { color: var(--text-secondary); font-size: 0.82rem; line-height: 1.55; }
+.immortal-preset-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.immortal-preset-grid article { min-width: 0; padding: 16px; background: var(--surface-raised); border: 1px solid var(--border); }
+.immortal-preset-grid h3 { margin: 6px 0 8px; color: var(--heading-color); font: 600 1rem var(--heading-font); }
+.immortal-preset-grid article > p:last-child { margin-bottom: 0; color: var(--text-secondary); font-size: 0.75rem; line-height: 1.5; }
+.immortal-preset-grid .custom-immortal-preset { border-style: dashed; border-color: var(--accent-secondary); }
 
 .method-stack { display: grid; gap: 16px; }
 .method-card { padding: clamp(19px, 3vw, 26px); background: rgba(255, 253, 248, 0.58); border: 1px solid #c6b898; border-left: 4px solid var(--gold); }
@@ -754,6 +763,10 @@ html[data-theme='obsidian-records'] .verdict-quip::before { display: none; }
   .nav-link { white-space: nowrap; }
 }
 
+@media (max-width: 900px) {
+  .immortal-preset-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 @media (max-width: 560px) {
   .agency-identity { align-items: flex-start; flex-direction: column; gap: 3px; }
   .checker-heading .agency-identity { align-items: center; }
@@ -783,6 +796,7 @@ html[data-theme='obsidian-records'] .verdict-quip::before { display: none; }
   .applicants-layout { grid-template-columns: 1fr; }
   .reverse-lookup-form, .reverse-lookup-result-grid { grid-template-columns: 1fr; }
   .immortal-family-grid { grid-template-columns: 1fr; }
+  .immortal-preset-grid { grid-template-columns: 1fr; }
   .applicant-separator { height: 54px; flex-direction: row; }
   .applicant-separator::before, .applicant-separator::after { width: auto; height: 1px; }
   .applicant-separator span { margin: 0 12px; }
