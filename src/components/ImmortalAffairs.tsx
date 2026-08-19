@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { immortalLifecycleFamilies } from '../data/immortalLifecycles'
 import { customImmortalPreset, findImmortalPreset, immortalPresets } from '../data/immortalPresets'
 import { species as builtInSpecies, type Species } from '../data/species'
 import { speciesDisplayGroups } from '../data/speciesGroups'
 import { experienceVerdicts, maturityVerdicts } from '../data/verdicts'
+import { DEFAULT_RESULT_IMAGE_THEME_ID, type ResultImageThemeId } from '../data/resultImageThemes'
 import type { DraftNumber, FbiApplicantDraft, FbiApplicantDraftField, FbiApplicantErrors, FbiApplicantRecord } from '../types/fbiApplicant'
 import type { FbiSubmittedReview } from '../types/fbiPresentation'
 import type { ImmortalPreset } from '../types/immortalPresets'
@@ -11,8 +12,10 @@ import { APPLICANT_NAME_MAX_LENGTH, limitApplicantName } from '../utils/applican
 import { createDefaultFbiApplicantDraft, resolveFbiApplicantDraft } from '../utils/fbiApplicant'
 import { compareFbiApplicants } from '../utils/fbiComparison'
 import { createFbiSubmittedReview } from '../utils/fbiPresentation'
+import { parseSharedFbiConsultation, type FbiDraftPair, type SharedFbiParseResult } from '../utils/fbiShare'
 import { formatEquivalentYears, formatYears } from '../utils/format'
 import { ThemeOrnament } from './ThemeOrnament'
+import { FbiShareControls } from './FbiShareControls'
 
 function presetParameters(preset: ImmortalPreset): string {
   switch (preset.family) {
@@ -120,9 +123,16 @@ function RecordPreview({ label, applicant }: { label: 'A' | 'B'; applicant: FbiA
   </section>
 }
 
-function FbiReview({ review }: { review: FbiSubmittedReview }) {
-  const { comparison: result, presentation } = review
-  if (result.status === 'INELIGIBLE') {
+interface StoredFbiDossier {
+  submissionId: number
+  review: FbiSubmittedReview
+  records: readonly [FbiApplicantRecord, FbiApplicantRecord]
+  drafts: FbiDraftPair
+}
+
+function FbiReview({ dossier, initialThemeId }: { dossier: StoredFbiDossier; initialThemeId: ResultImageThemeId }) {
+  if (dossier.review.presentation === null) {
+    const result = dossier.review.comparison
     return <section className="fbi-review fbi-review-ineligible" aria-labelledby="fbi-review-title">
       <p className="record-reference">FBI review unavailable</p>
       <h2 id="fbi-review-title">FBI Review Unavailable</h2>
@@ -133,7 +143,8 @@ function FbiReview({ review }: { review: FbiSubmittedReview }) {
     </section>
   }
 
-  if (!presentation) return null
+  const { review, records, drafts } = dossier
+  const { comparison: result, presentation } = review
 
   return <section className="fbi-review" aria-labelledby="fbi-review-title">
     <header className="fbi-dossier-header">
@@ -180,6 +191,7 @@ function FbiReview({ review }: { review: FbiSubmittedReview }) {
     </section>}
     <aside className="fbi-filing-note"><strong>Filing note</strong><p>{presentation.filingNote.text}</p></aside>
     <p className="fbi-review-disclaimer">Maturity and experience are independent factual findings. No combined score is issued.</p>
+    <FbiShareControls key={dossier.submissionId} review={review} records={records} drafts={drafts} initialThemeId={initialThemeId} />
   </section>
 }
 
@@ -275,20 +287,49 @@ export function FbiApplicantIntakeCard({ label, draft, availableSpecies, onChang
   </fieldset>
 }
 
-export function ImmortalAffairs({ availableSpecies = builtInSpecies }: { availableSpecies?: readonly Species[] }) {
-  const [applicantA, setApplicantA] = useState(() => createDefaultFbiApplicantDraft('A'))
-  const [applicantB, setApplicantB] = useState(() => createDefaultFbiApplicantDraft('B'))
-  const [review, setReview] = useState<FbiSubmittedReview | null>(null)
+export function ImmortalAffairs({ availableSpecies = builtInSpecies, siteThemeId = DEFAULT_RESULT_IMAGE_THEME_ID }: { availableSpecies?: readonly Species[]; siteThemeId?: ResultImageThemeId }) {
+  const [sharedRestore] = useState<SharedFbiParseResult>(() => typeof window === 'undefined' ? { status: 'none' } : parseSharedFbiConsultation(window.location.search))
+  const restoredDrafts = sharedRestore.status === 'valid' ? sharedRestore.drafts : undefined
+  const [applicantA, setApplicantA] = useState(() => restoredDrafts?.[0] ?? createDefaultFbiApplicantDraft('A'))
+  const [applicantB, setApplicantB] = useState(() => restoredDrafts?.[1] ?? createDefaultFbiApplicantDraft('B'))
+  const [dossier, setDossier] = useState<StoredFbiDossier | null>(null)
+  const [restoreMessage, setRestoreMessage] = useState<string | null>(sharedRestore.status === 'invalid' ? sharedRestore.message : null)
+  const restoredRef = useRef(false)
+  const submissionSequenceRef = useRef(0)
   const a = resolveFbiApplicantDraft(applicantA, availableSpecies)
   const b = resolveFbiApplicantDraft(applicantB, availableSpecies)
-  const updateApplicantA = (draft: FbiApplicantDraft) => { setApplicantA(draft); setReview(null) }
-  const updateApplicantB = (draft: FbiApplicantDraft) => { setApplicantB(draft); setReview(null) }
+  const updateApplicantA = (draft: FbiApplicantDraft) => { setApplicantA(draft); setDossier(null); setRestoreMessage(null) }
+  const updateApplicantB = (draft: FbiApplicantDraft) => { setApplicantB(draft); setDossier(null); setRestoreMessage(null) }
   const openReview = () => {
     if (a.valid && b.valid) {
       const comparison = compareFbiApplicants(a.applicant, b.applicant)
-      setReview(createFbiSubmittedReview(comparison, [a.applicant, b.applicant]))
+      submissionSequenceRef.current += 1
+      setDossier({
+        submissionId: submissionSequenceRef.current,
+        review: createFbiSubmittedReview(comparison, [a.applicant, b.applicant]),
+        records: [a.applicant, b.applicant],
+        drafts: [{ ...applicantA }, { ...applicantB }],
+      })
     }
   }
+  useEffect(() => {
+    if (restoredRef.current || sharedRestore.status !== 'valid') return
+    let cancelled = false
+    queueMicrotask(() => {
+      if (cancelled || restoredRef.current) return
+      restoredRef.current = true
+      if (!a.valid || !b.valid) { setRestoreMessage('The FBI could not restore this shared lifecycle filing.'); return }
+      const comparison = compareFbiApplicants(a.applicant, b.applicant)
+      submissionSequenceRef.current += 1
+      setDossier({ submissionId: submissionSequenceRef.current, review: createFbiSubmittedReview(comparison, [a.applicant, b.applicant]), records: [a.applicant, b.applicant], drafts: sharedRestore.drafts })
+      setRestoreMessage('Shared FBI lifecycle filing restored using current Bureau records.')
+      if (typeof window !== 'undefined' && window.location.hash !== '#immortal-affairs') {
+        window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}#immortal-affairs`)
+        window.dispatchEvent(new Event('hashchange'))
+      }
+    })
+    return () => { cancelled = true }
+  }, [a, b, sharedRestore])
   const status = (resolution: typeof a) => resolution.valid
     ? resolution.applicant.record.adultComparisonEligible ? 'Ready' : 'Recorded · adult comparison ineligible'
     : 'Requires attention'
@@ -300,6 +341,7 @@ export function ImmortalAffairs({ availableSpecies = builtInSpecies }: { availab
     <aside className="immortal-jurisdiction-notice"><strong>FBI jurisdiction</strong><p>
       Configure two mortal or immortal records for adult-lifecycle review. This intake establishes facts and eligibility only; no compatibility ruling is issued at this desk.
     </p></aside>
+    {restoreMessage && <p className="share-restore-notice" role="status">{restoreMessage}</p>}
     <div className="fbi-intake-layout">
       <FbiApplicantIntakeCard label="A" draft={applicantA} availableSpecies={availableSpecies} onChange={updateApplicantA} />
       <FbiApplicantIntakeCard label="B" draft={applicantB} availableSpecies={availableSpecies} onChange={updateApplicantB} />
@@ -312,7 +354,7 @@ export function ImmortalAffairs({ availableSpecies = builtInSpecies }: { availab
     </section>
     <div className="fbi-review-action"><button type="button" disabled={!a.valid || !b.valid} onClick={openReview}>Open FBI Review</button>
       <small>This review compares factual maturity and adult experience without issuing an overall score.</small></div>
-    {review && <FbiReview review={review} />}
+    {dossier && <FbiReview dossier={dossier} initialThemeId={siteThemeId} />}
     <details className="immortal-preset-catalogue"><summary>View recognised FBI classification catalogue</summary>
       <header><p className="eyebrow dark">Immortal classification</p><h2>Recognised Filing Presets</h2>
         <p>Lifecycle parameters are Bureau defaults for this tool, not claims about any particular setting.</p></header>

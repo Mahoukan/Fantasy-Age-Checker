@@ -1424,6 +1424,22 @@ The filing-note register contains 24 restrained, deterministic administrative no
 
 Ineligible submissions receive only the Stage 25 factual explanation. They receive no FBI case identifier, chronology theatre, filing note, or special findings. Stage 26 adds no card generation, sharing, permalink, persistence, or new theme system.
 
+## Stage 27 FBI sharing, permalinks, and result cards
+
+FBI export services consume the stored Stage 26 submitted dossier. Copy text, native sharing, and the FBI image model use its existing comparison, case number, chronology records, filing note, and special findings; changing image theme or format cannot regenerate any of them. Each newly submitted or restored review creates a new control instance initialized to Standard format and the current website theme. Subsequent website-theme changes do not overwrite that selection.
+
+FBI permanent links use a distinct `fbi=1` namespace and applicant-prefixed readable parameters (`fa…` and `fb…`). They serialize canonical draft inputs only: mortal species/age or the built-in immortal preset plus that family's required species, ages, elapsed years, memory flag, and remembered experience. Names, calculated values, verdicts, case numbers, presentation selections, website/card themes, and formats are excluded. Parsing is defensive; a malformed FBI payload is discarded with a restrained notice while the normal intake remains usable. Valid links restore both drafts, navigate to `#immortal-affairs`, rebuild records through the current builders, rerun the Stage 25 comparison pathway, and create a submitted dossier.
+
+Permanent links intentionally support built-in presets and built-in species only. Temporary custom species and Custom Immortal configurations remain eligible for Copy FBI Result, native text sharing, and image export, but not Copy FBI Link. This keeps the URL contract compact and avoids freezing a fragile custom-configuration schema. The normal Checker `sa/aa/sb/ab#checker` format and parser are unchanged.
+
+The FBI image pipeline is `stored submitted dossier → typed FBI image model → format renderer → existing result-card theme → SVG → canvas → PNG`. It reuses the existing ten image themes, three dimensions, XML escaping, measured wrapping, client-side SVG rasterization, download behavior, and feature-detected file sharing. No screenshot, backend, upload, external asset, or persistence path is introduced.
+
+- Compact (`1080 × 1080`) contains FBI identity, case number, both subject identities/classifications, the two independent verdicts, concise chronology, and filing status.
+- Standard (`1080 × 1350`) adds subject maturity/experience/chronology labels, the filing note, and at most one special finding.
+- Full Dossier (`1080 × 1920`) adds family-specific applicable fields, maturity values/ranges, experience gap/ratio, chronology gap/context, up to two stored findings, and the filing note without exposing internal IDs.
+
+Ineligible reviews retain their restrained Stage 26 display and receive no export controls or result cards. FBI controls are separately owned from normal Checker sharing state, remain session-only, use labelled selectors and text buttons, provide live copy/generation feedback, stack at the existing mobile breakpoint, and omit Share Image when file sharing is unavailable.
+
 ---
 
 # 38. Final Product Identity

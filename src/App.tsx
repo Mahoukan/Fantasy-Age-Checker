@@ -82,7 +82,7 @@ export function App({
           <HowItWorks />
         </div>
         <div className="primary-view" data-primary-view="immortal-affairs" hidden={activeSection !== 'immortal-affairs'}>
-          <ImmortalAffairs availableSpecies={availableSpecies} />
+          <ImmortalAffairs availableSpecies={availableSpecies} siteThemeId={siteThemeId} />
         </div>
         <div className="primary-view" data-primary-view="about" hidden={activeSection !== 'about'}>
           <About />
